@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Jun 1, 2022 14:05+0000 for FHIR v4.6.0 
+  Generated on Mon, Jun 6, 2022 18:48+0000 for FHIR v4.6.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.6.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -29021,17 +29021,17 @@ into another (possibly the same) biological entity.</xs:documentation>
           </xs:element>
           <xs:choice minOccurs="0" maxOccurs="1" >
             <xs:annotation>
-              <xs:documentation xml:lang="en">Identifier for the source value set that contains the concepts that are being mapped and provides context for the mappings.</xs:documentation>
+              <xs:documentation xml:lang="en">Identifier for the source value set that contains the concepts that are being mapped and provides context for the mappings.  Limits the scope of the map to source codes (ConceptMap2.group.element code or valueSet) that are members of this value set.</xs:documentation>
             </xs:annotation>
-            <xs:element name="sourceUri" type="uri"/>
-            <xs:element name="sourceCanonical" type="canonical"/>
+            <xs:element name="sourceScopeUri" type="uri"/>
+            <xs:element name="sourceScopeCanonical" type="canonical"/>
           </xs:choice>
           <xs:choice minOccurs="0" maxOccurs="1" >
             <xs:annotation>
-              <xs:documentation xml:lang="en">The target value set provides context for the mappings. Note that the mapping is made between concepts, not between value sets, but the value set provides important context about how the concept mapping choices are made.</xs:documentation>
+              <xs:documentation xml:lang="en">Identifier for the target value set that provides important context about how the mapping choices are made.  Limits the scope of the map to target codes (ConceptMap2.group.element.target code or valueSet) that are members of this value set.</xs:documentation>
             </xs:annotation>
-            <xs:element name="targetUri" type="uri"/>
-            <xs:element name="targetCanonical" type="canonical"/>
+            <xs:element name="targetScopeUri" type="uri"/>
+            <xs:element name="targetScopeCanonical" type="canonical"/>
           </xs:choice>
           <xs:element name="group" type="ConceptMap2.Group" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
@@ -29128,7 +29128,7 @@ into another (possibly the same) biological entity.</xs:documentation>
           </xs:element>
           <xs:element name="valueSet" minOccurs="0" maxOccurs="1" type="canonical">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The set of codes being that the map refers to.</xs:documentation>
+              <xs:documentation xml:lang="en">The set of codes that the map refers to.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="relationship" minOccurs="1" maxOccurs="1" type="ConceptMapRelationship">
@@ -29167,7 +29167,7 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">A reference to a property that holds a value the map depends on. This value can be supplied to the $translate operation to select the appropriate targets.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:choice minOccurs="1" maxOccurs="1" >
+          <xs:choice minOccurs="0" maxOccurs="1" >
             <xs:annotation>
               <xs:documentation xml:lang="en">Property value that the map depends on.</xs:documentation>
             </xs:annotation>
@@ -29181,6 +29181,11 @@ into another (possibly the same) biological entity.</xs:documentation>
             <xs:element name="valueUri" type="uri"/>
             <xs:element name="valueId" type="id"/>
           </xs:choice>
+          <xs:element name="valueSet" minOccurs="0" maxOccurs="1" type="canonical">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">This mapping applies if the property value is a code from this value set.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -29194,7 +29199,7 @@ into another (possibly the same) biological entity.</xs:documentation>
         <xs:sequence>
           <xs:element name="mode" minOccurs="1" maxOccurs="1" type="ConceptMapGroupUnmappedMode">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Defines which action to take if there is no match for the source concept in the target system designated for the group. One of 3 actions are possible: use the unmapped code (this is useful when doing a mapping between versions, and only a few codes have changed), use a fixed code (a default code), or alternatively, a reference to a different concept map can be provided (by canonical URL).</xs:documentation>
+              <xs:documentation xml:lang="en">Defines which action to take if there is no match for the source concept in the target system designated for the group. One of 3 actions are possible: use the unmapped source code (this is useful when doing a mapping between versions, and only a few codes have changed), use a fixed code (a default code), or alternatively, a reference to a different concept map can be provided (by canonical URL).</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="code" minOccurs="0" maxOccurs="1" type="code">
@@ -29209,7 +29214,7 @@ into another (possibly the same) biological entity.</xs:documentation>
           </xs:element>
           <xs:element name="valueSet" minOccurs="0" maxOccurs="1" type="canonical">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The set of fixed codes to use when the mode = 'fixed'  - all unmapped codes are mapped to a each of the fixed codes.</xs:documentation>
+              <xs:documentation xml:lang="en">The set of fixed codes to use when the mode = 'fixed'  - all unmapped codes are mapped to each of the fixed codes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="url" minOccurs="0" maxOccurs="1" type="canonical">
@@ -53028,7 +53033,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="specialty" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Specific specialty of the practitioner.</xs:documentation>
+              <xs:documentation xml:lang="en">A type of specialized or skilled care the practitioner is able to deliver in the context of this particular role.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="location" minOccurs="0" maxOccurs="unbounded" type="Reference">

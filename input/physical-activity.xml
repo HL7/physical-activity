@@ -67,7 +67,7 @@
 				<generation value="html"/>
 			</page>
 			<page>
-				<nameUrl value="measures.html"/>
+				<nameUrl value="workflow.html"/>
 				<title value="System Workflow"/>
 				<generation value="html"/>
 			</page>
