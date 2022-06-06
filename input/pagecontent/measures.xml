@@ -1,0 +1,26 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <a name="base"> </a>
+  <h3>Base measure</h3>
+	<p>
+    The foundational step in improving physical activity levels is having an agreed measure consistently used across EHRs to capture a
+    patient's level of physical activity.  There are a wide variety of different types of physical activity and numerous different ways
+    of capturing what activities were performed, and varying granularities with which the data can be captured.
+	</p>
+	<p>
+	  While fine-grained and detailed records (e.g. exactly which type of exercise was performed, which muscle groups were activited, how
+	  many repetitions were performed, how many intervals were done, etc.) are important for certain types of therapy and for research
+	  purposes, they are too complex and onerous for wide-spread use and are not easily evaluatable from a perspective of "is this patient
+	  sufficiently active to maintain good health?"
+	</p>
+	<p>
+	  This guide therefore mandates the use of the very simple Exercise Vital Sign (LOINC <a href="loinc.org/89574-8/">89574-8</a> as the
+	  primary measure of patient physical activity level for exchange and evaluation.  This measure [is super awesome because all of this
+	  research says it works great - Laurie please provide text to fill in here].
+	</p>
+	<p>
+	  The measure consists of two questions:
+	</p>
+	<ul>
+    <li></li>
+  </ul>
+</div>

@@ -1,0 +1,39 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <p>
+    The development of this IG was sponsored by xxx.  Project management and director leadership was provided by the <a href="http://heart.org">American Heart Association</a> and the <a href="">Physical Activity Alliance</a>.
+    
+  </p>
+  <p>Key contributors include:</p>
+	<table>
+    <tbody>
+      <tr style="color:blue">
+        <th>Role</th>
+        <th>Contributor(s)</th>
+      </tr>
+      <tr>
+        <td><i>Lead author:</i></td>
+        <td>
+          <b>Lloyd McKenzie</b> (Accenture)
+        </td>
+      </tr>
+      <tr>
+        <td><i>Steering committee</i></td>
+        <td>
+          <b>Paul Chase</b> (American Heart Association)
+          <b>Maria Isler</b> (American Heart Association)
+          <b>Laurie Whitsel</b> (American Heart Association)
+          <b>...</b>
+        </td>
+      </tr>
+      <tr>
+        <td><i>Key contributors:</i></td>
+        <td>
+          <b>Russel Buchannon</b> (Accenture)<br/>
+          <b>...</b>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- Todo: Update this before official publication -->
+  
+</div>

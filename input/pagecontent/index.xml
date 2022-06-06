@@ -1,0 +1,196 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <a name="scope"> </a>
+  <h3>Scope and purpose</h3>
+  <p>
+    Being physically active is one of the most important lifestyle behaviors people can engage in to maintain physical and mental health and well-being.<sup>
+      <a href="#1">1</a>
+    </sup>  
+    Regular physical activity is both health-promoting and important for chronic disease and infectious disease treatment and prevention with numerous benefits that contribute to a 
+    disability-free lifespan.<sup>
+      <a href="#2">2</a>
+    </sup><sup>
+      <a href="#3">3</a>
+    </sup><sup>
+      <a href="#4">4</a>
+    </sup>  Active living can also enhance social connectedness, quality of 
+    life, and environmental sustainability.<sup>
+      <a href="#5">5</a>
+    </sup>
+  </p>
+  <p>
+    Currently in the US, one in four adults are physically inactive with increasing prevalence across some geographies and in certain race/ethnicities.<sup>
+      <a href="#6">6</a>
+    </sup>
+    Only 26 percent of men, 19 percent of women, and 20 percent of adolescents, report sufficient activity to meet the relevant aerobic and muscle-strengthening PA 
+    guidelines.<sup>
+      <a href="#7">7</a>
+    </sup>  The current levels of physical inactivity in the US population create $117 billion in annual healthcare costs and contribute about 10 
+    percent of premature mortality.<sup>
+      <a href="#8">8</a>
+    </sup>  Even so, current population PA levels avert 3.9 million premature deaths globally and 140,200 premature deaths in 
+    the US on an annual basis.<sup>
+      <a href="#9">9</a>
+    </sup>
+  </p>
+	<p>
+	  This implementation guide standardizes interoperability expectations for systems involved in measuring, reporting, and intervening to improve patient physical
+	  activity levels.  It defines interface expectations that are relevant for patient-facing applications, patient activity measurement devices, clinical electronic health records,
+	  payers, quality measurement systems, and applications used by health and fitness professionals, personal trainers, and community-based fitness centers.
+  </p>
+  <p>
+    This version defines standards for the following:
+  </p>
+  <ul>
+    <li>How to consistently share the primary, evidence-based measure of a patient's level of physical activity?</li>
+    <li>How to capture and share information that supports that primary measure - for patient, clinical, insurance or other use?</li>
+    <li>How to create and share care plans and goals related to improving a patient's level of physical activity? and</li>
+    <li>How to order interventions that can a assist a patient in improving their levels of physical activity?</li>
+  </ul>
+  <p>
+    This guide was created primarily by U.S. stakeholders and in some places requires the use of code systems that are U.S.-centric.  However, the general architecture
+    of the solutions defined here and most of the interoperability expectations are likely to be relevant irrespective of country.  Implementers in non-U.S. jurisdictions are
+    welcome to leverage this content.  If there is sufficient interest, a future version of this implementation guide might be developed that is international in scope.
+  </p>
+  
+  <h3>Background</h3>
+  <h4>Importance of Physical Activity</h4>
+  
+  <h4>Measuring Physical Activity</h4>
+  <p>
+    Having a standardized way of measuring patient physical activity - and sharing those measurements - is an essential step to improving physical activity levels, both at an
+    individual and at a population level.  Standard measures are needed to:
+  </p>
+  <ul>
+    <li>consistently evaluate whether a patient's activity levels are adequate for good health</li>
+    <li>monitor trends to determine whether activity levels are improving (particularly in response to an intervention) or possibly declining (e.g. due to a health condition or
+	  other intervention)</li>
+    <li>allow coordination of care with a shared understanding of activity level between clinicians, patients and community-based service providers who can help patients assume a 
+      more physically active lifestyle and stay motivated</li>
+    <li>form a basis for researchers interested in the correlation between physical activity level and health outcomes, as well as in which interventions are most effective in boosting 
+      physical activity levels and associated outcomes</li>
+    <li>allow de-identified information to flow into national or regional surveillance systems, such as public health.  This information can then inform programming, evidence-based 
+      policy and funding to address physical activity level challenges within certain communities or demographics</li>
+    <li>support evidence-based reumeration of community-based physical activity professionals who support at risk patients in improving their activity levels </li>
+  </ul>
+    
+  <a name="overview"> </a>
+  <h3>Specification overview</h3>
+  <p>
+    This implementation guide is organized into three primary sections:
+  </p>
+  <ol>
+    <li><a href="measures.html">Physical Activity Measures</a> defines a <a href="StructureDefinition-exercise-vital.html">profile</a> for the standardized capture of a patient's 
+      physical activity level.  It also defines an optional FHIR <a href="Questionnaire-exercise-vital.html">Questionnaire</a> that can be used by questionnaire-based systems to 
+      capture that measure.  In addition, it defines additional profiles to capture <a href="measures.html#support">supplemental observations</a>
+      assertions around physical activity levels, such as daily physical activity log entries, heart rate measurements, and step counts.  The specification also covers how to link
+      these supporting records to the primary physical activity measure.</li>
+    <li><a href="interventions.html">Physical Activity Interventsions</a> defines profiles supporting the ordering of interventions intended to increase patient physical activity
+      and/or to support maintenance of existing but at risk levels of physical activity.  This includes profiles covering plans and goals related to physical activity as well as
+      orders to physical activity professionals.</li>
+    <li><a href="workflow.html">Physical Activity Workflow</a> defines the specific workflow and interoperability capabilities expected for systems that support this implementation guide.
+      It describes each of the different types of electronic systems that might participate in sharing information around physical activity as well as what types of data exchanges
+      those systems are expected to support.  Some requirements will be mandatory, others will be optional.</li>
+    <!-- todo - conformance expectations -->
+  </ol>
+  <p>
+    In addition, there are a number of supporting pages that to help support the implementation process:
+  </p>
+  <ul>
+    <li><a href="toc.html">Table of Contents</a> - A complete listing of all the pages in this implementation guide (helpful if you're not sure how to navigate to a page or want to ensure
+      you've read every page there is).</li>
+    <li><a href="fhir.html">Understanding FHIR</a> - This page is aimed at implementers who might be new to using FHIR.  It identifies the key pieces of the FHIR specification an
+      implementer should read and be familiar with before reading through the technical artifacts and instructions found in this implementation guide.  It also defines key
+      documentation conventions used in this IG.</li>
+    <li><a href="artifacts.html">Artifacts</a> - This provides a summary of all of the technical artifacts defined in this implementation guide.  It also provides a list of the
+      artifacts defined elsewhere that are leveraged as part of this implementation guide.</li>
+    <li><a href="downloads.html">Downloads</a> - This provides a handy set of zip files that can be downloaded for local use, including this implementation guide and all of its
+      artifacts.</li>
+    <li><a href="credits.html">Credits</a> - This provides a list of some of the key stakeholders involved in the development of this implementation guide.</li>
+  </ul>
+  <p>
+    All the main pages in this implementation guide can be navigated to using the main menu at the top of the page.  Links to dependencies and useful external and support pages
+    are also available from the menu.  Near the top of each page, there's also a grey bar containing a breadcrumb navigator that allows you to easily navigate to parent pages or
+    back to the root table of contents.
+  </p>
+
+  <a name="igs"> </a>
+  <h4>Building on Existing Work</h4>
+  <p>
+    This implementation guide builds on other specifications, helping ensure a consistent approach to data sharing that should ease adoption.  The specific guides used, and
+    the portions relevant from each of them are as follows:
+  </p>
+  <ul>
+    <li>
+      <p>
+        <b>
+          <a href="{{site.data.ig.ver.sdoh}}">Gravity SDOH</a>
+        </b> - While focused on social determinants of health such as appropriate housing, food availability, 
+        interpersonal violence, there is a significant overlap between the SDOH implementation guide and the exchange needs relevant to physical activity.  
+        In both the SDOH and physical activity spaces:
+      </p>
+      <ul>
+        <li>The relevant measures are typically gathered by asking questions of patients or their care-giver.</li>
+        <li>There is not yet national consistency in how the measures are captured (or even in the need to capture the measures at all).</li>
+        <li>Interventions to address any identified issues will often involve non-traditional service providers (e.g. food pantries and home repair services for SDOH; personal
+          trainers and fitness centers for physical activity).  These non-traditional service providers often do not have sophisticated EHRs or other interoperability
+          capabilities.</li>
+        <li>Improving the patient situation means agreeing on and sharing information about care plans and goals between primary care providers, patients, care givers,
+          and the non-traditional service providers.</li>
+        <li>There is a need to 'close the loop' on interventions to determine whether the requested intervention was performed, whether the patient is satisfied, and
+          whether the outcome met the original objectives.</li>
+        <li>There may be a need to seek payment for interventions that don't fall into the traditional realm of 'healthcare services'.</li>
+      </ul>
+      <p>
+        For all these reasons, the physical activity implementation guide builds on the standards defined by the Gravity SDOH implementation guide.  Where SDOH artifacts
+        are overly restrictive but still relevant, this guide will define aligned but parallel profiles and will try to continue alignment in future releases.
+      </p>
+    </li>
+    <li>
+      <b>
+        <a href="{{site.data.ig.ver.uscore}}">US Core</a>
+      </b> defines profiles that express the data elements defined in 
+      <a href="https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi">U.S. Core Data for Interopreability (USCDI)</a> (which is mandated for implementation 
+      by EHR systems falling under the 21st Centure Cures Act) as well as other data elements the major U.S. EHR vendors have agreed to implement.  As such, this implementation
+      guide is a foundation for interoperability with EHR systems in the U.S.  All profiles defined in this IG either derive from or align with US Core profiles whenever possible.
+    </li>
+    <li>
+      <b>
+        <a href="{{site.data.ig.ver.sdc}}">Structured Data Capture (SDC)</a>
+      </b> defines standards for creating, populating, extracting data from and otherwise
+      manipulating <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaires</a> and <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponses</a>.
+      This implementation guide allows optional use of Questionnaires when gathering information from patients and care givers about physical activity levels.  It also uses
+      questionnaires as part of the evaluation process.  Leveraging SDC ensures that questionnaires created with this guide will be able to be rendered and, where appropriate,
+      automatically have some of their answers pre-populated into and/or extracted from using off-the-shelf tooling that already supports the SDC implementation guide.
+    </li>
+    <li>
+      <b>
+        <a href="{{site.data.ig.ver.sub}}">Subscriptions Backport</a>
+      </b> defines standards for automatically detecting that data has changed on a system and
+      providing notifications to interested systems.  The Gravity SDOH implementation guide uses this to allow systems to monitor for updates between EHR systems and service
+      delivery systems.  This implementation guide allows the same approach.
+    </li>
+  </ul>
+  
+	<a name="ip"> </a>
+	<h3>Intellectual Property Considerations</h3>
+	<p>
+    While this implementation guide and the underlying FHIR are licensed as public domain, this guide includes examples making use of terminologies such
+    as LOINC, SNOMED CT and CPT codes that have more restrictive licensing requirements.  Implementers should make themselves familiar with licensing and
+    any other constraints of terminologies, questionnaires, and other components used as part of their implementation process.  In some cases,
+    licensing requirements may limit the systems that data captured using certain questionnaires may be shared with.
+  </p>
+
+  <a name="citations"> </a>
+  <h3>Citations</h3>
+  TODO: turn these into full references, ideally with proper hyperlinks
+  <a name="1"> </a>{Services, 2018 #2}
+  <a name="2"> </a>{Chastin, 2021 #451}
+  <a name="3"> </a>{Lin, 2020 #452}
+  <a name="4"> </a>{Hill, 2022 #453}
+  <a name="5"> </a>{Global Advocacy Council for Physical Activity International Society for Physical, 2010 #19}
+  <a name="6"> </a>{, 2022 #454}
+  <a name="7"> </a>{Services, 2018 #2}
+  <a name="8"> </a>{Carlson, 2015 #9}
+  <a name="9"> </a>{Strain, 2020 #8}
+
+</div>
