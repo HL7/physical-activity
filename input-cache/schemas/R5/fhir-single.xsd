@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Mon, Jun 6, 2022 18:48+0000 for FHIR v4.6.0 
+  Generated on Tue, Jun 7, 2022 17:10+0000 for FHIR v4.6.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.6.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -29217,7 +29217,12 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">The set of fixed codes to use when the mode = 'fixed'  - all unmapped codes are mapped to each of the fixed codes.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="url" minOccurs="0" maxOccurs="1" type="canonical">
+          <xs:element name="relationship" minOccurs="0" maxOccurs="1" type="ConceptMapRelationship">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The default relationship value to apply between the source and target concepts when the source code is unmapped and the mode is 'fixed' or 'use-source-code'.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="otherMap" minOccurs="0" maxOccurs="1" type="canonical">
             <xs:annotation>
               <xs:documentation xml:lang="en">The canonical reference to an additional ConceptMap2 resource instance to use for mapping if this ConceptMap2 resource contains no matching mapping for the source concept.</xs:documentation>
            </xs:annotation>
@@ -39876,7 +39881,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:element>
           <xs:element name="performer" type="ImagingSelection.Performer" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Author – human or machine.</xs:documentation>
+              <xs:documentation xml:lang="en">Selector of the instances – human or machine.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="basedOn" minOccurs="0" maxOccurs="unbounded" type="Reference">
@@ -39891,7 +39896,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:element>
           <xs:element name="code" minOccurs="1" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Describes the imaging selection.</xs:documentation>
+              <xs:documentation xml:lang="en">Reason for referencing the selected content.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="studyUid" minOccurs="0" maxOccurs="1" type="oid">

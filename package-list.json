@@ -1,0 +1,16 @@
+{
+	"list": [
+		{
+			"version": "current",
+			"path": "http://build.fhir.org/ig/HL7/physical-activity",
+			"desc": "Continuous Integration Build",
+			"fhirversion": "4.0.1",
+			"status": "ci-build",
+			"current": true
+		}
+	],
+	"package-id": "hl7.fhir.us.physical-activity",
+	"title": "Physical Activity Implementation Guide",
+	"canonical": "http://hl7.org/fhir/us/physical-activity",
+	"category": "Care Planning"
+}
