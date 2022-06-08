@@ -79,7 +79,7 @@
     This implementation guide is organized into three primary sections:
   </p>
   <ol>
-    <li><a href="measures.html">Physical Activity Measures</a> defines a <a href="StructureDefinition-exercise-vital.html">profile</a> for the standardized capture of a patient's 
+    <li><a href="measures.html">Physical Activity Measures</a> defines a <a href="measures.html#base">profiles</a> for the standardized capture of a patient's 
       physical activity level.  It also defines an optional FHIR <a href="Questionnaire-exercise-vital.html">Questionnaire</a> that can be used by questionnaire-based systems to 
       capture that measure.  In addition, it defines additional profiles to capture <a href="measures.html#support">supplemental observations</a>
       assertions around physical activity levels, such as daily physical activity log entries, heart rate measurements, and step counts.  The specification also covers how to link

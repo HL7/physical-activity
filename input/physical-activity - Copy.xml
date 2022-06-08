@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="hl7.fhir.us.physical-activity"/>
+  <url value="http://hl7.org/fhir/us/physical-activity/ImplementationGuide/hl7.fhir.us.physical-activity"/>
+  <version value="0.1.0"/>
+  <name value="PhysicalActivity"/>
+  <title value="Physical Activity Implementation Guide"/>
+  <status value="draft"/>
+  <date value="2022-05-29"/>
+  <publisher value="HL7 International - Patient Care WG"/>
+  <contact>
+    <name value="HL7 International - Patient Care WG"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/patientcar"/>
+    </telecom>
+  </contact>
+  <description value="This implementation guide provides standardization around patient physical activity, including:&amp;#x0a;* measures for recording a patient's level of physical activity;&amp;#x0a;* measures to support assertions of physical activity, including device-based measures;&amp;#x0a;* goals and care plans related to improving a patient's physical activity level;&amp;#x0a;* orders for interventions seeking to improve a patient's physical activity level; and&amp;#x0a;* processes to support closing the loop and evaluating the success of such interventions."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+  </jurisdiction>
+  <packageId value="hl7.fhir.us.physical-activity"/>
+  <license value="CC0-1.0"/>
+  <fhirVersion value="4.0.1"/>
+  <dependsOn id="hl7tx">
+    <uri value="http://terminology.hl7.org/ImplementationGuide/hl7.terminology"/>
+    <packageId value="hl7.terminology.r4"/>
+    <version value="3.1.0"/>
+  </dependsOn>
+  <dependsOn id="uscore">
+    <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
+    <packageId value="hl7.fhir.us.core"/>
+    <version value="3.1.1"/>
+  </dependsOn>
+  <dependsOn id="sdc">
+    <uri value="http://hl7.org/fhir/uv/sdc/ImplementationGuide/hl7.fhir.uv.sdc"/>
+    <packageId value="hl7.fhir.uv.sdc"/>
+    <version value="3.0.0"/>
+  </dependsOn>
+  <dependsOn id="sub">
+    <uri value="http://hl7.org/fhir/uv/subscriptions-backport/ImplementationGuide/hl7.fhir.uv.subscriptions-backport"/>
+    <packageId value="hl7.fhir.uv.subscriptions-backport"/>
+    <version value="0.1.0"/>
+  </dependsOn>
+  <dependsOn id="sdoh">
+    <uri value="http://hl7.org/fhir/us/sdoh-clinicalcare"/>
+    <packageId value="hl7.fhir.us.sdoh-clinicalcare"/>
+    <version value="1.1.0"/>
+  </dependsOn>
+  <definition>
+	  <page>
+      <nameUrl value="index.html"/>
+      <title value="Physical Activity Home"/>
+      <generation value="html"/>
+      <page>
+        <nameUrl value="fhir.html"/>
+        <title value="FHIR Background"/>
+        <generation value="html"/>
+      </page>
+      <page>
+        <nameUrl value="measures.html"/>
+        <title value="Physical Activity Measures"/>
+        <generation value="html"/>
+      </page>
+      <page>
+        <nameUrl value="interventions.html"/>
+        <title value="Plans &amp; Interventions"/>
+        <generation value="html"/>
+      </page>
+      <page>
+        <nameUrl value="workflow.html"/>
+        <title value="Conformance &amp; Workflow"/>
+        <generation value="html"/>
+      </page>
+      <page>
+        <nameUrl value="artifacts.html"/>
+        <title value="IG Artifacts"/>
+        <generation value="html"/>
+      </page>
+      <page>
+        <nameUrl value="downloads.html"/>
+        <title value="Downloads"/>
+        <generation value="html"/>
+      </page>
+      <page>
+        <nameUrl value="credits.html"/>
+        <title value="Credits"/>
+        <generation value="html"/>
+      </page>
+	  </page>
+		<parameter>
+			<code value="path-expansion-params"/>
+			<value value="terminology-settings.xml"/>
+		</parameter>
+		<parameter>
+			<code value="copyrightyear"/>
+			<value value="2022+"/>
+		</parameter>
+		<parameter>
+			<code value="releaselabel"/>
+			<value value="CI Build"/>
+		</parameter>
+  </definition>
+</ImplementationGuide>

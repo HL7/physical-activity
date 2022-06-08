@@ -13,14 +13,43 @@
 	  sufficiently active to maintain good health?"
 	</p>
 	<p>
-	  This guide therefore mandates the use of the very simple Exercise Vital Sign (LOINC <a href="loinc.org/89574-8/">89574-8</a> as the
-	  primary measure of patient physical activity level for exchange and evaluation.  This measure [is super awesome because all of this
+	  This guide therefore mandates the use of the very simple Exercise Vital Sign (LOINC <a href="https://loinc.org/89574-8/">89574-8</a> 
+	  as the primary measure of patient physical activity level for exchange and evaluation.  This measure [is super awesome because all this
 	  research says it works great - Laurie please provide text to fill in here].
 	</p>
 	<p>
 	  The measure consists of two questions:
 	</p>
 	<ul>
-    <li></li>
+    <li>For an average week in the last 30 days, how many days per week did you engage in moderate to strenuous exercise (like walking fast,
+      running, jogging, dancing, swimming, biking, or other activities that cause a light or heavy sweat)?</li>
+    <li>On those days that you engage in moderate to strenuous exercise, how many minutes, on average, do you exercise?</li>
+  </ul>
+  <p>
+    These two questions correspond to the LOINC codes <a href="https://loinc.org/89555-7">89555-7</a> and 
+    <a href="https://loinc.org/68516-4">68516-4</a>.  In this implementation guide, there are profiles to capture the answers to each of these 
+    questions - the <a href="StructureDefinition-observation-evs-days-per-week.html">days-per-week</a> and 
+    <a href="StructureDefinition-observation-evs-min-per-day.html">min-per-day</a> profiles.
+  </p>
+  <p>
+    <b>TO CONFIRM:</b>
+    While these two questions are logically part of a single overall <a href="https://loinc.org/89574-8">89574-8</a> observation, this guide  
+    does not require the capture or sharing higher-level grouping observations that link the the answers to the two key questions.
+  </p>
+  <a name="support"> </a>
+  <h3>Supporting measures</h3>
+  <p>
+    While it's certainly possible for patients and their care-givers to estimate their average days/week and minutes/day of moderate to
+    high-intensity exercise, relying exclusively on estimates is not necessarily ideal.  Therefore, capturing additional information about
+    physicial activity can be helpful.  This information may assist the patient in the creation of their estimates.  They can also be used
+    to provide clinicians and exercise professionals with more granular information to provide better insight into the patient's current
+    exercise regime.  Potential supplemental measures include:
+  </p>
+  <ul>
+    <li>Step counts,</li>
+    <li>Heartrate measurements,</li>
+    <li>Pulse-ox measurements,</li>
+    <li>Daily activity logs,</li>
+    <li>Others?</li>
   </ul>
 </div>

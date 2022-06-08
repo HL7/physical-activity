@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Tue, Jun 7, 2022 17:10+0000 for FHIR v4.6.0 
+  Generated on Wed, Jun 8, 2022 01:14+0000 for FHIR v4.6.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.6.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -34341,7 +34341,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:element>
           <xs:element name="attester" type="DocumentReference.Attester" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A participant who has attested to the accuracy of the document.</xs:documentation>
+              <xs:documentation xml:lang="en">A participant who has authenticated the accuracy of the document.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="custodian" minOccurs="0" maxOccurs="1" type="Reference">
@@ -34374,11 +34374,6 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">The Patient Information as known when the document was published. May be a reference to a version specific, or contained.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="related" minOccurs="0" maxOccurs="unbounded" type="Reference">
-            <xs:annotation>
-              <xs:documentation xml:lang="en">Related identifiers or resources associated with the DocumentReference.</xs:documentation>
-           </xs:annotation>
-          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -34390,7 +34385,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="mode" minOccurs="1" maxOccurs="1" type="DocumentAttestationMode">
+          <xs:element name="mode" minOccurs="1" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">The type of attestation the authenticator offers.</xs:documentation>
            </xs:annotation>
@@ -34472,41 +34467,6 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
             <xs:element name="valueCanonical" type="canonical"/>
           </xs:choice>
         </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:simpleType name="DocumentAttestationModeEnum">
-    <xs:restriction base="code-primitive">
-      <xs:enumeration value="personal">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Personal</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="professional">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Professional</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="legal">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Legal</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="official">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Official</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="DocumentAttestationMode">
-    <xs:annotation>
-      <xs:documentation xml:lang="en"></xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="Element">
-        <xs:attribute name="value" type="DocumentAttestationModeEnum" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>

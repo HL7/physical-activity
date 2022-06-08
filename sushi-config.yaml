@@ -1,0 +1,65 @@
+name: PhysicalActivity
+title: Physical Activity Implementation Guide
+id: physical-activity
+packageId: hl7.fhir.us.physical-activity
+canonical: http://hl7.org/fhir/us/physical-activity
+fhirVersion: 4.0.1
+status: draft
+date: 2022-05-29
+copyrightYear: 2022+
+version: 0.1.0
+releaseLabel: CI-build
+jurisdiction: urn:iso:std:iso:3166#US
+publisher:
+  name: HL7 International - Patient Care WG
+  url: http://www.hl7.org/Special/committees/patientcare
+dependencies:
+  hl7.fhir.us.core:
+    id: uscore
+    version: 3.1.1
+  hl7.fhir.uv.sdc:
+    id: sdc
+    version: 3.0.0
+  hl7.fhir.uv.subscriptions-backport:
+    id: sub
+    version: 0.1.0
+  hl7.fhir.us.sdoh-clinicalcare:
+    id: sdoh
+    version: 1.1.0
+    url: http://hl7.org/fhir/us/sdoh-clinicalcare/ImplementationGuide/hl7.fhir.us.sdoh-clinicalcare
+description: "This implementation guide provides standardization around patient physical activity, including:&#x0a;* measures for recording a patient's level of physical activity;&#x0a;* measures to support assertions of physical activity, including device-based measures;&#x0a;* goals and care plans related to improving a patient's physical activity level;&#x0a;* orders for interventions seeking to improve a patient's physical activity level; and&#x0a;* processes to support closing the loop and evaluating the success of such interventions."
+parameters:
+  path-expansion-params: "../../input/terminology-settings.xml"
+pages:
+  index.xml:
+    title: Physical Activity Home
+    fhir.xml: 
+      title: FHIR Background
+    measures.xml: 
+      title: Physical Activity Measures
+    interventions.xml: 
+      title: Plans & Interventions
+    workflow.xml: 
+     title: Conformance & Workflow
+    artifacts.xml: 
+      title: IG Artifacts
+    downloads.xml: 
+      title: Downloads
+    credits.xml: 
+      title: Credits
+menu:
+  Home: index.html
+  Background:
+    FHIR Background: fhir.html
+    Credits: credits.html
+  Specification:
+    Measures: measures.html
+    Plans &amp; Interventions: interventions.html
+    Conformance &amp; Workflow: workflow.html
+  Artifacts: artifacts.html
+  Support:
+    Project Home: https://confluence.hl7.org/display/PC/Physical+Activity
+    Support: https://chat.fhir.org/#narrow/stream/327137-Physical-Activity
+    Downloads: downloads.html
+
+#Initialize SUSHI project in C:\Users\shorty\dev\NewIG? [y/n]: y

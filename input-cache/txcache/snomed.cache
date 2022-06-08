@@ -1,0 +1,35 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://snomed.info/sct"
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
+      "valueBoolean" : true
+    }],
+    "identifier" : "urn:uuid:297ba6b9-99e7-48c3-8344-32da522e2513",
+    "timestamp" : "2022-06-08T14:37:10.435Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
