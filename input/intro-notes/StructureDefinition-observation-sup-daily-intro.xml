@@ -1,0 +1,12 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <p>
+    Daily exercise logs allow a patient to capture their exercise levels on a daily basis rather than on a 30-day estimate.  As such, the captured values are typically
+    much more accurate.  The "minutes per day" of moderate to high intensity exercise might be recorded on the actual day of the exercise or on some subsequent day (ideally
+    with relatively close proximity to the day on which the exercise occurred).  Like the monthly measures, daily activity logs can also have dependencies on other
+    measurements, such as step counts or heart rate measurements.
+  </p>
+  <p>
+    While the ideal would be to have a record for each day in the month of how many minutes were exercised (even if the amount was zero), reality will likely be that some
+    days will be missed.  Even so, such records will make it easier to estimate the monthly days/week and minutes/day for a given monthly period.
+  </p>
+</div>

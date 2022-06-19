@@ -29,17 +29,37 @@
     These two questions correspond to the LOINC codes <a href="https://loinc.org/89555-7">89555-7</a> and 
     <a href="https://loinc.org/68516-4">68516-4</a>.  In this implementation guide, there are profiles to capture the answers to each of these 
     questions - the <a href="StructureDefinition-observation-evs-days-per-week.html">days-per-week</a> and 
-    <a href="StructureDefinition-observation-evs-min-per-day.html">min-per-day</a> profiles.
+    <a href="StructureDefinition-observation-evs-min-per-day.html">min-per-day</a> profiles.  (Examples of Observations that comply with these
+    two profiles can be found <a href="Observation-ExampleEVSMinutesPerDay.html">here</a> and 
+    <a href="Observation-ExampleEVSDaysPerWeek.html">here</a>.)
   </p>
   <p>
     <b>TO CONFIRM:</b>
     While these two questions are logically part of a single overall <a href="https://loinc.org/89574-8">89574-8</a> observation, this guide  
     does not require the capture or sharing higher-level grouping observations that link the the answers to the two key questions.
   </p>
+  <p>
+    If a system does not wish to support directly capturing the answers to the two questions as Observations but is able to handle
+    filling out a FHIR Questionnaire, this IG also defines a standard <a href="{{site.data.fhir.ver.sdc}}">Structured Data Capture</a>
+    Questionnaire instance that includes the relevant metadata to allow automated extraction of a completed QuestionnaireResponse
+    into the relevant Observations using either the 
+    <a href="{{site.data.fhir.ver.sdc}}/extraction.html#observation-based-extraction">observation-based</a> or 
+    <a href="{{site.data.fhir.ver.sdc}}/extraction.html#structuremap-based-extraction">StructureMap-based</a> approach.  The
+    Questionnaire is <a href="Questionnaire-questionnaire-evs.html">here</a>.  An example QuestionnaireResponse that would correspond to the
+    examples listed above can be found <a href="QuestionnaireResponse-qr-evs-example.html">here</a>.
+  </p>
+  <p>
+    <b>TO DISCUSS:</b>
+    Do we want any additional 'primary' measures - e.g. ones that distinguish aerobic from strength-based exercise and/or that drill down
+    into the specific details of the type(s) of exercise performed?  Considerations include: What's the evidence to support?, Can we
+    realistically expect most patients to capture? and Can we expect most clinicians/professionals to make use of the additional data?
+  </p>
+  
+  
   <a name="support"> </a>
   <h3>Supporting measures</h3>
   <p>
-    While it's certainly possible for patients and their care-givers to estimate their average days/week and minutes/day of moderate to
+    While it is certainly possible for patients and their care-givers to estimate their average days/week and minutes/day of moderate to
     high-intensity exercise, relying exclusively on estimates is not necessarily ideal.  Therefore, capturing additional information about
     physicial activity can be helpful.  This information may assist the patient in the creation of their estimates.  They can also be used
     to provide clinicians and exercise professionals with more granular information to provide better insight into the patient's current
@@ -48,8 +68,45 @@
   <ul>
     <li>Step counts,</li>
     <li>Heartrate measurements,</li>
-    <li>Pulse-ox measurements,</li>
     <li>Daily activity logs,</li>
     <li>Others?</li>
   </ul>
+  <p>
+    However, there are challenges with these measures.  Continuous measures that capture heart rates on a per-minute or
+    even a per-second basis can create an immense load of data that most clinical systems will not be able to (or at least wish to)
+    manage.  As a result, average measures are more useful.  At the same time, an average heart rate over the course of a day is not
+    terribly helpful either.  20 minutes of elevated heart-rate due to exercise simply blends in and becomes difficult to distinguish.
+    In the same way, a total count of 20,000 steps per day indicates a certain level of activity.  However, whether they constitute
+    "moderate to strenuous" exercise is hard to determine.  The same count of steps could represent an hour of jogging, or a day spent
+    pacing while talking on the phone.  Both are better than sitting, but only one would count as "moderate to strenuous" exercise.
+  </p>
+  <p>
+    For these reasons, this implementation guide places limits on the types of supporting measurements systems are expected to share.
+    Systems are free to share raw measures and more fine-grained data if they choose, but there is no expectation within this implementation
+    guide for systems to support sharing information beyond that described below - and even support for these supplemental data elements are 
+    optional.
+  </p>
+  <p>
+    An additional consideration is that capture of steps, heart rate, or even daily electronic activity logs requires that patients have
+    access to electronic devices to capture such measurements.  This won't be possible for all patients.  Therefore, systems <b>SHOULD NOT</b>
+    set any requirements for the inclusion of these finer-grained measures unless steps have been taken to eliminate patient accessibility
+    barriers.
+  </p>
+  <p>
+    The following observation profiles can be used to capture supplemental measurements.  All of these measurements can be linked from the
+    base exercise vital sign measure via the 'derivedFrom' relationship, indicating that the 30-day vital sign was derived from, in part,
+    the detailed measurement.
+  </p>
+  <ul>
+    <li><a href="StructureDefinition-observation-sup-daily.html">Daily Exercise Log</a></li>  
+    <li><a href="StructureDefinition-observation-sup-hr.html">Average Heart Rate</a></li>  
+    <li><a href="StructureDefinition-observation-sup-steps.html">Average Step Count</a></li>  
+  </ul>
+  <p>
+    <b>Note:</b> The exercise time asserted in the overall exercise vital sign will not necessarily mathematically align with the times indicated
+    by the supporting measurements.  A patient may assert exercise that is not supported by a fine-grained measurement.  Also, some of the
+    fine-grained measurements may not correspond to time the patient considers to have been moderate to strenuous exercise.  The purpose of
+    the supporting measurements is to assist the patient or caregiver in making their estimates as accurate as possible and to assist 
+    practitioners in understanding more about the nature and timing of the patient's exercise.
+  </p>
 </div>

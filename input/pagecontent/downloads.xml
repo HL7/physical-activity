@@ -31,16 +31,16 @@
 			<tr>
         <th>Referenced implementation guides</th>
         <td>
-          <a href="{{site.data.ig.ver.uscore}}/full-ig.zip">US Core</a>
+          <a href="{{site.data.fhir.ver.uscore}}/full-ig.zip">US Core</a>
         </td>
         <td>
-          <a href="{{site.data.ig.ver.sdoh}}/full-ig.zip">Gravity SDOH</a>
+          <a href="{{site.data.fhir.ver.sdoh}}/full-ig.zip">Gravity SDOH</a>
         </td>
         <td>
-          <a href="{{site.data.ig.ver.sdc}}/full-ig.zip">Structured Data Capture (SDC)</a>
+          <a href="{{site.data.fhir.ver.sdc}}/full-ig.zip">Structured Data Capture (SDC)</a>
         </td>
         <td>
-          <a href="{{site.data.ig.ver.sub}}/full-ig.zip">Subscriptions Backport</a>
+          <a href="{{site.data.fhir.ver.sub}}/full-ig.zip">Subscriptions Backport</a>
         </td>
       </tr>
 		</tbody>

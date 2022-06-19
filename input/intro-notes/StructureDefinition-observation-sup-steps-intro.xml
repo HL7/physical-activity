@@ -1,0 +1,20 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <p>
+    Step counts are only of interest insofar as they movement during moderate to high-intensity exercise - and the specific measurement of interest isn't actually the
+    number of steps, but rather the time-period over which the high step-rate was occurring.  As such, a daily pedometer reading isn't terribly useful, though it might
+    still act as a reminder.  If a high number of steps is an indication that the patient jogged that day and a low number of steps indicated that they probably didn't,
+    it might still assist in their recollection of average number of days exercised, and possibly even average number of minutes per day.
+  </p>
+  <p>
+    Step counts are more useful if they are associated with narrower periods of time, where a large number of steps per short period of time indicates jogging, power-walking,
+    or other moderate to high-intensity exercise.
+  </p>
+  <p>
+    The time captured can either be a specific period indicating both start and end, or a date, which nominally indicates the 'end'.  This dateTime SHOULD include a time
+    component and SHALL always be precise down to the day.  Even if a period with a start and end are provided, a timeframe component is still required to ensure consistency
+    in capturing the period of time.
+  </p>
+  <p>
+    TODO: What are the guidelines for determining how many steps/period constitutes 'moderate to strenuous' exercise?
+  </p>
+</div>

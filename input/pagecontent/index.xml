@@ -80,7 +80,7 @@
   </p>
   <ol>
     <li><a href="measures.html">Physical Activity Measures</a> defines a <a href="measures.html#base">profiles</a> for the standardized capture of a patient's 
-      physical activity level.  It also defines an optional FHIR <a href="Questionnaire-exercise-vital.html">Questionnaire</a> that can be used by questionnaire-based systems to 
+      physical activity level.  It also defines an optional FHIR <a href="Questionnaire-questionnaire-evs.html">Questionnaire</a> that can be used by questionnaire-based systems to 
       capture that measure.  In addition, it defines additional profiles to capture <a href="measures.html#support">supplemental observations</a>
       assertions around physical activity levels, such as daily physical activity log entries, heart rate measurements, and step counts.  The specification also covers how to link
       these supporting records to the primary physical activity measure.</li>
@@ -123,7 +123,7 @@
     <li>
       <p>
         <b>
-          <a href="{{site.data.ig.ver.sdoh}}">Gravity SDOH</a>
+          <a href="{{site.data.ver.sdoh}}">Gravity SDOH</a>
         </b> - While focused on social determinants of health such as appropriate housing, food availability, 
         interpersonal violence, there is a significant overlap between the SDOH implementation guide and the exchange needs relevant to physical activity.  
         In both the SDOH and physical activity spaces:
@@ -147,7 +147,7 @@
     </li>
     <li>
       <b>
-        <a href="{{site.data.ig.ver.uscore}}">US Core</a>
+        <a href="{{site.data.ver.uscore}}">US Core</a>
       </b> defines profiles that express the data elements defined in 
       <a href="https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi">U.S. Core Data for Interopreability (USCDI)</a> (which is mandated for implementation 
       by EHR systems falling under the 21st Centure Cures Act) as well as other data elements the major U.S. EHR vendors have agreed to implement.  As such, this implementation
@@ -155,7 +155,7 @@
     </li>
     <li>
       <b>
-        <a href="{{site.data.ig.ver.sdc}}">Structured Data Capture (SDC)</a>
+        <a href="{{site.data.ver.sdc}}">Structured Data Capture (SDC)</a>
       </b> defines standards for creating, populating, extracting data from and otherwise
       manipulating <a href="{{site.data.fhir.path}}questionnaire.html">Questionnaires</a> and <a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponses</a>.
       This implementation guide allows optional use of Questionnaires when gathering information from patients and care givers about physical activity levels.  It also uses
@@ -164,7 +164,7 @@
     </li>
     <li>
       <b>
-        <a href="{{site.data.ig.ver.sub}}">Subscriptions Backport</a>
+        <a href="{{site.data.ver.sub}}">Subscriptions Backport</a>
       </b> defines standards for automatically detecting that data has changed on a system and
       providing notifications to interested systems.  The Gravity SDOH implementation guide uses this to allow systems to monitor for updates between EHR systems and service
       delivery systems.  This implementation guide allows the same approach.
