@@ -3,6 +3,7 @@ Alias: $security = http://terminology.hl7.org/CodeSystem/restful-security-servic
 
 Instance:       pa-referral-recipient
 InstanceOf:     CapabilityStatement
+Usage:          #definition
 * title       = "Physical Activity Referral Recipient Capability Statement"
 * description = "Describes the expected capabilities of a system used by a personal trainer,
   community fitness organization, or other entity that delivers services that help a patient to

@@ -1,0 +1,544 @@
+<div>
+  {% if publisher.exists() %}
+    <p>
+      <xsl:text>Published by: </xsl:text>
+      <b>
+        {% if contact.where(name.empty()).telecom.where(system='url' or system='email').exists() %}
+
+          {% for aTelecom in contact.where(name.empty()).telecom.where(system='url' or system='email').first() %}
+            {% if aTelecom.system = 'email' %}
+              <a href="mailto:{{aTelecom.value}}">
+                {{publisher}}
+              </a>
+            {% else %}
+              <a href="{{aTelecom.value}}">
+                {{publisher}}
+              </a>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          {{publisher}}
+        {% endif %}
+      </b>
+      {% if contact.where(name.empty()).telecom.exclude(%resource.contact.where(name.empty()).telecom.where(system='url' or system='email').first()) %}
+        ({% for otherTelecom in contact.where(name.empty()).telecom.exclude(%resource.contact.where(name.empty()).telecom.where(system='url' or system='email').first()) %}
+          {% if otherTelecom.system.exists() %}
+            {{otherTelecom.system}}:
+          {% endif %}
+          {{otherTelecom.value}}{% if otherTelecom.value != contact.where(name.empty()).telecom.exclude(%resource.contact.where(name.empty()).telecom.where(system='url' or system='email').first()).last().value %}, {% endif %}
+        {% endfor %})
+      {% endif %}
+    </p>
+  {% endif %}
+  {% if contact.where(name.exists()) %}
+    <p>Contact Details:</p>
+    <ul>
+      {% for aContact in contact.where(name.exists()) %}
+        <li>
+          {% if aContact.telecom.where(system='url' or system='email').exists() %}
+            {% for aTelecom in aContact.telecom.where(system='url' or system='email').first() %}
+              {% if aTelecom.system = 'email' %}
+                <a href="mailto:{{aTelecom.value}}">
+                  {{aContact.name}}A
+                </a>
+              {% else %}
+                <a href="{{aTelecom.value}}">
+                  {{aContact.name}}B
+                </a>
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            {{aContact.name}}
+          {% endif %}
+          {% if aContact.telecom.exclude(aContact.telecom.where(system='url' or system='email').first()) %}
+            ({% for otherTelecom in aContact.telecom.exclude(aContact.telecom.where(system='url' or system='email').first()) %}
+              {% if otherTelecom.system.exists() %}
+                {{otherTelecom.system}}:
+              {% endif %}
+              {{otherTelecom.value}}{% if otherTelecom.value != aContact.telecom.exclude(aContact.telecom.where(system='url' or system='email').first()).last().value %}, {% endif %}
+            {% endfor %})
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if requirements.exists() %}  
+    <p>
+      <b>Requirements:</b>
+    </p>
+    {{ purpose | markdownify }}
+  {% endif %}
+  {% if copyright.exists() %}  
+    <p>
+      <b>Copyright:</b>
+    </p>
+    {{ copyright | markdownify }}
+  {% endif %}
+  {% if software.exists() %}
+    <p>Applies to software: {{software.name}}
+      {% if software.version.exists() %}version: {{software.version}}{% endif %}
+      {% if software.date.exists() %}{{software.date}}{% endif %}
+    </p>
+  {% endif %}
+  {% if implemenation.exists() %}
+    <div>
+      <p>Implementation: {{implementation.url}}"/>
+        {% if custodian.display.exists() %}
+          managed by:
+          {% if custodian.reference.exists() %}
+            <a href="{{custodian.reference}}">
+              {{custodian.display}}
+            </a>
+          {% else %}
+            {{custodian.display}}
+          {% endif %}
+        {% endif %}
+      </p>
+      {{description | markdownify}}
+    </div>
+  {% endif %}
+  <h2>General</h2>
+  <div class="table-wrapper">
+    <table class="grid">
+      <tbody>
+        <tr>
+          <th>FHIR Version:</th>
+          <td>
+            {{fhirVersion}}
+          </td>
+        </tr>
+        {% if instantiates.exists() %}
+          <tr>
+            <th>Instantiates other Capabilities:</th>
+            <td>
+              <ul>
+                {% for capability in instantiates %}
+                  <li>
+                    <a href="{{capability}}">
+                      {{capability}}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </td>
+          </tr>
+        {% endif %}
+        {% if imports.exists() %}
+          <tr>
+            <th>Imports other Capabilities:</th>
+            <td>
+              <ul>
+                {% for capability in imports %}
+                  <li>
+                    <a href="{{capability}}">
+                      {{capability}}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </td>
+          </tr>
+        {% endif %}
+        {% if implementationGuide.exists() %}
+          <tr>
+            <th>Supports other guides:</th>
+            <td>
+              <ul>
+                {% for ig in implementationGuide %}
+                  <li>
+                    <a href="{{ig}}">
+                      {{capabigility}}
+                    </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </td>
+          </tr>
+        {% endif %}
+        {% if format.exists() %}
+          <tr>
+            <th>Supported exchange formats:</th>
+            <td>
+              {{format}}
+            </td>
+          </tr>
+        {% endif %}
+        {% if patchFormat.exists() %}
+          <tr>
+            <th>Supported patch formats:</th>
+            <td>
+              {{patchFormat}}
+            </td>
+          </tr>
+        {% endif %}
+      </tbody>
+    </table>
+  </div>
+  {% for Arest in rest %}
+    <h2>REST {{arest.mode}} behavior</h2>
+    {{Arest.documentation | markdownify}}
+    {% if Arest.security.exists() %}
+      <p>
+        <b>Security:</b>
+      </p>
+      {% if Arest.security.service.coding.code.exists %}
+        {{Arest.security.service.coding.code}}
+        <br/>
+      {% endif %}
+      {{ Arest.security.description | markdownify }}
+    {% endif %}
+    {%if Arest.resource.exists() %}
+      <h3>Resource summary</h3>
+      <div class="table-wrapper">              
+        <table class="grid">
+          <thead>
+            <tr>
+              <th>Resource</th>
+              <th>Search</th>
+              <th>Read</th>
+              <th>Read Version</th>
+              <th>Instance History</th>
+              <th>Resource History</th>
+              <th>Create</th>
+              <th>Update</th>
+              <th>Delete</th>
+              <th>Operations</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for Aresource in Arest.resource %}
+              <tr>
+                <th>
+                  {{Aresource.type}}
+                  {% for Aprofile in Aresource.profile %}
+                    (<a href="{{Aprofile}}">Profile</a>)
+                  {% endfor %}
+                </th>
+                <td>
+                  {% for Aop in Aresource.interaction.where(code = 'search-type') %}
+                    <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
+                      {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
+                        {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
+                      {% else %}
+                        Yes
+                      {% endif %}
+                    </a>
+                  {% endfor %}
+                </td>
+                <td>
+                  <xsl:for-each select="interaction[code/@value='read']">
+                    <xsl:call-template name="doCapabilityStatement"/>
+                  </xsl:for-each>
+                  <xsl:for-each select="conditionalRead/@value">
+                    <br/>(conditional read:<br/>
+                    <xsl:value-of select="concat(., ')')"/>
+                  </xsl:for-each>
+                </td>
+                <td>
+                  <xsl:for-each select="interaction[code/@value='vread']">
+                    <xsl:call-template name="doCapabilityStatement"/>
+                  </xsl:for-each>
+                  <xsl:if test="readHistory/@value=false()">(current only)</xsl:if>
+                </td>
+                <td>
+                  <xsl:for-each select="interaction[code/@value='history-instance']">
+                    <xsl:call-template name="doCapabilityStatement"/>
+                  </xsl:for-each>
+                </td>
+                <td>
+                  <xsl:for-each select="interaction[code/@value='history-type']">
+                    <xsl:call-template name="doCapabilityStatement"/>
+                  </xsl:for-each>
+                </td>
+                <td>
+                  <xsl:for-each select="interaction[code/@value='create']">
+                    <xsl:call-template name="doCapabilityStatement"/>
+                  </xsl:for-each>
+                  <xsl:if test="conditionalCreate/@value='true'">(conditional supported)</xsl:if>
+                </td>
+                <td>
+                  <xsl:for-each select="interaction[code/@value='update']">
+                    <xsl:call-template name="doCapabilityStatement"/>
+                  </xsl:for-each>
+                  <xsl:if test="updateCreate/@value='false'">(existing only)</xsl:if>
+                  <xsl:if test="conditionalUpdate/@value='true'">(conditional supported)</xsl:if>
+                </td>
+                <td>
+                  <xsl:for-each select="interaction[code/@value='delete']">
+                    <xsl:call-template name="doCapabilityStatement"/>
+                  </xsl:for-each>
+                  <xsl:if test="conditionalDelete/@value='true'">(conditional supported)</xsl:if>
+                </td>
+                <td>
+                  <xsl:for-each select="operation">
+                    <xsl:if test="position()!=1">
+                      <br/>
+                    </xsl:if>
+                    <xsl:value-of select="concat('$', name/@value, ': ')"/>
+                    <xsl:call-template name="doCapabilityStatement"/>
+                  </xsl:for-each>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% endif %}
+    {% if operation.exists() %}
+    <xsl:if test="operation">
+      <p>
+        <b>Operations:</b>
+      </p>
+      <ul>
+        <xsl:for-each select="operation">
+          <li>
+            <a href="{lower-case(definition/reference/@value)}{lower-case(definition/@value)}">
+              <xsl:value-of select="concat('$', name/@value)"/>
+            </a>
+            <xsl:for-each select="definition/display/@value">
+              <xsl:value-of select="concat(' - ', .)"/>
+            </xsl:for-each>
+            <xsl:for-each select="extension[@url=$expectation-extension]/valueCode/@value">
+              <i>
+                <xsl:value-of select="concat(' ', .)"/>
+              </i>
+            </xsl:for-each>
+          </li>
+        </xsl:for-each>
+      </ul>
+    </xsl:if>
+    {% endif %}
+    {% if interaction.exists() %}
+    <xsl:if test="interaction">
+      <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(interaction/extension[@url=$expectation-extension]/valueCode/@value)"/>
+      <h3>General interactions</h3>
+      <div class="table-wrapper">
+        <table class="list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <xsl:if test="$doCapabilityStatement">
+              <th>Capability Statement</th>
+            </xsl:if>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <xsl:apply-templates select="interaction">
+            <xsl:with-param name="doCapabilityStatement" select="$doCapabilityStatement"/>
+          </xsl:apply-templates>
+        </tbody>
+      </table>
+      </div>
+    </xsl:if>
+    {% endif %}
+    <xsl:for-each select="resource">
+      <br/>
+      <br/>
+      <h3>
+        <a href="{$fhirpath}{lower-case(type/@value)}.html">
+          <xsl:value-of select="type/@value"/>
+        </a>              
+      </h3>
+      <xsl:for-each select="profile/@value">
+        <p>
+          <xsl:text>Profile: </xsl:text>
+          <a href="{.}">
+            <xsl:value-of select="."/>
+          </a>
+        </p>
+      </xsl:for-each>
+      <xsl:if test="supportedProfile">
+        <p>Supported Profile(s):</p>
+        <ul>
+          <xsl:for-each select="supportedProfile">
+            <li>
+              <a href="{@value}">
+                <xsl:value-of select="@value"/>
+              </a>
+              <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation']">
+                <xsl:value-of select="concat(' ', valueCode/@value)"/>
+              </xsl:for-each>
+            </li>
+          </xsl:for-each>
+        </ul>
+      </xsl:if>
+      <xsl:variable name="behavior" as="element()*">
+        <xsl:for-each select="versioning/@value">
+          <p>
+            <xsl:value-of select="concat('Versioning support: ', .)"/>
+          </p>
+        </xsl:for-each>
+        <xsl:for-each select="referencePolicy/@value">
+          <p>
+            <xsl:value-of select="concat('Reference policy: ', .)"/>
+          </p>
+        </xsl:for-each>
+      </xsl:variable>
+      <xsl:if test="$behavior">
+        <h4>Behavior</h4>
+        <xsl:copy-of select="$behavior"/>
+      </xsl:if>              
+      <!-- Note: description doesn't exist yet -->
+      <xsl:copy-of select="fn:handleMarkdownLines(description/@value)"/>
+      <h4>Interactions</h4>
+      <div class="table-wrapper">
+        <table class="list">
+          <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(interaction/extension[@url=$expectation-extension]/valueCode/@value)"/>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <xsl:if test="$doCapabilityStatement">
+                <th>Conformance</th>
+              </xsl:if>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <xsl:apply-templates select="interaction[documentation]">
+              <xsl:with-param name="doCapabilityStatement" select="$doCapabilityStatement"/>
+            </xsl:apply-templates>
+            <xsl:apply-templates select="operation[documentation]">
+              <xsl:with-param name="doCapabilityStatement" select="$doCapabilityStatement"/>
+            </xsl:apply-templates>
+          </tbody>
+        </table>
+      </div>
+      <xsl:if test="searchInclude or searchParam">
+        <h4>Search</h4>
+        <xsl:if test="searchInclude">
+          <p>
+            <xsl:text>Supported Includes: </xsl:text>
+            <xsl:value-of select="string-join(searchInclude/@value, ' ')"/>
+          </p>
+        </xsl:if>
+        <xsl:if test="searchParam">
+          <xsl:call-template name="doParams"/>
+        </xsl:if>
+      </xsl:if>
+    </xsl:for-each>
+  {% endfor %}
+  <xsl:for-each select="messaging">
+    <br/>
+    <br/>
+    <h2>Messaging</h2>
+    <xsl:if test="endpoint">
+      <p>
+        <b>End point(s): </b>
+      </p>
+      <div class="table-wrapper">
+        <table cellpadding="grid">
+          <tbody>
+            <tr>
+              <th>Address</th>
+              <th>Protocol(s)</th>
+            </tr>
+            <xsl:for-each select="endpoint">
+              <tr>
+                <td>
+                  <xsl:value-of select="address/@value"/>
+                </td>
+                <td>
+                  <xsl:for-each select="protocol">
+                    <xsl:if test="position()!=1">, </xsl:if>
+                    <xsl:value-of select="if (display) then display/@value else code/@value"/>
+                  </xsl:for-each>
+                </td>
+              </tr>
+            </xsl:for-each>
+          </tbody>
+        </table>
+      </div>
+    </xsl:if>
+    <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
+    <div class="table-wrapper">
+      <table class="grid">
+        <thead>
+          <tr>
+            <th>Event</th>
+            <th>Category</th>
+            <th>Mode</th>
+            <th>Focus</th>
+            <th>Request</th>
+            <th>Response</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <xsl:for-each select="event">
+            <tr>
+              <td>
+                <xsl:value-of select="code/@value"/>
+              </td>
+              <td>
+                <xsl:value-of select="category/@value"/>
+              </td>
+              <td>
+                <xsl:value-of select="mode/@value"/>
+              </td>
+              <td>
+                <xsl:value-of select="focus/@value"/>
+              </td>
+              <td>
+                <xsl:for-each select="request/reference/@value">
+                  <a href="{.}.html">
+                    <xsl:value-of select="."/>
+                  </a>
+                </xsl:for-each>
+              </td>
+              <td>
+                <xsl:for-each select="response/reference/@value">
+                  <a href="{.}.html">
+                    <xsl:value-of select="."/>
+                  </a>
+                </xsl:for-each>
+              </td>
+              <td>
+                <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
+              </td>
+            </tr>
+          </xsl:for-each>
+        </tbody>
+      </table>
+    </div>
+  </xsl:for-each>
+  <xsl:if test="document">
+    <br/>
+    <br/>
+    <h2>Documents</h2>
+    <xsl:for-each select="rest/documentMailbox/@value">
+      <xsl:value-of select="concat('Mailbox: ', .)"/>
+    </xsl:for-each>
+    <div class="table-wrapper">
+      <table class="grid">
+        <thead>
+          <tr>
+            <th>Mode</th>
+            <th>Profile</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <xsl:for-each select="document">
+            <tr>
+              <td>
+                <xsl:value-of select="mode/@value"/>
+              </td>
+              <td>
+                <xsl:for-each select="profile/@value">
+                  <a href="{.}">
+                    <xsl:value-of select="."/>
+                  </a>
+                </xsl:for-each>
+              </td>
+              <td>
+                <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
+              </td>
+            </tr>
+          </xsl:for-each>
+        </tbody>
+      </table>
+    </div>
+  </xsl:if>
+</div>

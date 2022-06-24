@@ -32,6 +32,11 @@ dependencies:
 description: "This implementation guide provides standardization around patient physical activity, including:&#x0a;* measures for recording a patient's level of physical activity;&#x0a;* measures to support assertions of physical activity, including device-based measures;&#x0a;* goals and care plans related to improving a patient's physical activity level;&#x0a;* orders for interventions seeking to improve a patient's physical activity level; and&#x0a;* processes to support closing the loop and evaluating the success of such interventions."
 parameters:
   path-expansion-params: "../../input/terminology-settings.xml"
+  path-liquid: "liquid"
+  apply-contact: false
+  apply-publisher: false
+  default-contact: true
+  default-publisher: true
 instanceOptions:
   setMetaProfile: never
 pages:

@@ -1,0 +1,18 @@
+Decide how to handle registry entries:
+- CareTeam
+- Device?
+- HealthcareService
+- Patient
+- RelatedPerson
+- Organization
+- Practitioner
+- PractitionerRole
+Talk about deletions
+Deal with subscriptions
+Create examples
+Create diagrams
+
+Explain choice to not use SMAP questionnaires
+Raise question about 'shared' canonical search parameters
+Properly handle Procedure.category extension & invariant
+Create intros for all the profiles, including references to SDOH when appropriate

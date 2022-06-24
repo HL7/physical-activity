@@ -6,6 +6,7 @@ Alias: $UCUM       = http://unitsofmeasure.org
 Instance:       questionnaire-evs
 InstanceOf:     SDCBaseQuestionnaire
 Title:          "Exercise Vital Sign Questionnaire"
+Usage:          #definition
 Description:    "Questionnaire that allows capturing the Exercise Vital Sign."
 * extension[http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationExtract].valueBoolean = true
 * extension[$obsExtract].valueBoolean = true
@@ -14,7 +15,7 @@ Description:    "Questionnaire that allows capturing the Exercise Vital Sign."
 * status           = #active
 * item[+].linkId	 = "89574-8"
 * item[=].extension[$unit].valueCoding = $UCUM#d/wk
-* item[=].code 		 = http://loinc.org#89574-8
+* item[=].code 		 = http://loinc.org#89555-7
 * item[=].text 		 = "For an average week in the last 30 days, how many days per week did you engage in moderate to strenuous exercise (like walking fast, running, jogging, dancing, swimming, biking, or other activities that cause a light or heavy sweat)?"
 * item[=].type 		 = #decimal
 * item[=].repeats  = false

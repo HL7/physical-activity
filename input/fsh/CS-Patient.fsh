@@ -3,6 +3,7 @@ Alias: $security = http://terminology.hl7.org/CodeSystem/restful-security-servic
 
 Instance:       pa-patient-engagement
 InstanceOf:     CapabilityStatement
+Usage:          #definition
 * title       = "Physical Activity Patient Engagement Capability Statement"
 * description = "Describes the expected capabilities of a system intended for use by patients and
   caregivers of patients who are working to enhance or maintain their levels of physical activity.

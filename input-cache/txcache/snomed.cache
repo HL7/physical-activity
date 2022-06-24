@@ -33,3 +33,369 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "819961005"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Physical activity guidance",
+  "code" : "819961005",
+  "system" : "http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "398636004"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Physical activity assessment (procedure)",
+  "code" : "398636004",
+  "system" : "http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "435551000124105"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Counseling about physical activity (procedure)",
+  "code" : "435551000124105",
+  "system" : "http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "390893007"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Referral to physical activity program",
+  "code" : "390893007",
+  "system" : "http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "426866005"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Determination of physical activity tolerance (procedure)",
+  "code" : "426866005",
+  "system" : "http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "229095001"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Exercise class",
+  "code" : "229095001",
+  "system" : "http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "229065009"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Exercise therapy",
+  "code" : "229065009",
+  "system" : "http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "409063005"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Counseling",
+  "code" : "409063005",
+  "system" : "http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "409073007"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Education",
+  "code" : "409073007",
+  "system" : "http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "386053000"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Investigations",
+  "code" : "386053000",
+  "system" : "http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "91251008"
+}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Physical therapy procedure",
+  "code" : "91251008",
+  "system" : "http://snomed.info/sct"
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "819961005",
+        "display" : "Physical activity guidance (Procedure)"
+      },
+      {
+        "code" : "398636004",
+        "display" : "Physical activity assessment (Procedure)"
+      },
+      {
+        "code" : "435551000124105",
+        "display" : "Counseling about physical activity (Procedure)"
+      },
+      {
+        "code" : "390893007",
+        "display" : "Referral to physical activity program (Procedure)"
+      },
+      {
+        "code" : "426866005",
+        "display" : "Determination of phyisical activity tolerance (Procedure)"
+      },
+      {
+        "code" : "229095001",
+        "display" : "Exercise class (regime/therapy)"
+      },
+      {
+        "code" : "229065009",
+        "display" : "Exercise therapy (regime/therapy)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:63f1d62d-ffa3-4de0-a168-48f69575d541",
+    "timestamp" : "2022-06-19T18:49:38.339Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20220301"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "819961005",
+      "display" : "Physical activity guidance (Procedure)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "398636004",
+      "display" : "Physical activity assessment (Procedure)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "435551000124105",
+      "display" : "Counseling about physical activity (Procedure)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "390893007",
+      "display" : "Referral to physical activity program (Procedure)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "426866005",
+      "display" : "Determination of phyisical activity tolerance (Procedure)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "229095001",
+      "display" : "Exercise class (regime/therapy)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "229065009",
+      "display" : "Exercise therapy (regime/therapy)"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "819961005",
+        "display" : "Physical activity guidance (Procedure)"
+      },
+      {
+        "code" : "398636004",
+        "display" : "Physical activity assessment (Procedure)"
+      },
+      {
+        "code" : "435551000124105",
+        "display" : "Counseling about physical activity (Procedure)"
+      },
+      {
+        "code" : "390893007",
+        "display" : "Referral to physical activity program (Procedure)"
+      },
+      {
+        "code" : "426866005",
+        "display" : "Determination of phyisical activity tolerance (Procedure)"
+      },
+      {
+        "code" : "229095001",
+        "display" : "Exercise class (regime/therapy)"
+      },
+      {
+        "code" : "229065009",
+        "display" : "Exercise therapy (regime/therapy)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:c543df87-fe91-45a0-80b1-1f1d3869db5c",
+    "timestamp" : "2022-06-19T18:49:53.917Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20220301"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "819961005",
+      "display" : "Physical activity guidance (Procedure)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "398636004",
+      "display" : "Physical activity assessment (Procedure)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "435551000124105",
+      "display" : "Counseling about physical activity (Procedure)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "390893007",
+      "display" : "Referral to physical activity program (Procedure)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "426866005",
+      "display" : "Determination of phyisical activity tolerance (Procedure)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "229095001",
+      "display" : "Exercise class (regime/therapy)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "229065009",
+      "display" : "Exercise therapy (regime/therapy)"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "409063005",
+        "display" : "Counselling"
+      },
+      {
+        "code" : "409073007",
+        "display" : "Education"
+      },
+      {
+        "code" : "386053000",
+        "display" : "Evaluation procedure (procedure)"
+      },
+      {
+        "code" : "91251008",
+        "display" : "Physical therapy procedure (regime/therapy)"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:b3a294fc-f96e-4f82-bae5-220794ceba50",
+    "timestamp" : "2022-06-19T18:49:54.136Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20220301"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "409063005",
+      "display" : "Counselling"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "409073007",
+      "display" : "Education"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "386053000",
+      "display" : "Evaluation procedure (procedure)"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "91251008",
+      "display" : "Physical therapy procedure (regime/therapy)"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
