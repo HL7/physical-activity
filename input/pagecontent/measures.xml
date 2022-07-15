@@ -1,4 +1,8 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <p>
+    This page describes standards for representing observations about a patient with respect to their level of physical activity as well
+    as supporting observations that provide additional detail and evidence for those higher-level observations.
+  </p>
   <a name="base"> </a>
   <h3>Base measure</h3>
 	<p>
@@ -7,7 +11,7 @@
     of capturing what activities were performed, and varying granularities with which the data can be captured.
 	</p>
 	<p>
-	  While fine-grained and detailed records (e.g. exactly which type of exercise was performed, which muscle groups were activited, how
+	  While fine-grained and detailed records (e.g. exactly which type of exercise was performed, which muscle groups were activated, how
 	  many repetitions were performed, how many intervals were done, etc.) are important for certain types of therapy and for research
 	  purposes, they are too complex and onerous for wide-spread use and are not easily evaluatable from a perspective of "is this patient
 	  sufficiently active to maintain good health?"
@@ -15,7 +19,7 @@
 	<p>
 	  This guide therefore mandates the use of the very simple Exercise Vital Sign (LOINC <a href="https://loinc.org/89574-8/">89574-8</a> 
 	  as the primary measure of patient physical activity level for exchange and evaluation.  This measure [is super awesome because all this
-	  research says it works great - Laurie please provide text to fill in here].
+	  research says it works great - TODO - Laurie please provide text to fill in here].
 	</p>
 	<p>
 	  The measure consists of two questions:
@@ -47,12 +51,6 @@
     <a href="{{site.data.fhir.ver.sdc}}/extraction.html#structuremap-based-extraction">StructureMap-based</a> approach.  The
     Questionnaire is <a href="Questionnaire-questionnaire-evs.html">here</a>.  An example QuestionnaireResponse that would correspond to the
     examples listed above can be found <a href="QuestionnaireResponse-qr-evs-example.html">here</a>.
-  </p>
-  <p>
-    <b>TO DISCUSS:</b>
-    Do we want any additional 'primary' measures - e.g. ones that distinguish aerobic from strength-based exercise and/or that drill down
-    into the specific details of the type(s) of exercise performed?  Considerations include: What's the evidence to support?, Can we
-    realistically expect most patients to capture? and Can we expect most clinicians/professionals to make use of the additional data?
   </p>
   
   
@@ -108,5 +106,18 @@
     fine-grained measurements may not correspond to time the patient considers to have been moderate to strenuous exercise.  The purpose of
     the supporting measurements is to assist the patient or caregiver in making their estimates as accurate as possible and to assist 
     practitioners in understanding more about the nature and timing of the patient's exercise.
+  </p>
+  <h4>Device-based measures</h4>
+  <p>
+    Measures such as step counts and heart rates will almost always come from personal healthcare devices.  However, these devices won't
+    (typically) capture their data as average.  Instead, there will be periodic measurements with a number of steps over a short interval
+    or a heart rate at a specific point in time.  The averages will therefore typically need to be captured by the patient's physical
+    activity tracking application.  It will do this by looking at the device-reported data and then capturing the average values - or
+    more specifically, the average values for those time periods that appear to be relevant to physical activity.
+  </p>
+  <p>
+    This guide does not define data standards for the raw device-based data.  HL7 has a <a href="http://hl7.org/fhir/uv/phd">Personal
+    Healthcare Devices</a> that provides a mechanism for raw device measurements to be exposed as FHIR.  In many cases, it may be simpler
+    to leverage the Apple Healthkit or Android Fit APIs to access the fine-grained measurements in order to determine the relevant averages.
   </p>
 </div>

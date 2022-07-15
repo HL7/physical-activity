@@ -15,50 +15,6 @@ Usage:          #definition
 * fhirVersion = #4.0.1
 * format[+]   = #json
 * format[+]   = #xml
-* publisher   = "Some Publisher"
-* contact[+]
-  * telecom[+]
-    * system = #url
-    * value  = "http://somewhere.com"
-  * telecom[+]
-    * system = #url
-    * value  = "http://somewhereelse.com" 
-  * telecom[+]
-    * system = #email
-    * value  = "someone@somewhere.com" 
-  * telecom[+]
-    * system = #phone
-    * value  = "1-234-567-8900" 
-* contact[+]
-  * name = "foo"
-  * telecom[+]
-    * system = #email
-    * value  = "someone@somewhere.com" 
-  * telecom[+]
-    * system = #url
-    * value  = "http://somewhere.com"
-  * telecom[+]
-    * system = #url
-    * value  = "http://somewhereelse.com" 
-  * telecom[+]
-    * system = #phone
-    * value  = "1-234-567-8900" 
-* contact[+]
-  * name = "bar"
-  * telecom[+]
-    * system = #phone
-    * value  = "1-234-567-8900" 
-  * telecom[+]
-    * system = #email
-    * value  = "someone@somewhere.com" 
-  * telecom[+]
-    * system = #url
-    * value  = "http://somewhere.com"
-  * telecom[+]
-    * system = #url
-    * value  = "http://somewhereelse.com"
-* purpose = "_test_ *test2*"
-* copyright = "_test_ *test2*"
 * rest[+]
   * mode          = #client
   * documentation = "Care managers only act as clients in situation where they are interacting with 

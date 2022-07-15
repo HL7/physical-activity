@@ -56,7 +56,10 @@ pages:
       title: Downloads
     credits.xml: 
       title: Credits
+    openissues.xml: 
+      title: Open Issues
 menu:
+  Contents: toc.html
   Home: index.html
   Background:
     FHIR Background: fhir.html
@@ -68,7 +71,7 @@ menu:
   Artifacts: artifacts.html
   Support:
     Project Home: https://confluence.hl7.org/display/PC/Physical+Activity
-    Support: https://chat.fhir.org/#narrow/stream/327137-Physical-Activity
+    Help & Discussions: https://chat.fhir.org/#narrow/stream/327137-Physical-Activity
     Downloads: downloads.html
 
 #Initialize SUSHI project in C:\Users\shorty\dev\NewIG? [y/n]: y

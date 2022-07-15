@@ -1,4 +1,12 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <blockquote class="stu-note">
+    <p>
+      This specification is a straw-man draft.  It is intended to form a starting point for discussion, but has not undergone any form of review, nor been endorsed by the
+      community of providers and implementers it is intended to serve.  Expect to find things that are unclear, missing, or outright wrong.  A list of known open issues
+      and outstanding to-dos can be found <a href="openissues.html">here</a>.  If a concern you have about the specification isn't already on that list of issues, please
+      raise it on the <a href="https://chat.fhir.org/#narrow/stream/327137-Physical-Activity">project discussion stream</a> on http://chat.fhir.org.
+    </p>
+  </blockquote>
   <a name="scope"> </a>
   <h3>Scope and purpose</h3>
   <p>
@@ -45,6 +53,7 @@
     <li>How to capture and share information that supports that primary measure - for patient, clinical, insurance or other use?</li>
     <li>How to create and share care plans and goals related to improving a patient's level of physical activity? and</li>
     <li>How to order interventions that can a assist a patient in improving their levels of physical activity?</li>
+    <li>Additional data and exchange flows needed to support all of the above, including registries, consent, status monitoring, satisfaction evaluation, etc.</li>
   </ul>
   <p>
     This guide was created primarily by U.S. stakeholders and in some places requires the use of code systems that are U.S.-centric.  However, the general architecture
@@ -90,7 +99,6 @@
     <li><a href="workflow.html">Physical Activity Workflow</a> defines the specific workflow and interoperability capabilities expected for systems that support this implementation guide.
       It describes each of the different types of electronic systems that might participate in sharing information around physical activity as well as what types of data exchanges
       those systems are expected to support.  Some requirements will be mandatory, others will be optional.</li>
-    <!-- todo - conformance expectations -->
   </ol>
   <p>
     In addition, there are a number of supporting pages that to help support the implementation process:
@@ -100,7 +108,7 @@
       you've read every page there is).</li>
     <li><a href="fhir.html">Understanding FHIR</a> - This page is aimed at implementers who might be new to using FHIR.  It identifies the key pieces of the FHIR specification an
       implementer should read and be familiar with before reading through the technical artifacts and instructions found in this implementation guide.  It also defines key
-      documentation conventions used in this IG.</li>
+      documentation conventions used in this IG.  Finally, it defines the rules for asserting conformance with this implementation guide.</li>
     <li><a href="artifacts.html">Artifacts</a> - This provides a summary of all of the technical artifacts defined in this implementation guide.  It also provides a list of the
       artifacts defined elsewhere that are leveraged as part of this implementation guide.</li>
     <li><a href="downloads.html">Downloads</a> - This provides a handy set of zip files that can be downloaded for local use, including this implementation guide and all of its
@@ -182,15 +190,24 @@
 
   <a name="citations"> </a>
   <h3>Citations</h3>
-  TODO: turn these into full references, ideally with proper hyperlinks
-  <a name="1"> </a>{Services, 2018 #2}
-  <a name="2"> </a>{Chastin, 2021 #451}
-  <a name="3"> </a>{Lin, 2020 #452}
-  <a name="4"> </a>{Hill, 2022 #453}
-  <a name="5"> </a>{Global Advocacy Council for Physical Activity International Society for Physical, 2010 #19}
-  <a name="6"> </a>{, 2022 #454}
-  <a name="7"> </a>{Services, 2018 #2}
-  <a name="8"> </a>{Carlson, 2015 #9}
-  <a name="9"> </a>{Strain, 2020 #8}
-
+  <ul>
+    <li>
+      <a name="1"> </a>{Services, 2018 #2}</li>
+    <li>
+      <a name="2"> </a>{Chastin, 2021 #451}</li>
+    <li>
+      <a name="3"> </a>{Lin, 2020 #452}</li>
+    <li>
+      <a name="4"> </a>{Hill, 2022 #453}</li>
+    <li>
+      <a name="5"> </a>{Global Advocacy Council for Physical Activity International Society for Physical, 2010 #19}</li>
+    <li>
+      <a name="6"> </a>{, 2022 #454}</li>
+    <li>
+      <a name="7"> </a>{Services, 2018 #2}</li>
+    <li>
+      <a name="8"> </a>{Carlson, 2015 #9}</li>
+    <li>
+      <a name="9"> </a>{Strain, 2020 #8}</li>
+  </ul>
 </div>

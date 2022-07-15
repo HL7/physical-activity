@@ -1,7 +1,16 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <p>
+    This page provides a list of download packages that may be helpful for implementers and other readers of this implementation guide.
+  </p>
+	<p>NOTE: This FHIR implementation guide (and all other FHIR IGs) have links to content in the FHIR core specification
+	  and, in most cases, to other IGs.  While it is possible to download all of these specifications and navigate them
+	  locally, hyperlinks <i>between</i> specifications will always refer to the web-hosted version of the specification.
+	  If you are working offline, you'll need to look up the corresponding page in your local copy when navigating such
+	  links.</p>
 	<p>
-    Download the entire implementation guide <a href="full-ig.zip">here</a>
-	</p>
+    Download the entire implementation guide for local browing <a href="full-ig.zip">here</a>.</p>
+	<p>
+    Download the FHIR core specification <a href="{{site.data.fhir.path}}fhir-spec.zip">here</a>.</p>
 	<table>
 		<tbody>
 			<tr>

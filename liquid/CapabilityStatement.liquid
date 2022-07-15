@@ -1,79 +1,9 @@
 <div>
-  {% if publisher.exists() %}
-    <p>
-      <xsl:text>Published by: </xsl:text>
-      <b>
-        {% if contact.where(name.empty()).telecom.where(system='url' or system='email').exists() %}
-
-          {% for aTelecom in contact.where(name.empty()).telecom.where(system='url' or system='email').first() %}
-            {% if aTelecom.system = 'email' %}
-              <a href="mailto:{{aTelecom.value}}">
-                {{publisher}}
-              </a>
-            {% else %}
-              <a href="{{aTelecom.value}}">
-                {{publisher}}
-              </a>
-            {% endif %}
-          {% endfor %}
-        {% else %}
-          {{publisher}}
-        {% endif %}
-      </b>
-      {% if contact.where(name.empty()).telecom.exclude(%resource.contact.where(name.empty()).telecom.where(system='url' or system='email').first()) %}
-        ({% for otherTelecom in contact.where(name.empty()).telecom.exclude(%resource.contact.where(name.empty()).telecom.where(system='url' or system='email').first()) %}
-          {% if otherTelecom.system.exists() %}
-            {{otherTelecom.system}}:
-          {% endif %}
-          {{otherTelecom.value}}{% if otherTelecom.value != contact.where(name.empty()).telecom.exclude(%resource.contact.where(name.empty()).telecom.where(system='url' or system='email').first()).last().value %}, {% endif %}
-        {% endfor %})
-      {% endif %}
-    </p>
-  {% endif %}
-  {% if contact.where(name.exists()) %}
-    <p>Contact Details:</p>
-    <ul>
-      {% for aContact in contact.where(name.exists()) %}
-        <li>
-          {% if aContact.telecom.where(system='url' or system='email').exists() %}
-            {% for aTelecom in aContact.telecom.where(system='url' or system='email').first() %}
-              {% if aTelecom.system = 'email' %}
-                <a href="mailto:{{aTelecom.value}}">
-                  {{aContact.name}}A
-                </a>
-              {% else %}
-                <a href="{{aTelecom.value}}">
-                  {{aContact.name}}B
-                </a>
-              {% endif %}
-            {% endfor %}
-          {% else %}
-            {{aContact.name}}
-          {% endif %}
-          {% if aContact.telecom.exclude(aContact.telecom.where(system='url' or system='email').first()) %}
-            ({% for otherTelecom in aContact.telecom.exclude(aContact.telecom.where(system='url' or system='email').first()) %}
-              {% if otherTelecom.system.exists() %}
-                {{otherTelecom.system}}:
-              {% endif %}
-              {{otherTelecom.value}}{% if otherTelecom.value != aContact.telecom.exclude(aContact.telecom.where(system='url' or system='email').first()).last().value %}, {% endif %}
-            {% endfor %})
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-
   {% if requirements.exists() %}  
     <p>
       <b>Requirements:</b>
     </p>
     {{ purpose | markdownify }}
-  {% endif %}
-  {% if copyright.exists() %}  
-    <p>
-      <b>Copyright:</b>
-    </p>
-    {{ copyright | markdownify }}
   {% endif %}
   {% if software.exists() %}
     <p>Applies to software: {{software.name}}
@@ -98,12 +28,13 @@
       {{description | markdownify}}
     </div>
   {% endif %}
+  <br/>
   <h2>General</h2>
   <div class="table-wrapper">
     <table class="grid">
       <tbody>
         <tr>
-          <th>FHIR Version:</th>
+          <th>Supported FHIR Version:</th>
           <td>
             {{fhirVersion}}
           </td>
@@ -176,19 +107,29 @@
     </table>
   </div>
   {% for Arest in rest %}
-    <h2>REST {{arest.mode}} behavior</h2>
-    {{Arest.documentation | markdownify}}
+    <br/>
+    <h2>REST {{Arest.mode}} behavior</h2>
+    {% if Arest.documentation.exists() %}
+      <div>{{Arest.documentation | markdownify}}</div>
+    {% endif %}
     {% if Arest.security.exists() %}
+      <br/>
       <p>
         <b>Security:</b>
       </p>
-      {% if Arest.security.service.coding.code.exists %}
-        {{Arest.security.service.coding.code}}
-        <br/>
+      {% if Arest.security.service.coding.code.exists() %}
+        <ul>
+          {% for Asecurity in Arest.security.service.coding.code %}
+            <li>{{Asecurity}}</li>
+          {% endfor %}
+        </ul>
       {% endif %}
-      {{ Arest.security.description | markdownify }}
+      {% if Arest.security.description %}
+        <div>{{ Arest.security.description | markdownify }}</div>
+      {% endif %}
     {% endif %}
-    {%if Arest.resource.exists() %}
+    {% if Arest.resource.exists() %}
+      <br/>
       <h3>Resource summary</h3>
       <div class="table-wrapper">              
         <table class="grid">
@@ -220,6 +161,8 @@
                     <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
                       {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
                         {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
+                      {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
+                        <b>PROHIBITED</b>
                       {% else %}
                         Yes
                       {% endif %}
@@ -227,57 +170,118 @@
                   {% endfor %}
                 </td>
                 <td>
-                  <xsl:for-each select="interaction[code/@value='read']">
-                    <xsl:call-template name="doCapabilityStatement"/>
-                  </xsl:for-each>
-                  <xsl:for-each select="conditionalRead/@value">
-                    <br/>(conditional read:<br/>
-                    <xsl:value-of select="concat(., ')')"/>
-                  </xsl:for-each>
+                  {% for Aop in Aresource.interaction.where(code = 'read') %}
+                    <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
+                      {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
+                        {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
+                      {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
+                        <b>PROHIBITED</b>
+                      {% else %}
+                        Yes
+                      {% endif %}
+                    </a>
+                  {% endfor %}
+                  {% for cRead in Aresource.conditionalRead %}
+                    <br/>(conditional read:<br/>{{cRead}})
+                  {% endfor %}
                 </td>
                 <td>
-                  <xsl:for-each select="interaction[code/@value='vread']">
-                    <xsl:call-template name="doCapabilityStatement"/>
-                  </xsl:for-each>
-                  <xsl:if test="readHistory/@value=false()">(current only)</xsl:if>
+                  {% for Aop in Aresource.interaction.where(code = 'vread') %}
+                    <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
+                      {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
+                        {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
+                      {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
+                        <b>PROHIBITED</b>
+                      {% else %}
+                        Yes
+                      {% endif %}
+                    </a>
+                  {% endfor %}
+                  {% if Aresource.readHistory = false %}(current only){% endif %}
                 </td>
                 <td>
-                  <xsl:for-each select="interaction[code/@value='history-instance']">
-                    <xsl:call-template name="doCapabilityStatement"/>
-                  </xsl:for-each>
+                  {% for Aop in Aresource.interaction.where(code = 'history-instance') %}
+                    <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
+                      {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
+                        {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
+                      {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
+                        <b>PROHIBITED</b>
+                      {% else %}
+                        Yes
+                      {% endif %}
+                    </a>
+                  {% endfor %}
                 </td>
                 <td>
-                  <xsl:for-each select="interaction[code/@value='history-type']">
-                    <xsl:call-template name="doCapabilityStatement"/>
-                  </xsl:for-each>
+                  {% for Aop in Aresource.interaction.where(code = 'history-type') %}
+                    <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
+                      {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
+                        {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
+                      {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
+                        <b>PROHIBITED</b>
+                      {% else %}
+                        Yes
+                      {% endif %}
+                    </a>
+                  {% endfor %}
                 </td>
                 <td>
-                  <xsl:for-each select="interaction[code/@value='create']">
-                    <xsl:call-template name="doCapabilityStatement"/>
-                  </xsl:for-each>
-                  <xsl:if test="conditionalCreate/@value='true'">(conditional supported)</xsl:if>
+                  {% for Aop in Aresource.interaction.where(code = 'create') %}
+                    <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
+                      {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
+                        {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
+                      {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
+                        <b>PROHIBITED</b>
+                      {% else %}
+                        Yes
+                      {% endif %}
+                    </a>
+                  {% endfor %}
+                  {% if Aresource.conditionalCreate = true %}(conditional supported){% endif %}
                 </td>
                 <td>
-                  <xsl:for-each select="interaction[code/@value='update']">
-                    <xsl:call-template name="doCapabilityStatement"/>
-                  </xsl:for-each>
-                  <xsl:if test="updateCreate/@value='false'">(existing only)</xsl:if>
-                  <xsl:if test="conditionalUpdate/@value='true'">(conditional supported)</xsl:if>
+                  {% for Aop in Aresource.interaction.where(code = 'update') %}
+                    <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
+                      {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
+                        {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
+                      {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
+                        <b>PROHIBITED</b>
+                      {% else %}
+                        Yes
+                      {% endif %}
+                    </a>
+                  {% endfor %}
+                  {% if Aresource.updateCreate = false %}(existing only){% endif %}
+                  {% if Aresource.conditionalUpdate = true %}(conditional supported){% endif %}
                 </td>
                 <td>
-                  <xsl:for-each select="interaction[code/@value='delete']">
-                    <xsl:call-template name="doCapabilityStatement"/>
-                  </xsl:for-each>
-                  <xsl:if test="conditionalDelete/@value='true'">(conditional supported)</xsl:if>
+                  {% for Aop in Aresource.interaction.where(code = 'delete') %}
+                    <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
+                      {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
+                        {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
+                      {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
+                        <b>PROHIBITED</b>
+                      {% else %}
+                        Yes
+                      {% endif %}
+                    </a>
+                  {% endfor %}
+                  {% if Aresource.conditionalDelete.exists() %}(conditional {{Aresource.conditionalDelete}}){% endif %}
                 </td>
                 <td>
-                  <xsl:for-each select="operation">
-                    <xsl:if test="position()!=1">
+                  {% for Aop in Aresoruce.operation %}
+                    ${{Aop.name}}:
+                    {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
+                      {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
+                    {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
+                      <b>PROHIBITED</b>
+                    {% else %}
+                      Yes
+                    {% endif %}
+                    {% if forloop.first = false %}
                       <br/>
-                    </xsl:if>
-                    <xsl:value-of select="concat('$', name/@value, ': ')"/>
-                    <xsl:call-template name="doCapabilityStatement"/>
-                  </xsl:for-each>
+                    {% endif %}
+                  {% endfor %}
                 </td>
               </tr>
             {% endfor %}
@@ -285,145 +289,238 @@
         </table>
       </div>
     {% endif %}
-    {% if operation.exists() %}
-    <xsl:if test="operation">
+    {% if Arest.operation.exists() %}
       <p>
         <b>Operations:</b>
       </p>
       <ul>
-        <xsl:for-each select="operation">
+        {% for Aop in Arest.operation %}
           <li>
-            <a href="{lower-case(definition/reference/@value)}{lower-case(definition/@value)}">
-              <xsl:value-of select="concat('$', name/@value)"/>
-            </a>
-            <xsl:for-each select="definition/display/@value">
-              <xsl:value-of select="concat(' - ', .)"/>
-            </xsl:for-each>
-            <xsl:for-each select="extension[@url=$expectation-extension]/valueCode/@value">
-              <i>
-                <xsl:value-of select="concat(' ', .)"/>
-              </i>
-            </xsl:for-each>
+            <a href="{{Aop.definition|downcase}}">${{Aop.name}}</a>
+            {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
+              {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
+            {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
+              <b>PROHIBITED</b>
+            {% else %}
+              Yes
+            {% endif %}
           </li>
-        </xsl:for-each>
+        {% endfor %}
       </ul>
-    </xsl:if>
     {% endif %}
-    {% if interaction.exists() %}
-    <xsl:if test="interaction">
-      <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(interaction/extension[@url=$expectation-extension]/valueCode/@value)"/>
+    {% if Arest.interaction.exists() %}
       <h3>General interactions</h3>
       <div class="table-wrapper">
         <table class="list">
         <thead>
           <tr>
-            <th>Name</th>
-            <xsl:if test="$doCapabilityStatement">
-              <th>Capability Statement</th>
-            </xsl:if>
-            <th>Description</th>
+            <th style="text-align: center">Name</th>
+            {% if Arest.interaction.extension(http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation).exists() or 
+                  Arest.interaction.extension(http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited).exists() %}
+              <th style="text-align: center">Conformance</th>
+            {% endif %}
+            <th style="text-align: center">Description</th>
           </tr>
         </thead>
         <tbody>
-          <xsl:apply-templates select="interaction">
-            <xsl:with-param name="doCapabilityStatement" select="$doCapabilityStatement"/>
-          </xsl:apply-templates>
+          {% for Aop in Aresource.interaction %}
+            <tr>
+              <td>
+                <b>
+                  <a name="{{Aresource.type}}-{{Aop.code}}">&#xA0;</a>
+                  <span>{{Aop.code}}</span>
+                </b>
+              </td>
+              {% if Arest.interaction.extension(http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation).exists() or 
+                    Arest.interaction.extension(http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited).exists() %}
+                <td>
+                  {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
+                    {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
+                  {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
+                    <b>PROHIBITED</b>
+                  {% endif %}
+                </td>
+              {% endif %}
+              <td>
+                {{Aop.documentation | markdownify}}
+              </td>
+            </tr>
+          {% endfor %}
         </tbody>
       </table>
       </div>
-    </xsl:if>
     {% endif %}
-    <xsl:for-each select="resource">
+    {% for Aresource in Arest.resource %}
       <br/>
       <br/>
       <h3>
-        <a href="{$fhirpath}{lower-case(type/@value)}.html">
-          <xsl:value-of select="type/@value"/>
-        </a>              
+        <a href="{{site.data.fhir.path}}{{Aresource.type | downcase}}.html">{{Aresource.type}}</a>              
       </h3>
-      <xsl:for-each select="profile/@value">
-        <p>
-          <xsl:text>Profile: </xsl:text>
-          <a href="{.}">
-            <xsl:value-of select="."/>
-          </a>
-        </p>
-      </xsl:for-each>
-      <xsl:if test="supportedProfile">
+      {% for Aprofile in Aresource.profile %}
+        <p>Profile: <a href="{{Aprofile}}">{{Aprofile}}</a></p>
+      {% endfor %}
+      {% if Aresource.supportedProfile.exists() %}
         <p>Supported Profile(s):</p>
         <ul>
-          <xsl:for-each select="supportedProfile">
+          {% for Aprofile in Aresource.supportedProfile %}
             <li>
-              <a href="{@value}">
-                <xsl:value-of select="@value"/>
-              </a>
-              <xsl:for-each select="extension[@url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation']">
-                <xsl:value-of select="concat(' ', valueCode/@value)"/>
-              </xsl:for-each>
+              <a href="{{Aprofile}}">{{Aprofile}}</a>
+              {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
+                {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
+              {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
+                <b>PROHIBITED</b>
+              {% endif %}
             </li>
-          </xsl:for-each>
+          {% endfor %}
         </ul>
-      </xsl:if>
-      <xsl:variable name="behavior" as="element()*">
-        <xsl:for-each select="versioning/@value">
-          <p>
-            <xsl:value-of select="concat('Versioning support: ', .)"/>
-          </p>
-        </xsl:for-each>
-        <xsl:for-each select="referencePolicy/@value">
-          <p>
-            <xsl:value-of select="concat('Reference policy: ', .)"/>
-          </p>
-        </xsl:for-each>
-      </xsl:variable>
-      <xsl:if test="$behavior">
+      {% endif %}
+      {% if Aresource.versioning.exists() or Aresource.referencePolicy.exists() %}
         <h4>Behavior</h4>
-        <xsl:copy-of select="$behavior"/>
-      </xsl:if>              
+        {% if Aresource.versioning.exists() %}
+          <p>Versioning support: {{Aresource.versioning}}</p>
+        {% endif %}
+        {% if Aresource.referencePolicy.exists() %}
+          <p>Reference policy: {{Aresource.referencePolicy}}</p>
+        {% endif %}
+      {% endif %}          
       <!-- Note: description doesn't exist yet -->
-      <xsl:copy-of select="fn:handleMarkdownLines(description/@value)"/>
+      {{documentation | markdownify}}
       <h4>Interactions</h4>
       <div class="table-wrapper">
         <table class="list">
-          <xsl:variable name="doCapabilityStatement" as="xs:boolean" select="exists(interaction/extension[@url=$expectation-extension]/valueCode/@value)"/>
           <thead>
             <tr>
-              <th>Name</th>
-              <xsl:if test="$doCapabilityStatement">
-                <th>Conformance</th>
-              </xsl:if>
-              <th>Description</th>
+              <th style="text-align: center">Name</th>
+              {% if Aresource.interaction.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() or 
+                    Aresource.interaction.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').exists() or
+                    Aresource.operation.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() or 
+                    Aresource.operation.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').exists() %}
+                <th style="text-align: center">Conformance</th>
+              {% endif %}
+              <th style="text-align: center">Description</th>
             </tr>
           </thead>
           <tbody>
-            <xsl:apply-templates select="interaction[documentation]">
-              <xsl:with-param name="doCapabilityStatement" select="$doCapabilityStatement"/>
-            </xsl:apply-templates>
-            <xsl:apply-templates select="operation[documentation]">
-              <xsl:with-param name="doCapabilityStatement" select="$doCapabilityStatement"/>
-            </xsl:apply-templates>
+            {% for Aop in Aresource.interaction.where(documentation.exists()) %}
+              <tr>
+                <td>
+                  <b>
+                    <a name="{{Aresource.type}}-{{Aop.code}}">&#xA0;</a>
+                    <span>{{Aop.code}}</span>
+                  </b>
+                </td>
+                {% if Aresource.interaction.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() or 
+                      Aresource.interaction.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').exists() or
+                      Aresource.operation.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() or 
+                      Aresource.operation.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').exists() %}
+                  <td>
+                    {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
+                      {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
+                    {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
+                      <b>PROHIBITED</b>
+                    {% endif %}
+                  </td>
+                {% endif %}
+                <td>
+                  {{Aop.documentation | markdownify}}
+                </td>
+              </tr>
+            {% endfor %}
+            {% for Aop in Aresource.operation.where(documentation.exists()) %}
+              <tr>
+                <th>
+                  <a name="{{Aresource.type}}-{{Aop.name}}">&#xA0;</a>
+                  <span>${{Aop.name}}</span>
+                </th>
+                {% if Aresource.interaction.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() or 
+                      Aresource.interaction.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').exists() or
+                      Aresource.operation.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() or 
+                      Aresource.operation.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').exists() %}
+                  <td>
+                    {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
+                      {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
+                    {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
+                      <b>PROHIBITED</b>
+                    {% endif %}
+                  </td>
+                {% endif %}
+                <td>
+                  {{Aop.documentation | markdownify}}
+                </td>
+              </tr>
+            {% endfor %}
           </tbody>
         </table>
       </div>
-      <xsl:if test="searchInclude or searchParam">
+      {% if Aresource.searchInclude.exists() or Aresource.searchRevInclude.exists() or Aresource.searchParam.exists() %}
         <h4>Search</h4>
-        <xsl:if test="searchInclude">
-          <p>
-            <xsl:text>Supported Includes: </xsl:text>
-            <xsl:value-of select="string-join(searchInclude/@value, ' ')"/>
-          </p>
-        </xsl:if>
-        <xsl:if test="searchParam">
-          <xsl:call-template name="doParams"/>
-        </xsl:if>
-      </xsl:if>
-    </xsl:for-each>
+        {% if Aresource.searchInclude.exists() %}
+          <p>Supported Includes: {{Aresource.searchInclude}}</p>
+        {% endif %}
+        {% if Aresource.searchRevInclude.exists() %}
+          <p>Supported Reverse-Includes: {{Aresource.searchRevInclude}}</p>
+        {% endif %}
+        {% if Aresource.searchParam.exists() %}
+          <div class="table-wrapper">
+            <table class="list">
+              <thead>
+                <tr>
+                  <th style="text-align: center">Parameter</th>
+                  {% if Aresource.searchParam.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() or 
+                        Aresource.searchParam.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').exists() %}
+                    <th style="text-align: center">Conformance</th>
+                  {% endif %}
+                  <th style="text-align: center">Type</th>
+                  <th style="text-align: center">Definition &amp; Chaining</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for Aparam in Aresource.searchParam %}
+                  <tr>
+                    <td>
+                      <b>
+                        {% if Aparam.definition.exists() %}
+                          <a href="{{Aparam.definition}}">{{Aparam.name}}</a>
+                        {% else %}
+                          {{Aparam.name}}
+                        {% endif %}
+                      </b>
+                    </td>
+                    {% if Aresource.searchParam.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() or 
+                          Aresource.searchParam.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').exists() %}
+                      <td>
+                        {% if Aparam.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
+                          {{Aparam.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
+                        {% elsif Aparam.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
+                          <b>PROHIBITED</b>
+                        {% endif %}
+                      </td>
+                    {% endif %}
+                    <td>{{Aparam.type}}
+                      {% if Aparam.target.exists() %}
+                        ({{Aparam.target}})
+                      {% endif %}
+                    </td>
+                    <td>
+                      {{Aparam.documentation | markdownify}}
+                      {% if Aparam.chain.exists() %}
+                        Chaining: {{Aparam.chain}}
+                      {% endif %}
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
   {% endfor %}
-  <xsl:for-each select="messaging">
+  {% for Amsg in messaging %}
     <br/>
     <br/>
     <h2>Messaging</h2>
-    <xsl:if test="endpoint">
+    {% if Amsg.endpoint.exists() %}
       <p>
         <b>End point(s): </b>
       </p>
@@ -434,24 +531,26 @@
               <th>Address</th>
               <th>Protocol(s)</th>
             </tr>
-            <xsl:for-each select="endpoint">
+            {% for Aendpoint in Amsg.endpoint %}
               <tr>
+                <td>{{Aendpoint.address}}</td>
                 <td>
-                  <xsl:value-of select="address/@value"/>
-                </td>
-                <td>
-                  <xsl:for-each select="protocol">
-                    <xsl:if test="position()!=1">, </xsl:if>
-                    <xsl:value-of select="if (display) then display/@value else code/@value"/>
-                  </xsl:for-each>
+                  {% for Aprotocol in Aendpoint.protocol %}
+                    {% if forloop.first = false %}, {% endif %}
+                    {% if Aprotocol.display.exists() %}
+                      {{Aprotocol.display}}
+                    {% else %}
+                      {{Aprotocol.code}}
+                    {% endif %}
+                  {% endfor %}
                 </td>
               </tr>
-            </xsl:for-each>
+            {% endfor %}
           </tbody>
         </table>
       </div>
-    </xsl:if>
-    <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
+    {% endif %}
+    {{Amsg.documentation | markdownify}}
     <div class="table-wrapper">
       <table class="grid">
         <thead>
@@ -466,50 +565,33 @@
           </tr>
         </thead>
         <tbody>
-          <xsl:for-each select="event">
+          {% for Aevent in Amsg.event %}
             <tr>
+              <td>{{Aevent.code}}</td>
+              <td>{{Aevent.category}}</td>
+              <td>{{Aevent.mode}}</td>
+              <td>{{Aevent.focus}}</td>
               <td>
-                <xsl:value-of select="code/@value"/>
+                {%for Aref in Aevent.request.reference %}
+                  <a href="{{Aref}}.html">{{Aref}}</a>
+                {% endfor %}
               </td>
               <td>
-                <xsl:value-of select="category/@value"/>
+                {%for Aref in Aevent.response.reference %}
+                  <a href="{{Aref}}.html">{{Aref}}</a>
+                {% endfor %}
               </td>
-              <td>
-                <xsl:value-of select="mode/@value"/>
-              </td>
-              <td>
-                <xsl:value-of select="focus/@value"/>
-              </td>
-              <td>
-                <xsl:for-each select="request/reference/@value">
-                  <a href="{.}.html">
-                    <xsl:value-of select="."/>
-                  </a>
-                </xsl:for-each>
-              </td>
-              <td>
-                <xsl:for-each select="response/reference/@value">
-                  <a href="{.}.html">
-                    <xsl:value-of select="."/>
-                  </a>
-                </xsl:for-each>
-              </td>
-              <td>
-                <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
-              </td>
+              <td>{{Aevent.documentation|markdownify}}</td>
             </tr>
-          </xsl:for-each>
+          {% endfor %}
         </tbody>
       </table>
     </div>
-  </xsl:for-each>
-  <xsl:if test="document">
+  {% endfor %}
+  {% if document.exists() %}
     <br/>
     <br/>
     <h2>Documents</h2>
-    <xsl:for-each select="rest/documentMailbox/@value">
-      <xsl:value-of select="concat('Mailbox: ', .)"/>
-    </xsl:for-each>
     <div class="table-wrapper">
       <table class="grid">
         <thead>
@@ -520,25 +602,19 @@
           </tr>
         </thead>
         <tbody>
-          <xsl:for-each select="document">
+          {% for Adoc in document %}
             <tr>
+              <td>{{Adoc.mode}}</td>
               <td>
-                <xsl:value-of select="mode/@value"/>
+                {% for Aprofile in Adoc.profile %}
+                  <a href="{{Aprofile}}">{{Aprofile}}</a>
+                {% endfor %}
               </td>
-              <td>
-                <xsl:for-each select="profile/@value">
-                  <a href="{.}">
-                    <xsl:value-of select="."/>
-                  </a>
-                </xsl:for-each>
-              </td>
-              <td>
-                <xsl:copy-of select="fn:handleMarkdownLines(documentation/@value)"/>
-              </td>
+              <td>{{Adoc.documentation|markdownify}}</td>
             </tr>
-          </xsl:for-each>
+          {% endfor %}
         </tbody>
       </table>
     </div>
-  </xsl:if>
+  {% endif %}
 </div>

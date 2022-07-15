@@ -1,5 +1,44 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
 	<p>
-    
+    This page defines the mechanisms providers can use to assist patients with their physical activvity levels if measurements indicate
+    that intervention is called for.  There are three main mechanisms defined:
 	</p>
+	<ul>
+    <li>creating <a href="orders">exercise prescriptions</a> detailing what level of physical activity a patient should performing on
+      a regular basis</li>
+    <li>setting <a href="plans">plans and goals</a> with the patient and their supports around what their physical activity level should
+      look like - and how they can realistically get there, and</li>
+    <li>creating <a href="referrals">referrals</a> to physical activity specialists who can help a patient to achieve their
+      physical activity targets in a manner that meets their physical limitations, lifestyle and interests</li>
+  </ul>
+  <p>
+    These three types of interventions can be used separately or in concert to help patients achieve a healthy level of physical activity.
+  </p>
+  
+  <a name="orders"> </a>
+  <h3>Exercise Prescriptions</h3>
+  <p>
+    Sometimes all that's necessary to help a patient to improve their level of physicial activity is to have their clinician formally
+    prescribe it, in much the same way as they might prescribe a medication or physiotherapy.  [Todo - add references to literature supporting
+    this.]
+  </p>
+  <p>
+    In FHIR, orders for physical actions are represented using the <a href="StructureDefinition-pa-servicerequest.html">ServiceRequest profile</a>.
+    In the case of an exercise referral, the ServiceRequest 'performer' would be the patient themselves.  The requested activity would be
+    exercise therapy (SNOMED 229065009), possibly with more specific textual details as to the type of physical activity to perform, along
+    with timing information - e.g. 150 minutes/week conveyed in the effectiveTiming element.
+  </p>
+  <p>
+    While in many cases there is no need for such orders to be exchanged electronically, it may be useful for others involved in the patient's
+    care to be aware of the existence of the order so they can support the patient in performing it.
+  </p>
+
+  <a name="plans"> </a>
+  <h3>Plans and Goals</h3>
+  <p>
+    
+  </p>
+
+  <a name="referrals"> </a>
+  <h3>Referrals</h3>
 </div>

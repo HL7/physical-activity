@@ -1,0 +1,82 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <p>
+    This implementation guide is <b>>DRAFT</b>.  There are a number of open issues that will need to be resolved before it will be fully 
+    implementable and a number of additional clean-up steps that will need to be taken before the guide is published for ballot.
+    A list of known issues follows.  If there are additional issues you feel should be discussed/addressed, please raise them on the 
+    <a href="https://chat.fhir.org/#narrow/stream/327137-Physical-Activity">project discussion stream</a> on http://chat.fhir.org.
+  </p>
+  <h3>Open issues</h3>
+  <p>
+    These are topics that will require debate and discussion with domain experts to determine how the specification should work.  Project calls
+    will focus on resolving these issues.
+  </p>
+  <ol>
+    <li><b>General approach</b> - this specification was developed without broad review by domain experts and therefore may not meet real
+      needs and/or may include functionality that is not needed or unlikely to be implemented.  A thorough review and potentially
+      exploration of alternatives is needed</li>
+    <li><b>EVS Grouping</b> - The spec currently says that exercise vital sign doesn't need to have a high-level grouping and represents
+      each of the components as distinct observations.  Is this the appropriate representation?</li>
+    <li><b>Additional primary meassures</b> -  Do we want any additional 'primary' measures - e.g. ones that distinguish aerobic from 
+      strength-based exercise and/or that drill down into the specific details of the type(s) of exercise performed?  Alternatively,
+      do we want to support additional 'properties' that further qualify the high level EVS observations (e.g. exercise types)?
+      Considerations include: What's the evidence to support?, Can we realistically expect most patients to capture? and Can we expect most 
+      clinicians/professionals to make use of the additional data?</li>
+    <li><b>Supporting measures</b> - Do we have the right ones?  Will clincians actually care about this data?  Can apps really use it to
+      help patients fill in their EVS measures?  Are there other measures we're missing?</li>
+    <li><b>Fine-grained measures</b> - the guide assumes that the patient *won't* be sharing their individual heart rate, step count and other
+      measurements, as that would represent way too much volume.  Is this a reasonable assumption?</li>
+    <li><b>Plans and prescriptions?</b> - is there sufficient difference in value between having an exercise prescription and having a 
+      plan that we need to support both?</li>
+    <li><b>Exercise prescriptions shareable</b> - While exercise prescriptions are useful, is there a value in sharing them electronically with
+      anyone, or is just printing it all that's needed?</li>
+    <li><b>Responsibilities of Referral Recipient</b> - Can referral recipients store data?  Can they push observations to care managers on
+      behalf of a patient?  Can they update care plans or goals?</li>
+    <li><b>Responsibilities of patient</b> - Can patient systems update goals and/or plans?</li>
+    <li><b>Registry management</b> - The ordering, performing and possibly patient systems will need to have a shared authoritative list of
+      entities that can be referred to, including an ability to filter the regestry entries to those that are 'relevant'.  Ideally, we'll be
+      able to leverage the work from [FAST Directory Query IG](build.fhir.org/ig/HL7/fhir-directory-query/), though that doesn't cover everything
+      we need.  Specific entities that will need to be discoverable and referenceable include:
+      <ul>
+        <li><a href="{{site.data.fhir.path}}">CareTeam</a>? - if used to represent a team of practitioners with assigned roles</li>
+        <li>HealthcareService - if used to represent particular capabilities a patient can be referred to</li>
+        <li>Organization - to identify clinical, social service, and intervention delivery organizations</li>
+        <li>Patient - the focus of the observations and beneficiary of any interventions</li>
+        <li>Practitioner and PractitionerRole - specific individuals involved in planning and ordering care or delivering care</li>
+        <li>RelatedPerson - parents, spouses, neighbors and others who may act on behalf of the patient and/or assist the patient</li>
+      </ul>
+      Of these, neither Patient nor RelatedPerson are covered by the FAST project, so alternatives will need to be explored.  For the remainder,
+      will need to confirm which ones will be used and whether we can leverage existing registry endpoints (and get additional relevant
+      practitioners, organizations, etc. exposed and managed via those endpoints).
+    </li>
+    <li><b>Subscriptions</b> - Gravity makes use of subscriptions to monitor for changes to orders and tasks.  Is that something we want to do too?
+      Doing so requires a larger degree of system capability.  It also requires using R4B rather than R4, and R4B isn't yet referenced in 
+      U.S. regulations.</li>
+    <li><b>Examples</b> - every profile we have needs to have at least one, and ideally several examples that cover the range of how it can be
+      used.  Most ideal of all would be for the examples to interrelate and convey a realistic scenario.  We need to gather the scenarios and
+      the detailed data elements that would be shared in those scenarios in order to construct appropriate examples.</li>
+    <li><b>Implementation</b> - We cannot bring this specification to ballot until multiple independent systems have implemnted it and successfully
+      interoperated in at least a test environment.  Who will implement and who can they test with?</li>
+  </ol>
+  <h3>Outstanding to-do items</h3>
+  <p>
+    These are known deficiencies in the specification that need to be corrected, but which don't necessarily require domain expertise to
+    address.  Some of them are technical and relate to HL7 internal processes, so don't worry if you don't understand them all.
+  </p>
+  <ol>
+    <li>Credits: add name of our sponsor</li>
+    <li>Home page: Fill in citations with proper citations (and links if possible)</li>
+    <li>Measures: Fill in section about evidence validating the Exercise Vital Sign as an appropriate measure</li>
+    <li>Interventions: Indicate research showing benefits of prescribing exercise</li>
+    <li>Transaction: Set expectations for support of transaction in </li>
+    <li>Artifacts: Create initial examples for all profiles</li>
+    <li>Various: Create diagrams to represent information visually where it makes sense to</li>
+    <li>Explain why our Questionnaires aren't using StructureMap-based extraction the way Gravity SDOH does</li>
+    <li>Downloads: Remove link to backport IG if we're not using it.</li>
+    <li>Artifacts: Create complete examples (and possibly ExampleScenarios) for all profiles leveraging domain epxert input</li>
+    <li>Credits: add list of active project participants</li>
+    <li>Everywhere: Full spelling and grammer check, plus review for clarity and readability (feel free to report issues you find though!)</li>
+    <li>QA Report: Create Jira file</li>
+    <li>QA Report: Seek US Realm exceptions for non-US-Core-derived profiles</li>
+    <li>QA Report: Make sure it's clean</li>
+  </ol>
+</div>
