@@ -102,6 +102,10 @@
     <a href="StructureDefinition-pa-condition.html">Condition</a> in the record indicating their concern, and to act as a focal point for subsequent
     plans, goals, and interventions.
   </p>
+  <p>
+    In this IG, creation or updating of a Condition is always done internally by a Care Manager.  However, external systems (i.e. Refererral Recipients
+    and Patient Engagement systems can search for and retrieve these records.
+  </p>
   
   <a name="plan"> </a>
   <p>
@@ -118,7 +122,94 @@
     supported.  In some cases, the plan shared may carry more information than just information about exercise.  However, the plan <b>SHOULD</b>
     not contain any information that would be inappropriate for exercise professionals or others involved in the patient's exercise plan to see.
   </p>
+  <p>
+    The exercise plan will almost always be accompanied by <a href="StructureDefinition-pa-goal.html">physical activity goals</a>.  These express
+    targets for the patient in a computable manner such that Patient Engagement systems can render a patient's progress against their goals and
+    all participants in the patient's care can have a shared understanding of what goals have been met, what goals are still being worked towards
+    and what is intended for the future.
+  </p>
+  <p>
+    In this IG, the expectation is that both the exercise plan and its associated goals are stored on the Care Manager.  At minimum, Referral Recipient
+    and Patient Engagement systems will be able to query and monitor the plan and goals.  In some environments, they may also be able to make changes
+    to plans and goals, such as adjusting status, adding comments or otherwise indicating progress.
+  </p>
 
   <a name="referral"> </a>
   <h4>Referral Management</h4>
+  <p>
+    As discussed on the <a href="interventions.html#referrals">interventions page</a>, referrals are the mechanism by which a Care Manager authorizes
+    interventions to be performed by a physical activity professional.  The <a href="StructureDefinition-pa-servicerequest.html">referral record</a>
+    is created and maintained exclusively on the Care Manager system.  However, Referral Recipient and Patient Engagement systems will have query access
+    to the record.
+  </p>
+  <p>
+    The <a href="{{site.data.fhir.ver.sdoh}}StructureDefinition-SDOHCC-TaskForReferralManagement.html">Task</a> is what really drives the workflow.  
+    Typically referrals won't be directed to a particular service provider.  Instead, Tasks will be used to solicit providers who are willing to
+    perform a needed intervention (possibly with guidance from the patient around their preferences).  Referral Recipients will 
+    <a href="#monitor">monitor</a> for new 'requested' Tasks assigned to them and will update the Tasks to indicate acceptance and, then 'in-progress',
+    and eventually link the performed <a href="StructureDefinition-PA-Procedure.html">procedure</a> records to the Task and update the status to 'completed'.
+  </p>
+  <p>
+    However, in addition to this 'happy' path, the Task is also used to document other workflows.  These include:
+  </p>
+  <ul>
+    <li>Changing the Task.status to 'rejected' and populating Task.reason.  E.g. the service provider is not accepting new patients.</li>  
+    <li>After initially 'accepting' the task, changing the Task.status to 'cancelled' and populating Task.reason.  E.g. the service provider has become
+      unavailable and is no longer able to satisfy the referral.</li>  
+    <li>Changing the Task.status to 'on-hold' and populating Task.reason.  E.g. the patient has been hospitalized or gone on vacation.</li>  
+    <li>Changing the Task.status to 'failed' and populating the Task.reason.  E.g. the patient has chosen to discontinue the training program.</li>
+    <li>Changing the Task.businesStatus to communicate some degree of internal progress.  E.g. "completed intake session", "Developed workout plan",
+      "'fading out' supports", etc.  (There is no requirement to do this, but it helps ensure everyone is on the same page.)</li>
+    <li>Adding Task.note repetitions capturing progress against the Task.</li>
+  </ul>
+  <p>
+    Alternatively, that Task might be updated by the Care Manager to cancel or fail the Task if the provider (usually in consultation with the patient)
+    has determined that the referral is no longer appropriate/necessary.
+  </p>
+  <p>
+    There are two different modes of operation for task management.  In one, the Task lives on the Care Manager system and is either
+    <a href="#poll">polled</a> or <a href="#subscribe">subscribed to</a> by the Referral Recipient to monitor for initial creation and any Care 
+    Manager-side updates.  The Referral Recipient submits updates to the Care Manager to drive all record changes.  This approach means that the
+    Referral Recipient doesn't need to expose a FHIR server interface and doesn't even need to have an ability to store health data locally.
+  </p>
+  <p>
+    In the second, the Task is posted by the Care Manager to the Referral Recipient's system.  All changes are made locally and it is the
+    Care Manager that polls or subscribes to the Task to monitor it for changes.  If the Care Manager needs to cancel the Task, they do so
+    by submitting an update to the Referral Recipient.  In this approach, the Referral Recipient must have a FHIR server endpoint and that
+    endpoint must be known to all Care Managers that will be sending orders.
+  </p>
+  <p>
+    Gravity has a third mode of operation where intermediary systems act as a shared point of contact between Care Managers and Referral Recipients.
+    This IG does not currently support an 'intermediary' architecture as there is not (yet?) an obvious set of intermediary vendors who could
+    take on such a role.
+  </p>
+  
+  <a name="feedback"> </a>
+  <h4>Capturing Feedback and patient engagement</h4>
+  <p>
+    Another area where this implementation guide borrows from Gravity SDOH is in the use of Questionnaires to solicit feedback from patients (and
+    their caregivers) about satisfaction with a particular service provider.  Patient satisfaction with their providers is a key indicator of their
+    long-term success in improving and sustaining their physical activity levels.  (TODO - do we have any evidence for this?).  Gravity also uses
+    the same Task-based mechanism to prompt patients to contact particular service providers, to review documentation, or to perform other 
+    ad-hoc actions.
+  </p>
+  <p>
+    This IG leverages the same <a href="{{site.data.fhir.ver.sdoh}}StructureDefinition-SDOHCC-TaskForPatient.html">SDOHCC Task for Patient</a>
+    profile because the requirements are the same and there is nothing in the profile that makes it specific to social determinants of health.
+    The providers the patient is asked to contact, the literature they're asked to review, and the types of feedback they're asked to provide
+    may differ.  However, the interoperability mechanisms for requesting the actions and capturing and monitoring the responses will be the same.
+  </p>
+  <p>
+    The workflow is also the same.  The Patient Engagement app monitors for Tasks assigned to that patient and retrieves them and displays them
+    to the patient, then updates the Task with the information from the completed task.
+  </p>
+  
+  <a name="monitoring"> </a>
+  <h3>Monitoring for change</h3>
+  <p>
+    This IG involves resources that reside and are updated on one system (typically the Care Manager) that are of interest to other systems
+    (typically the Patient Engagement and Referral Receiver systems).  There are two architectural mechanisms that can be used for such monitoring:
+    polling and subscription.  The SDOH IG provides considerable detail about how each of these mechanisms functions for tasks 
+    <a href="{{site.data.fhir.ver.sdoh}}/checking_task_status.html">here</a>.  
+  </p>
 </div>

@@ -29,9 +29,25 @@
       plan that we need to support both?</li>
     <li><b>Exercise prescriptions shareable</b> - While exercise prescriptions are useful, is there a value in sharing them electronically with
       anyone, or is just printing it all that's needed?</li>
-    <li><b>Responsibilities of Referral Recipient</b> - Can referral recipients store data?  Can they push observations to care managers on
-      behalf of a patient?  Can they update care plans or goals?</li>
+    <li><b>Responsibilities of Referral Recipient</b> - Can referral recipients store data that is accessible to external systems?  Can they push 
+      observations to care managers on behalf of a patient?  Can they update care plans or goals?  If so, do we want to standardize what changes 
+      can and can't be made?</li>
+    <li><b>Responsibilities of Patient Engagement systems</b> - Can referral recipients store data that is accessible to external systems?  
+      Can they update care plans or goals?  If so, do we want to standardize what changes can and can't be made?</li>
+    <li><b>Intervention types</b> - The current list of possible interventions are the codes that exist in SNOMED CT that seem to be relevant,
+      however that doesn't mean that they're useful.  What codes should actually exist?  What codes are necessary to provide an appropriate
+      level of computability, particularly for billing support?</li>
     <li><b>Responsibilities of patient</b> - Can patient systems update goals and/or plans?</li>
+    <li><b>Condition needed</b> - following the Gravity SDOH pattern, they use Condition as the foundation for referrals, etc.  The logic is
+      that a formal diagnosis is needed to enable insurance billing.  Is that the case for physical activity, or can we get away with just
+      observations?  Do either Referral Recipient or Patient Engagement systems have any use for these?</li>
+    <li><b>Intermediaries?</b> - is there a role for intermediaries operating between care coordinators and referral recipients in the same way
+      that third parties function in Gravity SDOH?  If so, who would the likely candidates be and what would the business model be?</li>
+    <li><b>Feedback necessary?</b> - In Gravity, feedback about satisfaction with service providers is important to both ordering clinicians and
+      payers.  Are we confident that the same will be true in the physical activity space?  I.e. will systems bother asking for feedback about
+      service delivery, and if so, act on the information provided?  How?</li>
+    <li><b>Transaction support</b> - Where do we need to support sending multiple things at once in a transaction?  Is it better to
+      simply have all of the systems send resources one at a time?</li>
     <li><b>Registry management</b> - The ordering, performing and possibly patient systems will need to have a shared authoritative list of
       entities that can be referred to, including an ability to filter the regestry entries to those that are 'relevant'.  Ideally, we'll be
       able to leverage the work from [FAST Directory Query IG](build.fhir.org/ig/HL7/fhir-directory-query/), though that doesn't cover everything
@@ -56,6 +72,8 @@
       the detailed data elements that would be shared in those scenarios in order to construct appropriate examples.</li>
     <li><b>Implementation</b> - We cannot bring this specification to ballot until multiple independent systems have implemnted it and successfully
       interoperated in at least a test environment.  Who will implement and who can they test with?</li>
+    <li><b>MVP?</b> - Do the conformance requirements reflect the 'minimum viable product' needed by the market with optional elements limited to
+      those that, while not strictly necessary, are still likely to be taken up by a significant proportion of the community?</li>
   </ol>
   <h3>Outstanding to-do items</h3>
   <p>
@@ -67,7 +85,9 @@
     <li>Home page: Fill in citations with proper citations (and links if possible)</li>
     <li>Measures: Fill in section about evidence validating the Exercise Vital Sign as an appropriate measure</li>
     <li>Interventions: Indicate research showing benefits of prescribing exercise</li>
-    <li>Transaction: Set expectations for support of transaction in </li>
+    <li>Workflow: What does research indicate the 'target' level of physical activity?</li>
+    <li>Transaction: Set expectations for support of transaction in measure submission and possibly interventions</li>
+    <li>Add a security and privacy section</li>
     <li>Artifacts: Create initial examples for all profiles</li>
     <li>Various: Create diagrams to represent information visually where it makes sense to</li>
     <li>Explain why our Questionnaires aren't using StructureMap-based extraction the way Gravity SDOH does</li>
