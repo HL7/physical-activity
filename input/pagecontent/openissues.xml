@@ -81,10 +81,7 @@
     address.  Some of them are technical and relate to HL7 internal processes, so don't worry if you don't understand them all.
   </p>
   <ol>
-    <li>Credits: add name of our sponsor</li>
-    <li>Home page: Fill in citations with proper citations (and links if possible)</li>
     <li>Measures: Fill in section about evidence validating the Exercise Vital Sign as an appropriate measure</li>
-    <li>Interventions: Indicate research showing benefits of prescribing exercise</li>
     <li>Workflow: What does research indicate the 'target' level of physical activity?</li>
     <li>Transaction: Set expectations for support of transaction in measure submission and possibly interventions</li>
     <li>Add a security and privacy section</li>

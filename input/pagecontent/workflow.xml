@@ -77,8 +77,26 @@
     to authorize payment for interventions.
   </p>
   <p>
-    Similarly, this implementation guide does not establish a hard and fast rule as to what constitutes 'sufficient' physical activity.  There
-    are research guidelines that suggest ???? (TODO).  However, the fundamental determination of when intervention is appropriate is left up
+    U.S. Health and Human Services provides the following minimum recommendations for physical activity for Americans:
+  </p>
+  <table style="grid">
+    <tbody>
+      <tr>
+        <th>Age group</th>
+        <th>Target activity level</th>
+      </tr>
+      <tr>
+        <td>6-17 years</td>
+        <td>60 minutes/day moderate-vigorous activity</td>
+      </tr>
+      <tr>
+        <td>Adults</td>
+        <td>150-300 minutes/week moderate or 75-150 minutes/week of vigorous activity</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    However, the fundamental determination of when intervention is appropriate is left up
     to care providers and patients to determine.  Comorbidities such as diabetes, hypertension, obesity, cardiac risk factors, etc. may all
     come into play, either indicating that higher target levels or sometimes lower target levels are appropriate.  Payers may set rules for
     what criteria need to be met in order for interventions to be covered under particular plans.
@@ -143,7 +161,7 @@
     to the record.
   </p>
   <p>
-    The <a href="{{site.data.fhir.ver.sdoh}}StructureDefinition-SDOHCC-TaskForReferralManagement.html">Task</a> is what really drives the workflow.  
+    The <a href="{{site.data.fhir.ver.sdoh}}/StructureDefinition-SDOHCC-TaskForReferralManagement.html">Task</a> is what really drives the workflow.  
     Typically referrals won't be directed to a particular service provider.  Instead, Tasks will be used to solicit providers who are willing to
     perform a needed intervention (possibly with guidance from the patient around their preferences).  Referral Recipients will 
     <a href="#monitor">monitor</a> for new 'requested' Tasks assigned to them and will update the Tasks to indicate acceptance and, then 'in-progress',
@@ -168,8 +186,9 @@
   </p>
   <p>
     There are two different modes of operation for task management.  In one, the Task lives on the Care Manager system and is either
-    <a href="#poll">polled</a> or <a href="#subscribe">subscribed to</a> by the Referral Recipient to monitor for initial creation and any Care 
-    Manager-side updates.  The Referral Recipient submits updates to the Care Manager to drive all record changes.  This approach means that the
+    polled or subscribed to by the Referral Recipient to monitor for initial creation and any Care Manager-side updates.  (The Gravity SDOHCC
+    guide describes the differences between these two options in more detail <a href="{{site.data.fhir.ver.sdoh}}/checking_task_status.html">here</a>.)
+    The Referral Recipient submits updates to the Care Manager to drive all record changes.  This approach means that the
     Referral Recipient doesn't need to expose a FHIR server interface and doesn't even need to have an ability to store health data locally.
   </p>
   <p>
@@ -194,7 +213,7 @@
     ad-hoc actions.
   </p>
   <p>
-    This IG leverages the same <a href="{{site.data.fhir.ver.sdoh}}StructureDefinition-SDOHCC-TaskForPatient.html">SDOHCC Task for Patient</a>
+    This IG leverages the same <a href="{{site.data.fhir.ver.sdoh}}/StructureDefinition-SDOHCC-TaskForPatient.html">SDOHCC Task for Patient</a>
     profile because the requirements are the same and there is nothing in the profile that makes it specific to social determinants of health.
     The providers the patient is asked to contact, the literature they're asked to review, and the types of feedback they're asked to provide
     may differ.  However, the interoperability mechanisms for requesting the actions and capturing and monitoring the responses will be the same.
@@ -204,7 +223,7 @@
     to the patient, then updates the Task with the information from the completed task.
   </p>
   
-  <a name="monitoring"> </a>
+  <a name="monitor"> </a>
   <h3>Monitoring for change</h3>
   <p>
     This IG involves resources that reside and are updated on one system (typically the Care Manager) that are of interest to other systems

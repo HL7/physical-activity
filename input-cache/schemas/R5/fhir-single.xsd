@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Mon, Jul 18, 2022 18:20+0000 for FHIR v4.6.0 
+  Generated on Thu, Jul 21, 2022 13:34+0000 for FHIR v4.6.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.6.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -1968,6 +1968,11 @@
       <xs:enumeration value="FormularyItem">
         <xs:annotation>
           <xs:documentation xml:lang="en">FormularyItem</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="GenomicStudy">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">GenomicStudy</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="Goal">
@@ -12438,6 +12443,11 @@
           <xs:documentation xml:lang="en">FormularyItem</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="GenomicStudy">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">GenomicStudy</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="Goal">
         <xs:annotation>
           <xs:documentation xml:lang="en">Goal</xs:documentation>
@@ -13991,6 +14001,11 @@
           <xs:documentation xml:lang="en">FormularyItem</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="GenomicStudy">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">GenomicStudy</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="Goal">
         <xs:annotation>
           <xs:documentation xml:lang="en">Goal</xs:documentation>
@@ -14943,6 +14958,7 @@
       <xs:element ref="FamilyMemberHistory"/>
       <xs:element ref="Flag"/>
       <xs:element ref="FormularyItem"/>
+      <xs:element ref="GenomicStudy"/>
       <xs:element ref="Goal"/>
       <xs:element ref="GraphDefinition"/>
       <xs:element ref="Group"/>
@@ -37969,6 +37985,290 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:element name="GenomicStudy" type="GenomicStudy">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A Genomic Study is a set of analysis performed to analyze and generate genomic data.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GenomicStudy">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A Genomic Study is a set of analysis performed to analyze and generate genomic data.</xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DomainResource">
+        <xs:sequence>
+          <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Identifiers for this genomic study.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="status" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The status of the genomic study.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The type of the study.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="subject" minOccurs="1" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The primary subject of the genomic study.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="encounter" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The healthcare event with which this genomics study is associated.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="startDate" minOccurs="0" maxOccurs="1" type="dateTime">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">When the genomic study was started.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="basedOn" minOccurs="0" maxOccurs="unbounded" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Event resources that the genomic study is based on.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="referrer" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Healthcare professional who requested or referred the genomic study.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="interpreter" minOccurs="0" maxOccurs="unbounded" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Healthcare professionals who interpreted the genomic study.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="reason" minOccurs="0" maxOccurs="unbounded" type="CodeableReference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Why the genomic study was performed.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="note" minOccurs="0" maxOccurs="unbounded" type="Annotation">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Comments related to the genomic study.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="description" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Description of the genomic study.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="analysis" type="GenomicStudy.Analysis" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The details about a specific analysis that was performed in this GenomicStudy.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GenomicStudy.Analysis">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A Genomic Study is a set of analysis performed to analyze and generate genomic data.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Identifiers for the analysis event.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="methodType" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Type of the methods used in the analysis.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="changeType" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Type of the genomic changes studied in the analysis such as insertion, inversion, or deletion.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="genomeBuild" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The reference genome build that is used in this analysis.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="instantiatesCanonical" minOccurs="0" maxOccurs="1" type="canonical">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The defined protocol that describes the analysis.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="instantiatesUri" minOccurs="0" maxOccurs="1" type="uri">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The URL pointing to an externally maintained protocol that describes the analysis.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="title" minOccurs="0" maxOccurs="1" type="string">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Name of the analysis event (human friendly).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="subject" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The subject of the analysis event.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="specimen" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The specimen used in the analysis event.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The date of the analysis event.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="note" minOccurs="0" maxOccurs="unbounded" type="Annotation">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Any notes capture with the analysis event.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="protocolPerformed" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The protocol that was performed for the analysis event.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="regionsStudied" minOccurs="0" maxOccurs="unbounded" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The genomic regions to be studied in the analysis (BED file).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="regionsCalled" minOccurs="0" maxOccurs="unbounded" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Genomic regions actually called in the analysis event (BED file).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="input" type="GenomicStudy.Input" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Inputs for the analysis event.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="output" type="GenomicStudy.Output" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Outputs for the analysis event.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="performer" type="GenomicStudy.Performer" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Performer for the analysis event.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="device" type="GenomicStudy.Device" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Devices used for the analysis (e.g., instruments, software), with settings and parameters.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GenomicStudy.Input">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A Genomic Study is a set of analysis performed to analyze and generate genomic data.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="file" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">File containing input data.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Type input data.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:choice minOccurs="0" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The analysis event or other GenomicStudy that generated this input file.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="generatedByIdentifier" type="Identifier"/>
+            <xs:element name="generatedByReference" type="Reference"/>
+          </xs:choice>
+          <xs:element name="subject" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The subject of the input data.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="role" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Role of the subject for this input.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GenomicStudy.Output">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A Genomic Study is a set of analysis performed to analyze and generate genomic data.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="file" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">File containing output data.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Type output data.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GenomicStudy.Performer">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A Genomic Study is a set of analysis performed to analyze and generate genomic data.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="actor" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The organization, healthcare professional, or others who participated in performing this analysis.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="role" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Role of the actor for this analysis.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="GenomicStudy.Device">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A Genomic Study is a set of analysis performed to analyze and generate genomic data.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="device" minOccurs="0" maxOccurs="1" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Device used for the analysis.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="function" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Specific function for the device used for the analysis.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:element name="Goal" type="Goal">
     <xs:annotation>
       <xs:documentation xml:lang="en">Describes the intended objective(s) for a patient, group or organization care, for example, weight loss, restoring an activity of daily living, obtaining herd immunity via immunization, meeting a process improvement objective, etc.</xs:documentation>
@@ -39080,6 +39380,11 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">The Series Instance UID for the DICOM Series from which the images were selected.</xs:documentation>
            </xs:annotation>
           </xs:element>
+          <xs:element name="seriesNumber" minOccurs="0" maxOccurs="1" type="unsignedInt">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The Series Number for the DICOM Series from which the images were selected.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="frameOfReferenceUid" minOccurs="0" maxOccurs="1" type="id">
             <xs:annotation>
               <xs:documentation xml:lang="en">The Frame of Reference UID identifying the coordinate system that conveys spatial and/or temporal information for the selected images or frames.</xs:documentation>
@@ -39088,6 +39393,11 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           <xs:element name="bodySite" minOccurs="0" maxOccurs="1" type="CodeableReference">
             <xs:annotation>
               <xs:documentation xml:lang="en">The anatomic structures examined. See DICOM Part 16 Annex L (http://dicom.nema.org/medical/dicom/current/output/chtml/part16/chapter_L.html) for DICOM to SNOMED-CT mappings.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="focus" minOccurs="0" maxOccurs="unbounded" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The actual focus of an observation when it is not the patient of record representing something or someone associated with the patient such as a spouse, parent, fetus, or donor. For example, fetus observations in a mother's record.  The focus of an observation could also be an existing condition,  an intervention, the subject's diet,  another observation of the subject,  or a body structure such as tumor or implanted device.   An example use case would be using the Observation resource to capture whether the mother is trained to change her child's tracheostomy tube. In this example, the child is the patient of record and the mother is the focus.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="instance" type="ImagingSelection.Instance" minOccurs="0" maxOccurs="unbounded">
@@ -39135,6 +39445,11 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           <xs:element name="uid" minOccurs="1" maxOccurs="1" type="id">
             <xs:annotation>
               <xs:documentation xml:lang="en">The SOP Instance UID for the selected DICOM instance.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="number" minOccurs="0" maxOccurs="1" type="unsignedInt">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The Instance Number for the selected DICOM instance.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="sopClass" minOccurs="0" maxOccurs="1" type="Coding">
@@ -39237,32 +39552,32 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
   </xs:complexType>
   <xs:simpleType name="ImagingSelectionDGraphicTypeEnum">
     <xs:restriction base="code-primitive">
-      <xs:enumeration value="POINT">
+      <xs:enumeration value="point">
         <xs:annotation>
           <xs:documentation xml:lang="en">POINT</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="MULTIPOINT">
+      <xs:enumeration value="multipoint">
         <xs:annotation>
           <xs:documentation xml:lang="en">MULTIPOINT</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="POLYLINE">
+      <xs:enumeration value="polyline">
         <xs:annotation>
           <xs:documentation xml:lang="en">POLYLINE</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="POLYGON">
+      <xs:enumeration value="polygon">
         <xs:annotation>
           <xs:documentation xml:lang="en">POLYGON</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="ELLIPSE">
+      <xs:enumeration value="ellipse">
         <xs:annotation>
           <xs:documentation xml:lang="en">ELLIPSE</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
-      <xs:enumeration value="ELLIPSOID">
+      <xs:enumeration value="ellipsoid">
         <xs:annotation>
           <xs:documentation xml:lang="en">ELLIPSOID</xs:documentation>
         </xs:annotation>
@@ -43900,7 +44215,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           </xs:element>
           <xs:element name="manufacturer" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Manufacturer of the item (Note that this should be named &quot;manufacturer&quot; but it currently causes technical issues).</xs:documentation>
+              <xs:documentation xml:lang="en">Manufacturer of the item, one of several possible.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="ingredient" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
@@ -43911,6 +44226,11 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           <xs:element name="property" type="ManufacturedItemDefinition.Property" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">General characteristics of this item.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="component" type="ManufacturedItemDefinition.Component" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Physical parts of the manufactured item, that it is intrisically made from. This is distinct from the ingredients that are part of its chemical makeup.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -43939,6 +44259,73 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
             <xs:element name="valueBoolean" type="boolean"/>
             <xs:element name="valueAttachment" type="Attachment"/>
           </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ManufacturedItemDefinition.Component">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The definition and characteristics of a medicinal manufactured item, such as a tablet or capsule, as contained in a packaged medicinal product.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="type" minOccurs="1" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Defining type of the component e.g. shell, layer, ink.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="function" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The function of this component within the item e.g. delivers active ingredient, masks taste.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="ingredient" type="ManufacturedItemDefinition.Ingredient" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A reference to an ingredient of the manufactured item as a whole, linked here so that its component location within the item can be indicated. This not where the item's ingredient are primarily stated (for which see Ingredient.for or ManufacturedItemDefinition.ingredient).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="property" type="ManufacturedItemDefinition.Property" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">General characteristics of this component.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="component" type="ManufacturedItemDefinition.Component" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A component that this component contains or is made from.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ManufacturedItemDefinition.Ingredient">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">The definition and characteristics of a medicinal manufactured item, such as a tablet or capsule, as contained in a packaged medicinal product.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="amount" minOccurs="0" maxOccurs="unbounded" type="Quantity">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The measurable amount of this ingredient in this component, expressable in different ways (e.g. by mass or volume).</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="location" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The type of location of the ingredient within this component e.g. intragranular, blend.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="function" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The function of this ingredient within the component e.g. binder.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="locationForIngredient" minOccurs="0" maxOccurs="unbounded" type="CodeableReference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">An ingredient that this component is the location for in this manufactured item. The component is physically made of this ingredient (and possibly others), rather than just being a container for it.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -47427,30 +47814,40 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
               <xs:documentation xml:lang="en">These are different ways of identifying nucleotides or amino acids within a sequence. Different databases and file types may use different systems. For detail definitions, see https://loinc.org/92822-6/ for more detail.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="reference" type="MolecularSequence.Reference" minOccurs="0" maxOccurs="1">
+          <xs:element name="ordinalPosition" minOccurs="0" maxOccurs="1" type="integer">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A sequence that is used as a reference to describe variants that are present in a sequence analyzed.</xs:documentation>
+              <xs:documentation xml:lang="en">Indicates the order in which the sequence should be considered when putting multiple 'relative' elements together.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="sequenceRange" minOccurs="0" maxOccurs="1" type="Range">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Indicates the nucleotide range in the composed sequence when multiple 'relative' elements are used together.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="startingSequence" type="MolecularSequence.StartingSequence" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">A sequence that is used as a starting sequence to describe variants that are present in a sequence analyzed.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="edit" type="MolecularSequence.Edit" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Changes in sequence from the reference.</xs:documentation>
+              <xs:documentation xml:lang="en">Changes in sequence from the starting sequence.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="MolecularSequence.Reference">
+  <xs:complexType name="MolecularSequence.StartingSequence">
     <xs:annotation>
       <xs:documentation xml:lang="en">Representation of a molecular sequence.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="referenceSequenceAssembly" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="genomeAssembly" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The reference assembly used for reference, e.g. GRCh38.</xs:documentation>
+              <xs:documentation xml:lang="en">The genome assembly used for starting sequence, e.g. GRCh38.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="chromosome" minOccurs="0" maxOccurs="1" type="CodeableConcept">
@@ -47462,18 +47859,18 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
             <xs:annotation>
               <xs:documentation xml:lang="en">The reference sequence that represents the starting sequence.</xs:documentation>
             </xs:annotation>
-            <xs:element name="referenceSequenceCodeableConcept" type="CodeableConcept"/>
-            <xs:element name="referenceSequenceString" type="string"/>
-            <xs:element name="referenceSequenceReference" type="Reference"/>
+            <xs:element name="sequenceCodeableConcept" type="CodeableConcept"/>
+            <xs:element name="sequenceString" type="string"/>
+            <xs:element name="sequenceReference" type="Reference"/>
           </xs:choice>
           <xs:element name="windowStart" minOccurs="0" maxOccurs="1" type="integer">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Start position of the window on the reference sequence. This value should honor the rules of the coordinateSystem.</xs:documentation>
+              <xs:documentation xml:lang="en">Start position of the window on the starting sequence. This value should honor the rules of the coordinateSystem.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="windowEnd" minOccurs="0" maxOccurs="1" type="integer">
             <xs:annotation>
-              <xs:documentation xml:lang="en">End position of the window on the reference sequence. This value should honor the rules of the  coordinateSystem.</xs:documentation>
+              <xs:documentation xml:lang="en">End position of the window on the starting sequence. This value should honor the rules of the  coordinateSystem.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="orientation" minOccurs="0" maxOccurs="1" type="orientationType">
@@ -47499,22 +47896,22 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
         <xs:sequence>
           <xs:element name="start" minOccurs="0" maxOccurs="1" type="integer">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Start position of the edit on the reference sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.</xs:documentation>
+              <xs:documentation xml:lang="en">Start position of the edit on the starting sequence. If the coordinate system is either 0-based or 1-based, then start position is inclusive.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="end" minOccurs="0" maxOccurs="1" type="integer">
             <xs:annotation>
-              <xs:documentation xml:lang="en">End position of the edit on the reference sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.</xs:documentation>
+              <xs:documentation xml:lang="en">End position of the edit on the starting sequence. If the coordinate system is 0-based then end is exclusive and does not include the last position. If the coordinate system is 1-base, then end is inclusive and includes the last position.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="observedAllele" minOccurs="0" maxOccurs="1" type="string">
+          <xs:element name="replacementSequence" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">Allele that was observed. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the observed sequence. When the sequence type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="referenceAllele" minOccurs="0" maxOccurs="1" type="string">
+          <xs:element name="replacedSequence" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Allele in the reference sequence. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the reference sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end.</xs:documentation>
+              <xs:documentation xml:lang="en">Allele in the starting sequence. Nucleotide(s)/amino acids from start position of sequence to stop position of sequence on the positive (+) strand of the starting sequence. When the sequence  type is DNA, it should be the sequence on the positive (+) strand. This will lay in the range between variant.start and variant.end.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -47525,12 +47922,12 @@ The MedicationUsage resource was previously called MedicationStatement.</xs:docu
     <xs:restriction base="code-primitive">
       <xs:enumeration value="watson">
         <xs:annotation>
-          <xs:documentation xml:lang="en">Watson strand of referenceSeq</xs:documentation>
+          <xs:documentation xml:lang="en">Watson strand of starting sequence</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="crick">
         <xs:annotation>
-          <xs:documentation xml:lang="en">Crick strand of referenceSeq</xs:documentation>
+          <xs:documentation xml:lang="en">Crick strand of starting sequence</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
     </xs:restriction>

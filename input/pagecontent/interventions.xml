@@ -4,11 +4,11 @@
     that intervention is called for.  There are three main mechanisms defined:
 	</p>
 	<ul>
-    <li>creating <a href="orders">exercise prescriptions</a> detailing what level of physical activity a patient should performing on
+    <li>creating <a href="#orders">exercise prescriptions</a> detailing what level of physical activity a patient should performing on
       a regular basis</li>
-    <li>setting <a href="plans">plans and goals</a> with the patient and their supports around what their physical activity level should
+    <li>setting <a href="#plans">plans and goals</a> with the patient and their supports around what their physical activity level should
       look like - and how they can realistically get there, and</li>
-    <li>creating <a href="referrals">referrals</a> to physical activity specialists who can help a patient to achieve their
+    <li>creating <a href="#referrals">referrals</a> to physical activity specialists who can help a patient to achieve their
       physical activity targets in a manner that meets their physical limitations, lifestyle and interests</li>
   </ul>
   <p>
@@ -19,8 +19,8 @@
   <h3>Exercise Prescriptions</h3>
   <p>
     Sometimes all that's necessary to help a patient to improve their level of physicial activity is to have their clinician formally
-    prescribe it, in much the same way as they might prescribe a medication or physiotherapy.  [Todo - add references to literature supporting
-    this.]
+    prescribe it, in much the same way as they might prescribe a medication or physiotherapy.  The research supporting the benefits of
+    prescribing exercise are described in more detail on the <a href="background.html#pa-measure">background page</a>.
   </p>
   <p>
     In FHIR, orders for physical actions are represented using the <a href="StructureDefinition-pa-servicerequest.html">ServiceRequest profile</a>.
@@ -52,9 +52,9 @@
   </p>
   <p>
     In this implementation guide, both goals and plans are relatively simple, with only a small subset of the potential data elements
-    expected to be supported.  These expectations are reflected in the physcial activity <a href="pa-goal.html">goal</a> and 
-    <a href="pa-careplan.html">care plan</a> profiles.  Systems are free to support additional data elements, but cannot presume that
-    other participants will also support them without site-specific negotiation.
+    expected to be supported.  These expectations are reflected in the physcial activity <a href="StructureDefinition-pa-goal.html">goal</a>  
+    and <a href="StructureDefinition-pa-careplan.html">care plan</a> profiles.  Systems are free to support additional data elements, but 
+    cannot presume that other participants will also support them without site-specific negotiation.
   </p>
   <p>
     The purpose of the CarePlan resource is to allow a shared understanding of what actions the patient (and those around them) will take
@@ -101,7 +101,7 @@
   </p>
   <p>
     The second step is conducted using a Task resource that adheres to the 
-    <a href="{{site.data.fhir.ver.sdoh}}StructureDefinition-SDOHCC-TaskForReferralManagement.html">SDOH Task</a> profile.  The task 
+    <a href="{{site.data.fhir.ver.sdoh}}/StructureDefinition-SDOHCC-TaskForReferralManagement.html">SDOH Task</a> profile.  The task 
     is used for the conversation where the Care Manager asks the Referral Recipient "Can you please satisfy this referral?" and the
     Referral Recipient has the option of responding 'yes' or 'no' and eventually reporting back on how things went.  This step <i>might</i>
     be initiated by the same practitioner who created the referral, but quite often this 'dispatching' process is managed by nurses,
@@ -125,7 +125,7 @@
   <h3>Services</h3>
   <p>
     The objective of a referral is always to have a service (or perhaps a set of services) performed.  In FHIR, all physical activity-
-    related interventions are represented as Procedure instances that conforms to the <a href="StructureDefinition-pa-procedure">physical
+    related interventions are represented as Procedure instances that conforms to the <a href="StructureDefinition-pa-procedure.html">physical
     activity procedure</a> profile.  This resource allows documentation of exactly what was done and when.  It will often provide a more
     detailed description of the action(s) performed than what was ordered in the original referral.  The creation of the procedure records
     describing the interventions performed and linking those as 'outputs' of the Task seeking fulfillment of the referral helps to close

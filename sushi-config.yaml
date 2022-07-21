@@ -42,6 +42,8 @@ instanceOptions:
 pages:
   index.xml:
     title: Physical Activity Home
+    background.xml: 
+      title: Importance of Physical Activity
     fhir.xml: 
       title: FHIR Background
     measures.xml: 
@@ -62,6 +64,7 @@ menu:
   Contents: toc.html
   Home: index.html
   Background:
+    Why Physical Activity?: background.html
     FHIR Background: fhir.html
     Credits: credits.html
   Specification:

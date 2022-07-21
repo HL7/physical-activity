@@ -1,5 +1,21 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
   <p>
+    Having a standardized way of measuring patient physical activity - and sharing those measurements - is an essential step to improving physical activity levels, both at an
+    individual and at a population level.  Standard measures are needed to:
+  </p>
+  <ul>
+    <li>consistently evaluate whether a patient's activity levels are adequate for good health</li>
+    <li>monitor trends to determine whether activity levels are improving (particularly in response to an intervention) or possibly declining (e.g. due to a health condition or
+	  other intervention)</li>
+    <li>allow coordination of care with a shared understanding of activity level between clinicians, patients and community-based service providers who can help patients assume a 
+      more physically active lifestyle and stay motivated</li>
+    <li>form a basis for researchers interested in the correlation between physical activity level and health outcomes, as well as in which interventions are most effective in boosting 
+      physical activity levels and associated outcomes</li>
+    <li>allow de-identified information to flow into national or regional surveillance systems, such as public health.  This information can then inform programming, evidence-based 
+      policy and funding to address physical activity level challenges within certain communities or demographics</li>
+    <li>support evidence-based reumeration of community-based physical activity professionals who support at risk patients in improving their activity levels </li>
+  </ul>
+  <p>
     This page describes standards for representing observations about a patient with respect to their level of physical activity as well
     as supporting observations that provide additional detail and evidence for those higher-level observations.
   </p>

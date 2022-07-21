@@ -10,43 +10,20 @@
   <a name="scope"> </a>
   <h3>Scope and purpose</h3>
   <p>
-    Being physically active is one of the most important lifestyle behaviors people can engage in to maintain physical and mental health and well-being.<sup>
-      <a href="#1">1</a>
-    </sup>  
+    Being physically active is one of the most important lifestyle behaviors people can engage in to maintain physical and mental health and well-being.
     Regular physical activity is both health-promoting and important for chronic disease and infectious disease treatment and prevention with numerous benefits that contribute to a 
-    disability-free lifespan.<sup>
-      <a href="#2">2</a>
-    </sup><sup>
-      <a href="#3">3</a>
-    </sup><sup>
-      <a href="#4">4</a>
-    </sup>  Active living can also enhance social connectedness, quality of 
-    life, and environmental sustainability.<sup>
-      <a href="#5">5</a>
-    </sup>
-  </p>
-  <p>
-    Currently in the US, one in four adults are physically inactive with increasing prevalence across some geographies and in certain race/ethnicities.<sup>
-      <a href="#6">6</a>
-    </sup>
-    Only 26 percent of men, 19 percent of women, and 20 percent of adolescents, report sufficient activity to meet the relevant aerobic and muscle-strengthening PA 
-    guidelines.<sup>
-      <a href="#7">7</a>
-    </sup>  The current levels of physical inactivity in the US population create $117 billion in annual healthcare costs and contribute about 10 
-    percent of premature mortality.<sup>
-      <a href="#8">8</a>
-    </sup>  Even so, current population PA levels avert 3.9 million premature deaths globally and 140,200 premature deaths in 
-    the US on an annual basis.<sup>
-      <a href="#9">9</a>
-    </sup>
+    disability-free lifespan.  Currently in the US, one in four adults are physically inactive with increasing prevalence across some geographies and in certain race/ethnicities.
+    (For more information and research citations highlighting the importance of physical activity and intervening to improve it, see <a href="background.html">this page</a>.)
   </p>
 	<p>
 	  This implementation guide standardizes interoperability expectations for systems involved in measuring, reporting, and intervening to improve patient physical
 	  activity levels.  It defines interface expectations that are relevant for patient-facing applications, patient activity measurement devices, clinical electronic health records,
 	  payers, quality measurement systems, and applications used by health and fitness professionals, personal trainers, and community-based fitness centers.
+	  By improving standardization and interoperability around measuring physical activity levels and data sharing needed to help patients improve their physical
+	  activity levels, we can make a significant impact on overall patient health at both the individual and the population level.
   </p>
   <p>
-    This version defines standards for the following:
+    This version of the specification defines standards for the following:
   </p>
   <ul>
     <li>How to consistently share the primary, evidence-based measure of a patient's level of physical activity?</li>
@@ -61,27 +38,6 @@
     welcome to leverage this content.  If there is sufficient interest, a future version of this implementation guide might be developed that is international in scope.
   </p>
   
-  <h3>Background</h3>
-  <h4>Importance of Physical Activity</h4>
-  
-  <h4>Measuring Physical Activity</h4>
-  <p>
-    Having a standardized way of measuring patient physical activity - and sharing those measurements - is an essential step to improving physical activity levels, both at an
-    individual and at a population level.  Standard measures are needed to:
-  </p>
-  <ul>
-    <li>consistently evaluate whether a patient's activity levels are adequate for good health</li>
-    <li>monitor trends to determine whether activity levels are improving (particularly in response to an intervention) or possibly declining (e.g. due to a health condition or
-	  other intervention)</li>
-    <li>allow coordination of care with a shared understanding of activity level between clinicians, patients and community-based service providers who can help patients assume a 
-      more physically active lifestyle and stay motivated</li>
-    <li>form a basis for researchers interested in the correlation between physical activity level and health outcomes, as well as in which interventions are most effective in boosting 
-      physical activity levels and associated outcomes</li>
-    <li>allow de-identified information to flow into national or regional surveillance systems, such as public health.  This information can then inform programming, evidence-based 
-      policy and funding to address physical activity level challenges within certain communities or demographics</li>
-    <li>support evidence-based reumeration of community-based physical activity professionals who support at risk patients in improving their activity levels </li>
-  </ul>
-    
   <a name="overview"> </a>
   <h3>Specification overview</h3>
   <p>
@@ -109,6 +65,8 @@
     <li><a href="fhir.html">Understanding FHIR</a> - This page is aimed at implementers who might be new to using FHIR.  It identifies the key pieces of the FHIR specification an
       implementer should read and be familiar with before reading through the technical artifacts and instructions found in this implementation guide.  It also defines key
       documentation conventions used in this IG.  Finally, it defines the rules for asserting conformance with this implementation guide.</li>
+    <li><a href="background.html">Importance of Physical Activity</a> - This page summarizes some of the research and policy considerations that underpin the need for improving
+      the standardization of physical activity measures and the benefits of intervening to help patients improve their levels of physical activity.</li>
     <li><a href="artifacts.html">Artifacts</a> - This provides a summary of all of the technical artifacts defined in this implementation guide.  It also provides a list of the
       artifacts defined elsewhere that are leveraged as part of this implementation guide.</li>
     <li><a href="downloads.html">Downloads</a> - This provides a handy set of zip files that can be downloaded for local use, including this implementation guide and all of its
@@ -188,26 +146,4 @@
     licensing requirements may limit the systems that data captured using certain questionnaires may be shared with.
   </p>
 
-  <a name="citations"> </a>
-  <h3>Citations</h3>
-  <ul>
-    <li>
-      <a name="1"> </a>{Services, 2018 #2}</li>
-    <li>
-      <a name="2"> </a>{Chastin, 2021 #451}</li>
-    <li>
-      <a name="3"> </a>{Lin, 2020 #452}</li>
-    <li>
-      <a name="4"> </a>{Hill, 2022 #453}</li>
-    <li>
-      <a name="5"> </a>{Global Advocacy Council for Physical Activity International Society for Physical, 2010 #19}</li>
-    <li>
-      <a name="6"> </a>{, 2022 #454}</li>
-    <li>
-      <a name="7"> </a>{Services, 2018 #2}</li>
-    <li>
-      <a name="8"> </a>{Carlson, 2015 #9}</li>
-    <li>
-      <a name="9"> </a>{Strain, 2020 #8}</li>
-  </ul>
 </div>
