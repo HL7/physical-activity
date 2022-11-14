@@ -16,7 +16,8 @@ publisher:
 dependencies:
   hl7.fhir.us.core:
     id: uscore
-    version: 3.1.1
+    version: 4.0.0
+#    version: 3.1.1
   hl7.fhir.uv.sdc:
     id: sdc
     version: 3.0.0
@@ -25,7 +26,7 @@ dependencies:
     version: 0.1.0
   hl7.fhir.us.sdoh-clinicalcare:
     id: sdoh
-    version: 1.0.0
+    version: 1.1.0
 #  hl7.fhir.r4.examples:
 #    id: examples
 #    version: 4.0.1

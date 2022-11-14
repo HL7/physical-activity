@@ -8,7 +8,7 @@
 	  If you are working offline, you'll need to look up the corresponding page in your local copy when navigating such
 	  links.</p>
 	<p>
-    Download the entire implementation guide for local browing <a href="full-ig.zip">here</a>.</p>
+    Download the entire implementation guide for local browsing <a href="full-ig.zip">here</a>.</p>
 	<p>
     Download the FHIR core specification <a href="{{site.data.fhir.path}}fhir-spec.zip">here</a>.</p>
 	<table>
@@ -54,4 +54,8 @@
       </tr>
 		</tbody>
 	</table>
+	
+	<p>
+    {% include cross-version-analysis-inline.xhtml %}
+	</p>
 </div>

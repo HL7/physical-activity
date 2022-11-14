@@ -1,5 +1,6 @@
 Alias: $pertainsToGoal = http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal
 Alias: $SDOHCCTemp     = http://hl7.org/fhir/us/sdoh-clinicalcare/CodeSystem/SDOHCC-CodeSystemTemporaryCodes
+Alias: $ICD10          = http://hl7.org/fhir/sid/icd-10-cm
 
 Profile:        PACarePlan
 Parent:         USCoreCarePlanProfile
@@ -50,7 +51,7 @@ Description:    "A condition that conveys the fact that a patient has a clinical
 * category ^slicing.rules = #open
 * category contains PA 1..1 MS
 * category[PA] = TemporaryCodes#PhysicalActivity
-* code = TemporaryCodes#LowActivity
+* code = $ICD10#Z72.3 "Lack of physical exercise"
 * bodySite 0..0
 * onset[x] MS 
 * onset[x] only dateTime or Period

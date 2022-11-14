@@ -74,6 +74,9 @@
       interoperated in at least a test environment.  Who will implement and who can they test with?</li>
     <li><b>MVP?</b> - Do the conformance requirements reflect the 'minimum viable product' needed by the market with optional elements limited to
       those that, while not strictly necessary, are still likely to be taken up by a significant proportion of the community?</li>
+    <li>Should the IG support access to guidelines around "how best to discuss?", "how best to intervene?", "what are common barriers to explore?"</li>
+    <li>How do clinicians find out what services are available - do we need something more than just registries</li>
+    <li>Should we flag 'validated' observations (i.e. where a professional was watching, gathered from device)</li>
   </ol>
   <h3>Outstanding to-do items</h3>
   <p>
@@ -81,13 +84,11 @@
     address.  Some of them are technical and relate to HL7 internal processes, so don't worry if you don't understand them all.
   </p>
   <ol>
-    <li>Measures: Fill in section about evidence validating the Exercise Vital Sign as an appropriate measure</li>
-    <li>Workflow: What does research indicate the 'target' level of physical activity?</li>
-    <li>Transaction: Set expectations for support of transaction in measure submission and possibly interventions</li>
     <li>Add a security and privacy section</li>
     <li>Artifacts: Create initial examples for all profiles</li>
     <li>Various: Create diagrams to represent information visually where it makes sense to</li>
     <li>Explain why our Questionnaires aren't using StructureMap-based extraction the way Gravity SDOH does</li>
+    <li>Transaction: Set expectations for support of transaction in measure submission and possibly interventions</li>
     <li>Downloads: Remove link to backport IG if we're not using it.</li>
     <li>Artifacts: Create complete examples (and possibly ExampleScenarios) for all profiles leveraging domain epxert input</li>
     <li>Credits: add list of active project participants</li>

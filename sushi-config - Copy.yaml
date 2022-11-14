@@ -1,0 +1,94 @@
+name: PhysicalActivity
+title: Physical Activity Implementation Guide
+id: physical-activity
+packageId: hl7.fhir.us.physical-activity
+canonical: http://hl7.org/fhir/us/physical-activity
+fhirVersion: 4.0.1
+status: draft
+date: 2022-05-29
+copyrightYear: 2022+
+version: 0.1.0
+releaseLabel: CI-build
+jurisdiction: urn:iso:std:iso:3166#US
+publisher:
+  name: HL7 International - Patient Care WG
+  url: http://www.hl7.org/Special/committees/patientcare
+dependencies:
+  hl7.fhir.us.sdoh-clinicalcare:
+    id: sdoh
+    version: 1.1.0
+    reason: "While focused on social determinants of health such as appropriate housing, food availability, interpersonal violence, there is a significant overlap between the SDOH implementation guide and the exchange needs relevant to physical activity.  In both the SDOH and physical activity spaces:
+    
+    * The relevant measures are typically gathered by asking questions of patients or their care-giver.
+    * There is not yet national consistency in how the measures are captured (or even in the need to capture the measures at all).
+    * Interventions to address any identified issues will often involve non-traditional service providers (e.g. food pantries and home repair services for SDOH; personal trainers and fitness centers for physical activity).  These non-traditional service providers often do not have sophisticated EHRs or other interoperability capabilities.
+    * Improving the patient situation means agreeing on and sharing information about care plans and goals between primary care providers, patients, care givers, and the non-traditional service providers.
+    * There is a need to 'close the loop' on interventions to determine whether the requested intervention was performed, whether the patient is satisfied, and whether the outcome met the original objectives.
+    * There may be a need to seek payment for interventions that don't fall into the traditional realm of 'healthcare services'.
+    
+    For all these reasons, the physical activity implementation guide builds on the standards defined by the Gravity SDOH implementation guide.  Where SDOH artifacts are overly restrictive but still relevant, this guide will define aligned but parallel profiles and will try to continue alignment in future releases."
+  hl7.fhir.us.core:
+    id: uscore
+    version: 4.0.0
+    reason: "US Core defines profiles that express the data elements defined in [U.S. Core Data for Interopreability (USCDI)](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi) (which is mandated for implementation by EHR systems falling under the 21st Centure Cures Act) as well as other data elements the major U.S. EHR vendors have agreed to implement.  As such, this implementation guide is a foundation for interoperability with EHR systems in the U.S.  All profiles defined in this IG either derive from or align with US Core profiles whenever possible."
+#    version: 3.1.1
+  hl7.fhir.uv.sdc:
+    id: sdc
+    version: 3.0.0
+    reason: "SDC defines standards for creating, populating, extracting data from and otherwise manipulating [Questionnaires]({{site.data.fhir.path}}questionnaire.html) and [QuestionnaireResponses]({{site.data.fhir.path}}questionnaireresponse.html).  This implementation guide allows optional use of Questionnaires when gathering information from patients and care givers about physical activity levels.  It also uses questionnaires as part of the evaluation process.  Leveraging SDC ensures that questionnaires created with this guide will be able to be rendered and, where appropriate, automatically have some of their answers pre-populated into and/or extracted from using off-the-shelf tooling that already supports the SDC implementation guide."
+  hl7.fhir.uv.subscriptions-backport:
+    id: sub
+    version: 0.1.0
+    reason: "The backport IG defines standards for automatically detecting that data has changed on a system and providing notifications to interested systems.  The Gravity SDOH implementation guide uses this to allow systems to monitor for updates between EHR systems and service delivery systems.  This implementation guide allows the same approach."
+#  hl7.fhir.r4.examples:
+#    id: examples
+#    version: 4.0.1
+description: "This implementation guide provides standardization around patient physical activity, including:&#x0a;* measures for recording a patient's level of physical activity;&#x0a;* measures to support assertions of physical activity, including device-based measures;&#x0a;* goals and care plans related to improving a patient's physical activity level;&#x0a;* orders for interventions seeking to improve a patient's physical activity level; and&#x0a;* processes to support closing the loop and evaluating the success of such interventions."
+parameters:
+  path-expansion-params: "../../input/terminology-settings.xml"
+  path-liquid: "liquid"
+  apply-contact: false
+  apply-publisher: false
+  default-contact: true
+  default-publisher: true
+instanceOptions:
+  setMetaProfile: never
+pages:
+  index.xml:
+    title: Physical Activity Home
+    background.xml: 
+      title: Importance of Physical Activity
+    fhir.xml: 
+      title: FHIR Background
+    measures.xml: 
+      title: Physical Activity Measures
+    interventions.xml: 
+      title: Plans & Interventions
+    workflow.xml: 
+     title: Conformance & Workflow
+    artifacts.xml: 
+      title: IG Artifacts
+    downloads.xml: 
+      title: Downloads
+    credits.xml: 
+      title: Credits
+    openissues.xml: 
+      title: Open Issues
+menu:
+  Contents: toc.html
+  Home: index.html
+  Background:
+    Why Physical Activity?: background.html
+    FHIR Background: fhir.html
+    Credits: credits.html
+  Specification:
+    Measures: measures.html
+    Plans &amp; Interventions: interventions.html
+    Conformance &amp; Workflow: workflow.html
+  Artifacts: artifacts.html
+  Support:
+    Project Home: https://confluence.hl7.org/display/PC/Physical+Activity
+    Help & Discussions: https://chat.fhir.org/#narrow/stream/327137-Physical-Activity
+    Downloads: downloads.html
+
+#Initialize SUSHI project in C:\Users\shorty\dev\NewIG? [y/n]: y

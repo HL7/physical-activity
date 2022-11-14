@@ -33,9 +33,10 @@
 	  sufficiently active to maintain good health?"
 	</p>
 	<p>
-	  This guide therefore mandates the use of the very simple Exercise Vital Sign (LOINC <a href="https://loinc.org/89574-8/">89574-8</a> 
-	  as the primary measure of patient physical activity level for exchange and evaluation.  This measure [is super awesome because all this
-	  research says it works great - TODO - Laurie please provide text to fill in here].
+	  This guide therefore mandates a slightly modified version of the very simple Exercise Vital Sign (LOINC <a href="https://loinc.org/89574-8/">89574-8</a> 
+	  as the primary measure of patient physical activity level for exchange and evaluation.  The <a href="background.html#pa-measure">background page</a>
+	  provides details on the evidence that supports this measure as accurate and appropriate for evaluating how well a patient meets guidalines for
+	  physical activity.
 	</p>
 	<p>
 	  The measure consists of two questions:
@@ -59,7 +60,24 @@
     does not require the capture or sharing higher-level grouping observations that link the the answers to the two key questions.
   </p>
   <p>
-    If a system does not wish to support directly capturing the answers to the two questions as Observations but is able to handle
+    In addition, this guide captures two additional measures:
+  </p>
+  <ul>
+    <li>The product of the two EVS measures, giving an average amount of exercise in minutes/week (and captured using LOINC code 
+      <a href="https://loinc.org/82290-8">82290-8</a>)</li>
+    <li>An indication of the amount of strength-based exercises a patient has perform, expressed as days/week (and captured using
+      LOINC code <a href="https://loinc.org/82291-6">82291-6</a>)</li>
+  </ul>
+  <p>
+    While the first of these is theoretically redundant with the two EVS measures, this calculated minutes/week measure is the one that is
+    actually compared against national guidelines to determine whether a patient has adequate physical activity or not.  As such, having
+    it explicitly captured and stored allows for easier searching, trending and diagnosis.
+  </p>
+  <p>
+    The second measure allows evaluation of the patient against guidelines for strength-based exercise specifically.  
+  </p>
+  <p>
+    If a system does not wish to support directly capturing the answers to these key measures as Observations but is able to handle
     filling out a FHIR Questionnaire, this IG also defines a standard <a href="{{site.data.fhir.ver.sdc}}">Structured Data Capture</a>
     Questionnaire instance that includes the relevant metadata to allow automated extraction of a completed QuestionnaireResponse
     into the relevant Observations using either the 
