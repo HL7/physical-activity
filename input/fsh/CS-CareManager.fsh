@@ -331,11 +331,15 @@ Usage:          #definition
       * extension[$conf].valueCode = #SHALL
     * supportedProfile[+] = Canonical(EVSMinutesPerDay)
       * extension[$conf].valueCode = #SHALL
-    * supportedProfile[+] = Canonical(ExerciseSupportDailyLog)
+    * supportedProfile[+] = Canonical(ExerciseMinutesPerWeek)
+      * extension[$conf].valueCode = #SHALL
+    * supportedProfile[+] = Canonical(StrengthDaysPerWeek)
       * extension[$conf].valueCode = #SHOULD
-    * supportedProfile[+] = Canonical(ExerciseSupportHeartRate)
+    * supportedProfile[+] = Canonical(ActivityMeasure)
       * extension[$conf].valueCode = #SHOULD
-    * supportedProfile[+] = Canonical(ExerciseSupportSteps)
+    * supportedProfile[+] = Canonical(ActivityGroup)
+      * extension[$conf].valueCode = #SHOULD
+    * supportedProfile[+] = Canonical(TimeMeasure)
       * extension[$conf].valueCode = #SHOULD
     * documentation = "Exposes and allows manipulation of exercise vital sign and supporting
       observations."

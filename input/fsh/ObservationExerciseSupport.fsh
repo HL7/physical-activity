@@ -1,3 +1,7 @@
+Alias: $loinc     = http://loinc.org
+Alias: $minLength = http://hl7.org/fhir/StructureDefinition/minLength
+Alias: $typeMS    = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+
 Profile:        ExerciseSupportGeneric
 Parent:         http://hl7.org/fhir/us/sdoh-clinicalcare/StructureDefinition/SDOHCC-ObservationAssessment
 Id:             observation-support
@@ -9,67 +13,66 @@ Description:    "An abstract observation profile that serves as the parent for v
 * bodySite ..0
 * specimen ..0
 * status = #final
-* effective[x] 1..1 MS
+* effective[x] 1..1 MS 
+* effective[x] only dateTime or Period
+* effectiveDateTime ^extension[$minLength].valueInteger = 10
+//* effectiveDateTime ^extension[$typeMS].valueBoolean = true
+* effectivePeriod.start 1..1 MS
+* effectivePeriod.start ^extension[$minLength].valueInteger = 10
+* effectivePeriod.end 1..1 MS
+* effectivePeriod.end ^extension[$minLength].valueInteger = 10
+
+* valueQuantity.value 1..1 MS
+* valueQuantity.system = "http://unitsofmeasure.org"
 * note MS
 * note ^comment = "...Comments allows supporting and qualifying information"
 
 
-Profile:        ExerciseSupportDailyLog
+Profile:        ActivityMeasure
 Parent:         ExerciseSupportGeneric
-Id:             observation-sup-daily
-Title:          "Daily Exercise Minutes per day log"
-Description:    "A profile for observations that capture the number of minutes of moderate to high intensity exercise a 
-  patient has performed on a given day."
-* code = TemporaryCodes#daily-log
-* effective[x] only dateTime
-* value[x] only Quantity
-* valueQuantity.system = "http://unitsofmeasure.org"
-* valueQuantity.code = #min/d
+Id:             pa-activity-measure
+Title:          "Activity-based Physical Activity Measure"
+Description:    "A profile for observations that capture physical activity-related measures that are specific to a single
+  exercise activity."
+* code from PAActivityMeasures (extensible)
+* effective[x] ^comment = "...This will typically be a dateTime specific to the day.  If the information is available, a Period can be used
+    to indicate the specific start and end times."
+* value[x] only Quantity or CodeableConcept
+* value[x] ^comment = "...The value **SHALL** be constrained to the type and unit or ValueSet as indicated in [the table](measures.html#active)"
 
 
-Profile:        ExerciseSupportHeartRate
+Profile:        ActivityGroup
 Parent:         ExerciseSupportGeneric
-Id:             observation-sup-hr
-Title:          "Average heart rate during exercise period"
-Description:    "A profile for observations that capture the average heart rate of a patient during a period of exercise."
-* code = http://loinc.org#55425-3
-* effective[x] only dateTime or Period
-* effectivePeriod.start 1..1 MS
-* effectivePeriod.end 1..1 MS
+Id:             pa-activity-Group
+Title:          "Physical Activity Group"
+Description:    "A profile for observations that collect a set of activity-related measures that all pertain to the same exercise instance."
+* code = TemporaryCodes#ExercisePanel
+* effective[x] ^comment = "...This will typically be a dateTime specific to the day.  If the information is available, a Period can be used
+    to indicate the specific start and end times.  It **SHOULD** be the same as the effective[x] value for all member Observations."
+* value[x] 0..0
+* hasMember 1..* 
+* hasMember only Reference(ActivityMeasure)
+
+
+Profile:        TimeMeasure
+Parent:         ExerciseSupportGeneric
+Id:             pa-time-measure
+Title:          "Time-based Physical Activity Measure"
+Description:    "A profile for observations that capture physical activity-related measures that apply over an extended period of time,
+  such as a day or week."
+* code from PATimeMeasures (extensible)
+* effectiveDateTime ^maxLength = 10
+* effectivePeriod.start ^maxLength = 10
+* effectivePeriod.end ^maxLength = 10
 * value[x] only Quantity
-* valueQuantity.system = "http://unitsofmeasure.org"
-* valueQuantity.code = #/min
+* value[x] ^comment = "...The value **SHALL** be constrained to the unit as indicated in [the table](measures.html#time)"
 * component ^slicing.discriminator.type = #pattern
 * component ^slicing.discriminator.path = "code"
 * component ^slicing.rules = #open
-* component contains timeframe 1..1 MS
-* component[timeframe] ^short = "Duration"
-* component[timeframe] ^definition = "Indicates the duration of the period over which the average heart rate occurred"
-* component[timeframe] ^definition = "This is the value that is added to the period of exercise for the day (presuming the heart 
-  rate is sufficiently elevated to qualify as moderate to high exertion)."
-* component[timeframe].code = http://loinc.org#8838-5
-* component[timeframe].value[x] only Quantity
-* component[timeframe].valueQuantity.code = #min
-
-
-Profile:        ExerciseSupportSteps
-Parent:         ExerciseSupportGeneric
-Id:             observation-sup-steps
-Title:          "Total steps during exercise period"
-Description:    "A profile for observations that capture the pedometer step count for a patient during a period of exercise."
-* code = http://loinc.org#55423-8
-* value[x] only Quantity
-* valueQuantity.system = "http://unitsofmeasure.org"
-* valueQuantity.code = #/min
-* component ^slicing.discriminator.type = #pattern
-* component ^slicing.discriminator.path = "code"
-* component ^slicing.rules = #open
-* component contains timeframe 1..1 MS
-* component[timeframe] ^short = "Duration"
-* component[timeframe] ^definition = "Indicates the duration of the period over which the steps were taken"
-* component[timeframe] ^definition = "This is the value that is added to the period of exercise for the day (presuming the number 
-  of steps within the period are sufficiently high to qualify as moderate to high exertion)."
-* component[timeframe].code = http://loinc.org#8838-5
-* component[timeframe].value[x] only Quantity
-* component[timeframe].valueQuantity.code = #min
-
+* component contains
+    percentActive 0..1 MS
+* component[percentActive].code = TemporaryCodes#DeviceActivePercentage
+* component[percentActive].value[x] only Quantity
+* component[percentActive].valueQuantity.system = "http://unitsofmeasure.org"
+* component[percentActive].valueQuantity.code = #%
+* component[percentActive].valueQuantity.value 1..1 MS
