@@ -21,8 +21,7 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "urn:iso:std:iso:3166",
-  "code" : "US",
-  "display" : "United States of America"
+  "code" : "US"
 }, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "display" : "United States of America",
@@ -60,8 +59,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:fe04796a-5e12-4e58-aaad-8978e9fabc4d",
-    "timestamp" : "2022-06-08T14:37:33.420Z",
+    "identifier" : "urn:uuid:c99cbac0-c47e-497c-b83b-f2739d1698ba",
+    "timestamp" : "2023-01-31T17:37:29.120Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -1344,8 +1343,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:00b5fd4a-cb7a-4271-bfb1-90fb2d4bc4c7",
-    "timestamp" : "2022-06-08T14:37:33.513Z",
+    "identifier" : "urn:uuid:39f9e1e4-1d11-4d83-ab41-8204322eb91b",
+    "timestamp" : "2023-01-31T17:37:29.604Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -2628,8 +2627,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:2a4cbaea-b0be-4e98-aa41-6bf2387576da",
-    "timestamp" : "2022-06-08T14:37:33.638Z",
+    "identifier" : "urn:uuid:78a9e3fd-1198-4129-aa33-40457074426a",
+    "timestamp" : "2023-01-31T17:37:30.041Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -3890,45 +3889,5 @@ e: {
   }
 },
   "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:iso:std:iso:3166",
-  "code" : "US"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "United States of America",
-  "code" : "US",
-  "system" : "urn:iso:std:iso:3166"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:iso:std:iso:3166",
-  "code" : "US"
-}, "valueSet" :null, "lang":"en-US", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "United States of America",
-  "code" : "US",
-  "system" : "urn:iso:std:iso:3166"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:iso:std:iso:3166",
-  "code" : "US"
-}, "url": "http://hl7.org/fhir/ValueSet/jurisdiction--0", "version": "4.6.0", "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "United States of America",
-  "code" : "US",
-  "system" : "urn:iso:std:iso:3166"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:iso:std:iso:3166",
-  "code" : "US"
-}, "url": "http://hl7.org/fhir/ValueSet/jurisdiction--0", "version": "4.6.0", "lang":"en-US", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
-v: {
-  "display" : "United States of America",
-  "code" : "US",
-  "system" : "urn:iso:std:iso:3166"
 }
 -------------------------------------------------------------------------------------

@@ -32,7 +32,7 @@
     While in many cases there is no need for such orders to be exchanged electronically, it may be useful for others, particuarly physical
     activity service providers involved in the patient's care to be aware of the existence of the order so they can support the patient in 
     performing it.  Therefore, this specification supports the electronic retrieval of exercise prescriptions by both 
-    <a href="CapabilityStatement-pa-referral-recipient.html">Referral Recipient</a> and 
+    <a href="CapabilityStatement-pa-service-provider.html">Service Provider</a> and 
     <a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagement</a> systems.
   </p>
 
@@ -42,7 +42,7 @@
     A key step in improving a patient's physical activity levels are establishing and monitoring against goals for a desired level of
     physical activity and agreeing on a plan to attain that level of activity.  In some cases, these might be established and maintained
     only in the system of the <a href="CapabilityStatement-pa-care-manager.html">care manager</a> and merely be retrieved by the 
-    <a href="CapabilityStatement-pa-referral-recipient.html">Referral Recipient</a> and 
+    <a href="CapabilityStatement-pa-service-provider.html">Service Provider</a> and 
     <a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagement</a> systems.  However, in some environments, Referral
     Recipients and/or patients themselves might be able to create and/or update goals and update care plans.  This standard supports
     these actions, but leaves it to organizational policy which types of actions can be performed by which users.  Even if updating is
@@ -73,8 +73,8 @@
   <p>
     Referrals are the process by which one practitioner asks another practitioner to provide a type of care for a patient.  In the
     case of this implementation guide, this will be the <a href="CapabilityStatement-pa-care-manager.html">Care Manager</a> seeking
-    the services of a <a href="CapabilityStatement-pa-referral-recipient.html">Referral Recipient</a>.  In cases where a Referral
-    Recipient delegates and solicits care from a different Referral Recipient, then for the purposes of this implementation guide,
+    the services of a <a href="CapabilityStatement-pa-service-provider.html">Service Provider</a>.  In cases where a Referral
+    Recipient delegates and solicits care from a different Service Provider, then for the purposes of this implementation guide,
     they take on the role of being a Care Manager.  (Some insurers or other programs may place limits on what types of practitioners
     they consider to be authorized to create referrals.  This implemenation guide does not establish such limitations.)
   </p>
@@ -102,8 +102,8 @@
   <p>
     The second step is conducted using a Task resource that adheres to the 
     <a href="{{site.data.fhir.ver.sdoh}}/StructureDefinition-SDOHCC-TaskForReferralManagement.html">SDOH Task</a> profile.  The task 
-    is used for the conversation where the Care Manager asks the Referral Recipient "Can you please satisfy this referral?" and the
-    Referral Recipient has the option of responding 'yes' or 'no' and eventually reporting back on how things went.  This step <i>might</i>
+    is used for the conversation where the Care Manager asks the Service Provider "Can you please satisfy this referral?" and the
+    Service Provider has the option of responding 'yes' or 'no' and eventually reporting back on how things went.  This step <i>might</i>
     be initiated by the same practitioner who created the referral, but quite often this 'dispatching' process is managed by nurses,
     receptionists or other back-end staff.
   </p>
@@ -121,14 +121,33 @@
     <a href="workflow.html#referral">Workflow</a> section of this implementation guide.
   </p>
   
-  <a name="procedure"> </a>
-  <h3>Services</h3>
+  <a name="reports"> </a>
+  <h3>Intervention Summaries</h3>
   <p>
-    The objective of a referral is always to have a service (or perhaps a set of services) performed.  In FHIR, all physical activity-
-    related interventions are represented as Procedure instances that conforms to the <a href="StructureDefinition-pa-procedure.html">physical
-    activity procedure</a> profile.  This resource allows documentation of exactly what was done and when.  It will often provide a more
-    detailed description of the action(s) performed than what was ordered in the original referral.  The creation of the procedure records
-    describing the interventions performed and linking those as 'outputs' of the Task seeking fulfillment of the referral helps to close
-    the loop on the referral and also provides records that may be needed for billing.
+    The objective of a referral is always to have a service (or perhaps a set of services) performed.  In FHIR, physical activity-
+    related interventions would be represented using the <a href="{{site.data.fhir.path}}procedure.html">Procedure</a> resource.  However,
+    the workload involved in having the Service Provider system capture each counselling session, visit to a fitness class, etc. has been
+    deemed too high and the value to the ordering clinician too low to mandate the capture of detailed procedure information as part of this
+    IG.  Instead, the expectation is that, in most cases, the practitioner or organization that accepts the referral will prepare a 'report'
+    that summarizes the interventions performed, progress made, etc.
   </p>
+  <p>
+    The summary is expressed using the <a href="StructureDefinition-pa-diagnosticreport.html">PA Intervention Report</a>.  It captures
+    a PDF document that summarizes key information about an exercise professional's engagement with a patient.  Possible content might
+    include assessments, strategies tried, participation level/attendance, recommendations, etc.  The report can also link to any key
+    measurements (e.g. starting and finishing physical activity level, exercise sessions that exemplify some of the narrative in the
+    report, etc.)
+  </p>
+  <p>
+    The key points that SHOULD be covered in an intervention summary are:
+  </p>
+  <ul>
+    <li>Were the issues that were intended to be addressed by the referral fully addressed?  E.g. Does the patient now have what they need
+      in order to maintain appropriate physical activity levels on an ongoing basis?</li>
+    <li>If there are outstanding issues that were not able to be fully addressed, what issues remain and what were the barriers that kept
+      them from being addressed?</li>
+    <li>If the referral was to a specific exercise program, what level of participation did the patient engage in?</li>
+    <li>What is the plan that the patient has been left with and what next steps (if any) are recommended for the ordering clinician to
+      take to continue to support the patient?</li>
+  </ul>
 </div>

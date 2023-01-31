@@ -18,15 +18,15 @@ Usage:          #definition
 * rest[+]
   * mode          = #client
   * documentation = "Care managers only act as clients in situation where they are interacting with 
-    'advanced' [referral recipients](CapabilityStatement-pa-referral-recipient.html) which have their 
+    'advanced' [service providers](CapabilityStatement-pa-service-provider.html) which have their 
     own FHIR server interfaces.  In this mode, the Care Manager can create and/or retrieve 
     information from the referral recipient.  There is no expectation that [patient engagement](
     CapabilityStatement-pa-patient-engagement.html) systems will have their own FHIR server 
     interfaces."
 * rest[+]
   * mode          = #server
-  * documentation = "Care Managers act primarily as servers, allowing [referral recipients](
-      CapabilityStatement-pa-referral-recipient.html) and [patient engagement systems](
+  * documentation = "Care Managers act primarily as servers, allowing [service providers](
+      CapabilityStatement-pa-service-provider.html) and [patient engagement systems](
       CapabilityStatement-pa-patient-engagement.html) to retrieve information stored on the
       manager, and in some cases to create and update information present on the manager."
   * security.service[+]  = $security#OAuth
@@ -421,28 +421,28 @@ Usage:          #definition
         range.  Particularly useful for cross-patient queries."
   * resource[+]
     * extension[$conf].valueCode = #SHALL
-    * type = #Procedure
-    * supportedProfile[+] = Canonical(PAProcedure)
+    * type = #DiagnosticReport
+    * supportedProfile[+] = Canonical(PADiagnosticReport)
       * extension[$conf].valueCode = #SHALL
-    * documentation = "Allows recording and retrieval of the records of specific physical 
+    * documentation = "Allows recording and retrieval of the reports on physical 
       activity-related interventions."
     * interaction[+]
       * extension[$conf].valueCode = #SHALL
       * code          = #create
-      * documentation = "Allows recording of interventions that have been (or are being) performed."
+      * documentation = "Allows recording of reports about physical activity interventions."
     * interaction[+]
       * extension[$conf].valueCode = #SHOULD
       * code          = #update
-      * documentation = "Allows revising the record of existing interventions.  E.g. updating to
-        change status, add notes, fill in completion date, etc."
+      * documentation = "Allows updating/correcting a report on physical activity interventions.  E.g. updating to
+        change status, add notes, etc."
     * interaction[+]
       * extension[$conf].valueCode = #SHALL
       * code          = #read
-      * documentation = "Allows retrieval of interventions referenced by Task outputs."
+      * documentation = "Allows retrieval of the report(s) referenced by Task output."
     * interaction[+]
       * extension[$conf].valueCode = #SHALL
       * code          = #search-type
-      * documentation = "Allows searching for interventions for a particular patient or checking
+      * documentation = "Allows searching for reports for a particular patient or checking
         for updates to previously retrieved records."
     * versioning      = #versioned-update
     * referencePolicy = #literal
@@ -451,7 +451,7 @@ Usage:          #definition
       * name          = "_id"
       * definition    = "http://hl7.org/fhir/SearchParameter/Resource-id"
       * type          = #token
-      * documentation = "Allows retrieving known consent records - and more specifically, retrieving 
+      * documentation = "Allows retrieving known reports - and more specifically, retrieving 
         more than one in a single call to poll for updates."
     * searchParam[+]
       * extension[$conf].valueCode = #SHOULD
@@ -464,32 +464,32 @@ Usage:          #definition
       * name          = "basedOn"
       * definition    = "http://hl7.org/fhir/SearchParameter/Procedure-based-on"
       * type          = #reference
-      * documentation = "Allows filtering to interventions performed in fulfillement of a particular
+      * documentation = "Allows filtering to reports created in fulfillement of a particular
         order or referral."
     * searchParam[+]
       * extension[$conf].valueCode = #SHOULD
       * name          = "code"
       * definition    = "http://hl7.org/fhir/SearchParameter/clinical-code"
       * type          = #token
-      * documentation = "Allows filtering to specific types of interventions."
+      * documentation = "Allows filtering to specific types of reports."
     * searchParam[+]
       * extension[$conf].valueCode = #SHOULD
       * name          = "date"
       * definition    = "http://hl7.org/fhir/SearchParameter/clinical-date"
       * type          = #date
-      * documentation = "Allows filtering interventions based on when they occurred."
+      * documentation = "Allows filtering reports based on the period the cover."
     * searchParam[+]
       * extension[$conf].valueCode = #SHALL
       * name          = "category"
       * definition    = "http://hl7.org/fhir/SearchParameter/Procedure-category"
       * type          = #token
-      * documentation = "Allows retrieving only those interventions related to physical activity."
+      * documentation = "Allows retrieving only those reports related to physical activity."
     * searchParam[+]
       * extension[$conf].valueCode = #SHALL
       * name          = "patient"
       * definition    = "http://hl7.org/fhir/SearchParameter/clinical-patient"
       * type          = #reference
-      * documentation = "Allows filtering to only those interventions for a specific patient.  Most 
+      * documentation = "Allows filtering to only those reports for a specific patient.  Most 
         systems will treat this as a mandatory search parameter, though systems MAY support 
         cross-patient search, at least through bulk-data interfaces for payer or research use."
     * searchParam[+]
@@ -497,13 +497,13 @@ Usage:          #definition
       * name          = "performer"
       * definition    = "http://hl7.org/fhir/SearchParameter/ServiceRequest-performer"
       * type          = #reference
-      * documentation = "Allows filtering to only retrieve orders targeted to a specific performer."
+      * documentation = "Allows filtering to only retrieve reports created by a specific performer."
     * searchParam[+]
       * extension[$conf].valueCode = #SHOULD
       * name          = "status"
       * definition    = "http://hl7.org/fhir/SearchParameter/ServiceRequest-status"
       * type          = #token
-      * documentation = "Allows filtering to only retrieve active or completed orders."
+      * documentation = "Allows filtering to only retrieve active or completed reports."
   * resource[+]
     * extension[$conf].valueCode = #SHALL
     * type = #Questionnaire

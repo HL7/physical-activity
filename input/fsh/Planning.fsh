@@ -118,14 +118,12 @@ Description:    "Represents orders and referrals for interventions that help to 
 * specimen 0..0
 
 
-Profile:        PAProcedure
-Parent:         USCoreProcedureProfile
-Id:             pa-procedure
-Title:          "Physical Activity Procedure"
-Description:    "Represents interventions interventions performed to help improve or maintain
-  a patient's level of physical activity"
-* extension contains $pertainsToGoal named pertainsToGoal 0..* MS
-* extension[pertainsToGoal].valueReference only Reference(PAGoal)
+Profile:        PADiagnosticReport
+Parent:         USCoreDiagnosticReportProfileNoteExchange
+Id:             pa-diagnosticreport
+Title:          "Physical Activity Intervention Report"
+Description:    "Conveys a summary of the interventions and patient interactions that have occurred over the
+course of the services delivered by a Service Provider, typically in response to a referral"
 * basedOn ^slicing.discriminator.type = #profile
 * basedOn ^slicing.discriminator.path = "resolve()"
 * basedOn ^slicing.rules = #open
@@ -133,12 +131,18 @@ Description:    "Represents interventions interventions performed to help improv
 * basedOn[SupportedBasedOn] only Reference(PAServiceRequest)
 //* category contains PAProcedure 1..1 MS
 //* category[PAProcedure] = TemporaryCodes#PhysicalActivity
-* code from PAInterventions (extensible)
-* reasonReference ^slicing.discriminator.type = #profile
-* reasonReference ^slicing.discriminator.path = "resolve()"
-* reasonReference ^slicing.rules = #open
-* reasonReference contains SupportedReasonReference 0..* MS
-* reasonReference[SupportedReasonReference] only Reference(LowPACondition)
+* code from PAReports (extensible)
+* encounter ^comment = "... While this is inherited as MustSupport from US Core, this element will typically
+  not be relevant in the physical activity space as most reports will describe events spanning multiple
+  encounters"
+* result ^slicing.discriminator.type = #profile
+* result ^slicing.discriminator.path = "resolve()"
+* result ^slicing.rules = #open
+* result contains SupportedResult 0..* MS
+* result[SupportedResult] only Reference(EVS or ActivityMeasure or TimeMeasure or ActivityGroup)
+* presentedForm.contentType = urn:ietf:bcp:13#application/pdf
+* presentedForm.contentType ^comment = "... Implementers are encouraged to identify additional formats they would
+  like to see supported, if any."
 
 
 Profile:        PATaskForReferralManagement
@@ -150,6 +154,10 @@ Description:    "Represents a request for fufillment of a physical activity-rela
 * status MS
 * statusReason MS
   * text MS
+* businessStatus ^comment = "... This may be used to convey more fine-grained status if such tracking
+  is supported by the performer (and of interest to the requester).  Support for this element is
+  optional."
+  * text 1..1 MS
 * intent = #order
 * priority MS
 * code = http://hl7.org/fhir/CodeSystem/task-code#fulfill

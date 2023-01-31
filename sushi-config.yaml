@@ -70,6 +70,8 @@ pages:
       title: Plans & Interventions
     workflow.xml: 
      title: Conformance & Workflow
+    security.xml: 
+      title: Privacy and Security Considerations
     artifacts.xml: 
       title: IG Artifacts
     downloads.xml: 
@@ -89,6 +91,7 @@ menu:
     Measures: measures.html
     Plans &amp; Interventions: interventions.html
     Conformance &amp; Workflow: workflow.html
+    Privacy &amp; Security: security.html
   Artifacts: artifacts.html
   Support:
     Project Home: https://confluence.hl7.org/display/PC/Physical+Activity

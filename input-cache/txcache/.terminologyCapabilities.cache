@@ -5,7 +5,7 @@
   "version" : "1.0.0",
   "name" : "FHIR Reference Server Teminology Capability Statement",
   "status" : "active",
-  "date" : "2022-06-08T14:37:00.779Z",
+  "date" : "2023-01-17T05:12:51.263Z",
   "contact" : [{
     "telecom" : [{
       "system" : "other",
@@ -830,16 +830,16 @@
     "uri" : "http://hl7.org/fhir/us/core/CodeSystem/condition-category"
   },
   {
-    "uri" : "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category"
+    "uri" : "http://hl7.org/fhir/us/core/CodeSystem/us-core-category"
   },
   {
-    "uri" : "http://hl7.org/fhir/us/core/CodeSystem/us-core-observation-category"
+    "uri" : "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category"
   },
   {
     "uri" : "http://hl7.org/fhir/us/core/CodeSystem/us-core-provenance-participant-type"
   },
   {
-    "uri" : "http://hl7.org/fhir/us/core/CodeSystem/us-core-tags"
+    "uri" : "http://hl7.org/fhir/us/core/CodeSystem/us-core-sex-for-clinical-use"
   },
   {
     "uri" : "http://hl7.org/fhir/variable-type"
@@ -864,6 +864,9 @@
   },
   {
     "uri" : "http://nucc.org/provider-taxonomy"
+  },
+  {
+    "uri" : "http://radlex.org"
   },
   {
     "uri" : "http://snomed.info/sct"
@@ -921,6 +924,9 @@
   },
   {
     "uri" : "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason"
+  },
+  {
+    "uri" : "http://terminology.hl7.org/CodeSystem/appropriateness-score"
   },
   {
     "uri" : "http://terminology.hl7.org/CodeSystem/attribute-estimate-type"
@@ -1266,6 +1272,9 @@
   },
   {
     "uri" : "http://terminology.hl7.org/CodeSystem/hl7-work-group"
+  },
+  {
+    "uri" : "http://terminology.hl7.org/CodeSystem/icd-o-3"
   },
   {
     "uri" : "http://terminology.hl7.org/CodeSystem/immunization-evaluation-dose-status"
@@ -3260,6 +3269,9 @@
     "uri" : "http://terminology.hl7.org/CodeSystem/v3-ManagedParticipationStatus"
   },
   {
+    "uri" : "http://terminology.hl7.org/CodeSystem/v3-ManufacturerModelNameExample"
+  },
+  {
     "uri" : "http://terminology.hl7.org/CodeSystem/v3-MapRelationship"
   },
   {
@@ -3420,6 +3432,9 @@
   },
   {
     "uri" : "http://terminology.hl7.org/CodeSystem/v3-SetOperator"
+  },
+  {
+    "uri" : "http://terminology.hl7.org/CodeSystem/v3-SoftwareNameExample"
   },
   {
     "uri" : "http://terminology.hl7.org/CodeSystem/v3-SpecimenType"

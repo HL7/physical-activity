@@ -21,7 +21,7 @@ Usage:          #definition
   * documentation = "Systems for patients  only act as RESTful clients.  While they may create and
     store some of their own data, this data is always made available by 'pushing' it to the server
     of a [care manager](CapabilityStatement-pa-care-manager.html) or, more rarely, a
-    [referral recipient](CapabilityStatement-pa-referral-recipient.html) system.  Key data such as 
+    [service providers](CapabilityStatement-pa-service-provider.html) system.  Key data such as 
     the care plan, goals, condition and other information only resides on the care manager system."
 
 // TODO

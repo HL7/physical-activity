@@ -20,9 +20,17 @@ Description:    "A profile describing base requirements for all primary exercise
 * derivedFrom[supportingObs] only Reference(ExerciseSupportGeneric)
 * derivedFrom[supportingObs] ^comment = "...While this element is not required to be supported, we encourage
   systems to track supporting observations"
-  
-Profile:        EVSDaysPerWeek
+
+Profile:        EVS
 Parent:         ExerciseBase
+Id:             observation-evs
+Title:          "Exercise Vital Sign Observation"
+Description:    "A generic profile that encapsulates all of the exercise vital sign observations."
+* ^abstract = true
+* code from ValueSetEVS (required)
+
+Profile:        EVSDaysPerWeek
+Parent:         EVS
 Id:             observation-evs-days-per-week
 Title:          "Exercise Vital Sign Days per Week"
 Description:    "A profile for observations that capture a patient's average days per week of moderate-to-strenuous exercise."
@@ -30,7 +38,7 @@ Description:    "A profile for observations that capture a patient's average day
 * valueQuantity.code = #d/wk
   
 Profile:        EVSMinutesPerDay
-Parent:         ExerciseBase
+Parent:         EVS
 Id:             observation-evs-min-per-day
 Title:          "Exercise Vital Sign Minutes per Day"
 Description:    "A profile for observations that capture a patient's average minutes per day of moderate-to-strenuous exercise."
@@ -38,7 +46,7 @@ Description:    "A profile for observations that capture a patient's average min
 * valueQuantity.code = #min/d
 
 Profile:        ExerciseMinutesPerWeek
-Parent:         ExerciseBase
+Parent:         EVS
 Id:             observation-min-per-week
 Title:          "Exercise Minutes per Week"
 Description:    "A profile for observations that capture a patient's average minutes per week of moderate-to-strenuous exercise."
@@ -46,7 +54,7 @@ Description:    "A profile for observations that capture a patient's average min
 * valueQuantity.code = #min/wk
 
 Profile:        StrengthDaysPerWeek
-Parent:         ExerciseBase
+Parent:         EVS
 Id:             observation-strength-days-per-week
 Title:          "Strength Days Week"
 Description:    "A profile for observations that capture a patient's average days per week of muscle-strengthing exercise."

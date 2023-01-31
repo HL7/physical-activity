@@ -173,7 +173,7 @@
           acting in their personal relationship capacity to assist the patient.  (i.e. patient-captured measures include those recorded by parents,
           spouses, neighbors, etc.).  This means the performer of the observation would be either 
           <a href="{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-patient.html">Patient</a> or
-          <a href="{{site.data.fhir.path}}/relatedperson.html">RelatedPerson</a>.</li>
+          <a href="{{site.data.fhir.path}}relatedperson.html">RelatedPerson</a>.</li>
         <li><i>Providers (Prov.)</i> are anyone working professionally delivering healthcare related services.  This includes licensed healthcare professionals
          such as nurses, clinicians, and physio therapists.  However, it also covers individuals who might not be licensed such as personal trainers.
          This type of reporter would mean that the performer of the observation would be a
@@ -183,7 +183,7 @@
       The absence of a 'Y' in the column of a particular type of reporter does not mean this type of Observation <i>cannot</i> be performed by that
       type of individual, merely that it would be unusual or uncommon.  It also means that systems focused on supporting data capture by that type
       of individual (<a href="CapabilityStatement-pa-patient-engagement.html">Patient-engagement</a> systems for patient-reported and 
-      <a href="CapabilityStatement-pa-care-manager.html">Care-manager</a> and <a href="CapabilityStatement-pa-referral-recipient.html">Referral Recipient</a>
+      <a href="CapabilityStatement-pa-care-manager.html">Care-manager</a> and <a href="CapabilityStatement-pa-service-provider.html">Service Provider</a>
       systems for provider-reported) would not typically support capturing observations not associated with their target user type.  That said,
       all such systems <b>SHOULD</b> support receiving and storing all supporting information observations.
     </li>
@@ -224,8 +224,8 @@
   </p>
   <p>
     Each of these measures is conveyed using the <a href="StructureDefinition-pa-activity-measure.html">Activity Measure profile</a>.
-    In addition, these measures might be grouped together under a 'panel' Observation that complies with the
-    <a href="StructureDefinition-pa-activity-panel.html">Activity Panel profile</a>.  All observations collected beneath the panel
+    In addition, these measures might be grouped together under a 'group' Observation that complies with the
+    <a href="StructureDefinition-pa-activity-group.html">Activity Group profile</a>.  All observations collected beneath the group
     are considered to be associated with the same physical activity 'occurrence'.
   </p>    
   <table class="grid">

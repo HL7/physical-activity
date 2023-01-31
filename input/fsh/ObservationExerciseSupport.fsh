@@ -21,7 +21,6 @@ Description:    "An abstract observation profile that serves as the parent for v
 * effectivePeriod.start ^extension[$minLength].valueInteger = 10
 * effectivePeriod.end 1..1 MS
 * effectivePeriod.end ^extension[$minLength].valueInteger = 10
-
 * valueQuantity.value 1..1 MS
 * valueQuantity.system = "http://unitsofmeasure.org"
 * note MS
@@ -38,12 +37,12 @@ Description:    "A profile for observations that capture physical activity-relat
 * effective[x] ^comment = "...This will typically be a dateTime specific to the day.  If the information is available, a Period can be used
     to indicate the specific start and end times."
 * value[x] only Quantity or CodeableConcept
-* value[x] ^comment = "...The value **SHALL** be constrained to the type and unit or ValueSet as indicated in [the table](measures.html#active)"
+* value[x] ^comment = "...The value **SHALL** be constrained to the type and unit or ValueSet as indicated in [the table](measures.html#activity)"
 
 
 Profile:        ActivityGroup
 Parent:         ExerciseSupportGeneric
-Id:             pa-activity-Group
+Id:             pa-activity-group
 Title:          "Physical Activity Group"
 Description:    "A profile for observations that collect a set of activity-related measures that all pertain to the same exercise instance."
 * code = TemporaryCodes#ExercisePanel

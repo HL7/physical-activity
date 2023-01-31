@@ -13,13 +13,14 @@
 	</p>
 	<ul>
     <li><a href="CapabilityStatement-pa-care-manager.html">Care Managers</a> are electronic health record or similar systems used by physicians, 
-      social workers, or others who have general responsibility for care of the patient.  These are the systems that will perform initial
+      social workers, or others who have general responsibility for care of the patient.  These are the systems that will typically perform initial
       data capture, whose users may identify an issue with physical activity level, and will coordinate any interventions to improve
-      physical activity level.</li>
-    <li><a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagment Apps</a> are systems that will be used by patients and/or their care givers
+      physical activity levels.</li>
+    <li><a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagment Apps</a> are systems that will be used by patients and/or their caregivers
       to capture data to share with clinicians and physical activity specialists.  They will also allow patients and their representatives
-      to see and potentially update plans of care related to physical activity.</li>
-    <li><a href="CapabilityStatement-pa-referral-recipient.html">Referral Recipients</a> are systems used by physical activity professionals,
+      to see and potentially update goals and plans of care related to physical activity.  (Caregivers might include relatives, neighbors,
+      friends, or anyone else acting in support of the patient based on their personal relationship.)</li>
+    <li><a href="CapabilityStatement-pa-service-provider.html">Service Providers</a> are systems used by physical activity professionals,
       such as personal trainers, community fitness centers, etc. who can provide services to patients to enhance and maintain their levels
       of physical activity.</li>
   </ul>
@@ -28,12 +29,36 @@
   </p>
   <ul>
     <li>Some patients will not have access to (or interest in using) a monitoring app and communication will solely be between the Care
-       Manager and Referral Recipient systems.</li>
+       Manager and Service Provider systems.</li>
     <li>Some patients may not be interested in (or require) a referral to external exercise professionals and all interactions will take
       place solely between the Care Manager and Patient Engagement Apps.</li>
+    <li>Some patients will self-refer for care and will not have a general practitioner or other clinician who is interested and/or capable
+      of receiving data and interactions will be limited to communications between Patient Engagement Apps and Service Providers.</li>
     <li>In some cases, Care Managers will act alone and not interact with other systems, though exposing their records over FHIR interfaces
       will still enable care transitions and other data sharing.</li>
   </ul>
+  
+  <a name="payers"> </a>
+  <h4>Payers as an actor</h4>
+  <p>
+    In addition to these three actor types, payer systems are also relevant in this space, as they may provide coverage for services offered by Service Providers
+    and may need measures reported by any of the other two system types.  However, interaction with payers is outside the scope of this implementation
+    guide.  Implementers interested in also supporting interoperability with payer systems related to physical activity are encouraged to
+    exampine the various Da Vinci implementation guides, in particular:
+  </p>
+  <ul>
+    <li><a href="http://hl7.org/fhir/us/davinci-crd">Coverage Requirements Discovery (CRD)</a>, <a href="http://hl7.org/fhir/us/davinci-dtr">Documentation, 
+      Templates, and Rules (DTR)</a>, and <a href="http://hl7.org/fhir/us/davinci-pas">Prior Authorization Support (PAS)</a> which, together, support capturing 
+      and sharing any data needed to support post-acute order submission, prior authorization, and claims submission processes.</li>
+    <li><a href="http://hl7.org/fhir/us/davinci-cdex">Clinical Documentation Exchange (CDex)</a> which allows payers to solicit information
+      from clinical information systems.</li>
+  </ul>
+  <p>
+    While this IG doesn't define interactions with payer systems, the data standardization of physical activity measures and related referrals
+    will improve interoperability for payer processes.  In some cases, the RESTful interfaces defined in this guide that support sharing data with 
+    clinicians, patients, and service providers may be extended (with permisison and oversight of appropriate access) to allow direct query by payer
+    systems.
+  </p>
   
   <h3>Workflows</h3>
   <p>
@@ -49,6 +74,12 @@
     has responsibility for the patient's care and/or are otherwise supporting the patient in meeting their healthcare objectives.  This 
     can even include caregivers being the focus of interventions, for example receiving training so they can better assist the patient in 
     the execution of their exercise plan.
+  </p>
+  <p>
+    The term 'patient' may also be foreign to some of the participants in this implementation guide.  Personal trainers and gyms may think of those they
+    work with as "clients", "customers", "guests", or some similar term.  FHIR's use of the word 'patient' and the 
+    <a href="{{site.data.fhir.path}}patient.html">Patient</a> resource in no way excludes use by such systems.  The user interfaces for systems should 
+    continue to use whatever terminology is appropriate in their business, regardless of the names of the underlying FHIR objects.
   </p>
   
   <a name="plans"> </a>
@@ -66,7 +97,7 @@
     This may continue until the issue is deemed 'resolved' or until the patient determines they no longer wish to address the issue.  Alternatively,
     it may continue indefinitely, even when a target state has been reached, just to monitor and ensure ongoing success.
   </p>
-  <p>Breaking these steps up into more detail</p>
+  <p>Breaking these steps up into more detail:</p>
   
   <a name="diagnosis"> </a>
   <h5>Issue identification</h5>
@@ -96,7 +127,7 @@
     </tbody>
   </table>
   <p>
-    However, the fundamental determination of when intervention is appropriate is left up
+    However, the determination of when intervention is appropriate is left up
     to care providers and patients to determine.  Comorbidities such as diabetes, hypertension, obesity, cardiac risk factors, etc. may all
     come into play, either indicating that higher target levels or sometimes lower target levels are appropriate.  Payers may set rules for
     what criteria need to be met in order for interventions to be covered under particular plans.
@@ -104,7 +135,7 @@
   <p>
     One key part of the preceding paragraph is that care providers and patients <i>together</i> make a determination as to whether a problem
     exists and requires intervention.  The cycle of setting goals, planning steps to achieve those goals and monitoring progress can only occur
-    if the patient is on-board.  Absent that, a clinician can only note their concern in the chart, councel the patient, and follow up on
+    if the patient is on-board.  Absent that, a clinician can only note their concern in the chart, counsel the patient, and follow up on
     subsequent visits to see if readiness may have changed.
   </p>
   <p>
@@ -113,15 +144,15 @@
     <a href="StructureDefinition-observation-evs-min-per-day.html">min/day</a>), using a 
     <a href="Questionnaire-questionnaire-evs.html">small Questionnaire</a>, or possibly incorporating those same questions as part of a larger 
     questionnaire (e.g. using <a href="{{site.data.fhir.ver.sdc}}/modular.html">modular forms</a>).  This information might be recorded directly
-    by the patient or by the care provider based on information solicited from the patient.
+    by the patient or by the care provider based on information solicited from the patient or one of the patient's caregivers.
   </p>
   <p>
     If the care provider believes the patient's exercise level is problematic for their long-term health, they might choose to record a
-    <a href="StructureDefinition-pa-condition.html">Condition</a> in the record indicating their concern, and to act as a focal point for subsequent
+    <a href="StructureDefinition-pa-condition.html">Condition</a> in the record indicating their concern and to act as a focal point for subsequent
     plans, goals, and interventions.
   </p>
   <p>
-    In this IG, creation or updating of a Condition is always done internally by a Care Manager.  However, external systems (i.e. Refererral Recipients
+    In this IG, creation or updating of a Condition is always done internally by a Care Manager.  However, external systems (i.e. Service Providers
     and Patient Engagement systems can search for and retrieve these records.
   </p>
   
@@ -129,14 +160,14 @@
   <p>
     The planning step involves coming to agreement with the patient about what their target should be for exercise frequency and duration, possibly
     with sub-targets along the way, as well as target timeframes for meeting those objectives.  Then the two need to agree on what steps will best help 
-    the patient to get their exercise levels into the desired duration and frequency target range.  Historically, this plan would typically have been 
-    captured as encounter notes within the care provider's system.  However, this guide sets higher expectations.
+    the patient to get their exercise levels into the desired duration, frequency, and intensity target range.  Historically, this plan would typically 
+    have been captured as encounter notes within the care provider's system.  However, this guide sets higher expectations.-
    </p>
    <p>
     To ensure appropriate ongoing coordination between care provider, patient, and exercise professionals, both the plan and any associated goals
     need to be shareable in a standardized manner.  The <a href="StructureDefinition-pa-careplan.html">exercise plan</a> is a simple structure 
     that captures the date, patient, author and a textual narrative describing the proposed plan the patient will follow.  Systems are free to
-    capture and share additional discrete information if they wish, but only the minimum set of data described in this IG's profile need to be
+    capture and share additional discrete information if they wish, but only the minimum set of data described in this IG's profile needs to be
     supported.  In some cases, the plan shared may carry more information than just information about exercise.  However, the plan <b>SHOULD</b>
     not contain any information that would be inappropriate for exercise professionals or others involved in the patient's exercise plan to see.
   </p>
@@ -147,9 +178,10 @@
     and what is intended for the future.
   </p>
   <p>
-    In this IG, the expectation is that both the exercise plan and its associated goals are stored on the Care Manager.  At minimum, Referral Recipient
-    and Patient Engagement systems will be able to query and monitor the plan and goals.  In some environments, they may also be able to make changes
-    to plans and goals, such as adjusting status, adding comments or otherwise indicating progress.
+    In this IG, the expectation is that both the exercise plan and its associated goals are stored on either the Care Manager or Service Provider,
+    depending on who is most actively managing the plan of care.  (In some cases, both systems might maintain their own records.)  At minimum, 
+    Service Provider and Patient Engagement systems will be able to query and monitor the plan and goals.  In some environments, they may also be able 
+    to make changes to plans and goals, such as adjusting status, adding comments or otherwise indicating progress.
   </p>
 
   <a name="referral"> </a>
@@ -157,15 +189,34 @@
   <p>
     As discussed on the <a href="interventions.html#referrals">interventions page</a>, referrals are the mechanism by which a Care Manager authorizes
     interventions to be performed by a physical activity professional.  The <a href="StructureDefinition-pa-servicerequest.html">referral record</a>
-    is created and maintained exclusively on the Care Manager system.  However, Referral Recipient and Patient Engagement systems will have query access
+    is created and maintained exclusively on the Care Manager system.  However, Service Provider and Patient Engagement systems will have query access
     to the record.
   </p>
   <p>
-    The <a href="{{site.data.fhir.ver.sdoh}}/StructureDefinition-SDOHCC-TaskForReferralManagement.html">Task</a> is what really drives the workflow.  
+    Referrals are typically initiated in one of two ways:
+  </p>
+  <ul>
+    <li>A clinician or other professional determines that a patient's physical activity level is too low and that intervention by an excercise professional
+      is likely to help improve the patient's activity level.</li>
+    <li>A patient is already receiving treatment by an exercise professional and the professional indicates that, with a referral, some portion of the
+      services being provided might be covered by insurance.  The patient reaches out to their clinician who, after verifying the patient meets
+      elegibility criteria for referral, may refer for the services currently being rendered or for others.</li>
+  </ul>
+  <p>
+    Most exercise programs and exercise-related services are not 'gated'.  I.e. no referral is needed in order to access the services.  In these cases,
+    the primary purpose of a referral is to enable funding to flow from insurance coverage.  However, certain specialized programs, such as
+    those related to post-cancer or cardiac rehabilitiation might require a referral both to ensure the program is appropriate for the patient and
+    that the patient has sufficiently recovered that beginning an exercise program is appropriate.  In these cases, referrals might be sought even if
+    the patient does not have coverage that would support reimbursement.
+  </p>
+  
+  <h5>Representing Referrals in FHIR</h5>
+  <p>
+    The <a href="{{site.data.fhir.ver.sdoh}}/StructureDefinition-SDOHCC-TaskForReferralManagement.html">Task</a> is what really drives referral workflow.  
     Typically referrals won't be directed to a particular service provider.  Instead, Tasks will be used to solicit providers who are willing to
-    perform a needed intervention (possibly with guidance from the patient around their preferences).  Referral Recipients will 
+    perform a needed intervention (possibly with guidance from the patient around their preferences).  Service Providers will 
     <a href="#monitor">monitor</a> for new 'requested' Tasks assigned to them and will update the Tasks to indicate acceptance and, then 'in-progress',
-    and eventually link the performed <a href="StructureDefinition-PA-Procedure.html">procedure</a> records to the Task and update the status to 'completed'.
+    and eventually link a <a href="StructureDefinition-pa-diagnosticreport.html">report</a> to the Task showing final outcomes and update the status to 'completed'.
   </p>
   <p>
     However, in addition to this 'happy' path, the Task is also used to document other workflows.  These include:
@@ -186,23 +237,103 @@
   </p>
   <p>
     There are two different modes of operation for task management.  In one, the Task lives on the Care Manager system and is either
-    polled or subscribed to by the Referral Recipient to monitor for initial creation and any Care Manager-side updates.  (The Gravity SDOHCC
-    guide describes the differences between these two options in more detail <a href="{{site.data.fhir.ver.sdoh}}/checking_task_status.html">here</a>.)
-    The Referral Recipient submits updates to the Care Manager to drive all record changes.  This approach means that the
-    Referral Recipient doesn't need to expose a FHIR server interface and doesn't even need to have an ability to store health data locally.
+    polled or subscribed to by the Service Provider to monitor for initial creation and any Care Manager-side updates.  
+    The Service Provider submits updates to the Care Manager to drive all record changes.  This approach means that the
+    Service Provider doesn't need to expose a FHIR server interface and doesn't even need to have an ability to store health data locally.
   </p>
   <p>
-    In the second, the Task is posted by the Care Manager to the Referral Recipient's system.  All changes are made locally and it is the
+    In the second, the Task is posted by the Care Manager to the Service Provider's system.  All changes are made locally and it is the
     Care Manager that polls or subscribes to the Task to monitor it for changes.  If the Care Manager needs to cancel the Task, they do so
-    by submitting an update to the Referral Recipient.  In this approach, the Referral Recipient must have a FHIR server endpoint and that
+    by submitting an update to the Service Provider.  In this approach, the Service Provider must have a FHIR server endpoint and that
     endpoint must be known to all Care Managers that will be sending orders.
   </p>
   <p>
-    Gravity has a third mode of operation where intermediary systems act as a shared point of contact between Care Managers and Referral Recipients.
+    The Gravity SDOHCC guide describes the differences between these two options in more detail 
+    <a href="{{site.data.fhir.ver.sdoh}}/checking_task_status.html">here</a>.  This IG does not mandate a single approach because which one is
+    appropriate will be driven by the technical capabilities and relationships of the systems.  E.g. Some Service Providers won't have a RESTful
+    endpoint with a predictable network location, which means the 'polling/subscription' approach will be more necessary.
+  </p>
+  <p>
+    Gravity has a third mode of operation where intermediary systems act as a shared point of contact between Care Managers and Service Providers.
     This IG does not currently support an 'intermediary' architecture as there is not (yet?) an obvious set of intermediary vendors who could
     take on such a role.
   </p>
+  <p>
+    Regardless of which mode is used, for referrals to be successfully exchanged, the Care Manager and Service Provider systems need to have an
+    awareness of each other and have a trust relationship that allows data to flow - whether the information is queried or pushed.  In the short
+    term, these relationships will likely be established manually, through sharing of network and security credentials and signing relevant
+    legal agreements.  In the longer term, participation registries such as those envisioned by the 
+    <a href="http://hl7.org/fhir/us/directory-query">FAST National Directory</a> project may enable automated discovery of relevant partner
+    systems and even allow automated determination of participation in shared agreements, eliminating the need for point-to-point negotiations.
+    See more about the privacy and security expectations for this guide <a href="security.html">here</a>.
+  </p>
+
+  <a name="loop"> </a>
+  <h4>Closing the Loop</h4>
+  <p>
+    Once a referral has been issued and accepted, there's a need to communicate progress and status back to the initiating practitioner.  There
+    are three main mechanisms for accomplishing this: using Task status, ongoing measurements, and diagnostic reports.
+  </p>
   
+  <a name="status"> </a>
+  <h5>Using Task Status</h5>
+  <p>
+    Task has two status elements - <code>Task.status</code> and <code>Task.businessStatus</code>.  The basic progress of the referral can be conveyed 
+    by Task.status alone.  The statuses most likely to be relevant in this IG, in order of priority/importance are:
+  </p>
+  <ul>
+    <li><b>accepted/rejected</b> - indicates whether the Service Provider has agreed to provide the service or not.  This is the most important
+      part of the referral process, in that if the referral is rejected, the requesting clincian's short-term responsibility has not ended and there 
+      is a need to seek out an alternate Service Provider to perform the service.  (Note - if a Task is rejected, then that particular Task instance
+      is finished.  The Task to seek a different Service Provider will be handled with a different instance.)</li>
+    <li><b>completed/failed/cancelled</b> - indicates that service delivery has ended, one way or another.  I.e. the ball is now back in the
+      Service Provider's court.  Service Providers SHOULD always update the Task to represent completion status, though the reality is that occasionally
+      a Task may fall stagnant and get forgotten.  If the status is failed or cancelled, there SHOULD be a statusReason or a note that indicates the
+      reason so that the initiating condition can better choose what steps to take next, if any.</li>
+    <li><b>in-progress</b> - indicates that the Service Provider has actually started to deliver services to the patient.  Not all Service Providers
+      will necessarily communicate this point in the workflow (and not all Care Managers will be interested in knowing this).</li>
+    <li><b>on-hold</b> - indicates that the patient has taken a break from receiving therapy, but there's an expectation that therapy will resume.
+      Again, an explanation in statusReason or a note is encouraged.</li>
+  </ul>
+  <p>
+    Task.businessStatus allows communication of more fine-grained information about progress.  For example, whether the patient has been registered,
+    come for an initial assessment, etc.  There are no standardized codes and, if systems opt to use this element, the are expected to provide a free-text 
+    representation of the status in addition to any coded representation to maximize interoperability.
+  </p>
+  <p>
+    Future release of this implementation guide may set tighter expectations around the use of <code>businessStatus</code> based on initial implementation
+    experience.
+  </p>
+  
+  <a name="observations"> </a>
+  <h5>Using measurements</h5>
+  <p>
+    Even without looking at status, a Care Manager system that opts to receive or access a patient's physical activity <a href="measures.html">measures</a>
+    can keep tabs on whether the patient's physical activity level is changing.  Supporting measures capturing activity-specific exercise information
+    can even allow inference in programs (through regular performance of specific activities).  This is true even in the absence of a referral - a
+    practitioner who only provides counselling around increasing physical activity can have access to information about activity levels and types and
+    get insight into how well the patient is adhering to the agreed plan.  In most cases, this review would happen at the time of the next visit, though
+    a proactive practitioner might opt to monitor how the patient is doing between visits so that they can reach out to provide support/adjustment if
+    needed.
+  </p>
+
+  <a name="reports"> </a>
+  <h5>Using diagnostic reports</h5>
+  <p>
+    The <a href="StructureDefinition-pa-diagnosticreport.html">PA Intervention Report</a> profile allows the use of the DiagnosticReport
+    resource to convey a summary of the intervention(s) performed by the Service Provider.  These would typically be created at the completion of the
+    activities required by the referral, though an instance could also be created at intermediate points.  This resource allows conveying much more
+    information than just 'status' and observations.  The service provider can convey impressions, recommendations, obstacles, degree of compliance, 
+    strategies used, level of success, motivation, etc.      
+  </p>
+  <p>
+    Because the profile is essentially a text blob, there is great flexibility in how much information is provided and how it is organized.  At present,
+    this IG doesn't set specific expectations for what must appear in the report.  Realistically, the type of information will vary depending on the
+    type of intervention, the length of patient engagement, and any documentation requirements imposed by payers.  It is possible that future versions
+    of this IG will allow tracking more discrete information about the interventions performed if implementation experience shows that discrete information
+    is useful and can reasonably be captured as part of provider workflows.
+  </p>
+
   <a name="feedback"> </a>
   <h4>Capturing Feedback and patient engagement</h4>
   <p>

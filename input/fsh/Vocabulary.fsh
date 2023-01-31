@@ -10,8 +10,6 @@ Description:    "Codes that will eventually be proposed for LOINC or other code 
 * ^experimental  = false
 * #PhysicalActivity "Physical Activity" "A category assigned to resources pertaining to evaluating,
   improving or sustaining a patient's level of physical activity."
-* #LowActivity "Low Physical Activity" "The patient's level of physical activity is sufficiently
-  below guidelines that it is likely to negatively impact their health."
 * #ExercisePanel "Exercise Panel" "A panel observation intended to group measures related to a
   specific occurrence of physical exercise."
 * #DeviceActivePercentage "Device Active Percentage" "Indicates the percentage of the overall
@@ -19,14 +17,30 @@ Description:    "Codes that will eventually be proposed for LOINC or other code 
   used to calculate the sum or average was enabled and available to take measurements.  For
   example, if a pedometer capturing steps was only worn for 2 hours when calculating a daily
   step count, the percentage would be 2/24 - or 8%."
+* #PAConsultNote "Physical activity Consult note" "A consult note that describes assessments and
+  interventions related to a patient's level of physical activity."
 
 ValueSet:      ValueSetEVS
 Title:         "Exercise Vital Sign Value Set"
 Description:   "Codes for Exercise Vital Sign components"
 * ^copyright = "This material contains content from LOINC (http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the license at http://loinc.org/license. LOINC® is a registered United States trademark of Regenstrief Institute, Inc"
 * ^experimental  = false
-* $loinc#89574-8 ""
+* $loinc#89555-7 ""
 * $loinc#68516-4 ""
+* $loinc#82290-8 ""
+* $loinc#82291-6 ""
+
+
+ValueSet:      PAReports
+Title:         "Physical Activity Report Types Value Set"
+Description:   "Codes types of diagnostic reports relevant to physical activity referrals"
+* ^copyright = "This material contains content from LOINC (http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the license at http://loinc.org/license. LOINC® is a registered United States trademark of Regenstrief Institute, Inc"
+* ^experimental  = false
+* $loinc#11488-4 ""
+* $loinc#34833-4 ""
+* $loinc#34822-7 ""
+* $loinc#34824-3 ""
+* TemporaryCodes#PAConsultNote
 
 ValueSet:    USCorePAServiceRequestCategory
 Title:       "US Core Physical Activity ServiceRequest Category"
