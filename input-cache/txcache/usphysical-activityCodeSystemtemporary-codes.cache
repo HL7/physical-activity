@@ -17,8 +17,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:7adcb3ba-ddc7-47d2-9646-6e28ab4a4e24",
-    "timestamp" : "2023-01-31T17:35:37.480Z",
+    "identifier" : "urn:uuid:0fc5e535-5583-49be-a5f8-518121e69e84",
+    "timestamp" : "2023-02-06T16:10:59.279Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -29,7 +29,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueUri" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/temporary-codes|0.1.0"
+      "valueUri" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/temporary-codes|1.0.0-ballot"
     }],
     "contains" : [{
       "extension" : [{

@@ -24,6 +24,9 @@
   </p>
   <p>
     In FHIR, orders for physical actions are represented using the <a href="StructureDefinition-pa-servicerequest.html">ServiceRequest profile</a>.
+    (This is the same profile as is used for referrals - see <a href="#referral-diff">below</a> for differences in usage.)
+  </p>
+  <p>
     In the case of an exercise referral, the ServiceRequest 'performer' would be the patient themselves.  The requested activity would be
     exercise therapy (SNOMED 229065009), possibly with more specific textual details as to the type of physical activity to perform, along
     with timing information - e.g. 150 minutes/week conveyed in the effectiveTiming element.
@@ -62,10 +65,18 @@
     changes based on patient need and on what's working - or isn't working.
   </p>
   <p>
+    To a certain extent, a plan and an exercise referral serve similar purposes - both can be used to set an expectation for a patient
+    to achieve an improved level of physical activity.  
+    
+  </p>
+  <p>
     Goals allow a shared understanding of a target level of physical activity.  These might be ongoing goals to be sustained or might
     be target goals to be achieved by a particular point in time.  Over time, goals may change their state, to reflect progress as
     well as whether they are considered an 'active' goal or not.  This information might be reflected by the patient, a physical
     activity professional and/or their care manager.
+  </p>
+  <p>
+    Details on how goals and plans are created, updated and shared are covered on the <a href="workflow.html#plan">Workflow page of this IG</a>.
   </p>
 
   <a name="referrals"> </a>
@@ -77,6 +88,22 @@
     Recipient delegates and solicits care from a different Service Provider, then for the purposes of this implementation guide,
     they take on the role of being a Care Manager.  (Some insurers or other programs may place limits on what types of practitioners
     they consider to be authorized to create referrals.  This implemenation guide does not establish such limitations.)
+  </p>
+  <p>
+    Referrals could be issued for a wide range of services to help a patient improve their physical activity level.
+  </p>
+  <ul>
+    <li>Physiotherapy to help address physical limitations in performing exercise</li>
+    <li>Assessment of a patient's capabilities and personal tastes to develop a tailored exercise program that works well for the patient's 
+      abilities and interests</li>
+    <li>Training program to help a patient understand how to perform certain types of exercise safely and effectively</li>
+    <li>Ongoing coaching to help provide motivation, correction and adjustment of exercise plans based on patient needs</li>
+    <li>Enrollment in group programs that support any or all of the above</li>
+  </ul>
+  <p>
+    The high-level list of candidate codes for types of interventions that can be ordered is found <a href="ValueSet-PAInterventions.html">here</a>.
+    However, additional detail can be provided with text and, by mutual agreement, more detailed codes.  The set of codes defined in this
+    implementation guide will evolve based on implementer feedback.
   </p>
   <p>
     The referral process consists of two steps: the referral 'authorization' and the actual request for the desired practitioner to
@@ -120,9 +147,20 @@
     Further details describing the specific processes involved in creating and sharing referrals can be found in the
     <a href="workflow.html#referral">Workflow</a> section of this implementation guide.
   </p>
+  <a name="referral-diff"> </a>
+  <p>
+    Exercise prescriptions use exactly the same profile as <a href="#referrals">referrals</a>.  However, the usage is different in two ways:
+  </p>
+  <ul>
+    <li>'Exercise prescriptions' will always have a ServiceRequest.performer of the Patient.  Referrals will either be non-directed (no
+      performer specified, as performer is selected at the dispatching phase) or be targeted to a Practitioner or Organization.</li>
+    <li>There is no 'Task' resource involved with an exercise prescription as there is no need to solicit a practitioner to see if they
+      can fulfill the prescription.  The assignment to the patient (and acceptance) occurs as part of the interaction between the 
+      ordering provider and the patient.</li>
+  </ul>
   
   <a name="reports"> </a>
-  <h3>Intervention Summaries</h3>
+  <h4>Intervention Summaries</h4>
   <p>
     The objective of a referral is always to have a service (or perhaps a set of services) performed.  In FHIR, physical activity-
     related interventions would be represented using the <a href="{{site.data.fhir.path}}procedure.html">Procedure</a> resource.  However,

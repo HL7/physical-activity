@@ -4,11 +4,11 @@ id: physical-activity
 packageId: hl7.fhir.us.physical-activity
 canonical: http://hl7.org/fhir/us/physical-activity
 fhirVersion: 4.0.1
-status: draft
+status: active
 date: 2022-05-29
 copyrightYear: 2022+
-version: 0.1.0
-releaseLabel: CI-build
+version: 1.0.0-ballot
+releaseLabel: STU1 ballot-draft
 jurisdiction: urn:iso:std:iso:3166#US
 publisher:
   name: HL7 International - Patient Care WG
@@ -16,7 +16,7 @@ publisher:
 dependencies:
   hl7.fhir.us.sdoh-clinicalcare:
     id: sdoh
-    version: 1.1.0
+    version: 2.0.0
     reason: |
       While focused on social determinants of health such as appropriate housing, food availability, interpersonal violence, there is a significant overlap between the SDOH implementation guide and the exchange needs relevant to physical activity.  In both the SDOH and physical activity spaces:
     
@@ -30,18 +30,18 @@ dependencies:
       For all these reasons, the physical activity implementation guide builds on the standards defined by the Gravity SDOH implementation guide.  Where SDOH artifacts are overly restrictive but still relevant, this guide will define aligned but parallel profiles and will try to continue alignment in future releases.
   hl7.fhir.us.core:
     id: uscore
-    version: 4.0.0
+    version: 3.1.1
     reason: |
       US Core defines profiles that express the data elements defined in [U.S. Core Data for Interopreability (USCDI)](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi) (which is mandated for implementation by EHR systems falling under the 21st Centure Cures Act) as well as other data elements the major U.S. EHR vendors have agreed to implement.  As such, this implementation guide is a foundation for interoperability with EHR systems in the U.S.  All profiles defined in this IG either derive from or align with US Core profiles whenever possible.
-#    version: 3.1.1
   hl7.fhir.uv.sdc:
     id: sdc
     version: 3.0.0
     reason: |
       SDC defines standards for creating, populating, extracting data from and otherwise manipulating [Questionnaires]({{site.data.fhir.path}}questionnaire.html) and [QuestionnaireResponses]({{site.data.fhir.path}}questionnaireresponse.html).  This implementation guide allows optional use of Questionnaires when gathering information from patients and care givers about physical activity levels.  It also uses questionnaires as part of the evaluation process.  Leveraging SDC ensures that questionnaires created with this guide will be able to be rendered and, where appropriate, automatically have some of their answers pre-populated into and/or extracted from using off-the-shelf tooling that already supports the SDC implementation guide.
+#  hl7.fhir.uv.subscriptions-backport.r4:
   hl7.fhir.uv.subscriptions-backport:
     id: sub
-    version: 0.1.0
+    version: 1.1.0
     reason: |
       The backport IG defines standards for automatically detecting that data has changed on a system and providing notifications to interested systems.  The Gravity SDOH implementation guide uses this to allow systems to monitor for updates between EHR systems and service delivery systems.  This implementation guide allows the same approach.
 #  hl7.fhir.r4.examples:
@@ -55,15 +55,20 @@ parameters:
   apply-publisher: false
   default-contact: true
   default-publisher: true
+  globals-in-artifacts: true
 instanceOptions:
   setMetaProfile: never
 pages:
   index.xml:
-    title: Physical Activity Home
+    title: Welcome to the Physical Activity IG
     background.xml: 
       title: Importance of Physical Activity
+    scenarios.xml: 
+      title: Implementation Scenarios
     fhir.xml: 
       title: FHIR Background
+    design.xml: 
+      title: Design Considerations
     measures.xml: 
       title: Physical Activity Measures
     interventions.xml: 
@@ -85,7 +90,9 @@ menu:
   Home: index.html
   Background:
     Why Physical Activity?: background.html
+    Implementation Scenarios: scenarios.html
     FHIR Background: fhir.html
+    Design Considerations: design.html
     Credits: credits.html
   Specification:
     Measures: measures.html
@@ -97,5 +104,3 @@ menu:
     Project Home: https://confluence.hl7.org/display/PC/Physical+Activity
     Help & Discussions: https://chat.fhir.org/#narrow/stream/327137-Physical-Activity
     Downloads: downloads.html
-
-#Initialize SUSHI project in C:\Users\shorty\dev\NewIG? [y/n]: y

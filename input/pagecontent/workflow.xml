@@ -41,7 +41,7 @@
   <a name="payers"> </a>
   <h4>Payers as an actor</h4>
   <p>
-    In addition to these three actor types, payer systems are also relevant in this space, as they may provide coverage for services offered by Service Providers
+    In addition to the three actor types above, payer systems are also relevant in this space, as they may provide coverage for services offered by Service Providers
     and may need measures reported by any of the other two system types.  However, interaction with payers is outside the scope of this implementation
     guide.  Implementers interested in also supporting interoperability with payer systems related to physical activity are encouraged to
     exampine the various Da Vinci implementation guides, in particular:
@@ -64,7 +64,7 @@
   <p>
     This implementation guide covers two main workflows: <a href="#plans">Care planning</a> and <a href="#referral">Referral management</a>.
     Both are heavily informed by the workflows described in the 
-    <a href="{{site.data.fhir.ver.sdoh}}/sdoh_clinical_care_scope.html">Gravity SDOH IG</a>.  However, these flows and their associated
+    <a href="{{site.data.fhir.ver.sdoh}}/sdoh_clinical_care_background.html">Gravity SDOH IG</a>.  However, these flows and their associated
     artifacts have been adapted to reflect the needs of the physical activity space.
   </p>
   <p>
@@ -76,7 +76,7 @@
     the execution of their exercise plan.
   </p>
   <p>
-    The term 'patient' may also be foreign to some of the participants in this implementation guide.  Personal trainers and gyms may think of those they
+    The term 'patient' may also be foreign to some of the implementers of this implementation guide.  Personal trainers and gyms may think of those they
     work with as "clients", "customers", "guests", or some similar term.  FHIR's use of the word 'patient' and the 
     <a href="{{site.data.fhir.path}}patient.html">Patient</a> resource in no way excludes use by such systems.  The user interfaces for systems should 
     continue to use whatever terminology is appropriate in their business, regardless of the names of the underlying FHIR objects.
@@ -161,7 +161,7 @@
     The planning step involves coming to agreement with the patient about what their target should be for exercise frequency and duration, possibly
     with sub-targets along the way, as well as target timeframes for meeting those objectives.  Then the two need to agree on what steps will best help 
     the patient to get their exercise levels into the desired duration, frequency, and intensity target range.  Historically, this plan would typically 
-    have been captured as encounter notes within the care provider's system.  However, this guide sets higher expectations.-
+    have been captured as encounter notes within the care provider's system.  However, this guide sets higher expectations.
    </p>
    <p>
     To ensure appropriate ongoing coordination between care provider, patient, and exercise professionals, both the plan and any associated goals
@@ -192,6 +192,16 @@
     is created and maintained exclusively on the Care Manager system.  However, Service Provider and Patient Engagement systems will have query access
     to the record.
   </p>
+  <p>
+    The referral process generally involves the interplay of three different resources, though not all three will necessarily always come into play:
+  </p>
+  <img src="Referral Resources.svg" alt="Diagram showing ServiceRequest, Task and DiagnosticReport resources and the linkages between them 
+    (Task.focus->ServiceRequest; Task.output->DiagnosticReport; DiagnosticReport.basedOn->ServiceRequest)"/>
+  <p>
+    The ServiceRequest is the official 'referral'.  It represents the 'authorization' for a patient to receive care.  
+  </p>
+    
+  <h5>Initiating referrals</h5>
   <p>
     Referrals are typically initiated in one of two ways:
   </p>
@@ -278,7 +288,19 @@
   <a name="status"> </a>
   <h5>Using Task Status</h5>
   <p>
-    Task has two status elements - <code>Task.status</code> and <code>Task.businessStatus</code>.  The basic progress of the referral can be conveyed 
+    Task has two status elements - <code>Task.status</code> and <code>Task.businessStatus</code>.  Additional details on progress could also be
+    conveyed using <code>Task.note</code>.  At present, this implementation guide only requires support for the <code>Task.status</code>,
+    though implementers can choose to use the latter if they have a need to convey more detailed progress information.
+  </p>
+  <blockquote class="stu-note">
+    <p>
+      If implementers have found a need for businessStatus and/or note, please communicate that to the design team using the "propose a change"
+      link or on the <a href="https://chat.fhir.org/#narrow/stream/327137-Physical-Activity">project chat.fhir.org stream</a>.  Future release of 
+      this implementation guide may set expectations around the use of these elements if there are clear implementation requirements.
+    </p>
+  </blockquote>
+  <p>
+    The basic progress of the referral can be conveyed 
     by Task.status alone.  The statuses most likely to be relevant in this IG, in order of priority/importance are:
   </p>
   <ul>
@@ -295,15 +317,6 @@
     <li><b>on-hold</b> - indicates that the patient has taken a break from receiving therapy, but there's an expectation that therapy will resume.
       Again, an explanation in statusReason or a note is encouraged.</li>
   </ul>
-  <p>
-    Task.businessStatus allows communication of more fine-grained information about progress.  For example, whether the patient has been registered,
-    come for an initial assessment, etc.  There are no standardized codes and, if systems opt to use this element, the are expected to provide a free-text 
-    representation of the status in addition to any coded representation to maximize interoperability.
-  </p>
-  <p>
-    Future release of this implementation guide may set tighter expectations around the use of <code>businessStatus</code> based on initial implementation
-    experience.
-  </p>
   
   <a name="observations"> </a>
   <h5>Using measurements</h5>
@@ -334,6 +347,27 @@
     is useful and can reasonably be captured as part of provider workflows.
   </p>
 
+  <a name="billing"> </a>
+  <h5>Billing details</h5>
+  <p>
+    Another part of 'closing the loop' is the process of billing for services provided - in those cases where insurance coverage exists.  This step is outside 
+    the scope of this IG.  Coverage could be provided in different ways:
+  </p>
+  <ul>
+    <li>On a fee-for-service basis for delivering specific interventions</li>
+    <li>On a contractual basis where a service provider is paid for delivering a program and reimbursed based on the number of patients who participate</li>
+    <li>As part of a captitated payments program where physical activity services are included as part of set of types of care covered by a bulk payment
+      for each patient for a period of time</li>
+    <li>Others?</li>
+  </ul>
+  <p>
+    In the U.S., the claims submission process will typically leverage the X12 standard with billing codes dependent on the mechanism by which coverage is
+    provided.  While this guide does not define recommended billing codes and payers will determine which codes they accept, implementers and payers may
+    find <a href="https://paamovewithus.org/wp-content/uploads/2022/10/PAA-Physical-Activity-CPT-Codes-Final-Oct-2022.pdf">this set</a> maintained by the 
+    Physical Activity Alliance a useful starting point.  It is possible that new codes will need to be defined to better support the types of services that 
+    are relevant to enhancing patient physical activity.
+  </p>
+
   <a name="feedback"> </a>
   <h4>Capturing Feedback and patient engagement</h4>
   <p>
@@ -352,6 +386,10 @@
   <p>
     The workflow is also the same.  The Patient Engagement app monitors for Tasks assigned to that patient and retrieves them and displays them
     to the patient, then updates the Task with the information from the completed task.
+  </p>
+  <p>
+    Use of this functionality is not required.  It is simply available where Care Managers and/or Service Providers feel that soliciting patient
+    feedback is useful and where an electronic mechanism of doing so is more useful than using traditional paper-based approaches.
   </p>
   
   <a name="monitor"> </a>

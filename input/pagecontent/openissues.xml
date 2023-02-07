@@ -1,6 +1,6 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
   <p>
-    This implementation guide is <b>>DRAFT</b>.  There are a number of open issues that will need to be resolved before it will be fully 
+    This implementation guide is <b>DRAFT</b>.  There are a number of open issues that will need to be resolved before it will be fully 
     implementable and a number of additional clean-up steps that will need to be taken before the guide is published for ballot.
     A list of known issues follows.  If there are additional issues you feel should be discussed/addressed, please raise them on the 
     <a href="https://chat.fhir.org/#narrow/stream/327137-Physical-Activity">project discussion stream</a> on http://chat.fhir.org.
@@ -11,20 +11,6 @@
     will focus on resolving these issues.
   </p>
   <ol>
-    <li><b>General approach</b> - this specification was developed without broad review by domain experts and therefore may not meet real
-      needs and/or may include functionality that is not needed or unlikely to be implemented.  A thorough review and potentially
-      exploration of alternatives is needed</li>
-    <li><b>EVS Grouping</b> - The spec currently says that exercise vital sign doesn't need to have a high-level grouping and represents
-      each of the components as distinct observations.  Is this the appropriate representation?</li>
-    <li><b>Additional primary meassures</b> -  Do we want any additional 'primary' measures - e.g. ones that distinguish aerobic from 
-      strength-based exercise and/or that drill down into the specific details of the type(s) of exercise performed?  Alternatively,
-      do we want to support additional 'properties' that further qualify the high level EVS observations (e.g. exercise types)?
-      Considerations include: What's the evidence to support?, Can we realistically expect most patients to capture? and Can we expect most 
-      clinicians/professionals to make use of the additional data?</li>
-    <li><b>Supporting measures</b> - Do we have the right ones?  Will clincians actually care about this data?  Can apps really use it to
-      help patients fill in their EVS measures?  Are there other measures we're missing?</li>
-    <li><b>Fine-grained measures</b> - the guide assumes that the patient *won't* be sharing their individual heart rate, step count and other
-      measurements, as that would represent way too much volume.  Is this a reasonable assumption?</li>
     <li><b>Plans and prescriptions?</b> - is there sufficient difference in value between having an exercise prescription and having a 
       plan that we need to support both?</li>
     <li><b>Exercise prescriptions shareable</b> - While exercise prescriptions are useful, is there a value in sharing them electronically with
@@ -32,11 +18,8 @@
     <li><b>Responsibilities of Service Provider</b> - Can Service Providers store data that is accessible to external systems?  Can they push 
       observations to care managers on behalf of a patient?  Can they update care plans or goals?  If so, do we want to standardize what changes 
       can and can't be made?</li>
-    <li><b>Responsibilities of Patient Engagement systems</b> - Can Service Providers store data that is accessible to external systems?  
+    <li><b>Responsibilities of Patient Engagement systems</b> - Can Patient systems store data that is accessible to external systems?  
       Can they update care plans or goals?  If so, do we want to standardize what changes can and can't be made?</li>
-    <li><b>Intervention types</b> - The current list of possible interventions are the codes that exist in SNOMED CT that seem to be relevant,
-      however that doesn't mean that they're useful.  What codes should actually exist?  What codes are necessary to provide an appropriate
-      level of computability, particularly for billing support?</li>
     <li><b>Responsibilities of patient</b> - Can patient systems update goals and/or plans?</li>
     <li><b>Condition needed</b> - following the Gravity SDOH pattern, they use Condition as the foundation for referrals, etc.  The logic is
       that a formal diagnosis is needed to enable insurance billing.  Is that the case for physical activity, or can we get away with just
@@ -65,8 +48,7 @@
       practitioners, organizations, etc. exposed and managed via those endpoints).
     </li>
     <li><b>Subscriptions</b> - Gravity makes use of subscriptions to monitor for changes to orders and tasks.  Is that something we want to do too?
-      Doing so requires a larger degree of system capability.  It also requires using R4B rather than R4, and R4B isn't yet referenced in 
-      U.S. regulations.</li>
+      Doing so requires a larger degree of system capability.</li>
     <li><b>Examples</b> - every profile we have needs to have at least one, and ideally several examples that cover the range of how it can be
       used.  Most ideal of all would be for the examples to interrelate and convey a realistic scenario.  We need to gather the scenarios and
       the detailed data elements that would be shared in those scenarios in order to construct appropriate examples.</li>
@@ -87,7 +69,7 @@
     <li>Add a security and privacy section</li>
     <li>Artifacts: Create initial examples for all profiles</li>
     <li>Various: Create diagrams to represent information visually where it makes sense to</li>
-    <li>Explain why our Questionnaires aren't using StructureMap-based extraction the way Gravity SDOH does</li>
+    <li>Explain why we're not using Questionnaires in the way Gravity does</li>
     <li>Transaction: Set expectations for support of transaction in measure submission and possibly interventions</li>
     <li>Downloads: Remove link to backport IG if we're not using it.</li>
     <li>Artifacts: Create complete examples (and possibly ExampleScenarios) for all profiles leveraging domain epxert input</li>

@@ -1,23 +1,27 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
-  <blockquote class="stu-note">
+  <div>
+    <img alt="Banner showing a series of images of people engaged in various forms of physical activity" src="Intro-wide.png"/>
+  </div>
+  <blockquote class="note-to-balloters">
     <p>
-      This specification is a straw-man draft.  It is intended to form a starting point for discussion, but has not undergone any form of review, nor been endorsed by the
-      community of providers and implementers it is intended to serve.  Expect to find things that are unclear, missing, or outright wrong.  A list of known open issues
-      and outstanding to-dos can be found <a href="openissues.html">here</a>.  If a concern you have about the specification isn't already on that list of issues, please
-      raise it on the <a href="https://chat.fhir.org/#narrow/stream/327137-Physical-Activity">project discussion stream</a> on http://chat.fhir.org.
+      Welcome to our first ballot!  This specification is the result of hundreds of hours of work by a <a href="credits.html">wide variety of people</a> who are passionate
+      about enabling and supporting patients in improving their levels of physical activity.  We're happy to receive feedback from the broader community about everything
+      we've written here, but particularly about any concerns with respect to implementability or how we can make it easier to get these features into production systems.
+      If you're interested in joining with us, check out our <a href="https://confluence.hl7.org/display/PC/Physical+Activity">project page</a>, or come join the 
+      <a href="https://chat.fhir.org/#narrow/stream/327137-Physical-Activity">discussion</a> on http://chat.fhir.org.
     </p>
   </blockquote>
   <a name="scope"> </a>
   <h3>Scope and purpose</h3>
   <p>
     Being physically active is one of the most important lifestyle behaviors people can engage in to maintain physical and mental health and well-being.
-    Regular physical activity is both health-promoting and important for chronic disease and infectious disease treatment and prevention with numerous benefits that contribute to a 
-    disability-free lifespan.  Currently in the US, one in four adults are physically inactive with increasing prevalence across some geographies and in certain race/ethnicities.
-    (For more information and research citations highlighting the importance of physical activity and intervening to improve it, see <a href="background.html">this page</a>.)
+    Regular physical activity is both health-promoting and important for chronic disease and infectious disease treatment and prevention  It provides numerous benefits that contribute to a 
+    disability-free lifespan.  Currently in the US, one in four adults are physically inactive, with increasing prevalence across some geographies and in certain race/ethnicities.
+    (For more information and research citations highlighting the importance of physical activity and intervening to improve it, see <a href="background.html">the background page</a> of this IG.)
   </p>
 	<p>
 	  This implementation guide standardizes interoperability expectations for systems involved in measuring, reporting, and intervening to improve patient physical
-	  activity levels.  It defines interface expectations that are relevant for patient-facing applications, patient activity measurement devices, clinical electronic health records,
+	  activity levels.  It defines interface expectations that are relevant for patient-facing applications, patient physical activity measurement devices, clinical electronic health records,
 	  payers, quality measurement systems, and applications used by health and fitness professionals, personal trainers, and community-based fitness centers.
 	  By improving standardization and interoperability around measuring physical activity levels and data sharing needed to help patients improve their physical
 	  activity levels, we can make a significant impact on overall patient health at both the individual and the population level.
@@ -26,12 +30,29 @@
     This version of the specification defines standards for the following:
   </p>
   <ul>
-    <li>How to consistently share the primary, evidence-based measure of a patient's level of physical activity?</li>
-    <li>How to capture and share information that supports that primary measure - for patient, clinical, insurance or other use?</li>
-    <li>How to create and share care plans and goals related to improving a patient's level of physical activity? and</li>
-    <li>How to order interventions that can a assist a patient in improving their levels of physical activity?</li>
-    <li>Additional data and exchange flows needed to support all of the above, including registries, consent, status monitoring, satisfaction evaluation, etc.</li>
+    <li>How to consistently capture and share the primary, evidence-based measure of a patient's level of physical activity;</li>
+    <li>How to create and share care plans and goals related to improving a patient's level of physical activity; </li>
+    <li>How to order interventions that can a assist a patient in improving their levels of physical activity;</li>
+    <li>How to capture and share information that supports that primary measure - for patient, clinical, insurance or other use;</li>
+    <li>How to engage with the patient and their care givers to provide support and/or gather information as a patient works towards their physical activity goals; and</li>
+    <li>What are the reporting mechanisms to close the referral loop on an interim basis or when referrals are complete?</li>
   </ul>
+  <p>
+    The IG also provides additional guidance to support all of the above, including registries, consent, status monitoring, etc.
+  </p>
+  <p>
+    The following diagram shows the different areas covered by this IG and how they fit into the overall cycle of care:
+  </p>
+  <div>
+    <center>
+      <img alt="Diagram showing a circular cycle around the label 'Improving Physical Activity'.  The bullets in the circle are: Assessment: Is patient getting sufficient physical activity?; 
+        Plans &amp; Goals: What steps need to be taken? How? Targets? By when?; Prescription &amp; Referral: Wh can help and how?; Monitoring: Exercise logs, heart rate, steps, etc.; 
+        Engagement: Videos, reading, satisfaction surveys, etc.; Reporting: What was done? Any issues? What should happen next?" src="Physical Activity cycle.svg"/>
+    </center>
+    <p style="text-indent:25px">
+      <b>Figure 1:</b> <i>Improving Physical Activity - Healthcare Cycle</i>
+    </p>
+  </div>
   <p>
     This guide was created primarily by U.S. stakeholders and in some places requires the use of code systems that are U.S.-centric.  However, the general architecture
     of the solutions defined here and most of the interoperability expectations are likely to be relevant irrespective of country.  Implementers in non-U.S. jurisdictions are
@@ -41,7 +62,7 @@
   <a name="overview"> </a>
   <h3>Specification overview</h3>
   <p>
-    This implementation guide is organized into three primary sections:
+    This implementation guide is organized into four primary sections:
   </p>
   <ol>
     <li><a href="measures.html">Physical Activity Measures</a> defines a <a href="measures.html#base">profiles</a> for the standardized capture of a patient's 
@@ -55,6 +76,7 @@
     <li><a href="workflow.html">Physical Activity Workflow</a> defines the specific workflow and interoperability capabilities expected for systems that support this implementation guide.
       It describes each of the different types of electronic systems that might participate in sharing information around physical activity as well as what types of data exchanges
       those systems are expected to support.  Some requirements will be mandatory, others will be optional.</li>
+    <li><a href="security.html">Privacy and Security</a> describes expectations and considerations specific to this IG related to data protection and access management.</li>
   </ol>
   <p>
     In addition, there are a number of supporting pages that to help support the implementation process:
@@ -66,7 +88,10 @@
       implementer should read and be familiar with before reading through the technical artifacts and instructions found in this implementation guide.  It also defines key
       documentation conventions used in this IG.  Finally, it defines the rules for asserting conformance with this implementation guide.</li>
     <li><a href="background.html">Importance of Physical Activity</a> - This page summarizes some of the research and policy considerations that underpin the need for improving
-      the standardization of physical activity measures and the benefits of intervening to help patients improve their levels of physical activity.</li>
+      the standardization of physical activity measures and the benefits of intervening to help patients improve their levels of physical activity.  As such, it helps support the
+      business case for implementing this IG.</li>
+    <li><a href="scenarios.html">Scenarios</a> describes examples of real-world scenarios where this IG would come into play and how the interactions between the software
+      systems supported by this IG would impact patients, clinicians and others using those systems.</li>
     <li><a href="artifacts.html">Artifacts</a> - This provides a summary of all of the technical artifacts defined in this implementation guide.  It also provides a list of the
       artifacts defined elsewhere that are leveraged as part of this implementation guide.</li>
     <li><a href="downloads.html">Downloads</a> - This provides a handy set of zip files that can be downloaded for local use, including this implementation guide and all of its
@@ -87,11 +112,52 @@
   </p>
   
   {%include dependency-table-short.xhtml %}
-    
+  
+  <p>
+    In addition to those implementation guides, there are a number of other HL7 specifications that may be of interest to implementers of this IG.  The guides below are
+    listed for information purposes only.  None of their content is needed in order to conform with this Physical Activity guide.
+  </p>
+  <ul>
+    <li><a href="http://hl7.org/fhir/us/davinci-crd">Coverage Requirements Discovery (CRD)</a>, <a href="http://hl7.org/fhir/us/davinci-crd">Documentation, Templates, and Rules (DTR)</a>,
+      and <a href="http://hl7.org/fhir/us/davinci-crd">Prior Authorization Support (PAS)</a> - these three IGs (collectively known as the Da Vinci Burden Reduction IGs) provide
+      support for prior authorization and other documentation capture.  They may assist in determining whether a patient is or can be covered for physical activity-related
+      interventions.</li>
+    <li><a href="http://hl7.org/fhir/us/davinci-crd">Clinical Documentation Exchange (CDex)</a> - Allows payers to retrieve or solicit records from an EHR related to
+      patients covered under their plans.  May be used to allow payers retrieving physical activity-related information for quality measures or in support of contractual or other
+      payment schemes.</li>
+    <li><a href="http://hl7.org/fhir/us/davinci-deqm">Data Exchange for Quality Measures (DEQM)</a> - Allows sharing patient data with payers to support quality measures
+      and capitated care.  Physical activity measures may be reported to payers for patients covered under such measures.</li>
+    <li><a href="http://hl7.org/fhir/smart-app-launch">SMART App Launch</a> - allows launching third party applications in the context of another system, including allowing
+      the application to controlled access to patient information.  Rather than developing Questionnaire form filler capabilities within their own system, Care Providers and
+      Service Provider systems may opt to use a 3rd party SMART App to handle form rendering, data capture, form population and data extraction.</li>
+    <li><a href="http://hl7.org/fhir/us/pacio-fs">PACIO Functional Status</a> - defines standards for sharing information about a patient's physical capabilities, which may
+      influence what types of physical activity interventions are appropriate.</li>
+    <li><a href="http://hl7.org/fhir/us/cqfmeasures">Quality Measure Implementation Guide</a> - defines standards for sharing clinical quality measures electronically, allowing
+      defining and sharing measures related to patient physical activity and appropriate clinical interventions related to physical activity.</li>
+    <li><a href="http://hl7.org/fhir/uv/phd/">Personal Health Device (PHD) IG</a> - defines standards for sharing information from personal healthcare devices (heart rate monitors,
+      step trackers, etc.) using FHIR - either directly or via intermediaries.  While not all relevant devices will support this standard, a consistent way of handling data from those
+      that do should be useful.</li>
+    <li><a href="http://hl7.org/fhir/us/directory-exchange">National Healthcare Directory Exchange</a> - a U.S. Office of the National Coordinator-sponsored IG supporting the exchange
+      of directory information for a wide range of service providers and organizations.  Once in place, this directory will significantly reduce the efforts to find and connect with
+      Care Provider and Service Provider systems.</li>
+    <li><a href="https://wiki.ihe.net/index.php/Audit_Trail_and_Node_Authentication">IHE FHIR Audit Event Query and Feed to ATNA</a> - for systems wishing to maintain robust audit
+      records of changes and access to patient records (always a good idea), this IG defines standards for using FHIR to do so.  (Note that this standards is only really relevant if
+      there's a need for electronic sharing of audit records.)</li>
+    <li><a href="http://hl7.org/fhir/us/bulkdata/">Bulk Data Access</a> - defines standards for sharing large volumes of FHIR data at one time.  This may be relevant if sharing
+      large volumes of patient exercise, heart rate, and/or other information between systems.</li>
+  </ul>
+  <p>
+    An extensive list of FHIR implementation guides published by HL7 and other related organizations can be found <a href="http://fhir.org/guides/registry">here</a>.
+  </p>
+  
 	<a name="ip"> </a>
 	<h3>Intellectual Property Considerations</h3>
 	<p>
-    While this implementation guide and the underlying FHIR are licensed as public domain, this guide includes examples making use of terminologies such
+    While this implementation guide and the underlying FHIR are licensed as public domain under the <a href="{{site.data.fhir.path}}license.html#license">FHIR license</a>.  The
+    license page also describes rules for the use of the FHIR name and logo.
+  </p>
+  <p>    
+    This guide includes examples making use of terminologies such
     as LOINC, SNOMED CT and CPT codes that have more restrictive licensing requirements.  Implementers should make themselves familiar with licensing and
     any other constraints of terminologies, questionnaires, and other components used as part of their implementation process.  In some cases,
     licensing requirements may limit the systems that data captured using certain questionnaires may be shared with.

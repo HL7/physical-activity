@@ -1,0 +1,6 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <p>
+    Todo - tradeoffs around storage locations for plans, goals, observations; who gets to update plans and goals; Subscription vs. polling; Discovering and configuring endpoints; Why there's so much flexibility in approach and what's implemented;
+    Ordered list of importance?  Level of communication via Task.  Non-messaging design
+  </p>
+</div>

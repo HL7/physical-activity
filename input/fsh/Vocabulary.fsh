@@ -80,7 +80,7 @@ Description: "Codes physical activity measures that relate to a single contiguou
 * $loinc#55424-6 ""
 
 ValueSet:    PATimeMeasures
-Title:       "Physical Activity Intervention Codes"
+Title:       "Physical Activity time-related codes"
 Description: "Codes for physical activity measures that aggregate or summarize activity over a period of time, such as a day or week"
 * ^copyright = "This material contains content from LOINC (http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the license at http://loinc.org/license. LOINC® is a registered United States trademark of Regenstrief Institute, Inc"
 * ^experimental  = false

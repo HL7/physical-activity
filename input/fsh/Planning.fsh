@@ -96,7 +96,9 @@ Description:    "Represents orders and referrals for interventions that help to 
 * subject only Reference(USCorePatientProfile)
 // TODO add support for 'focus'
 * occurrence[x] MS
-* occurrencePeriod MS
+* occurrence[x] only Period or dateTime or Timing
+* occurrence[x] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* occurrence[x] ^type[0].extension[=].valueBoolean = true
 * authoredOn 0..1 MS
 * requester MS
 * requester only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile or 
