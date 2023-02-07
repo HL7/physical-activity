@@ -186,6 +186,8 @@
   <ul>
     <li>The lookup of potential exercise physiologists based on geographic distance from the patient's home is a function that should be supported by the
       <a href="http://hl7.org/fhir/us/directory-exchange">National Healthcare Directory Exchange</a> IG.</li>
+    <li>Monitoring for Task updates and changes will likely be managed using subscriptions, as defined in the
+      <a href="{{site.data.fhir.ver.sub}}">Subscription Backport</a> IG</li>
     <li>The prior authorization check process could be done using the <a href="http://hl7.org/fhir/us/davinci-crd">Coverage Requirements Discovery (CRD)</a>, 
       <a href="http://hl7.org/fhir/us/davinci-crd">Documentation, Templates, and Rules (DTR)</a>,
       and/or <a href="http://hl7.org/fhir/us/davinci-crd">Prior Authorization Support (PAS)</a> IGs.</li>
@@ -251,7 +253,8 @@
   <ul>
     <li>Like the <a href="physiologist-referral-others">physiologist scenario</a>, the National Directory specification would be helpful in
       allowing Dr. Blackrock's system to find the endpoint for the fitness center and the Da Vinci Burden Reduction specifications might be
-      helpful in allowing the fitness center to determine that Mr. Schevchenko's plan covered him.</li>
+      helpful in allowing the fitness center to determine that Mr. Schevchenko's plan covered him.  Subscription backport would be relevant
+      for monitoring Tasks.</li>
   </ul>
 
 
@@ -291,19 +294,25 @@
     <a href="{{site.data.fhir.path}}search.html">searches</a> and, when appropriate also updates and (for goals) possibly even creates instances.
   </p>
   <p>
-    Ms. Rocha's app also creates Task instances that comply with the 
+    Ms. Rocha's app also <a href="{{site.data.fhir.path}}http.html#create">creates</a> Task instances that comply with the 
+    <a href="{{site.data.fhir.ver.sdoh}}/StructureDefinition-SDOHCC-TaskForPatient.html">SDOH Task for Patient</a> profile to share the requests to
+    review videos, documentation or to fill out forms.  Ms. Scarborough's app then <a href="{{site.data.fhir.path}}http.html#update">updates</a> the Tasks
+    to indicate when they're done (or possibly refused).  If the Task was to fill out a form, the app would also render the Questionnaire and
+    <a href="{{site.data.fhir.path}}http.html#create">create</a> (and sometimes <a href="{{site.data.fhir.path}}http.html#update">update</a>) a 
+    QuestionnaireResponse complying with the relevant <a href="{{site.data.fhir.ver.sdc}}index.html">SDC</a> profiles.
   </p>
 
   <a name="personal-trainer-alternatives"> </a>
   <h4>Alternatives</h4>
   <ul>
-    <li></li>
+    <li>Rather than all data living on a shared server, there could be a separate server for Ms. Rocha's personal trainer system and a personal
+      health record for Ms. Scarborough, in which case the respective apps might be querying for different data in different places.</li>
   </ul>
   
   <a name="personal-trainer-others"> </a>
   <h4>Where other specifications may fit</h4>
   <ul>
-    <li></li>
+    <li>Details of how the forms are authored and rules for responding to them is covered in the <a href="{{site.data.fhir.ver.sdc}}index.html">SDC</a> IG.</li>
   </ul>
   
 </div>

@@ -157,6 +157,7 @@
   </p>
   
   <a name="plan"> </a>
+  <h4>Planning</h4>
   <p>
     The planning step involves coming to agreement with the patient about what their target should be for exercise frequency and duration, possibly
     with sub-targets along the way, as well as target timeframes for meeting those objectives.  Then the two need to agree on what steps will best help 
@@ -195,8 +196,13 @@
   <p>
     The referral process generally involves the interplay of three different resources, though not all three will necessarily always come into play:
   </p>
-  <img src="Referral Resources.svg" alt="Diagram showing ServiceRequest, Task and DiagnosticReport resources and the linkages between them 
-    (Task.focus->ServiceRequest; Task.output->DiagnosticReport; DiagnosticReport.basedOn->ServiceRequest)"/>
+  <center>
+    <img src="Referral Resources.svg" alt="Diagram showing ServiceRequest, Task and DiagnosticReport resources and the linkages between them 
+      (Task.focus->ServiceRequest; Task.output->DiagnosticReport; DiagnosticReport.basedOn->ServiceRequest)"/>
+  </center>
+  <p style="text-indent:25px">
+    <b>Figure 2:</b> <i>Referral Resources</i>
+  </p>
   <p>
     <b>ServiceRequest:</b>
   </p>
@@ -219,6 +225,7 @@
     <li>Tasks can be updated by both the referral initiator (Care Provider) - e.g. to cancel, as well as the service provider - e.g. to update status.</li>
     <li>Task is also how the service provider can indicate progress and link to any produced results (interim or final).</li>
     <li>Task is not needed if the referral solicitation process is manual (e.g. the patient shopping around a paper referral trying to find someone who can perform the service)</li>
+    <li>Even if the referral itself was directed, Task is necessary to give the ability to accept or refused, convey progress and link to results.</li>
   </ul>
   <p>
     <b>DiagnosticReport:</b>
@@ -249,7 +256,8 @@
     the patient does not have coverage that would support reimbursement.
   </p>
   
-  <h5>Representing Referrals in FHIR</h5>
+  <a name="managing"> </a>
+  <h5>Managing Referrals in FHIR</h5>
   <p>
     The <a href="{{site.data.fhir.ver.sdoh}}/StructureDefinition-SDOHCC-TaskForReferralManagement.html">Task</a> is what really drives referral workflow.  
     Typically referrals won't be directed to a particular service provider.  Instead, Tasks will be used to solicit providers who are willing to
@@ -274,6 +282,9 @@
     Alternatively, that Task might be updated by the Care Manager to cancel or fail the Task if the provider (usually in consultation with the patient)
     has determined that the referral is no longer appropriate/necessary.
   </p>
+  
+  <a name="architecture"> </a>
+  <h5>Architecture choices</h5>
   <p>
     There are two different modes of operation for task management.  In one, the Task lives on the Care Manager system and is either
     polled or subscribed to by the Service Provider to monitor for initial creation and any Care Manager-side updates.  
@@ -308,7 +319,7 @@
   </p>
 
   <a name="loop"> </a>
-  <h4>Closing the Loop</h4>
+  <h5>Closing the Loop</h5>
   <p>
     Once a referral has been issued and accepted, there's a need to communicate progress and status back to the initiating practitioner.  There
     are three main mechanisms for accomplishing this: using Task status, ongoing measurements, and diagnostic reports.
@@ -397,7 +408,7 @@
     are relevant to enhancing patient physical activity.
   </p>
 
-  <a name="feedback"> </a>
+  <a name="engagement"> </a>
   <h4>Capturing Feedback and patient engagement</h4>
   <p>
     Another area where this implementation guide borrows from Gravity SDOH is in the use of Questionnaires to solicit feedback from patients (and
