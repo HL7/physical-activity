@@ -21,6 +21,7 @@ Description:    "An abstract observation profile that serves as the parent for v
 * effectivePeriod.start ^extension[$minLength].valueInteger = 10
 * effectivePeriod.end 1..1 MS
 * effectivePeriod.end ^extension[$minLength].valueInteger = 10
+* value[x] only CodeableConcept or Quantity
 * valueQuantity.value 1..1 MS
 * valueQuantity.system = "http://unitsofmeasure.org"
 * note MS
