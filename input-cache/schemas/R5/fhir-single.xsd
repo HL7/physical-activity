@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Mon, Feb 6, 2023 11:34+0000 for FHIR v5.0.0-cibuild 
+  Generated on Tue, Feb 7, 2023 06:31+0000 for FHIR v5.0.0-cibuild 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="5.0.0-cibuild">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -51148,6 +51148,11 @@ The MedicationStatement resource was previously called MedicationStatement.</xs:
           <xs:documentation xml:lang="en">URI</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
+      <xs:enumeration value="iri-stem">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">IRI stem</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
       <xs:enumeration value="v2csmnemonic">
         <xs:annotation>
           <xs:documentation xml:lang="en">V2CSMNemonic</xs:documentation>
@@ -52161,6 +52166,8 @@ The MedicationStatement resource was previously called MedicationStatement.</xs:
             <xs:element name="valueDateTime" type="dateTime"/>
             <xs:element name="valuePeriod" type="Period"/>
             <xs:element name="valueAttachment" type="Attachment"/>
+            <xs:element name="valueReference" type="Reference"/>
+            <xs:element name="valueCanonical" type="canonical"/>
           </xs:choice>
           <xs:element name="dataAbsentReason" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
@@ -52327,6 +52334,8 @@ Reflex | Repeat | Re-run.</xs:documentation>
             <xs:element name="valueDateTime" type="dateTime"/>
             <xs:element name="valuePeriod" type="Period"/>
             <xs:element name="valueAttachment" type="Attachment"/>
+            <xs:element name="valueReference" type="Reference"/>
+            <xs:element name="valueCanonical" type="canonical"/>
           </xs:choice>
           <xs:element name="dataAbsentReason" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
