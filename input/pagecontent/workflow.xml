@@ -198,8 +198,37 @@
   <img src="Referral Resources.svg" alt="Diagram showing ServiceRequest, Task and DiagnosticReport resources and the linkages between them 
     (Task.focus->ServiceRequest; Task.output->DiagnosticReport; DiagnosticReport.basedOn->ServiceRequest)"/>
   <p>
-    The ServiceRequest is the official 'referral'.  It represents the 'authorization' for a patient to receive care.  
+    <b>ServiceRequest:</b>
   </p>
+  <ul>
+    <li>The the official 'referral'.  It represents the 'authorization' for a patient to receive a particular type of care.</li>
+    <li>To create a 'referral', the author must have appropriate training/licensure</li>
+    <li>Existence of a referral might be necessary for service to be performed and/or for insurance coverage to exist.  However, referrals aren't always needed.</li>
+    <li>The status of the referral is generally either 'active', 'cancelled' or 'completed'.  A referral doesn't track what's happening with execution.</li>
+    <li>The referral generally can't be updated by anyone other than the author</li>
+    <li>A referral *might* be targeted to a specific performer.  If so, then only that one performer has authorization.  To change the performer, a new referral is needed.</li>
+    <li>While we might use the term "self referral" for a patient-initiated service, there is no ServiceRequest in this case - there is no FHIR representation of the patient asking for the service.</li>
+  </ul>
+  <p>
+    <b>Task:</b>
+  </p>
+  <ul>
+    <li>Asks a specific service provider if they can fulfill a referral.</li>
+    <li>Gives the service provider the ability to 'accept' or 'refuse' - and if they accept, to eventually indicate successful completion or failure.</li>
+    <li>Could be multiple Tasks for one ServiceRequest - because first few go to service providers who refuse or cancel prior to completion.</li>
+    <li>Tasks can be updated by both the referral initiator (Care Provider) - e.g. to cancel, as well as the service provider - e.g. to update status.</li>
+    <li>Task is also how the service provider can indicate progress and link to any produced results (interim or final).</li>
+    <li>Task is not needed if the referral solicitation process is manual (e.g. the patient shopping around a paper referral trying to find someone who can perform the service)</li>
+  </ul>
+  <p>
+    <b>DiagnosticReport:</b>
+  </p>
+  <ul>
+    <li>For this IG, this is where the 'results' of the referral are represented</li>
+    <li>This might be as short as a single paragraph or could be many pages.  For the purposes of this IG, it will always be a PDF.</li>
+    <li>Technically, there doesn't need to be a ServiceRequest for a DiagnosticReport to be created, but it would be unusual for a service provider to write a report without a referral</li>
+    <li>A report is optional.  Not all referrals will result in a report.</li>
+  </ul>
     
   <h5>Initiating referrals</h5>
   <p>
