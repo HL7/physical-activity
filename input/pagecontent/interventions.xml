@@ -65,11 +65,6 @@
     changes based on patient need and on what's working - or isn't working.
   </p>
   <p>
-    To a certain extent, a plan and an exercise referral serve similar purposes - both can be used to set an expectation for a patient
-    to achieve an improved level of physical activity.  
-    
-  </p>
-  <p>
     Goals allow a shared understanding of a target level of physical activity.  These might be ongoing goals to be sustained or might
     be target goals to be achieved by a particular point in time.  Over time, goals may change their state, to reflect progress as
     well as whether they are considered an 'active' goal or not.  This information might be reflected by the patient, a physical
@@ -78,6 +73,30 @@
   <p>
     Details on how goals and plans are created, updated and shared are covered on the <a href="workflow.html#plan">Workflow page of this IG</a>.
   </p>
+  
+  <a name="choosing"> </a>
+  <h4>Choosing between Exercise Prescriptions and Plans</h4>
+  <p>
+    To a certain extent, a plan and an exercise referral serve similar purposes - both can be used to set an expectation for a patient
+    to achieve an improved level of physical activity.  In some cases, an implementer might choose to use only one of the two.  Key
+    differences between them (which may help determine whether you need one, the other, or both) are as follows:
+  </p>
+  <ul>
+    <li>Exercise referrals are formal orders - though they are orders targeted to the patient themselves, rather than another provider.  Plans
+      represent guidance/recommendations, but are not formal orders.</li>
+    <li>Exercise prescriptions are 'static'.  They are written once, but after that generally do not change, beyond eventually being marked as completed
+      or cancelled.  Plans, on the other hand, are dynamic.  They may be updated and revised numerous times as circumstances change.</li>
+    <li>Exercise prescriptions can only be created or changed by appropriately qualified practitioners.  Plans can be created or changed by
+      anyone, potentially including the patient themselves.</li>
+    <li>Excercise prescriptions will typically set specific objectives for what is to be done, but will be limited in description or detail.  For
+      example, "Work towards an average of 10,000 steps per day, and at least 3 days of 20 minutes worth of strength exercises".  On the other
+      hand, plans will often provide much more detail, including descriptions of how, why, interim milestones, conditionality, etc.  A plan
+      may have multiple paragraphs and may include computable goals that can be used as targets.</li>
+    <li>An exercise prescription has a single status - it can be draft, active, on hold, cancelled or completed.  On the other hand, each step 
+      within a plan and each goal can have its own status to track completion, degree of success and notes around how things are going.</li>
+    <li>Because of these characteristics, plans will often take more time and effort to create and to manage.  They are therefore more likely to be
+      used by practitioners who are more heavily engaged and focused on the patient's exercise progress.</li>
+  </ul>
 
   <a name="referrals"> </a>
   <h3>Referrals</h3>
