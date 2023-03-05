@@ -5,6 +5,7 @@
     A list of known issues follows.  If there are additional issues you feel should be discussed/addressed, please raise them on the 
     <a href="https://chat.fhir.org/#narrow/stream/327137-Physical-Activity">project discussion stream</a> on http://chat.fhir.org.
   </p>
+  <a name="openissues"> </a>
   <h3>Open issues</h3>
   <p>
     These are topics that will require debate and discussion with domain experts to determine how the specification should work.  Project calls
@@ -60,6 +61,7 @@
     <li>How do clinicians find out what services are available - do we need something more than just registries</li>
     <li>Should we flag 'validated' observations (i.e. where a professional was watching, gathered from device)</li>
   </ol>
+  <a name="todo"> </a>
   <h3>Outstanding to-do items</h3>
   <p>
     These are known deficiencies in the specification that need to be corrected, but which don't necessarily require domain expertise to

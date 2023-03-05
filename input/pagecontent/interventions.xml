@@ -1,6 +1,6 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
 	<p>
-    This page defines the mechanisms providers can use to assist patients with their physical activvity levels if measurements indicate
+    This page defines the mechanisms providers can use to assist patients with their physical activity levels if measurements indicate
     that intervention is called for.  There are three main mechanisms defined:
 	</p>
 	<ul>
@@ -12,13 +12,13 @@
       physical activity targets in a manner that meets their physical limitations, lifestyle and interests</li>
   </ul>
   <p>
-    These three types of interventions can be used separately or in concert to help patients achieve a healthy level of physical activity.
+    Practitioners can use these three types of interventions separately or in concert to help patients achieve a healthy level of physical activity.
   </p>
   
   <a name="orders"> </a>
   <h3>Exercise Prescriptions</h3>
   <p>
-    Sometimes all that's necessary to help a patient to improve their level of physicial activity is to have their clinician formally
+    Sometimes all that is necessary to help a patient to improve their level of physical activity is to have their clinician formally
     prescribe it, in much the same way as they might prescribe a medication or physiotherapy.  The research supporting the benefits of
     prescribing exercise are described in more detail on the <a href="background.html#pa-measure">background page</a>.
   </p>
@@ -29,10 +29,10 @@
   <p>
     In the case of an exercise referral, the ServiceRequest 'performer' would be the patient themselves.  The requested activity would be
     exercise therapy (SNOMED 229065009), possibly with more specific textual details as to the type of physical activity to perform, along
-    with timing information - e.g. 150 minutes/week conveyed in the effectiveTiming element.
+    with timing information - e.g. 150 minutes/week conveyed in the <code>effectiveTiming</code> element.
   </p>
   <p>
-    While in many cases there is no need for such orders to be exchanged electronically, it may be useful for others, particuarly physical
+    While in many cases there is no need for such orders to be exchanged electronically, it may be useful for others, particularly physical
     activity service providers involved in the patient's care to be aware of the existence of the order so they can support the patient in 
     performing it.  Therefore, this specification supports the electronic retrieval of exercise prescriptions by both 
     <a href="CapabilityStatement-pa-service-provider.html">Service Provider</a> and 
@@ -50,19 +50,19 @@
     Recipients and/or patients themselves might be able to create and/or update goals and update care plans.  This standard supports
     these actions, but leaves it to organizational policy which types of actions can be performed by which users.  Even if updating is
     permitted, there may be limitations on which elements can be changed.  (For example, changing the 'subject' of a goal or care plan
-    typically won't be allowed by anyone, with the possible exception of technical staff at a provider site who manage patient merges
+    typically will not be allowed by anyone, with the possible exception of technical staff at a provider site who manage patient merges
     and splits or otherwise addressing record errors.
   </p>
   <p>
     In this implementation guide, both goals and plans are relatively simple, with only a small subset of the potential data elements
-    expected to be supported.  These expectations are reflected in the physcial activity <a href="StructureDefinition-pa-goal.html">goal</a>  
+    expected to be supported.  These expectations are reflected in the physical activity <a href="StructureDefinition-pa-goal.html">goal</a>  
     and <a href="StructureDefinition-pa-careplan.html">care plan</a> profiles.  Systems are free to support additional data elements, but 
     cannot presume that other participants will also support them without site-specific negotiation.
   </p>
   <p>
-    The purpose of the CarePlan resource is to allow a shared understanding of what actions the patient (and those around them) will take
-    to help improve their level of physical activity.  This can be expressed as simple narrative.  The plan can be updated to reflect
-    changes based on patient need and on what's working - or isn't working.
+    The purpose of the <a href="{{site.data.fhir.path}}careplan.html">CarePlan</a> resource is to allow a shared understanding of what actions 
+    the patient (and those around them) will take to help improve their level of physical activity.  Systems may express this as simple narrative.  
+    The plan can be updated to reflect changes based on patient need and on what's working - or is not working.
   </p>
   <p>
     Goals allow a shared understanding of a target level of physical activity.  These might be ongoing goals to be sustained or might
@@ -77,19 +77,20 @@
   <a name="choosing"> </a>
   <h4>Choosing between Exercise Prescriptions and Plans</h4>
   <p>
-    To a certain extent, a plan and an exercise referral serve similar purposes - both can be used to set an expectation for a patient
+    To a certain extent, a plan and an exercise referral serve similar purposes - practitioners can use both to set an expectation for a patient
     to achieve an improved level of physical activity.  In some cases, an implementer might choose to use only one of the two.  Key
     differences between them (which may help determine whether you need one, the other, or both) are as follows:
   </p>
   <ul>
     <li>Exercise referrals are formal orders - though they are orders targeted to the patient themselves, rather than another provider.  Plans
       represent guidance/recommendations, but are not formal orders.</li>
-    <li>Exercise prescriptions are 'static'.  They are written once, but after that generally do not change, beyond eventually being marked as completed
-      or cancelled.  Plans, on the other hand, are dynamic.  They may be updated and revised numerous times as circumstances change.</li>
+    <li>Exercise prescriptions are 'static'.  Practitioners write them once, but after that the orders typically do not change, beyond eventually being
+       marked as completed or cancelled.  Plans, on the other hand, are dynamic.  They may be updated and revised numerous times as circumstances 
+       change.</li>
     <li>Exercise prescriptions can only be created or changed by appropriately qualified practitioners.  Plans can be created or changed by
       anyone, potentially including the patient themselves.</li>
-    <li>Excercise prescriptions will typically set specific objectives for what is to be done, but will be limited in description or detail.  For
-      example, "Work towards an average of 10,000 steps per day, and at least 3 days of 20 minutes worth of strength exercises".  On the other
+    <li>Exercise prescriptions will typically set specific objectives for what is to be done, but will be limited in description or detail.  For
+      example, "Work towards an average of 10,000 steps per day, and at least 3 days of 20 minutes' worth of strength exercises".  On the other
       hand, plans will often provide much more detail, including descriptions of how, why, interim milestones, conditionality, etc.  A plan
       may have multiple paragraphs and may include computable goals that can be used as targets.</li>
     <li>An exercise prescription has a single status - it can be draft, active, on hold, cancelled or completed.  On the other hand, each step 
@@ -106,18 +107,18 @@
     the services of a <a href="CapabilityStatement-pa-service-provider.html">Service Provider</a>.  In cases where a Referral
     Recipient delegates and solicits care from a different Service Provider, then for the purposes of this implementation guide,
     they take on the role of being a Care Manager.  (Some insurers or other programs may place limits on what types of practitioners
-    they consider to be authorized to create referrals.  This implemenation guide does not establish such limitations.)
+    they consider to be authorized to create referrals.  This implementation guide does not establish such limitations.)
   </p>
   <p>
-    Referrals could be issued for a wide range of services to help a patient improve their physical activity level.
+    Referrals could be issued for a wide range of services to help a patient improve their physical activity level:
   </p>
   <ul>
-    <li>Physiotherapy to help address physical limitations in performing exercise</li>
-    <li>Assessment of a patient's capabilities and personal tastes to develop a tailored exercise program that works well for the patient's 
-      abilities and interests</li>
-    <li>Training program to help a patient understand how to perform certain types of exercise safely and effectively</li>
-    <li>Ongoing coaching to help provide motivation, correction and adjustment of exercise plans based on patient needs</li>
-    <li>Enrollment in group programs that support any or all of the above</li>
+    <li>physiotherapy to help address physical limitations in performing exercise,</li>
+    <li>assessment of a patient's capabilities and personal tastes to develop a tailored exercise program that works well for the patient's 
+      abilities and interests,</li>
+    <li>training programs to help a patient understand how to perform certain types of exercise safely and effectively,</li>
+    <li>ongoing coaching to help provide motivation, correction and adjustment of exercise plans based on patient needs, and/or</li>
+    <li>enrollment in group programs that support any or all of the above.</li>
   </ul>
   <p>
     The high-level list of candidate codes for types of interventions that can be ordered is found <a href="ValueSet-PAInterventions.html">here</a>.
@@ -136,7 +137,7 @@
     <a href="StructureDefinition-pa-servicerequest.html">Physical Activity Referral</a> profile.
   </p>
   <p>
-    The beneficiary of the service will typically be the patient, but in some cases it might be some other caregiver who assists the
+    The beneficiary of the service will typically be the patient, but in some cases, it might be some other caregiver who assists the
     patient.  For example, providing counselling or training to a spouse or other family member who can assist the patient in
     their physical activity.
   </p>
@@ -171,8 +172,8 @@
     Exercise prescriptions use exactly the same profile as <a href="#referrals">referrals</a>.  However, the usage is different in two ways:
   </p>
   <ul>
-    <li>'Exercise prescriptions' will always have a ServiceRequest.performer of the Patient.  Referrals will either be non-directed (no
-      performer specified, as performer is selected at the dispatching phase) or be targeted to a Practitioner or Organization.</li>
+    <li>'Exercise prescriptions' will always have a <code>ServiceRequest.performer</code> of the Patient.  Referrals will either be non-directed 
+      (no performer specified, as performer is selected at the dispatching phase) or be targeted to a Practitioner or Organization.</li>
     <li>There is no 'Task' resource involved with an exercise prescription as there is no need to solicit a practitioner to see if they
       can fulfill the prescription.  The assignment to the patient (and acceptance) occurs as part of the interaction between the 
       ordering provider and the patient.</li>

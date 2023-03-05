@@ -12,36 +12,6 @@
   }
 }}####
 e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "language" : "en",
-  "status" : "active",
-  "expansion" : {
-    "identifier" : "urn:uuid:25c38101-5584-43c4-998d-dd9c4a68ecc0",
-    "timestamp" : "2023-02-07T16:22:33.293Z",
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "excludeNested",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "version",
-      "valueUri" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/temporary-codes|1.0.0-ballot"
-    }],
-    "contains" : [{
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "A consult note that describes assessments and\r\n  interventions related to a patient's level of physical activity."
-      }],
-      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/temporary-codes",
-      "code" : "PAConsultNote",
-      "display" : "Physical activity Consult note"
-    }]
-  }
-},
-  "error" : ""
+  "error" : "Error from server: Range check error"
 }
 -------------------------------------------------------------------------------------

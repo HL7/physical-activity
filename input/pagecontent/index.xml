@@ -5,7 +5,7 @@
   <blockquote class="note-to-balloters">
     <p>
       Welcome to our first ballot!  This specification is the result of hundreds of hours of work by a <a href="credits.html">wide variety of people</a> who are passionate
-      about enabling and supporting patients in improving their levels of physical activity.  We're happy to receive feedback from the broader community about everything
+      about enabling and supporting patients in improving their levels of physical activity.  We are happy to receive feedback from the broader community about everything
       we've written here, but particularly about any concerns with respect to implementability or how we can make it easier to get these features into production systems.
       If you're interested in joining with us, check out our <a href="https://confluence.hl7.org/display/PC/Physical+Activity">project page</a>, or come join the 
       <a href="https://chat.fhir.org/#narrow/stream/327137-Physical-Activity">discussion</a> on http://chat.fhir.org.
@@ -32,7 +32,7 @@
   <ul>
     <li>How to consistently capture and share the primary, evidence-based measure of a patient's level of physical activity;</li>
     <li>How to create and share care plans and goals related to improving a patient's level of physical activity; </li>
-    <li>How to order interventions that can a assist a patient in improving their levels of physical activity;</li>
+    <li>How to order interventions that can assist a patient in improving their levels of physical activity;</li>
     <li>How to capture and share information that supports that primary measure - for patient, clinical, insurance or other use;</li>
     <li>How to engage with the patient and their care givers to provide support and/or gather information as a patient works towards their physical activity goals; and</li>
     <li>What are the reporting mechanisms to close the referral loop on an interim basis or when referrals are complete?</li>
@@ -54,8 +54,8 @@
     </p>
   </div>
   <p>
-    This guide was created primarily by U.S. stakeholders and in some places requires the use of code systems that are U.S.-centric.  However, the general architecture
-    of the solutions defined here and most of the interoperability expectations are likely to be relevant irrespective of country.  Implementers in non-U.S. jurisdictions are
+    The stakeholders who created this guide were primarily U.S.-based and in some places the IG requires the use of code systems that are U.S.-centric.  However, the general architecture
+    of the solutions defined here - and most of the interoperability expectations - are likely to be relevant irrespective of country.  Implementers in non-U.S. jurisdictions are
     welcome to leverage this content.  If there is sufficient interest, a future version of this implementation guide might be developed that is international in scope.
   </p>
   
@@ -70,7 +70,7 @@
       capture that measure.  In addition, it defines additional profiles to capture <a href="measures.html#support">supplemental observations</a>
       assertions around physical activity levels, such as daily physical activity log entries, heart rate measurements, and step counts.  The specification also covers how to link
       these supporting records to the primary physical activity measure.</li>
-    <li><a href="interventions.html">Physical Activity Interventsions</a> defines profiles supporting the ordering of interventions intended to increase patient physical activity
+    <li><a href="interventions.html">Physical Activity Interventions</a> defines profiles supporting the ordering of interventions intended to increase patient physical activity
       and/or to support maintenance of existing but at risk levels of physical activity.  This includes profiles covering plans and goals related to physical activity as well as
       orders to physical activity professionals.</li>
     <li><a href="workflow.html">Physical Activity Workflow</a> defines the specific workflow and interoperability capabilities expected for systems that support this implementation guide.

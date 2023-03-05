@@ -1,7 +1,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
   <p>
     Having a standardized way of measuring patient physical activity - and sharing those measurements - is an essential step to improving physical activity levels, both at an
-    individual and at a population level.  Standard measures are needed to:
+    individual and at a population level.  Practitioners need standard measures to:
   </p>
   <ul>
     <li>consistently evaluate whether a patient's activity levels are adequate for good health</li>
@@ -9,11 +9,11 @@
 	  other intervention)</li>
     <li>allow coordination of care with a shared understanding of activity level between clinicians, patients and community-based service providers who can help patients assume a 
       more physically active lifestyle and stay motivated</li>
-    <li>form a basis for researchers interested in the correlation between physical activity level and health outcomes, as well as in which interventions are most effective in boosting 
+    <li>form a basis for researchers interested in the correlation between physical activity level and health outcomes, as well as which interventions are most effective in boosting 
       physical activity levels and associated outcomes</li>
     <li>allow de-identified information to flow into national or regional surveillance systems, such as public health.  This information can then inform programming, evidence-based 
-      policy and funding to address physical activity level challenges within certain communities or demographics</li>
-    <li>support evidence-based reumeration of community-based physical activity professionals who support at risk patients in improving their activity levels </li>
+      policy, and funding to address physical activity level challenges within certain communities or demographics.</li>
+    <li>support evidence-based remuneration of community-based physical activity professionals who support at risk patients in improving their activity levels</li>
   </ul>
   <p>
     This page describes standards for representing observations about a patient with respect to their level of physical activity as well
@@ -29,22 +29,22 @@
 	<p>
 	  While fine-grained and detailed records (e.g. exactly which type of exercise was performed, which muscle groups were activated, how
 	  many repetitions were performed, how many intervals were done, etc.) are important for certain types of therapy and for research
-	  purposes, they are too complex and onerous for wide-spread use and are not easily evaluatable from a perspective of "is this patient
-	  sufficiently active to maintain good health?"
+	  purposes, they are too complex and onerous for wide-spread use and are not easily evaluated to assess whether "this patient is
+	  sufficiently active to maintain good health".
 	</p>
 	<p>
 	  This guide therefore mandates a slightly modified version of the very simple Exercise Vital Sign (LOINC <a href="http://loinc.org/89574-8">89574-8</a> 
 	  as the primary measure of patient physical activity level for exchange and evaluation.  The <a href="background.html#pa-measure">background page</a>
-	  provides details on the evidence that supports this measure as accurate and appropriate for evaluating how well a patient meets guidalines for
+	  provides details on the evidence that supports this measure as accurate and appropriate for evaluating how well a patient meets guidelines for
 	  physical activity.
 	</p>
 	<p>
 	  The measure consists of two questions:
 	</p>
 	<ul>
-    <li>For an average week in the last 30 days, how many days per week did you engage in moderate to strenuous exercise (like walking fast,
+    <li>For an average week in the last 30 days, how many days per week did you engage in moderate to vigorous exercise (like walking fast,
       running, jogging, dancing, swimming, biking, or other activities that cause a light or heavy sweat)?</li>
-    <li>On those days that you engage in moderate to strenuous exercise, how many minutes, on average, do you exercise?</li>
+    <li>On those days that you engage in moderate to vigorous exercise, how many minutes, on average, do you exercise?</li>
   </ul>
   <p>
     These two questions correspond to the LOINC codes <a href="http://loinc.org/89555-7">89555-7</a> and 
@@ -57,14 +57,14 @@
   <p>
     <b>TO CONFIRM:</b>
     While these two questions are logically part of a single overall <a href="http://loinc.org/89574-8">89574-8</a> observation, this guide  
-    does not require the capture or sharing higher-level grouping observations that link the the answers to the two key questions.
+    does not require the capture or sharing higher-level grouping observations that link the answers to the two key questions.
   </p>
   <p>
     In addition, this guide captures two additional measures:
   </p>
   <ul>
-    <li>The product of the two EVS measures, giving an average amount of exercise in minutes/week (and captured using LOINC code 
-      <a href="http://loinc.org/82290-8">82290-8</a>)</li>
+    <li>The product of the two EVS measures, giving an average amount of moderate to vigorous physical activity in minutes/week (and captured 
+      using LOINC code <a href="http://loinc.org/82290-8">82290-8</a>)</li>
     <li>An indication of the amount of strength-based exercises a patient has perform, expressed as days/week (and captured using
       LOINC code <a href="http://loinc.org/82291-6">82291-6</a>)</li>
   </ul>
@@ -74,7 +74,7 @@
     it explicitly captured and stored allows for easier searching, trending and diagnosis.
   </p>
   <p>
-    The second measure allows evaluation of the patient against guidelines for strength-based exercise specifically.  
+    The second measure allows evaluation of the patient against guidelines for muscle-strengthening activity.  
   </p>
   <p>
     If a system does not wish to support directly capturing the answers to these key measures as Observations but is able to handle
@@ -91,9 +91,9 @@
   <a name="support"> </a>
   <h3>Supporting measures</h3>
   <p>
-    While it is certainly possible for patients and their care-givers to estimate their average days/week and minutes/day of moderate to
+    While it is certainly possible for patients and their caregivers to estimate their average days/week and minutes/day of moderate to
     high-intensity exercise, relying exclusively on estimates is not necessarily ideal.  Therefore, capturing additional information about
-    physicial activity can be helpful.  This information may assist the patient in the creation of their estimates.  They can also be used
+    physical activity can be helpful.  This information may assist the patient in the creation of their estimates.  They can also be used
     to provide clinicians and exercise professionals with more granular information to provide better insight into the patient's current
     exercise regime.  Potential supplemental measures include:
   </p>
@@ -109,8 +109,8 @@
     manage.  As a result, average measures are more useful.  At the same time, an average heart rate over the course of a day is not
     terribly helpful either.  20 minutes of elevated heart-rate due to exercise simply blends in and becomes difficult to distinguish.
     In the same way, a total count of 20,000 steps per day indicates a certain level of activity.  However, whether they constitute
-    "moderate to strenuous" exercise is hard to determine.  The same count of steps could represent an hour of jogging, or a day spent
-    pacing while talking on the phone.  Both are better than sitting, but only one would count as "moderate to strenuous" exercise.
+    "moderate to vigorous" exercise is hard to determine.  The same count of steps could represent an hour of jogging, or a day spent
+    pacing while talking on the phone.  Both are better than sitting, but only one would count as "moderate to vigorous" exercise.
   </p>
   <p>
     For these reasons, this implementation guide places limits on the types of supporting measurements systems are expected to share.
@@ -120,7 +120,7 @@
   </p>
   <p>
     An additional consideration is that capture of steps, heart rate, or even daily electronic activity logs requires that patients have
-    access to electronic devices to capture such measurements.  This won't be possible for all patients.  Therefore, systems <b>SHOULD NOT</b>
+    access to electronic devices to capture such measurements.  This will not be possible for all patients.  Therefore, systems <b>SHOULD NOT</b>
     set any requirements for the inclusion of these finer-grained measures unless steps have been taken to eliminate patient accessibility
     barriers.
   </p>
@@ -132,11 +132,11 @@
     judged as meeting the right balance of considerations including:
   </p>
   <ul>
-    <li>The measure is well-defined and understood, and ideally has a standardized code</li>
-    <li>The measure is commonly captured by systems</li>
-    <li>The measure is useful in either supporting the determination of the primary measure or in providing appropriate care</li>
-    <li>The measure is one that can be shared without overloading systems or patients with volume</li>
-    <li>For manually captured measures, the measure is understandable for patients and realistic for them to track</li>
+    <li>The measure is well-defined and understood, and ideally has a standardized code.</li>
+    <li>Systems commonly capture the measure.</li>
+    <li>The measure is useful in either supporting the determination of the primary measure or in providing appropriate care.</li>
+    <li>The measure is one that can be shared without overloading systems or patients with volume.</li>
+    <li>For manually captured measures, the measure is understandable for patients and realistic for them to track.</li>
   </ul>
   <p>
     Not all of these factors are true for all of the measures, but most must hold true for the measure to have made this first cut.
@@ -150,7 +150,7 @@
     The selected measures fall into two categories - <a href="#activity">activity-based</a> measures and <a href="#time">time-period-based</a> 
     measures.  Rather than defining a separate profile for each measure, profiles are defined for each category, because the behavior is 
     largely the same for each measure withing the category.  Only the Observation codes, allowed data type for response and unit of measure or 
-    response value set are different from measure to measure.  These varying parts are listed in tables.  Eventually, computable 
+    response value set are different from measure to measure.  Tables below list these varying parts.  Eventually, computable 
     <a href="{{site.data.fhir.path}}observationdefinition.html">ObservationDefinitions</a> will be created for each measure once the FHIR
     tooling supports using these as part of the validation process.
   </p>
@@ -161,8 +161,8 @@
     <li><b>Measure Name</b> - The informal name for the measure as it is used in this IG.  This may differ somewhat from the formal name of the specified
       LOINC or other measurement code.  It also reflects the restrictions on use (e.g. units, frequency of capture, etc.) that apply to its use
       within this IG.</li>
-    <li><b>Code</b> - This is the formal code that <b>SHALL</b> be used by systems compliant with this IG when sharing the measure.  Other codes
-      codes with equivalent meaning can also be used, but the one specified in the table is required</li>
+    <li><b>Code</b> - This is the formal code that <b>SHALL</b> be used by systems compliant with this IG when sharing the measure.  Implementers can also use
+      other codes with equivalent meaning as extra repetitions, but the one specified in the table is required.</li>
     <li><b>Unit/codes</b> - If specified, this will either be the <a href="http://ucum.org/">UCUM</a> unit of measure that <b>SHALL</b> be used 
       if one is specified or the value set of codes that must be drawn from.  For units, a fly-over provides the English meaning of the unit.  For
       codes, a hyperlink will take the reader to the content for the value set and a fly-over will provide the canonical URL.</li>
@@ -183,16 +183,16 @@
       The absence of a 'Y' in the column of a particular type of reporter does not mean this type of Observation <i>cannot</i> be performed by that
       type of individual, merely that it would be unusual or uncommon.  It also means that systems focused on supporting data capture by that type
       of individual (<a href="CapabilityStatement-pa-patient-engagement.html">Patient-engagement</a> systems for patient-reported and 
-      <a href="CapabilityStatement-pa-care-manager.html">Care-manager</a> and <a href="CapabilityStatement-pa-service-provider.html">Service Provider</a>
+      <a href="CapabilityStatement-pa-care-manager.html">Care Manager</a> and <a href="CapabilityStatement-pa-service-provider.html">Service Provider</a>
       systems for provider-reported) would not typically support capturing observations not associated with their target user type.  That said,
       all such systems <b>SHOULD</b> support receiving and storing all supporting information observations.
     </li>
-    <li><b>Mechanism</b> - The means by which the Observation is made.  There are two options:
+    <li><b>Mechanism</b> - The means by which the performer makes the Observation.  There are two options:
       <ul>
         <li><i>Device (Dev.)</i> observations will typically require some sort of hardware device to capture the value.  This might be a small device such
           as a pedometer or watch, or a large device such as a bike or treadmill.  The fact the measured value is reported by a device does not necessarily
-          mean the data is electronically generated by the device.  It might be transcribed by a patient or clinician.  For example, an exercise bike
-          might indicate the number of calories burned and that value is then transcribed by a pratitioner or patient.  Device values such as maximums
+          mean the data is electronically generated by the device.  A patient or clinician might transcribe it.  For example, an exercise bike
+          might indicate the number of calories burned and that value is then recorded by a practitioner or patient.  Device values such as maximums
           or averages might also not be directly calculated by the device that measures the raw parameter, but might instead be calculated by
           intermediary devices such as a smart phone or personal computer.  If the raw data comes from a device, the measurement is still considered
           device-based.  Device-based observations <b>SHOULD</b> include information about the source device if the device does the reporting to allow
@@ -240,7 +240,7 @@
         <th rowspan="2">Notes</th>
       </tr>
       <tr>
-        <th><span title="Patient/care-giver">Pat.</span></th>
+        <th><span title="Patient/caregiver">Pat.</span></th>
         <th><span title="Healthcare/physical activity professional">Prov.</span></th>
         <th><span title="Device">Dev.</span></th>
         <th><span title="Manual">Man.</span></th>
@@ -249,7 +249,7 @@
     <tbody>
       <tr>
         <th>Activity performed (walk/run/bike/swim/...)</th>
-        <td><a href="http://loinc.org/73985-4">73985-4</a></td>
+        <td><a href="http://loinc.org/73985-4">73985-4 - Exercise Activity</a></td>
         <td><a title="http://loinc.org/vs/LL734-5" href="http://loinc.org/LL734-5">coded</a></td>
         <td style="text-align: center">Y</td>
         <td></td>
@@ -260,7 +260,7 @@
       </tr>
       <tr>
         <th>Activity duration</th>
-        <td><a href="http://loinc.org/55411-3">55411-3</a></td>
+        <td><a href="http://loinc.org/55411-3">55411-3 - Exercise duration</a></td>
         <td><span title="Minutes">min</span></td>
         <td style="text-align: center">Y</td>
         <td style="text-align: center">Y</td>
@@ -271,29 +271,29 @@
       </tr>
       <tr>
         <th>Minutes of moderate physical activity per activity</th>
-        <td><a href="http://loinc.org/77592-4">77592-4</a></td>
+        <td><a href="http://loinc.org/77592-4">77592-4 - Moderate physical activity</a></td>
         <td><span title="Minutes">min</span></td>
         <td style="text-align: center">Y</td>
         <td></td>
         <td></td>
         <td style="text-align: center">Y</td>
         <td>Progress</td>
-        <td>Intensity level is somewhat subjective, but key to primary measure</td>
+        <td>Intensity level is subjective, but key to primary measure</td>
       </tr>
       <tr>
-        <th>Minutes of intense physical activity per activity</th>
-        <td><a href="http://loinc.org/77593-2">77593-2</a></td>
+        <th>Minutes of vigorous physical activity per activity</th>
+        <td><a href="http://loinc.org/77593-2">77593-2 - Vigorous physical activity</a></td>
         <td><span title="Minutes">min</span></td>
         <td style="text-align: center">Y</td>
         <td></td>
         <td></td>
         <td style="text-align: center">Y</td>
         <td>Progress</td>
-        <td>Intensity level is somewhat subjective, but key to primary measure</td>
+        <td>Intensity level is subjective, but key to primary measure</td>
       </tr>
       <tr>
         <th>Peak activity heart rate</th>
-        <td><a href="http://loinc.org/55422-0">55422-0</a></td>
+        <td><a href="http://loinc.org/55422-0">55422-0 - Maximum Heart rate in Unspecified Time</a></td>
         <td><span title="Beats per minute">/min</span></td>
         <td style="text-align: center">Y</td>
         <td style="text-align: center">Y</td>
@@ -303,8 +303,8 @@
         <td>Useful to monitor for change.  Supplements ‘zone’ information in better understanding intensity.  Particularly important in terms of supervised activities.</td>
       </tr>
       <tr>
-        <th>Calories per Activity</th>
-        <td><a href="http://loinc.org/55424-6">55424-6</a></td>
+        <th>Calories per activity</th>
+        <td><a href="http://loinc.org/55424-6">55424-6 - Calories burned in Unspecified Time, Pedometer</a></td>
         <td><span title="kilocalories">kcal</span></td>
         <td style="text-align: center">Y</td>
         <td style="text-align: center">Y</td>
@@ -320,13 +320,13 @@
   <a name="time"> </a>
   <h4>Time-based measures</h4>
   <p>
-    These measures reflect values summed or averaged over a period of time - typically a day, though some might cover longer periods.
+    These measures reflect values summed or averaged over a time period - typically a day, though some might cover longer periods.
     The period might be reflected in the definition of the code or in the units used for the measure.  Measures that are calculated
     over a period longer than a day will have a start and end date specified in <code>Observation.effectivePeriod</code> indicating
     the period over which they are calculated.
   </p>
   <p>
-    Each of these observations also has a optional component that indicates the percentage of time over which the measure was
+    Each of these observations also has an optional component that indicates the percentage of time over which the measure was
     calculated that the device that captured the raw measurements was actually active.  This can help evaluate the validity of
     the measure.  For example, a daily step-count where the pedometer was only worn for an hour is likely not an accurate reflection
     of the patient's total steps for the day.
@@ -346,7 +346,7 @@
         <th rowspan="2">Notes</th>
       </tr>
       <tr>
-        <th><span title="Patient/care-giver">Pat.</span></th>
+        <th><span title="Patient/caregiver">Pat.</span></th>
         <th><span title="Healthcare/physical activity professional">Prov.</span></th>
         <th><span title="Device">Dev.</span></th>
         <th><span title="Manual">Man.</span></th>
@@ -355,19 +355,19 @@
     <tbody>
       <tr>
         <th>Daily Step Count</th>
-        <td><a href="http://loinc.org/41950-7">41950-7</a></td>
+        <td><a href="http://loinc.org/41950-7">41950-7 - Number of steps in 24 Hours, Measured</a></td>
         <td><span title="step count per day">/d</span></td>
         <td style="text-align: center">Y</td>
         <td></td>
         <td style="text-align: center">Y</td>
         <td></td>
         <td>Progress</td>
-        <td>This measure is problematic for patients with lower mobility issues, however it's widely used and well understood.  
+        <td>This measure is problematic for patients with lower mobility issues.  However, it is widely used and well understood.  
           Comparison across devices is poor, so primarily useful for general targets and comparison within the same device.</td>
       </tr>
       <tr>
         <th>Peak daily heart rate</th>
-        <td><a href="http://loinc.org/8873-2">8873-2</a></td>
+        <td><a href="http://loinc.org/8873-2">8873-2 - Maximum Heart rate in 24 Hours</a></td>
         <td><span title="Beats per minute">/min</span></td>
         <td style="text-align: center">Y</td>
         <td style="text-align: center">Y</td>
@@ -378,7 +378,7 @@
       </tr>
       <tr>
         <th>Average resting heart rate</th>
-        <td><a href="http://loinc.org/40443-4">40443-4</a></td>
+        <td><a href="http://loinc.org/40443-4">40443-4 - Heart rate - resting</a></td>
         <td><span title="Beats per minute">/min</span></td>
         <td style="text-align: center">Y</td>
         <td style="text-align: center">Y</td>
@@ -390,7 +390,7 @@
       </tr>
       <tr>
         <th>Calories per Day</th>
-        <td><a href="http://loinc.org/41979-6">41979-6</a></td>
+        <td><a href="http://loinc.org/41979-6">41979-6 - Calories burned in 24 Hours, Calc</a></td>
         <td><span title="kilocalories/day">kcal/d</span></td>
         <td style="text-align: center">Y</td>
         <td style="text-align: center">Y</td>
@@ -402,10 +402,10 @@
     </tbody>
   </table>
   <p>
-    The relationship between intermediate measures and isn't exact.  I.e. the sum of all of the "per activity" moderate and intense exercise
+    The relationship between intermediate measures and base measures is not exact.  I.e. the sum of all of the "per activity" moderate and vigorous exercise
     minutes can't necessarily be added up and averaged to calculate the average days per week or minutes per day.  Calories or steps and activity
-    duration can't (yet?) be converted to minutes of moderate to intense exercise.  Also, in determining their overall averages,
-    a patient may include exercise that is not supported by a fine-grained measurement or might exclude device data they deem eronious.  (E.g.
+    duration can't (yet?) be converted to minutes of moderate to vigorous exercise.  Also, in determining their overall averages,
+    a patient may include exercise that is not supported by a fine-grained measurement or might exclude device data they deem erroneous.  (E.g.
     steps logged when the device was left sitting on the dryer.)  The purpose of
     the supporting measurements is to assist the patient or caregiver in making their estimates as accurate as possible and to assist 
     practitioners in understanding more about the nature and timing of the patient's exercise.
@@ -413,7 +413,7 @@
   <h4>Device-based measures</h4>
   <p>
     This guide does not define data standards for the raw point-in-time device-based data.  HL7 has a <a href="http://hl7.org/fhir/uv/phd">Personal
-    Healthcare Devices</a> that provides a mechanism for raw device measurements to be exposed as FHIR.  In many cases, it may be simpler
-    to leverage the Apple Healthkit, Android Fit or similar APIs to access the fine-grained measurements in order to determine the relevant averages.
+    Healthcare Devices</a> that provides a mechanism for implementers to expose raw device measurements as FHIR.  In many cases, it may be simpler
+    to leverage the Apple HealthKit, Android Fit or similar APIs to access the fine-grained measurements in order to determine the relevant averages.
   </p>
 </div>
