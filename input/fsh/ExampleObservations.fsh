@@ -14,8 +14,8 @@ Description: 	  "An example observation capturing a patient's average minutes pe
 * effectiveDateTime = "2022-06-08"
 * valueQuantity     = 20 'min/d' "minutes per day"
 
-Instance:    ExampleExerciseMinutesPerWeek
-InstanceOf:  ExerciseMinutesPerWeek
+Instance:    ExampleEVSMinutesPerWeek
+InstanceOf:  EVSMinutesPerWeek
 Title:       "Example Exercise Minutes per Week"
 Description: "An example observation capturing a patient's average minutes per week of moderate to vigorous physical exercise."
 * subject	          = Reference(http://example.org/Patient/1)

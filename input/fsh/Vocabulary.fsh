@@ -10,8 +10,8 @@ Description:    "Codes that will eventually be proposed for LOINC or other code 
 * ^experimental  = false
 * #PhysicalActivity "Physical Activity" "A category assigned to resources pertaining to evaluating,
   improving or sustaining a patient's level of physical activity."
-* #ExercisePanel "Exercise Panel" "A panel observation intended to group measures related to a
-  specific occurrence of physical exercise."
+* #PAPanel "Physical Activity Panel" "A panel observation intended to group measures related to a
+  specific occurrence of physical activity."
 * #DeviceActivePercentage "Device Active Percentage" "Indicates the percentage of the overall
   time associated with an aggregate or average measure that the device capturing the raw data
   used to calculate the sum or average was enabled and available to take measurements.  For
@@ -21,8 +21,8 @@ Description:    "Codes that will eventually be proposed for LOINC or other code 
   interventions related to a patient's level of physical activity."
 
 ValueSet:      ValueSetEVS
-Title:         "Exercise Vital Sign Value Set"
-Description:   "Codes for Exercise Vital Sign components"
+Title:         "Physical Activity Vital Sign Value Set"
+Description:   "Codes for Physical Activity Vital Sign components"
 * ^copyright = "This material contains content from LOINC (http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the license at http://loinc.org/license. LOINC® is a registered United States trademark of Regenstrief Institute, Inc"
 * ^experimental  = false
 * $loinc#89555-7 ""
@@ -87,3 +87,12 @@ Description: "Codes for physical activity measures that aggregate or summarize a
 * $loinc#8873-2 ""
 * $loinc#40443-4 ""
 * $loinc#41979-6 ""
+
+ValueSet:    PAReferralTaskStatus
+Title:       "Physical Activity Referral Task Status"
+Description: "Codes indicating allowed for Tasks seeking fulfillment of physical activity-related referrals"
+* ^experimental  = false
+* ^compose.include[0].valueSet = TaskStatus
+* ^compose.exclude[0].system = http://hl7.org/fhir/task-status
+* ^compose.exclude[0].concept[+].code = #received
+* ^compose.exclude[0].concept[+].code = #ready

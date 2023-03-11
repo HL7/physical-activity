@@ -12,6 +12,6 @@
   }
 }}####
 e: {
-  "error" : "Error from server: Range check error"
+  "error" : "Cannot invoke \"org.hl7.fhir.r5.terminologies.TerminologyClient.expandValueset(org.hl7.fhir.r5.model.ValueSet, org.hl7.fhir.r5.model.Parameters, java.util.Map)\" because \"this.txClient\" is null"
 }
 -------------------------------------------------------------------------------------

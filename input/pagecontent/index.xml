@@ -44,11 +44,11 @@
     The following diagram shows the different areas covered by this IG and how they fit into the overall cycle of care:
   </p>
   <div>
-    <center>
+    <div style="display:flex;justify-content:center">
       <img alt="Diagram showing a circular cycle around the label 'Improving Physical Activity'.  The bullets in the circle are: Assessment: Is patient getting sufficient physical activity?; 
         Plans &amp; Goals: What steps need to be taken? How? Targets? By when?; Prescription &amp; Referral: Wh can help and how?; Monitoring: Exercise logs, heart rate, steps, etc.; 
         Engagement: Videos, reading, satisfaction surveys, etc.; Reporting: What was done? Any issues? What should happen next?" src="Physical Activity cycle.svg"/>
-    </center>
+    </div>
     <p style="text-indent:25px">
       <b>Figure 1:</b> <i>Improving Physical Activity - Healthcare Cycle</i>
     </p>
@@ -92,6 +92,9 @@
       business case for implementing this IG.</li>
     <li><a href="scenarios.html">Scenarios</a> describes examples of real-world scenarios where this IG would come into play and how the interactions between the software
       systems supported by this IG would impact patients, clinicians and others using those systems.</li>
+    <li><a href="design.html">Design Considerations</a> lists a variety architectual and other considerations that have gone into the creation of this implementation guide and
+      explains why the functionality it provides has been implemented as it has.  It also lists a number of areas where implementers have been left some flexibility and provides
+      guidance about how to best decide amongst implementation alternatives based on implementation context.</li>
     <li><a href="artifacts.html">Artifacts</a> - This provides a summary of all of the technical artifacts defined in this implementation guide.  It also provides a list of the
       artifacts defined elsewhere that are leveraged as part of this implementation guide.</li>
     <li><a href="downloads.html">Downloads</a> - This provides a handy set of zip files that can be downloaded for local use, including this implementation guide and all of its
@@ -105,7 +108,7 @@
   </p>
 
   <a name="igs"> </a>
-  <h4>Building on Existing Work</h4>
+  <h3>Relationships with Other Work</h3>
   <p>
     This implementation guide builds on other specifications, helping ensure a consistent approach to data sharing that should ease adoption.  The specific guides used, and
     the portions relevant from each of them are as follows:

@@ -1,0 +1,124 @@
+<div>
+  <a name="status"> </a>
+  <h3>Task status</h3>
+  <p>
+    This profile supports a number of <code>Task.status</code> codes.  The <a href="workflow.html#taskstatus">referral fufillment task 
+    status diagram</a> on the Workflow page describes the relationships between the states.  The table below provides additional
+    detail on each state, as well as rules around its use.
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>Initiator</th>
+        <th>Task Reason?</th>
+        <th>Meaning</th>
+        <th>Rules</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>draft</th>
+        <td>Care Manager</td>
+        <td>No</td>
+        <td>This will rarely, if ever, appear.  It would be relevant if a provider system has begun the work of deciding who to route a
+          referral to, but has not yet actually clicked 'send' to make the request.</td>
+        <td><i>Service Providers</i> <b>SHALL</b> either filter out or ignore Tasks in this state.</td>
+      </tr>
+      <tr>
+        <th><b>requested</b></th>
+        <td>Care Manager</td>
+        <td>No</td>
+        <td>Indicates that fulfillment is being requested and no response has yet been provided.</td>
+        <td>This <b>SHALL</b> be the initial status of the Task when it is first released for consideration.  Once the Task has left this status, 
+          it <b>SHOULD NOT</b> return to this status, though in cases
+          of an erroneous transition, a quick return to this status might be appropriate.</td>
+      </tr>
+      <tr>
+        <th><b>accepted</b></th>
+        <td>Service Provider</td>
+        <td>No</td>
+        <td>Indicates that the <i>Service Provider</i> has agreed to perform the actions described in the referral ServiceRequest.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th><b>rejected</b></th>
+        <td>Service Provider</td>
+        <td>Yes</td>
+        <td>Indicates that the <i>Service Provider</i> does NOT agree to perform the actions described in the referral ServiceRequest.
+          It is possible that, based on the reason for the refusal, the underlying ServiceRequest might be revised (or a new one created) 
+          and a new Task seeking fulfillment could be created for the same target <i>Service Provider</i>.</td>
+        <td>This is a final state.  When in this state, a <i>Task.statusReason</i> <b>SHALL</b> be provided explaining the refusal.</td>
+      </tr>
+      <tr>
+        <th>cancelled</th>
+        <td>Care Manager</td>
+        <td>Yes</td>
+        <td>Indicates the request for fulfillment has been terminated.  This occurs when the authorization for the action has been
+          revoked.  This should happen only in exceptional circumstances, for example if the patient's clinical status changes in a way that
+          would make the ordered therapy inappropriate.  A cancelled Task means the <i>Service Provider</i> should cease their interventions
+          as soon as possible, though this may not be instantaneous.  A <i>Care Manager</i> should always make sure the patient is aware
+          when an existing referral is being cancelled.</td>
+        <td>Cancelled is a terminal state.  If there is subsequently a decision to seek continuation of an existing ServiceRequest after
+          the Task has been cancelled, a new Task will be needed - which would then be accepted or rejected as usual.</td>
+      </tr>
+      <tr>
+        <th>in-progress</th>
+        <td>Service Provider</td>
+        <td>No</td>
+        <td>Used to distinguish that the requested work has actually begun.  E.g. The patient has started attending classes, the patient
+          has come to their first consultation, etc.  Not all systems will track this information.</td>
+        <td></td>
+      </tr>
+      <tr>
+        <th>on-hold</th>
+        <td>Service Provider</td>
+        <td>Yes</td>
+        <td>Indicates that work on the service(s) requested by the referral has been temporarily paused.  For example, the patient has gone
+          on vacation, the patient has suffered an injury that requires a break from activity, etc.  Communicating this is generally only
+          relevant when the pause will significantly impact when the service might have been expected to complete and/or will result in a
+          noticable change to the ongoing observations being communicated to the <i>Care Manager</i> to allow them to monitor progress.</td>
+        <td>'on-hold' is a temporary state.  If the <i>Service Provider</i> determines after putting the Task on-hold that it will not
+          resume, then the Task SHALL be transitioned to 'failed'.</td>
+      </tr>
+      <tr>
+        <th>failed</th>
+        <td>Service Provider</td>
+        <td>Yes</td>
+        <td>Indicates that the action(s) requested by the referral were attempted but could not be successfully completed.  For example,
+          the patient stopped attending a program, the exercise professional determined their services were not a good match for the
+          patient's needs, etc.</td>
+        <td>Failed is a terminal state.  In order to solicit further action (from the same <i>Service Provider</i> or someone else, a new
+          Task is needed, which will go through the Accept/Reject proecess the same as any other.</td>
+      </tr>
+      <tr>
+        <th><b>completed</b></th>
+        <td>Service Provider</td>
+        <td>No</td>
+        <td>Indicates that the <i>Service Provider</i> believes they have completed all of the requested actions asked for as part of the
+          <a href="StructureDefinition-pa-servicerequest.html">ServiceRequest</a>.  No further action is expected to be taken as part of
+          the referral, though the <i>Service Provider</i> and the patient might still have further interaction through their own
+          volition.</td>
+        <td>It is up to the <i>Care Manager</i> to decide whether to update the ServiceRequest to 'completed'.  However, if further action
+          is desired, a new Task will need to be initiated.</td>
+      </tr>
+      <tr>
+        <th>entered-in-error</th>
+        <td>Care Manager</td>
+        <td>No</td>
+        <td>Indicates that the Task record should never have existed.  E.g. A record was accidentally created against the wrong patient,
+          against an unapproved order, against a completed order, etc.</td>
+        <td><i>Service Providers</i> SHALL NOT filter out 'entered-in-error' Tasks so that they can see if a Task they've previously received
+          gets marked as 'entered-in-error'.  If this occurs, then they SHOULD cease service as soon as possible and, if they opt to continue
+          service, understand that it is not considered to be 'authorized' and may therefore have limitations with respect to insurance
+          coverage.  In all other circumstances, <i>Service Providers</i> SHALL otherwise ignore 'entered-in-error' Tasks.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>General Notes:</p>
+  <ul>
+    <li>When reading Task resources from another system, all statuses must be supported.  However, when updating Task status,
+      <a href="CapabilityStatement-pa-service-provider.html">Service Providers</a> only need to be able to support those marked in bold.
+      The remaining codes only need to be used when they are appropriate for the <i>Service Provider's</i> architecture.</li>
+  </ul>
+</div>

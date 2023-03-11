@@ -1,4 +1,4 @@
-<div xmlns="http://www.w3.org/1999/xhtml">
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
   <p>
     This implementation guide is <b>DRAFT</b>.  There are a number of open issues that will need to be resolved before it will be fully 
     implementable and a number of additional clean-up steps that will need to be taken before the guide is published for ballot.

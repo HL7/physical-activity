@@ -20,7 +20,7 @@
     as supporting observations that provide additional detail and evidence for those higher-level observations.
   </p>
   <a name="base"> </a>
-  <h3>Base measure</h3>
+  <h3>Base Measures</h3>
 	<p>
     The foundational step in improving physical activity levels is having an agreed measure consistently used across EHRs to capture a
     patient's level of physical activity.  There are a wide variety of different types of physical activity and numerous different ways
@@ -89,7 +89,7 @@
   
   
   <a name="support"> </a>
-  <h3>Supporting measures</h3>
+  <h3>Supporting Measures</h3>
   <p>
     While it is certainly possible for patients and their caregivers to estimate their average days/week and minutes/day of moderate to
     high-intensity exercise, relying exclusively on estimates is not necessarily ideal.  Therefore, capturing additional information about
@@ -126,7 +126,7 @@
   </p>
   
   <a name="criteria"> </a>
-  <h4>Criteria for inclusion</h4>
+  <h4>Criteria for Inclusion</h4>
   <p>
     In this first release of the implementation guide, an initial 'starting' set of supporting measures have been identified that were
     judged as meeting the right balance of considerations including:
@@ -145,7 +145,7 @@
   </p>
   
   <a name="modeling"> </a>
-  <h4>Modeling approach</h4>
+  <h4>Modeling Approach</h4>
   <p>
     The selected measures fall into two categories - <a href="#activity">activity-based</a> measures and <a href="#time">time-period-based</a> 
     measures.  Rather than defining a separate profile for each measure, profiles are defined for each category, because the behavior is 
@@ -214,7 +214,7 @@
   </ul>
 
   <a name="activity"> </a>
-  <h4>Activity-based measures</h4>
+  <h4>Activity-based Measures</h4>
   <p>
     These are measures that apply to the period of time over which a patient engages in some relatively contiguous period of enhanced
     physical activity - a walk, a run, a swim, a period of weight lifting, etc. The time boundaries of the activity might be inferred 
@@ -318,7 +318,7 @@
   </table>
 
   <a name="time"> </a>
-  <h4>Time-based measures</h4>
+  <h4>Time-based Measures</h4>
   <p>
     These measures reflect values summed or averaged over a time period - typically a day, though some might cover longer periods.
     The period might be reflected in the definition of the code or in the units used for the measure.  Measures that are calculated
@@ -410,7 +410,7 @@
     the supporting measurements is to assist the patient or caregiver in making their estimates as accurate as possible and to assist 
     practitioners in understanding more about the nature and timing of the patient's exercise.
   </p>
-  <h4>Device-based measures</h4>
+  <h4>Device-based Measures</h4>
   <p>
     This guide does not define data standards for the raw point-in-time device-based data.  HL7 has a <a href="http://hl7.org/fhir/uv/phd">Personal
     Healthcare Devices</a> that provides a mechanism for implementers to expose raw device measurements as FHIR.  In many cases, it may be simpler

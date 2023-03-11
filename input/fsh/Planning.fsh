@@ -14,6 +14,13 @@ Description:    "A plan describing the plan to improve or maintain a patient's l
 * category ^slicing.rules = #open
 * category contains PA 1..1 MS
 * category[PA] = TemporaryCodes#PhysicalActivity
+* note MS
+* note.author[x] 1..1 MS
+* note.author[x] only Reference(Practitioner or Patient or RelatedPerson)
+* note.author[x] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* note.author[x] ^type[0].extension[=].valueBoolean = true
+* note.time 1..1 MS
+* note.text MS
 
 
 Profile:        PAGoal
@@ -38,6 +45,21 @@ Description:    "A goal that sets a target for a patient's physical activity lev
 * addresses ^slicing.rules = #open
 * addresses contains SupportedAddresses 0..* MS
 * addresses[SupportedAddresses] only Reference(LowPACondition or EVSDaysPerWeek or EVSMinutesPerDay)
+* addresses[SupportedAddresses] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* addresses[SupportedAddresses] ^type[0].extension[=].valueBoolean = true
+* addresses[SupportedAddresses] ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* addresses[SupportedAddresses] ^type[1].extension[=].valueBoolean = true
+* addresses[SupportedAddresses] ^type[2].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* addresses[SupportedAddresses] ^type[2].extension[=].valueBoolean = true
+* note MS
+* note.author[x] 1..1 MS
+* note.author[x] only Reference(Practitioner or Patient or RelatedPerson)
+* note.author[x] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* note.author[x] ^type[0].extension[=].valueBoolean = true
+* note.author[x] ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* note.author[x] ^type[1].extension[=].valueBoolean = true
+* note.time 1..1 MS
+* note.text MS
 
 
 Profile:        LowPACondition
@@ -55,10 +77,18 @@ Description:    "A condition that conveys the fact that a patient has a clinical
 * bodySite 0..0
 * onset[x] MS 
 * onset[x] only dateTime or Period
+* onset[x] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* onset[x] ^type[0].extension[=].valueBoolean = true
 * abatement[x] MS 
 * abatement[x] only dateTime or Period
+* abatement[x] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* abatement[x] ^type[0].extension[=].valueBoolean = true
 * asserter MS 
 * asserter only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile)
+* asserter ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* asserter ^type[0].extension[=].valueBoolean = true
+* asserter ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* asserter ^type[1].extension[=].valueBoolean = true
 * stage 0..0
 * evidence MS
 * evidence.detail ^slicing.discriminator.type = #profile
@@ -67,8 +97,12 @@ Description:    "A condition that conveys the fact that a patient has a clinical
 * evidence.detail contains SupportedDetail 0..* MS
 * evidence.detail[SupportedDetail] only Reference(EVSMinutesPerDay or EVSDaysPerWeek)
 * evidence.detail[SupportedDetail] ^comment = "... A variety of resources might provide support for 
-  asserting this condition, however at minimum, systems must support the two Exercise Vital Sign 
+  asserting this condition, however at minimum, systems must support the Physical Activity Vital Sign 
   observations."
+* evidence.detail[SupportedDetail] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* evidence.detail[SupportedDetail] ^type[0].extension[=].valueBoolean = true
+* evidence.detail[SupportedDetail] ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* evidence.detail[SupportedDetail] ^type[1].extension[=].valueBoolean = true
 
 
 Profile:        PAServiceRequest
@@ -80,6 +114,7 @@ Description:    "Represents orders and referrals for interventions that help to 
 * extension contains $pertainsToGoal named pertainsToGoal 0..* MS
 * extension[pertainsToGoal].valueReference only Reference(PAGoal)
 * status MS
+* status from PAReferralTaskStatus (required)
 * intent MS
 * intent ^comment = "... In most cases, this will be Order.  However, in some cases a service
   delivery provider might create a 'proposed' ServiceRequest or a 'filler' or other type."
@@ -104,9 +139,16 @@ Description:    "Represents orders and referrals for interventions that help to 
 * requester only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile or 
   USCoreOrganizationProfile)
 * performer MS
-* performer only Reference(HealthcareService or RelatedPerson or USCorePatientProfile or
-  USCorePractitionerProfile or USCorePractitionerRoleProfile or USCoreOrganizationProfile or 
-  USCoreCareTeam)
+* performer only Reference(USCorePatientProfile or USCorePractitionerProfile or USCorePractitionerRoleProfile or USCoreOrganizationProfile or 
+  HealthcareService or USCoreCareTeam or RelatedPerson)
+* performer ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* performer ^type[0].extension[=].valueBoolean = true
+* performer ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* performer ^type[1].extension[=].valueBoolean = true
+* performer ^type[2].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* performer ^type[2].extension[=].valueBoolean = true
+* performer ^type[3].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* performer ^type[3].extension[=].valueBoolean = true
 * reasonReference ^slicing.discriminator.type = #profile
 * reasonReference ^slicing.discriminator.path = "resolve()"
 * reasonReference ^slicing.rules = #open
@@ -141,7 +183,11 @@ course of the services delivered by a Service Provider, typically in response to
 * result ^slicing.discriminator.path = "resolve()"
 * result ^slicing.rules = #open
 * result contains SupportedResult 0..* MS
-* result[SupportedResult] only Reference(EVS or ActivityMeasure or TimeMeasure or ActivityGroup)
+* result[SupportedResult] only Reference(EVS or PAActivityMeasure or PATimeMeasure or PAActivityGroup)
+* result[SupportedResult] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* result[SupportedResult] ^type[0].extension[=].valueBoolean = true
+* result[SupportedResult] ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* result[SupportedResult] ^type[1].extension[=].valueBoolean = true
 * presentedForm.contentType = urn:ietf:bcp:13#application/pdf
 * presentedForm.contentType ^comment = "... Implementers are encouraged to identify additional formats they would
   like to see supported, if any."
@@ -153,6 +199,7 @@ Id:             pa-task-for-referral-management
 Title:          "Physical Activity Task for Referral Management"
 Description:    "Represents a request for fufillment of a physical activity-related referral or
   order and supports management of the same."
+* obeys pa-taskrm-1
 * status MS
 * statusReason MS
   * text MS
@@ -171,6 +218,12 @@ Description:    "Represents a request for fufillment of a physical activity-rela
 * owner MS
 * owner only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile or
   USCoreOrganizationProfile)
+* owner ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* owner ^type[0].extension[=].valueBoolean = true
+* owner ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* owner ^type[1].extension[=].valueBoolean = true
+* owner ^type[2].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* owner ^type[2].extension[=].valueBoolean = true
 * output ^slicing.discriminator[+].type = #pattern
 * output ^slicing.discriminator[=].path = "type"
 * output ^slicing.discriminator[+].type = #type
@@ -180,4 +233,11 @@ Description:    "Represents a request for fufillment of a physical activity-rela
 * output[PerformedActivity]
   * type = $SDOHCCTemp#resulting-activity
   * value[x] MS
-  * value[x] only Reference or CodeableConcept
+  * value[x] only CodeableConcept or Reference(PADiagnosticReport or Resource)
+  * value[x] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+  * value[x] ^type[0].extension[=].valueBoolean = true
+
+Invariant:   pa-taskrm-1
+Description: "Task.statusReason is required if Task.status is 'rejected', 'on-hold', 'cancelled', or 'failed' and is not permitted otherwise."
+Expression:  "Task.statusReason.exists() = Task.status in {'rejected', 'on-hold', 'cancelled', 'failed'}"
+Severity:    #error

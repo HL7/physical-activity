@@ -2,18 +2,18 @@ Alias: $loinc     = http://loinc.org
 Alias: $minLength = http://hl7.org/fhir/StructureDefinition/minLength
 Alias: $typeMS    = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
 
-Profile:        ExerciseSupportGeneric
+Profile:        PAObservationBase
 Parent:         http://hl7.org/fhir/us/sdoh-clinicalcare/StructureDefinition/SDOHCC-ObservationAssessment
-Id:             observation-support
-Title:          "Exercise Supporting Observation"
-Description:    "An abstract observation profile that serves as the parent for various supporting observations related to exercise"
+Id:             pa-observation-base
+Title:          "Physical Activity Base Observation"
+Description:    "A profile describing base requirements for all primary physical activity observations."
 * ^abstract = true
 * subject only Reference(us-core-patient)
 * focus ..0
 * bodySite ..0
 * specimen ..0
 * status = #final
-* effective[x] 1..1 MS 
+* effective[x] 1..1 MS
 * effective[x] only dateTime or Period
 * effectiveDateTime ^extension[$minLength].valueInteger = 10
 //* effectiveDateTime ^extension[$typeMS].valueBoolean = true
@@ -28,42 +28,45 @@ Description:    "An abstract observation profile that serves as the parent for v
 * note ^comment = "...Comments allows supporting and qualifying information"
 
 
-Profile:        ActivityMeasure
-Parent:         ExerciseSupportGeneric
+Profile:        PAActivityMeasure
+Parent:         PAObservationBase
 Id:             pa-activity-measure
-Title:          "Activity-based Physical Activity Measure"
+Title:          "Physical Activity Measure - Activity-based"
 Description:    "A profile for observations that capture physical activity-related measures that are specific to a single
-  exercise activity."
+  physical activity."
 * code from PAActivityMeasures (extensible)
 * effective[x] ^comment = "...This will typically be a dateTime specific to the day.  If the information is available, a Period can be used
     to indicate the specific start and end times."
+* effective[x] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* effective[x] ^type[0].extension[=].valueBoolean = true
+* effective[x] ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* effective[x] ^type[1].extension[=].valueBoolean = true
 * value[x] only Quantity or CodeableConcept
 * value[x] ^comment = "...The value **SHALL** be constrained to the type and unit or ValueSet as indicated in [the table](measures.html#activity)"
 
 
-Profile:        ActivityGroup
-Parent:         ExerciseSupportGeneric
+Profile:        PAActivityGroup
+Parent:         PAObservationBase
 Id:             pa-activity-group
-Title:          "Physical Activity Group"
-Description:    "A profile for observations that collect a set of activity-related measures that all pertain to the same exercise instance."
-* code = TemporaryCodes#ExercisePanel
+Title:          "Physical Activity Observation Group"
+Description:    "A profile for observations that collect a set of activity-related measures that all pertain to the same physical activity instance."
+* code = TemporaryCodes#PAPanel
 * effective[x] ^comment = "...This will typically be a dateTime specific to the day.  If the information is available, a Period can be used
     to indicate the specific start and end times.  It **SHOULD** be the same as the effective[x] value for all member Observations."
+* effective[x] ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* effective[x] ^type[1].extension[=].valueBoolean = true
 * value[x] 0..0
 * hasMember 1..* 
-* hasMember only Reference(ActivityMeasure)
+* hasMember only Reference(PAActivityMeasure)
 
 
-Profile:        TimeMeasure
-Parent:         ExerciseSupportGeneric
+Profile:        PATimeMeasure
+Parent:         PAObservationBase
 Id:             pa-time-measure
-Title:          "Time-based Physical Activity Measure"
+Title:          "Physical Activity Measure - Time-based"
 Description:    "A profile for observations that capture physical activity-related measures that apply over an extended period of time,
   such as a day or week."
 * code from PATimeMeasures (extensible)
-* effectiveDateTime ^maxLength = 10
-* effectivePeriod.start ^maxLength = 10
-* effectivePeriod.end ^maxLength = 10
 * value[x] only Quantity
 * value[x] ^comment = "...The value **SHALL** be constrained to the unit as indicated in [the table](measures.html#time)"
 * component ^slicing.discriminator.type = #pattern

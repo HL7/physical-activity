@@ -25,6 +25,10 @@
       of physical activity.</li>
   </ul>
   <p>
+    In some cases, a <i>Service Provider</i> may delegate responsibility for interventions, in which case they will themselves also behave as
+    a <i>Care Manager</i>.
+  </p>
+  <p>
     NOTE: Not all scenarios will necessarily involve all three types of systems.  For example:
   </p>
   <ul>
@@ -60,6 +64,7 @@
     systems.
   </p>
   
+  <a name="workflows"> </a>
   <h3>Workflows</h3>
   <p>
     This implementation guide covers two main workflows: <a href="#plans">Care planning</a> and <a href="#referral">Referral management</a>.
@@ -196,10 +201,10 @@
   <p>
     The referral process generally involves the interplay of three different resources, though not all three will necessarily always come into play:
   </p>
-  <center>
+  <div style="display:flex;justify-content:center">
     <img src="Referral Resources.svg" alt="Diagram showing ServiceRequest, Task and DiagnosticReport resources and the linkages between them 
       (Task.focus->ServiceRequest; Task.output->DiagnosticReport; DiagnosticReport.basedOn->ServiceRequest)"/>
-  </center>
+  </div>
   <p style="text-indent:25px">
     <b>Figure 2:</b> <i>Referral Resources</i>
   </p>
@@ -236,7 +241,8 @@
     <li>Technically, there doesn't need to be a ServiceRequest for a DiagnosticReport to be created, but it would be unusual for a service provider to write a report without a referral</li>
     <li>A report is optional.  Not all referrals will result in a report.</li>
   </ul>
-    
+  
+  <a name="initiating"> </a>
   <h5>Initiating referrals</h5>
   <p>
     Referrals are typically initiated in one of two ways:
@@ -260,10 +266,10 @@
   <h5>Managing Referrals in FHIR</h5>
   <p>
     The <a href="{{site.data.fhir.ver.sdoh}}/StructureDefinition-SDOHCC-TaskForReferralManagement.html">Task</a> is what really drives referral workflow.  
-    Typically referrals won't be directed to a particular service provider.  Instead, Tasks will be used to solicit providers who are willing to
+    Typically referrals will not be directed to a particular service provider.  Instead, Tasks will be used to solicit providers who are willing to
     perform a needed intervention (possibly with guidance from the patient around their preferences).  Service Providers will 
-    <a href="#monitor">monitor</a> for new 'requested' Tasks assigned to them and will update the Tasks to indicate acceptance and, then 'in-progress',
-    and eventually link a <a href="StructureDefinition-pa-diagnosticreport.html">report</a> to the Task showing final outcomes and update the status to 'completed'.
+    <a href="#monitor">monitor</a> for new 'requested' Tasks assigned to them and will update the Tasks to indicate acceptance and eventually update the
+    status to 'completed', possibly with a link to a <a href="StructureDefinition-pa-diagnosticreport.html">report</a> showing final outcomes .
   </p>
   <p>
     However, in addition to this 'happy' path, the Task is also used to document other workflows.  These include:
@@ -273,14 +279,26 @@
     <li>After initially 'accepting' the task, changing the Task.status to 'cancelled' and populating Task.reason.  E.g. the service provider has become
       unavailable and is no longer able to satisfy the referral.</li>  
     <li>Changing the Task.status to 'on-hold' and populating Task.reason.  E.g. the patient has been hospitalized or gone on vacation.</li>  
-    <li>Changing the Task.status to 'failed' and populating the Task.reason.  E.g. the patient has chosen to discontinue the training program.</li>
+    <li>Changing the Task.status to 'failed' and populating the Task.reason.  E.g. the patient has chosen to discontinue the training program or the
+      <i>Care Manager</i> has decided that the referral is no longer appropriate/necessary.</li>
     <li>Changing the Task.businesStatus to communicate some degree of internal progress.  E.g. "completed intake session", "Developed workout plan",
       "'fading out' supports", etc.  (There is no requirement to do this, but it helps ensure everyone is on the same page.)</li>
     <li>Adding Task.note repetitions capturing progress against the Task.</li>
   </ul>
   <p>
-    Alternatively, that Task might be updated by the Care Manager to cancel or fail the Task if the provider (usually in consultation with the patient)
-    has determined that the referral is no longer appropriate/necessary.
+    The following diagram shows the expected state transitions expected in this implementation guide.  Those with heavier lines must be supported
+    by all systems.  Those with lighter lines may occur, but <i>Service Providers</i> are not required to support them for their own workflows.
+  </p>
+  <div>
+    <img src="task-states.svg" alt="State diagram showing all of the Task status code values with allowed transitions"/>
+    <p><b>Figure 3</b> - Task statuses</p>
+  </div>
+  <p>
+    Not shown in this diagram is the 'entered-in-error' status which is an allowed transition from <b>all</b> states.
+  </p>
+  <p>
+    For additional information about each of the possible states, when they are appropriate, and rules around their use, refer to the
+    <a href="StructureDefinition-pa-task-for-referral-management.html#tasktable">table</a> in the notes section of the Task profile.
   </p>
   
   <a name="architecture"> </a>

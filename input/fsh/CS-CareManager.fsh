@@ -331,17 +331,17 @@ Usage:          #definition
       * extension[$conf].valueCode = #SHALL
     * supportedProfile[+] = Canonical(EVSMinutesPerDay)
       * extension[$conf].valueCode = #SHALL
-    * supportedProfile[+] = Canonical(ExerciseMinutesPerWeek)
+    * supportedProfile[+] = Canonical(EVSMinutesPerWeek)
       * extension[$conf].valueCode = #SHALL
     * supportedProfile[+] = Canonical(StrengthDaysPerWeek)
       * extension[$conf].valueCode = #SHOULD
-    * supportedProfile[+] = Canonical(ActivityMeasure)
+    * supportedProfile[+] = Canonical(PAActivityMeasure)
       * extension[$conf].valueCode = #SHOULD
-    * supportedProfile[+] = Canonical(ActivityGroup)
+    * supportedProfile[+] = Canonical(PAActivityGroup)
       * extension[$conf].valueCode = #SHOULD
-    * supportedProfile[+] = Canonical(TimeMeasure)
+    * supportedProfile[+] = Canonical(PATimeMeasure)
       * extension[$conf].valueCode = #SHOULD
-    * documentation = "Exposes and allows manipulation of exercise vital sign and supporting
+    * documentation = "Exposes and allows manipulation of physical activity vital sign and supporting
       observations."
     * interaction[+]
       * extension[$conf].valueCode = #SHALL
@@ -389,7 +389,7 @@ Usage:          #definition
       * name          = "code"
       * definition    = "http://hl7.org/fhir/SearchParameter/clinical-code"
       * type          = #token
-      * documentation = "Allows filtering to only retrieve a specific type of exercise vital sign
+      * documentation = "Allows filtering to only retrieve a specific type of physical activity vital sign
         or supporting observation."
     * searchParam[+]
       * extension[$conf].valueCode = #SHALL
