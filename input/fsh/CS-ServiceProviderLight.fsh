@@ -1,10 +1,10 @@
-Instance:       pa-patient-engagement
+Instance:       pa-service-provider-light
 InstanceOf:     CapabilityStatement
 Usage:          #definition
-* title       = "Physical Activity Patient Engagement Capability Statement"
-* description = "Describes the expected capabilities of a system intended for use by patients and caregivers of patients who are working to enhance or maintain their levels of physical activity.  These will typically be web-based or mobile applications."
-* url         = "http://hl7.org/fhir/us/physical-activity/CapabilityStatement/pa-patient-engagement"
-* name        = "PAPatientEngagement"
+* title       = "Physical Activity Light Service Provider Capability Statement"
+* description = "Describes the expected capabilities of a system used by a personal trainer, community fitness organization, or other entity that delivers services that help a patient to improve or maintain their level of physical activity.  This set of capabilities is appropriate for service providers that CANNOT expose their own FHIR server and that rely on the Care Manager to store Tasks, reports and other resources."
+* url         = "http://hl7.org/fhir/us/physical-activity/CapabilityStatement/pa-service-provider-light"
+* name        = "PAServiceProviderLight"
 * status      = #active
 * kind        = #requirements
 * date        = 2022-06-18
@@ -13,13 +13,13 @@ Usage:          #definition
 * format[+]   = #xml
 * rest[+]
   * mode          = #client
-  * documentation = "Systems for patients  only act as RESTful clients.  While they may create and store some of their own data, this data is always made available by 'pushing' it to the server of a [care manager](CapabilityStatement-pa-care-manager.html) or a [service provider](CapabilityStatement-pa-service-provider.html) system."
+  * documentation = "A 'light' Service Provider has less sophistication than a [full Service Provider](CapabilityStatement-pa-service-provider-full.html).  They rely exclusively on the [care manager](CapabilityStatement-pa-care-manager.html) to store the Tasks and any reports associated with referrals.  Therefore, all interactions are handled as 'client' functionality."
   * resource[+]
     * extension[$conf].valueCode = #SHOULD
     * type = #CarePlan
     * insert SupportedProfile(PACarePlan, #SHALL)
-    * documentation = "Allows accessing and manipulating Care Plans."
-    * insert Interaction(#update, #SHOULD, "Allows a patient system to make updates to a plan.")
+    * documentation = "Allows accessing and manipulating Care Plans stored on a Care Manager."
+    * insert Interaction(#update, #SHOULD, "Allows a service provider to make updates to a plan owned by a care manager.")
     * insert Interaction(#search-type, #SHALL, "Allows retrieval of care plans for a given patient.")
     * insert Interaction(#history-instance, #MAY, "Allows seeing how a care plan has changed over time.  This may be particularly important if multiple stakeholders have the ability to make adjustments to the plan.  However\, history is not widely supported.")
     * versioning      = #versioned-update
@@ -31,11 +31,28 @@ Usage:          #definition
     * insert SearchParam("lifecycle-status", CarePlan-status, #token, #SHALL, "Allows filtering to only active or draft plans.")
     * insert SearchParam("patient", clinical-patient, #reference, #SHALL, "Allows filtering to only those plans for a specific patient.  Most systems will treat this as a mandatory search parameter\, though systems MAY support cross-patient search\, at least through bulk-data interfaces for payer or research use.")
   * resource[+]
-    * extension[$conf].valueCode = #MAY
+    * extension[$conf].valueCode = #SHALL
+    * type = #Condition
+    * insert SupportedProfile(LowPACondition, #SHOULD)
+    * documentation = "Accessing the formal 'low physical activity' condition may be necessary to support prior authorization or claims."
+    * insert Interaction(#search-type, #SHALL, "Allows retrieval of conditions for a given patient.")
+    * insert Interaction(#history-instance, #MAY, "Allows seeing how a condition has changed over time.")
+    * referencePolicy = #literal
+    * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known condition records - and more specifically\, retrieving more than one in a single call to check for updates.")
+    * insert SearchParam("_lastUpdated", Resource-lastUpdated, #date, #SHOULD, "Allows filtering for only records that have changed since last query.")
+    * insert SearchParam("category", Condition-category, #token, #SHALL, "Allows retrieving only those plans related to physical activity.")
+    * insert SearchParam("clinical-status", Condition-clinical-status, #token, #SHOULD, "Allows filtering to only active conditions.")
+    * insert SearchParam("code", clinical-code, #token, #SHOULD, "Allows retrieving specific patient conditions - e.g. all 'low physical activity' conditions.")
+    * insert SearchParam("patient", clinical-patient, #reference, #SHALL, "Allows filtering to only those plans for a specific patient.  Most systems will treat this as a mandatory search parameter\, though systems MAY support cross-patient search\, at least through bulk-data interfaces for payer or research use.")
+    * insert SearchParam("verification-status", Condition-verification-status, #token, #SHOULD, "Allows excluding refuted or erroneous conditions.")
+  * resource[+]
+    * extension[$conf].valueCode = #SHALL
     * type = #DiagnosticReport
     * insert SupportedProfile(PADiagnosticReport, #SHALL)
-    * documentation = "Allows viewiong of the reports summarizing the results of a referral."
-    * insert Interaction(#search-type, #SHALL, "Allows searching for recorded reports.")
+    * documentation = "Allows creation of the reports summarizing the results of a referral."
+    * insert Interaction(#create, #SHALL, "Allows submitting new reports.")
+    * insert Interaction(#update, #SHALL, "Allows updating/correcting a previously submitted report.")
+    * insert Interaction(#search-type, #SHALL, "Allows searching for reports already submitted.")
     * versioning      = #versioned-update
     * referencePolicy = #literal
     * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known reports - and more specifically\, retrieving more than one in a single call to poll for updates.")
@@ -51,18 +68,22 @@ Usage:          #definition
     * extension[$conf].valueCode = #SHALL
     * type = #DocumentReference
     * insert SupportedProfile(USCoreDocumentReferenceProfile, #SHALL)
-    * documentation = "Allows retrieving up PDFs or similar content to referenced in Patient Tasks."
-    * insert Interaction(#search-type, #SHALL, "Allows retrieving a referenced artifact.")
+    * documentation = "Allows looking up PDFs or similar content to referenced in Patient Tasks and later retrieved by Patient Engagement systems.  Note: These resources will not be patient-specific."
+    * insert Interaction(#create, #SHOULD, "Allows adding additional images/documents for later retrieval.")
+    * insert Interaction(#update, #MAY, "Allows replacing an existing image/document with a newer version.")
+    * insert Interaction(#search-type, #SHALL, "Allows searching for appropriate an appropriate image/document to reference.")
     * referencePolicy = #literal
     * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known document reference records - and more specifically\, retrieving  more than one in a single call to poll for updates.")
     * insert SearchParam("_lastUpdated", Resource-lastUpdated, #date, #SHOULD, "Allows filtering for only records that have changed since last query.")
+    * insert SearchParam("contenttype", DocumentReference-contenttype, #token, #SHALL, "Allows filtering for only PDFs\, images\, etc.")
+    * insert SearchParam("category", DocumentReference-category, #token, #SHALL, "Allows filtering for only records tied to a particular category (e.g. physical-activity\).")
+    * insert SearchParam("description", DocumentReference-description, #string, #SHOULD, "Allows filtering based on words found in the description - i.e. with a 'contains' search.")
   * resource[+]
     * extension[$conf].valueCode = #SHOULD
     * type = #Goal
     * insert SupportedProfile(PAGoal, #SHALL)
-    * documentation = "Allows accessing and potentially updating patient goals."
-    * insert Interaction(#create, #SHOULD, "Allows patients to create new goals.")
-    * insert Interaction(#update, #SHOULD, "Allows patients to modify a goal - for example shifting target values or dates\, updating the status\, etc.  Allowing patients and care-givers to help maintain goals is a key aspect of a patient-centered care plan.  However not all care manager or service provider systems (or their organizations\) yet have the technical mechanisms or policies in place to support this.")
+    * documentation = "Allows accessing and potentially updating goals maintained by a Care Manager."
+    * insert Interaction(#update, #SHOULD, "Allows patients or service providers to modify a goal - for example shifting target values or dates\, updating the status\, etc.  Allowing patients\, care-givers\, and service providers to help maintain goals is a key aspect of a patient-centered care plan.  However\, not all care manager systems (or their organizations\) yet have the technical mechanisms or policies in place to support this.")
     * insert Interaction(#search-type, #SHALL, "Allows retrieval of goals for a given patient.")
     * insert Interaction(#history-instance, #MAY, "Allows seeing how goals have changed over time.  This may be particularly important if multiple stakeholders have the ability to make adjustments to goals.  However\, history is not widely supported.")
     * versioning      = #versioned-update
@@ -83,10 +104,8 @@ Usage:          #definition
     * insert SupportedProfile(PAActivityMeasure, #SHOULD)
     * insert SupportedProfile(PAActivityGroup, #SHOULD)
     * insert SupportedProfile(PATimeMeasure, #SHOULD)
-    * documentation = "Allows recording and viewing patient physical activity observations."
-    * insert Interaction(#create, #SHALL, "Allows recording new observations")
-    * insert Interaction(#create, #SHOULD, "Allows correcting a previous observation or revising the status")
-    * insert Interaction(#search-type, #SHALL, "Allows viewing of previously recorded observations - e.g. to help calculate primary measures and/or to view trends.")
+    * documentation = "Allows accessing observations maintained by a Care Manager."
+    * insert Interaction(#search-type, #SHALL, "Allows retrieval of observations for a given patient.")
     * versioning      = #versioned-update
     * referencePolicy = #literal
     * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known observation records - and more specifically\, retrieving more than one in a single call to poll for updates.")
@@ -101,18 +120,25 @@ Usage:          #definition
     * extension[$conf].valueCode = #SHALL
     * type = #Questionnaire
     * insert SupportedProfile(SDCQuestionnairePopulateObservation, #SHOULD)
-    * documentation = "Allows retrieval of Questionnaires referenced by a patient Task."
+    * insert SupportedProfile(SDCQuestionnaireExtractObservation, #SHOULD)
+    * documentation = "Allows retrieval of Questionnaires to be filled in."
     * insert Interaction(#search-type, #SHALL, "Allows retrieval of questionnaires to be completed.")
     * referencePolicy = #literal
     * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known questionnaire records - and more specifically\, retrieving more than one in a single call to poll for updates.")
     * insert SearchParam("_lastUpdated", Resource-lastUpdated, #date, #SHOULD, "Allows filtering for only records that have changed since last query.")
     * insert SearchParam("url", Questionnaire-url, #uri, #SHALL, "Allows retrieving a referenced Questionnaire.")
     * insert SearchParam("version", Questionnaire-version, #token, #SHOULD, "Allows retrieving a specific version of a referenced questionnaire.")
+    * insert SearchParam("context-type-value", Questionnaire-context-type-value, #composite, #SHOULD, "Allows filtering for Questionnaires that are phyical activity-related.")
+    * insert SearchParam("identifier", Questionnaire-identifier, #token, #SHOULD, "Allows retrieving Questionnaires with a known identifier.")
+    * insert SearchParam("publisher", Questionnaire-publisher, #string, #SHOULD, "Allows retrieving Questionnaires based on who is responsible for having defined the form.")
+    * insert SearchParam("status", Questionnaire-status, #token, #SHOULD, "Allows filtering to only retrieve active questionnaires.")
+    * insert SearchParam("subject-type", Questionnaire-subject-type, #token, #SHOULD, "Allows retrieving Questionnaires that are intended to provide information about patients - as opposed to practitioners\, organizations\, etc.")
+    * insert SearchParam("title",Questionnaire-title, #string, #SHOULD, "Allows searching for forms by name.")
   * resource[+]
     * extension[$conf].valueCode = #SHALL
     * type = #QuestionnaireResponse
     * insert SupportedProfile(SDCQuestionnaireResponse, #SHALL)
-    * documentation = "Allows recording and updating of questionnaire responses in response to patient tasks."
+    * documentation = "Allows recording and retrieval of questionnaire responses."
     * insert Interaction(#update, #SHOULD, "Allows correction of or continued editing of a previously recorded questionnaire response.")
     * insert Interaction(#create, #SHALL, "Allows other systems to record questionnaire responses.")
     * insert Interaction(#search-type, #SHALL,"Allows retrieval of completed or in-progresss questionnaire responses.")
@@ -129,7 +155,7 @@ Usage:          #definition
     * extension[$conf].valueCode = #SHALL
     * type = #ServiceRequest
     * insert SupportedProfile(PAServiceRequest, #SHALL)
-    * documentation = "Allows retrieval 'execise prescriptions' - referrals addressed to the patient themselves - as well as monitoring of referrals assigned to others."
+    * documentation = "Allows retrieval of physical activity-related referrals from Care managers."
     * insert Interaction(#search-type, #SHALL, "Allows searching for orders or referrals for a particular patient or for updates to previously retrieved orders.")
     * referencePolicy = #literal
     * insert SearchInclude("ServiceRequest:patient", #SHOULD)
@@ -146,11 +172,12 @@ Usage:          #definition
   * resource[+]
     * extension[$conf].valueCode = #SHALL
     * type = #Task
-    * insert SupportedProfile(PATaskForReferralManagement, #MAY)
+    * insert SupportedProfile(PATaskForReferralManagement, #SHALL)
 // Todo - put this back when version is properly supported 
 //    * insert SupportedProfile(SDOHCC-TaskForReferralManagement, #SHALL)
-    * documentation = "Allows creation of tasks assigned to the patient, as well as potentially monitoring Tasks assigned to a service provider."
-    * insert Interaction(#update, #SHOULD, "Allows updating the status and/or specifying outputs for patient tasks.")
+    * documentation = "Allows creation of tasks for patients, as well as retrieval of Tasks assigned to the Service Provider."
+    * insert Interaction(#create, #SHALL, "Allows a service provider to create a patient-assigned Task.")
+    * insert Interaction(#update, #SHOULD, "Allows existing tasks to be updated - to change their status and/or to attach 'outputs' resulting from the Task.")
     * insert Interaction(#search-type, #SHALL, "Allows retrieval of existing tasks to check for changes or prior to making updates.  This will typically be prompted by a subscription notification.")
     * versioning      = #versioned-update
     * referencePolicy = #literal

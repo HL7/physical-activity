@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Sun, Mar 5, 2023 19:30+0000 for FHIR v5.0.0-cibuild 
+  Generated on Sat, Mar 11, 2023 21:20+0000 for FHIR v5.0.0-cibuild 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="5.0.0-cibuild">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -2464,6 +2464,11 @@
       <xs:enumeration value="Questionnaire">
         <xs:annotation>
           <xs:documentation xml:lang="en">Questionnaire</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Requirements">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Requirements</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="SubscriptionTopic">
@@ -14962,7 +14967,7 @@
   </xs:complexType>
   <xs:simpleType name="base64Binary-primitive">
     <xs:restriction base="xs:base64Binary">
-      <xs:pattern value="(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?"/>
+      <xs:pattern value="([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="base64Binary">
@@ -14996,7 +15001,7 @@
   <xs:simpleType name="markdown-primitive">
     <xs:restriction base="xs:string">
       <xs:minLength value="1"/>
-      <xs:pattern value="\s*(\S|\s)*"/>
+      <xs:pattern value="[\s\S]+"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="markdown">
@@ -16640,7 +16645,7 @@ The value of mustSupport SHALL be a FHIRPath resolvable on the type of the DataR
 
   <xs:complexType name="Population">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A populatioof people with some set of grouping criteria.</xs:documentation>
+      <xs:documentation xml:lang="en">A population of people with some set of grouping criteria.</xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -22330,7 +22335,7 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">Additional notes.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="usageInstruction" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="usageInstruction" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
               <xs:documentation xml:lang="en">Specific instructions for use.</xs:documentation>
            </xs:annotation>
@@ -34850,12 +34855,12 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
   </xs:complexType>
   <xs:element name="DeviceDispense" type="DeviceDispense">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A record of dispensation of a device.</xs:documentation>
+      <xs:documentation xml:lang="en">A record of dispensation of a device - i.e., assigning a device to a patient, or to a professional for their use.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="DeviceDispense">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A record of dispensation of a device.</xs:documentation>
+      <xs:documentation xml:lang="en">A record of dispensation of a device - i.e., assigning a device to a patient, or to a professional for their use.</xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -34956,7 +34961,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">Extra information about the dispense that could not be conveyed in the other attributes.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="usageInstruction" minOccurs="0" maxOccurs="1" type="string">
+          <xs:element name="usageInstruction" minOccurs="0" maxOccurs="1" type="markdown">
             <xs:annotation>
               <xs:documentation xml:lang="en">The full representation of the instructions.</xs:documentation>
            </xs:annotation>
@@ -34972,7 +34977,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
   </xs:complexType>
   <xs:complexType name="DeviceDispense.Performer">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A record of dispensation of a device.</xs:documentation>
+      <xs:documentation xml:lang="en">A record of dispensation of a device - i.e., assigning a device to a patient, or to a professional for their use.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -35066,7 +35071,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
         <xs:sequence>
           <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Unique instance identifiers assigned to a device by the device or gateway software, manufacturers, other organizations or owners. For example: handle ID.</xs:documentation>
+              <xs:documentation xml:lang="en">Instance identifiers assigned to a device, by the device or gateway software, manufacturers, other organizations or owners. For example, handle ID.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="type" minOccurs="1" maxOccurs="1" type="CodeableConcept">
@@ -35089,9 +35094,9 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">Indicates current operational state of the device. For example: On, Off, Standby, etc.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="color" minOccurs="0" maxOccurs="1" type="DeviceMetricColor">
+          <xs:element name="color" minOccurs="0" maxOccurs="1" type="ColorCodesOrRGB">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Describes the color representation for the metric. This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth for example; the parameters are displayed in different characteristic colors, such as HR-blue, BP-green, and PR and SpO2- magenta.</xs:documentation>
+              <xs:documentation xml:lang="en">The preferred color associated with the metric (e.g., display color). This is often used to aid clinicians to track and identify parameter types by color. In practice, consider a Patient Monitor that has ECG/HR and Pleth; the metrics are displayed in different characteristic colors, such as HR in blue, BP in green, and PR and SpO2 in magenta.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="category" minOccurs="1" maxOccurs="1" type="DeviceMetricCategory">
@@ -35139,6 +35144,23 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
+  <xs:simpleType name="ColorCodesOrRGBEnum">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:pattern value="[\s\S]+"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ColorCodesOrRGB">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"></xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="Element">
+        <xs:attribute name="value" type="ColorCodesOrRGBEnum" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:simpleType name="DeviceMetricCalibrationTypeEnum">
     <xs:restriction base="code-primitive">
       <xs:enumeration value="unspecified">
@@ -35171,61 +35193,6 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
     <xs:complexContent>
       <xs:extension base="Element">
         <xs:attribute name="value" type="DeviceMetricCalibrationTypeEnum" use="optional"/>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:simpleType name="DeviceMetricColorEnum">
-    <xs:restriction base="code-primitive">
-      <xs:enumeration value="black">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Color Black</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="red">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Color Red</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="green">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Color Green</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="yellow">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Color Yellow</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="blue">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Color Blue</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="magenta">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Color Magenta</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="cyan">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Color Cyan</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="white">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">Color White</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="DeviceMetricColor">
-    <xs:annotation>
-      <xs:documentation xml:lang="en"></xs:documentation>
-      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
-    </xs:annotation>
-    <xs:complexContent>
-      <xs:extension base="Element">
-        <xs:attribute name="value" type="DeviceMetricColorEnum" use="optional"/>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -40913,12 +40880,12 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
   </xs:complexType>
   <xs:element name="GenomicStudy" type="GenomicStudy">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A Genomic Study is a set of analysis performed to analyze and generate genomic data.</xs:documentation>
+      <xs:documentation xml:lang="en">A GenomicStudy is a set of analyses performed to analyze and generate genomic data.</xs:documentation>
     </xs:annotation>
   </xs:element>
   <xs:complexType name="GenomicStudy">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A Genomic Study is a set of analysis performed to analyze and generate genomic data.</xs:documentation>
+      <xs:documentation xml:lang="en">A GenomicStudy is a set of analyses performed to analyze and generate genomic data.</xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -41005,7 +40972,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
   </xs:complexType>
   <xs:complexType name="GenomicStudy.Analysis">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A Genomic Study is a set of analysis performed to analyze and generate genomic data.</xs:documentation>
+      <xs:documentation xml:lang="en">A GenomicStudy is a set of analyses performed to analyze and generate genomic data.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -41106,7 +41073,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
   </xs:complexType>
   <xs:complexType name="GenomicStudy.Input">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A Genomic Study is a set of analysis performed to analyze and generate genomic data.</xs:documentation>
+      <xs:documentation xml:lang="en">A GenomicStudy is a set of analyses performed to analyze and generate genomic data.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -41134,7 +41101,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
   </xs:complexType>
   <xs:complexType name="GenomicStudy.Output">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A Genomic Study is a set of analysis performed to analyze and generate genomic data.</xs:documentation>
+      <xs:documentation xml:lang="en">A GenomicStudy is a set of analyses performed to analyze and generate genomic data.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -41155,7 +41122,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
   </xs:complexType>
   <xs:complexType name="GenomicStudy.Performer">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A Genomic Study is a set of analysis performed to analyze and generate genomic data.</xs:documentation>
+      <xs:documentation xml:lang="en">A GenomicStudy is a set of analyses performed to analyze and generate genomic data.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -41176,7 +41143,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
   </xs:complexType>
   <xs:complexType name="GenomicStudy.Device">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A Genomic Study is a set of analysis performed to analyze and generate genomic data.</xs:documentation>
+      <xs:documentation xml:lang="en">A GenomicStudy is a set of analyses performed to analyze and generate genomic data.</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
@@ -42776,7 +42743,7 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
         <xs:sequence>
           <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A unique business identifier for this group.</xs:documentation>
+              <xs:documentation xml:lang="en">Business identifiers assigned to this participant by one of the applications involved.  These identifiers remain constant as the resource is updated and propagates from server to server.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="active" minOccurs="0" maxOccurs="1" type="boolean">
@@ -54050,7 +54017,7 @@ The MedicationStatement resource was previously called MedicationStatement.</xs:
             </xs:annotation>
             <xs:element name="valueQuantity" type="Quantity"/>
             <xs:element name="valueCodeableConcept" type="CodeableConcept"/>
-            <xs:element name="valueMarkdown" type="markdown"/>
+            <xs:element name="valueString" type="string"/>
             <xs:element name="valueBoolean" type="boolean"/>
             <xs:element name="valueInteger" type="integer"/>
             <xs:element name="valueRange" type="Range"/>
@@ -54061,7 +54028,6 @@ The MedicationStatement resource was previously called MedicationStatement.</xs:
             <xs:element name="valuePeriod" type="Period"/>
             <xs:element name="valueAttachment" type="Attachment"/>
             <xs:element name="valueReference" type="Reference"/>
-            <xs:element name="valueCanonical" type="canonical"/>
           </xs:choice>
           <xs:element name="dataAbsentReason" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
@@ -54218,7 +54184,7 @@ Reflex | Repeat | Re-run.</xs:documentation>
             </xs:annotation>
             <xs:element name="valueQuantity" type="Quantity"/>
             <xs:element name="valueCodeableConcept" type="CodeableConcept"/>
-            <xs:element name="valueMarkdown" type="markdown"/>
+            <xs:element name="valueString" type="string"/>
             <xs:element name="valueBoolean" type="boolean"/>
             <xs:element name="valueInteger" type="integer"/>
             <xs:element name="valueRange" type="Range"/>
@@ -54229,7 +54195,6 @@ Reflex | Repeat | Re-run.</xs:documentation>
             <xs:element name="valuePeriod" type="Period"/>
             <xs:element name="valueAttachment" type="Attachment"/>
             <xs:element name="valueReference" type="Reference"/>
-            <xs:element name="valueCanonical" type="canonical"/>
           </xs:choice>
           <xs:element name="dataAbsentReason" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
@@ -54819,7 +54784,7 @@ Reflex | Repeat | Re-run.</xs:documentation>
           </xs:element>
           <xs:element name="status" minOccurs="1" maxOccurs="1" type="PublicationStatus">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The status of this operation definition. Enables tracking the life-cycle of the content.</xs:documentation>
+              <xs:documentation xml:lang="en">The current state of this operation definition.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="kind" minOccurs="1" maxOccurs="1" type="OperationKind">
@@ -54829,7 +54794,7 @@ Reflex | Repeat | Re-run.</xs:documentation>
           </xs:element>
           <xs:element name="experimental" minOccurs="0" maxOccurs="1" type="boolean">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A Boolean value to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.</xs:documentation>
+              <xs:documentation xml:lang="en">A Boolean value to indicate that this operation definition is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="1" type="dateTime">
@@ -54854,7 +54819,7 @@ Reflex | Repeat | Re-run.</xs:documentation>
           </xs:element>
           <xs:element name="useContext" minOccurs="0" maxOccurs="unbounded" type="UsageContext">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate operation definition instances.</xs:documentation>
+              <xs:documentation xml:lang="en">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate operation definition.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="jurisdiction" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
@@ -54869,7 +54834,7 @@ Reflex | Repeat | Re-run.</xs:documentation>
           </xs:element>
           <xs:element name="copyright" minOccurs="0" maxOccurs="1" type="markdown">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A copyright statement relating to the OperationDefinition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the OperationDefinition.</xs:documentation>
+              <xs:documentation xml:lang="en">A copyright statement relating to the operation definition and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the operation definition.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="copyrightLabel" minOccurs="0" maxOccurs="1" type="string">
@@ -58207,7 +58172,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:choice>
           <xs:element name="performer" type="Procedure.Performer" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Limited to &quot;real&quot; people rather than equipment.</xs:documentation>
+              <xs:documentation xml:lang="en">Indicates who or what performed the procedure and how they were involved.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="location" minOccurs="0" maxOccurs="1" type="Reference">
@@ -58554,12 +58519,12 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="status" minOccurs="1" maxOccurs="1" type="PublicationStatus">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The status of this questionnaire. Enables tracking the life-cycle of the content.</xs:documentation>
+              <xs:documentation xml:lang="en">The current state of this questionnaire.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="experimental" minOccurs="0" maxOccurs="1" type="boolean">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A Boolean value to indicate that this questionnaire is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.</xs:documentation>
+              <xs:documentation xml:lang="en">A Boolean value to indicate that this questionnaire is authored for testing purposes (or education/evaluation/marketing) and is not intended for genuine usage.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="subjectType" minOccurs="0" maxOccurs="unbounded" type="ResourceType">
@@ -58589,7 +58554,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="useContext" minOccurs="0" maxOccurs="unbounded" type="UsageContext">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate questionnaire instances.</xs:documentation>
+              <xs:documentation xml:lang="en">The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate questionnaires.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="jurisdiction" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
@@ -58627,9 +58592,9 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">The period during which the questionnaire content was or is planned to be in active use.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="code" minOccurs="0" maxOccurs="unbounded" type="Coding">
+          <xs:element name="code" minOccurs="0" maxOccurs="1" type="Coding">
             <xs:annotation>
-              <xs:documentation xml:lang="en">An identifier for this question or group of questions in a particular terminology such as LOINC.</xs:documentation>
+              <xs:documentation xml:lang="en">An identifier for this collection of questions in a particular terminology such as LOINC.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="item" type="Questionnaire.Item" minOccurs="0" maxOccurs="unbounded">
@@ -59073,12 +59038,12 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
         <xs:sequence>
           <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A business identifier assigned to a particular completed (or partially completed) questionnaire.</xs:documentation>
+              <xs:documentation xml:lang="en">Business identifiers assigned to this questionnaire response by the performer and/or other systems.  These identifiers remain constant as the resource is updated and propagates from server to server.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="basedOn" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The order, proposal or plan that is fulfilled in whole or in part by this QuestionnaireResponse.  For example, a ServiceRequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression.</xs:documentation>
+              <xs:documentation xml:lang="en">A plan, proposal or order that is fulfilled in whole or in part by this questionnaire response.  For example, a ServiceRequest seeking an intake assessment or a decision support recommendation to assess for post-partum depression.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="partOf" minOccurs="0" maxOccurs="unbounded" type="Reference">
@@ -59093,7 +59058,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="status" minOccurs="1" maxOccurs="1" type="QuestionnaireResponseStatus">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The position of the questionnaire response within its overall lifecycle.</xs:documentation>
+              <xs:documentation xml:lang="en">The current state of the questionnaire response.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="subject" minOccurs="0" maxOccurs="1" type="Reference">
@@ -61393,7 +61358,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">Indicates the context of the order details by reference.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="parameter" type="ServiceRequest.Parameter" minOccurs="0" maxOccurs="1">
+          <xs:element name="parameter" type="ServiceRequest.Parameter" minOccurs="1" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">The parameter details for the service being requested.</xs:documentation>
            </xs:annotation>
@@ -61411,10 +61376,10 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
         <xs:sequence>
           <xs:element name="code" minOccurs="1" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The detail of the order being requested.</xs:documentation>
+              <xs:documentation xml:lang="en">A value representing the additional detail or instructions for the order (e.g., catheter insertion, body elevation, descriptive device configuration and/or setting instructions).</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:choice minOccurs="0" maxOccurs="1" >
+          <xs:choice minOccurs="1" maxOccurs="1" >
             <xs:annotation>
               <xs:documentation xml:lang="en">Indicates a value for the order detail.</xs:documentation>
             </xs:annotation>
@@ -63623,7 +63588,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="title" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A short, descriptive, user-friendly title for the SubscriptionTopic, for example, &quot;admission&quot;.</xs:documentation>
+              <xs:documentation xml:lang="en">A short, descriptive, user-friendly title for the subscription topic.  For example, &quot;admission&quot;.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="derivedFrom" minOccurs="0" maxOccurs="unbounded" type="canonical">
@@ -66763,67 +66728,67 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
         <xs:sequence>
           <xs:element name="url" minOccurs="0" maxOccurs="1" type="uri">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Canonical identifier URL.</xs:documentation>
+              <xs:documentation xml:lang="en">An absolute URI that is used to identify this test plan when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which an authoritative instance of this test plan is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the test plan is stored on different servers.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="identifier" minOccurs="0" maxOccurs="unbounded" type="Identifier">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Business identifier for the Test Plan.</xs:documentation>
+              <xs:documentation xml:lang="en">A formal identifier that is used to identify this test plan when it is referenced in a specification, model, design or an instance.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="version" minOccurs="0" maxOccurs="unbounded" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Version of the test plan.</xs:documentation>
+              <xs:documentation xml:lang="en">The identifier that is used to identify this version of the test plan when it is referenced in a specification, model, design or instance.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="name" minOccurs="0" maxOccurs="unbounded" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Name.</xs:documentation>
+              <xs:documentation xml:lang="en">A natural language name identifying the test plan. This name should be usable as an identifier for the module by machine processing applications such as code generation.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="title" minOccurs="0" maxOccurs="unbounded" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Human-readable title.</xs:documentation>
+              <xs:documentation xml:lang="en">A short, descriptive, user-friendly title for the test plan.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="status" minOccurs="0" maxOccurs="unbounded" type="PublicationStatus">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Status.</xs:documentation>
+              <xs:documentation xml:lang="en">The status of this test plan. Enables tracking the life-cycle of the content.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="date" minOccurs="0" maxOccurs="unbounded" type="dateTime">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Date.</xs:documentation>
+              <xs:documentation xml:lang="en">The date  (and optionally time) when the test plan was last significantly changed. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the test plan changes.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="publisher" minOccurs="0" maxOccurs="unbounded" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Publisher.</xs:documentation>
+              <xs:documentation xml:lang="en">The name of the organization or individual responsible for the release and ongoing maintenance of the test plan.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="contact" minOccurs="0" maxOccurs="unbounded" type="ContactDetail">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Contact.</xs:documentation>
+              <xs:documentation xml:lang="en">Contact details to assist a user in finding and communicating with the publisher.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="description" minOccurs="0" maxOccurs="1" type="markdown">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Description of the test plan.</xs:documentation>
+              <xs:documentation xml:lang="en">A free text natural language description of the test plan from a consumer's perspective.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="jurisdiction" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Jurisdiction.</xs:documentation>
+              <xs:documentation xml:lang="en">A legal or geographic region in which the test plan is intended to be used.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="purpose" minOccurs="0" maxOccurs="1" type="markdown">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Purpose.</xs:documentation>
+              <xs:documentation xml:lang="en">Explanation of why this test plan is needed and why it has been designed as it has.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="copyright" minOccurs="0" maxOccurs="1" type="markdown">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Copyright.</xs:documentation>
+              <xs:documentation xml:lang="en">A copyright statement relating to the test plan and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the test plan.  The short copyright declaration (e.g. (c) '2015+ xyz organization' should be sent in the copyrightLabel element.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="category" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
@@ -66841,7 +66806,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">A description of test tools to be used in the test plan.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="dependencies" type="TestPlan.Dependencies" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="dependency" type="TestPlan.Dependency" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">The required criteria to execute the test plan - e.g. preconditions, previous tests...</xs:documentation>
            </xs:annotation>
@@ -66853,14 +66818,14 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
           </xs:element>
           <xs:element name="testCase" type="TestPlan.TestCase" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The test cases that are part of this plan.</xs:documentation>
+              <xs:documentation xml:lang="en">The individual test cases that are part of this plan, when they they are made explicit.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="TestPlan.Dependencies">
+  <xs:complexType name="TestPlan.Dependency">
     <xs:annotation>
       <xs:documentation xml:lang="en">A plan for executing testing on an artifact or specifications.</xs:documentation>
     </xs:annotation>
@@ -66869,12 +66834,12 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
         <xs:sequence>
           <xs:element name="description" minOccurs="0" maxOccurs="1" type="markdown">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Description of the criteria.</xs:documentation>
+              <xs:documentation xml:lang="en">A textual description of the criterium - what is needed for the dependency to be considered met.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="predecessor" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Link to predecessor test plans.</xs:documentation>
+              <xs:documentation xml:lang="en">Predecessor test plans - those that are expected to be successfully performed as a dependency for the execution of this test plan.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -66890,20 +66855,20 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
         <xs:sequence>
           <xs:element name="sequence" minOccurs="0" maxOccurs="1" type="integer">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Sequence of testing.</xs:documentation>
+              <xs:documentation xml:lang="en">Sequence of test case - an ordinal number that indicates the order for the present test case in the test plan.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="scope" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Specific test scope for one test case.</xs:documentation>
+              <xs:documentation xml:lang="en">The scope or artifact covered by the case, when the individual test case is associated with a testable artifact.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="dependencies" type="TestPlan.Dependencies1" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="dependency" type="TestPlan.Dependency1" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">The required criteria to execute the test case - e.g. preconditions, previous tests.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="testRun" minOccurs="0" maxOccurs="unbounded" type="Reference">
+          <xs:element name="testRun" type="TestPlan.TestRun" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">The actual test to be executed.</xs:documentation>
            </xs:annotation>
@@ -66913,16 +66878,16 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">The test data used in the test case.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="assertions" type="TestPlan.Assertions" minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="assertion" type="TestPlan.Assertion" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The test assertions.</xs:documentation>
+              <xs:documentation xml:lang="en">The test assertions - the expectations of test results from the execution of the test case.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="TestPlan.Dependencies1">
+  <xs:complexType name="TestPlan.Dependency1">
     <xs:annotation>
       <xs:documentation xml:lang="en">A plan for executing testing on an artifact or specifications.</xs:documentation>
     </xs:annotation>
@@ -66939,6 +66904,50 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
               <xs:documentation xml:lang="en">Link to predecessor test plans.</xs:documentation>
            </xs:annotation>
           </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TestPlan.TestRun">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A plan for executing testing on an artifact or specifications.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="narrative" minOccurs="0" maxOccurs="1" type="markdown">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The narrative description of the tests.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="script" type="TestPlan.Script" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The test cases in a structured language e.g. gherkin, Postman, or FHIR TestScript.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TestPlan.Script">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">A plan for executing testing on an artifact or specifications.</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="BackboneElement">
+        <xs:sequence>
+          <xs:element name="language" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The language for the test cases e.g. 'gherkin', 'testscript'.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:choice minOccurs="0" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The actual content of the cases - references to TestScripts or externally defined content.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="sourceString" type="string"/>
+            <xs:element name="sourceReference" type="Reference"/>
+          </xs:choice>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -66971,7 +66980,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="TestPlan.Assertions">
+  <xs:complexType name="TestPlan.Assertion">
     <xs:annotation>
       <xs:documentation xml:lang="en">A plan for executing testing on an artifact or specifications.</xs:documentation>
     </xs:annotation>
@@ -66980,17 +66989,17 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
         <xs:sequence>
           <xs:element name="type" minOccurs="0" maxOccurs="unbounded" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The test assertion type.</xs:documentation>
+              <xs:documentation xml:lang="en">The test assertion type - this can be used to group assertions as 'required' or 'optional', or can be used for other classification of the assertion.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="object" minOccurs="0" maxOccurs="unbounded" type="CodeableReference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The focus or object of the assertion.</xs:documentation>
+              <xs:documentation xml:lang="en">The focus or object of the assertion i.e. a resource.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="result" minOccurs="0" maxOccurs="unbounded" type="CodeableReference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The test assertions.</xs:documentation>
+              <xs:documentation xml:lang="en">The test assertion - the expected outcome from the test case execution.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>

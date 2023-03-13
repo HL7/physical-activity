@@ -1,6 +1,3 @@
-Alias: $loinc = http://loinc.org
-Alias: $sct   = http://snomed.info/sct
-
 CodeSystem:     TemporaryCodes
 Id:             temporary-codes
 Title:          "Temporary Codes"

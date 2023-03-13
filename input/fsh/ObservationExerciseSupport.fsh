@@ -1,7 +1,3 @@
-Alias: $loinc     = http://loinc.org
-Alias: $minLength = http://hl7.org/fhir/StructureDefinition/minLength
-Alias: $typeMS    = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-
 Profile:        PAObservationBase
 Parent:         http://hl7.org/fhir/us/sdoh-clinicalcare/StructureDefinition/SDOHCC-ObservationAssessment
 Id:             pa-observation-base
@@ -16,7 +12,7 @@ Description:    "A profile describing base requirements for all primary physical
 * effective[x] 1..1 MS
 * effective[x] only dateTime or Period
 * effectiveDateTime ^extension[$minLength].valueInteger = 10
-//* effectiveDateTime ^extension[$typeMS].valueBoolean = true
+//* effectiveDateTime ^extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
 * effectivePeriod.start 1..1 MS
 * effectivePeriod.start ^extension[$minLength].valueInteger = 10
 * effectivePeriod.end 1..1 MS
@@ -37,10 +33,8 @@ Description:    "A profile for observations that capture physical activity-relat
 * code from PAActivityMeasures (extensible)
 * effective[x] ^comment = "...This will typically be a dateTime specific to the day.  If the information is available, a Period can be used
     to indicate the specific start and end times."
-* effective[x] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* effective[x] ^type[0].extension[=].valueBoolean = true
-* effective[x] ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* effective[x] ^type[1].extension[=].valueBoolean = true
+* effective[x] ^type[0].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
+* effective[x] ^type[1].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
 * value[x] only Quantity or CodeableConcept
 * value[x] ^comment = "...The value **SHALL** be constrained to the type and unit or ValueSet as indicated in [the table](measures.html#activity)"
 
@@ -53,8 +47,7 @@ Description:    "A profile for observations that collect a set of activity-relat
 * code = TemporaryCodes#PAPanel
 * effective[x] ^comment = "...This will typically be a dateTime specific to the day.  If the information is available, a Period can be used
     to indicate the specific start and end times.  It **SHOULD** be the same as the effective[x] value for all member Observations."
-* effective[x] ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* effective[x] ^type[1].extension[=].valueBoolean = true
+* effective[x] ^type[1].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
 * value[x] 0..0
 * hasMember 1..* 
 * hasMember only Reference(PAActivityMeasure)

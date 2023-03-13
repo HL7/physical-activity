@@ -1,3 +1,4 @@
+/*
 Alias: $obsExtract           = http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observationExtract
 Alias: $extractCat           = http://hl7.org/fhir/uv/sdc/StructureDefinition/sdc-questionnaire-observation-extract-category
 Alias: $variable             = http://hl7.org/fhir/StructureDefinition/variable
@@ -51,3 +52,4 @@ Description:    "Questionnaire that allows capturing the Exercise Vital Sign and
 * item[=].type 		 = #decimal
 * item[=].repeats  = false
 * item[=].required = true
+*/

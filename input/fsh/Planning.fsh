@@ -1,7 +1,3 @@
-Alias: $pertainsToGoal = http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal
-Alias: $SDOHCCTemp     = http://hl7.org/fhir/us/sdoh-clinicalcare/CodeSystem/SDOHCC-CodeSystemTemporaryCodes
-Alias: $ICD10          = http://hl7.org/fhir/sid/icd-10-cm
-
 Profile:        PACarePlan
 Parent:         USCoreCarePlanProfile
 Id:             pa-careplan
@@ -17,8 +13,7 @@ Description:    "A plan describing the plan to improve or maintain a patient's l
 * note MS
 * note.author[x] 1..1 MS
 * note.author[x] only Reference(Practitioner or Patient or RelatedPerson)
-* note.author[x] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* note.author[x] ^type[0].extension[=].valueBoolean = true
+* note.author[x] ^type[0].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
 * note.time 1..1 MS
 * note.text MS
 
@@ -45,19 +40,14 @@ Description:    "A goal that sets a target for a patient's physical activity lev
 * addresses ^slicing.rules = #open
 * addresses contains SupportedAddresses 0..* MS
 * addresses[SupportedAddresses] only Reference(LowPACondition or EVSDaysPerWeek or EVSMinutesPerDay)
-* addresses[SupportedAddresses] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* addresses[SupportedAddresses] ^type[0].extension[=].valueBoolean = true
-* addresses[SupportedAddresses] ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* addresses[SupportedAddresses] ^type[1].extension[=].valueBoolean = true
-* addresses[SupportedAddresses] ^type[2].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* addresses[SupportedAddresses] ^type[2].extension[=].valueBoolean = true
+* addresses[SupportedAddresses] ^type[0].targetProfile[0].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
+* addresses[SupportedAddresses] ^type[0].targetProfile[1].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
+* addresses[SupportedAddresses] ^type[0].targetProfile[2].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
 * note MS
 * note.author[x] 1..1 MS
 * note.author[x] only Reference(Practitioner or Patient or RelatedPerson)
-* note.author[x] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* note.author[x] ^type[0].extension[=].valueBoolean = true
-* note.author[x] ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* note.author[x] ^type[1].extension[=].valueBoolean = true
+* note.author[x] ^type[0].targetProfile[0].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
+* note.author[x] ^type[0].targetProfile[1].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
 * note.time 1..1 MS
 * note.text MS
 
@@ -77,18 +67,16 @@ Description:    "A condition that conveys the fact that a patient has a clinical
 * bodySite 0..0
 * onset[x] MS 
 * onset[x] only dateTime or Period
-* onset[x] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* onset[x] ^type[0].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
 * onset[x] ^type[0].extension[=].valueBoolean = true
 * abatement[x] MS 
 * abatement[x] only dateTime or Period
-* abatement[x] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* abatement[x] ^type[0].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
 * abatement[x] ^type[0].extension[=].valueBoolean = true
 * asserter MS 
 * asserter only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile)
-* asserter ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* asserter ^type[0].extension[=].valueBoolean = true
-* asserter ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* asserter ^type[1].extension[=].valueBoolean = true
+* asserter ^type[0].targetProfile[0].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
+* asserter ^type[0].targetProfile[1].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
 * stage 0..0
 * evidence MS
 * evidence.detail ^slicing.discriminator.type = #profile
@@ -99,10 +87,8 @@ Description:    "A condition that conveys the fact that a patient has a clinical
 * evidence.detail[SupportedDetail] ^comment = "... A variety of resources might provide support for 
   asserting this condition, however at minimum, systems must support the Physical Activity Vital Sign 
   observations."
-* evidence.detail[SupportedDetail] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* evidence.detail[SupportedDetail] ^type[0].extension[=].valueBoolean = true
-* evidence.detail[SupportedDetail] ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* evidence.detail[SupportedDetail] ^type[1].extension[=].valueBoolean = true
+* evidence.detail[SupportedDetail] ^type[0].targetProfile[0].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
+* evidence.detail[SupportedDetail] ^type[0].targetProfile[1].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
 
 
 Profile:        PAServiceRequest
@@ -132,7 +118,7 @@ Description:    "Represents orders and referrals for interventions that help to 
 // TODO add support for 'focus'
 * occurrence[x] MS
 * occurrence[x] only Period or dateTime or Timing
-* occurrence[x] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+* occurrence[x] ^type[0].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
 * occurrence[x] ^type[0].extension[=].valueBoolean = true
 * authoredOn 0..1 MS
 * requester MS
@@ -141,24 +127,20 @@ Description:    "Represents orders and referrals for interventions that help to 
 * performer MS
 * performer only Reference(USCorePatientProfile or USCorePractitionerProfile or USCorePractitionerRoleProfile or USCoreOrganizationProfile or 
   HealthcareService or USCoreCareTeam or RelatedPerson)
-* performer ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* performer ^type[0].extension[=].valueBoolean = true
-* performer ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* performer ^type[1].extension[=].valueBoolean = true
-* performer ^type[2].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* performer ^type[2].extension[=].valueBoolean = true
-* performer ^type[3].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* performer ^type[3].extension[=].valueBoolean = true
+* performer ^type[0].targetProfile[0].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
+* performer ^type[0].targetProfile[1].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
+* performer ^type[0].targetProfile[2].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
+* performer ^type[0].targetProfile[3].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
 * reasonReference ^slicing.discriminator.type = #profile
 * reasonReference ^slicing.discriminator.path = "resolve()"
 * reasonReference ^slicing.rules = #open
 * reasonReference contains SupportedReasonReference 0..* MS
 * reasonReference[SupportedReasonReference] only Reference(LowPACondition)
-* supportingInfo ^slicing.discriminator.type = #profile
+/* supportingInfo ^slicing.discriminator.type = #profile
 * supportingInfo ^slicing.discriminator.path = "resolve()"
 * supportingInfo ^slicing.rules = #open
 * supportingInfo contains SupportedSupportingInfo 0..* MS
-* supportingInfo[SupportedSupportingInfo] only Reference(SDOHCCConsent)
+* supportingInfo[SupportedSupportingInfo] only Reference(SDOHCCConsent)*/
 * specimen 0..0
 
 
@@ -184,10 +166,10 @@ course of the services delivered by a Service Provider, typically in response to
 * result ^slicing.rules = #open
 * result contains SupportedResult 0..* MS
 * result[SupportedResult] only Reference(EVS or PAActivityMeasure or PATimeMeasure or PAActivityGroup)
-* result[SupportedResult] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* result[SupportedResult] ^type[0].extension[=].valueBoolean = true
-* result[SupportedResult] ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* result[SupportedResult] ^type[1].extension[=].valueBoolean = true
+* result[SupportedResult] ^type[0].targetProfile[0].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
+* result[SupportedResult] ^type[0].targetProfile[1].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
+* result[SupportedResult] ^type[0].targetProfile[2].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
+* result[SupportedResult] ^type[0].targetProfile[3].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
 * presentedForm.contentType = urn:ietf:bcp:13#application/pdf
 * presentedForm.contentType ^comment = "... Implementers are encouraged to identify additional formats they would
   like to see supported, if any."
@@ -216,14 +198,10 @@ Description:    "Represents a request for fufillment of a physical activity-rela
 * for only Reference(USCorePatientProfile)
 * authoredOn 1..1 MS
 * owner MS
-* owner only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile or
-  USCoreOrganizationProfile)
-* owner ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* owner ^type[0].extension[=].valueBoolean = true
-* owner ^type[1].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* owner ^type[1].extension[=].valueBoolean = true
-* owner ^type[2].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
-* owner ^type[2].extension[=].valueBoolean = true
+* owner only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile or USCoreOrganizationProfile)
+* owner ^type[0].targetProfile[0].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
+* owner ^type[0].targetProfile[1].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
+* owner ^type[0].targetProfile[2].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
 * output ^slicing.discriminator[+].type = #pattern
 * output ^slicing.discriminator[=].path = "type"
 * output ^slicing.discriminator[+].type = #type
@@ -233,8 +211,8 @@ Description:    "Represents a request for fufillment of a physical activity-rela
 * output[PerformedActivity]
   * type = $SDOHCCTemp#resulting-activity
   * value[x] MS
-  * value[x] only CodeableConcept or Reference(PADiagnosticReport or Resource)
-  * value[x] ^type[0].extension[+].url = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+  * value[x] only CodeableConcept or Reference(PADiagnosticReport or Resource) or CodeableConcept
+  * value[x] ^type[0].extension[http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support].valueBoolean = true
   * value[x] ^type[0].extension[=].valueBoolean = true
 
 Invariant:   pa-taskrm-1

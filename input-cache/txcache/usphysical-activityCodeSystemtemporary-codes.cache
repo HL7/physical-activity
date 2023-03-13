@@ -12,6 +12,36 @@
   }
 }}####
 e: {
-  "error" : "Cannot invoke \"org.hl7.fhir.r5.terminologies.TerminologyClient.expandValueset(org.hl7.fhir.r5.model.ValueSet, org.hl7.fhir.r5.model.Parameters, java.util.Map)\" because \"this.txClient\" is null"
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:1a101a34-b9c6-44e1-9a7b-f65667ed6c85",
+    "timestamp" : "2023-03-12T19:55:03.995Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/temporary-codes|1.0.0-ballot"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "A consult note that describes assessments and\r\n  interventions related to a patient's level of physical activity."
+      }],
+      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/temporary-codes",
+      "code" : "PAConsultNote",
+      "display" : "Physical activity Consult note"
+    }]
+  }
+},
+  "error" : ""
 }
 -------------------------------------------------------------------------------------

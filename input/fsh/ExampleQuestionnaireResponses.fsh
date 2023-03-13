@@ -1,3 +1,4 @@
+/*
 Instance:       qr-evs-example
 InstanceOf:     SDCQuestionnaireResponse
 Title:          "Example Exercise Vital Sign QuestionnaireResponse"
@@ -14,3 +15,4 @@ Description:    "Example QuestionnaireResponse that contains the answers for an 
 * item[=].answer.valueDecimal 	= 70
 * item[+].linkId				= "82291-6"
 * item[=].answer.valueDecimal 	= 2
+*/
