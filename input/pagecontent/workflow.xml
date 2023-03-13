@@ -12,17 +12,19 @@
     There are three specific types of systems that cooperate to help manage and improve patient physical activity levels.  They are:
 	</p>
 	<ul>
-    <li><a href="CapabilityStatement-pa-care-manager.html">Care Managers</a> are electronic health record or similar systems used by physicians, 
+    <li><a name="caremanager"> </a><a href="CapabilityStatement-pa-care-manager.html">Care Managers</a> are electronic health record or similar systems used by physicians, 
       social workers, or others who have general responsibility for care of the patient.  These are the systems that will typically perform initial
       data capture, whose users may identify an issue with physical activity level, and will coordinate any interventions to improve
       physical activity levels.</li>
-    <li><a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagment Apps</a> are systems that will be used by patients and/or their caregivers
+    <li><a name="patient"> </a><a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagment Apps</a> are systems that will be used by patients and/or their caregivers
       to capture data to share with clinicians and physical activity specialists.  They will also allow patients and their representatives
       to see and potentially update goals and plans of care related to physical activity.  (Caregivers might include relatives, neighbors,
       friends, or anyone else acting in support of the patient based on their personal relationship.)</li>
-    <li><a href="CapabilityStatement-pa-service-provider.html">Service Providers</a> are systems used by physical activity professionals,
+    <li><a name="serviceprovider"> </a>Service Providers are systems used by physical activity professionals,
       such as personal trainers, community fitness centers, etc. who can provide services to patients to enhance and maintain their levels
-      of physical activity.</li>
+      of physical activity.  In this IG, there are two types of Service Provider systems - 
+      <a href="CapabilityStatement-pa-service-provider-full.html">Full Service Providers</a> which have their own FHIR server endpoint and
+      <a href="CapabilityStatement-pa-service-provider-light.html">Light Service Providers</a>, which do not.</li>
   </ul>
   <p>
     In some cases, a <i>Service Provider</i> may delegate responsibility for interventions, in which case they will themselves also behave as
@@ -144,11 +146,10 @@
     subsequent visits to see if readiness may have changed.
   </p>
   <p>
-    Typically the identification of an issue will begin with the capture of an exercise vital sign - either directly as observations
-    (i.e. <a href="StructureDefinition-observation-evs-days-per-week.html">days/week</a> and 
-    <a href="StructureDefinition-observation-evs-min-per-day.html">min/day</a>), using a 
-    <a href="Questionnaire-questionnaire-evs.html">small Questionnaire</a>, or possibly incorporating those same questions as part of a larger 
-    questionnaire (e.g. using <a href="{{site.data.fhir.ver.sdc}}/modular.html">modular forms</a>).  This information might be recorded directly
+    Typically the identification of an issue will begin with the capture of an exercise vital sign using the
+    <a href="StructureDefinition-observation-evs-days-per-week.html">days/week</a>,
+    <a href="StructureDefinition-observation-evs-min-per-day.html">min/day</a>, <a href="StructureDefinition-observation-evs-min-per-week.html">min/week</a>,
+    and <a href="StructureDefinition-observation-strength-days-per-week.html">strength days/week</a> profiles.  This information might be recorded directly
     by the patient or by the care provider based on information solicited from the patient or one of the patient's caregivers.
   </p>
   <p>
@@ -267,8 +268,8 @@
   <p>
     The <a href="{{site.data.fhir.ver.sdoh}}/StructureDefinition-SDOHCC-TaskForReferralManagement.html">Task</a> is what really drives referral workflow.  
     Typically referrals will not be directed to a particular service provider.  Instead, Tasks will be used to solicit providers who are willing to
-    perform a needed intervention (possibly with guidance from the patient around their preferences).  Service Providers will 
-    <a href="#monitor">monitor</a> for new 'requested' Tasks assigned to them and will update the Tasks to indicate acceptance and eventually update the
+    perform a needed intervention (possibly with guidance from the patient around their preferences).  Service Providers will use a subscription to
+    monitor for new 'requested' Tasks assigned to them and will update the Tasks to indicate acceptance and eventually update the
     status to 'completed', possibly with a link to a <a href="StructureDefinition-pa-diagnosticreport.html">report</a> showing final outcomes .
   </p>
   <p>
@@ -289,95 +290,29 @@
     The following diagram shows the expected state transitions expected in this implementation guide.  Those with heavier lines must be supported
     by all systems.  Those with lighter lines may occur, but <i>Service Providers</i> are not required to support them for their own workflows.
   </p>
+  <a name="taskstatus"> </a>
   <div>
     <img src="task-states.svg" alt="State diagram showing all of the Task status code values with allowed transitions"/>
     <p><b>Figure 3</b> - Task statuses</p>
   </div>
   <p>
-    Not shown in this diagram is the 'entered-in-error' status which is an allowed transition from <b>all</b> states.
+    NOTE: Not shown in this diagram is the 'entered-in-error' status which is an allowed transition from <b>all</b> states.
   </p>
   <p>
     For additional information about each of the possible states, when they are appropriate, and rules around their use, refer to the
-    <a href="StructureDefinition-pa-task-for-referral-management.html#tasktable">table</a> in the notes section of the Task profile.
-  </p>
-  
-  <a name="architecture"> </a>
-  <h5>Architecture choices</h5>
-  <p>
-    There are two different modes of operation for task management.  In one, the Task lives on the Care Manager system and is either
-    polled or subscribed to by the Service Provider to monitor for initial creation and any Care Manager-side updates.  
-    The Service Provider submits updates to the Care Manager to drive all record changes.  This approach means that the
-    Service Provider doesn't need to expose a FHIR server interface and doesn't even need to have an ability to store health data locally.
-  </p>
-  <p>
-    In the second, the Task is posted by the Care Manager to the Service Provider's system.  All changes are made locally and it is the
-    Care Manager that polls or subscribes to the Task to monitor it for changes.  If the Care Manager needs to cancel the Task, they do so
-    by submitting an update to the Service Provider.  In this approach, the Service Provider must have a FHIR server endpoint and that
-    endpoint must be known to all Care Managers that will be sending orders.
-  </p>
-  <p>
-    The Gravity SDOHCC guide describes the differences between these two options in more detail 
-    <a href="{{site.data.fhir.ver.sdoh}}/checking_task_status.html">here</a>.  This IG does not mandate a single approach because which one is
-    appropriate will be driven by the technical capabilities and relationships of the systems.  E.g. Some Service Providers won't have a RESTful
-    endpoint with a predictable network location, which means the 'polling/subscription' approach will be more necessary.
-  </p>
-  <p>
-    Gravity has a third mode of operation where intermediary systems act as a shared point of contact between Care Managers and Service Providers.
-    This IG does not currently support an 'intermediary' architecture as there is not (yet?) an obvious set of intermediary vendors who could
-    take on such a role.
-  </p>
-  <p>
-    Regardless of which mode is used, for referrals to be successfully exchanged, the Care Manager and Service Provider systems need to have an
-    awareness of each other and have a trust relationship that allows data to flow - whether the information is queried or pushed.  In the short
-    term, these relationships will likely be established manually, through sharing of network and security credentials and signing relevant
-    legal agreements.  In the longer term, participation registries such as those envisioned by the 
-    <a href="http://hl7.org/fhir/us/directory-query">FAST National Directory</a> project may enable automated discovery of relevant partner
-    systems and even allow automated determination of participation in shared agreements, eliminating the need for point-to-point negotiations.
-    See more about the privacy and security expectations for this guide <a href="security.html">here</a>.
+    <a href="StructureDefinition-pa-task-for-referral-management.html#status">table</a> in the notes section of the Task profile.
   </p>
 
   <a name="loop"> </a>
   <h5>Closing the Loop</h5>
   <p>
     Once a referral has been issued and accepted, there's a need to communicate progress and status back to the initiating practitioner.  There
-    are three main mechanisms for accomplishing this: using Task status, ongoing measurements, and diagnostic reports.
+    are three main mechanisms for accomplishing this: using Task status, ongoing measurements, and diagnostic reports.  Using Task status is further
+    discussed in the <a href="design.html#task">Design section</a>.
   </p>
-  
-  <a name="status"> </a>
-  <h5>Using Task Status</h5>
-  <p>
-    Task has two status elements - <code>Task.status</code> and <code>Task.businessStatus</code>.  Additional details on progress could also be
-    conveyed using <code>Task.note</code>.  At present, this implementation guide only requires support for the <code>Task.status</code>,
-    though implementers can choose to use the latter if they have a need to convey more detailed progress information.
-  </p>
-  <blockquote class="stu-note">
-    <p>
-      If implementers have found a need for businessStatus and/or note, please communicate that to the design team using the "propose a change"
-      link or on the <a href="https://chat.fhir.org/#narrow/stream/327137-Physical-Activity">project chat.fhir.org stream</a>.  Future release of 
-      this implementation guide may set expectations around the use of these elements if there are clear implementation requirements.
-    </p>
-  </blockquote>
-  <p>
-    The basic progress of the referral can be conveyed 
-    by Task.status alone.  The statuses most likely to be relevant in this IG, in order of priority/importance are:
-  </p>
-  <ul>
-    <li><b>accepted/rejected</b> - indicates whether the Service Provider has agreed to provide the service or not.  This is the most important
-      part of the referral process, in that if the referral is rejected, the requesting clincian's short-term responsibility has not ended and there 
-      is a need to seek out an alternate Service Provider to perform the service.  (Note - if a Task is rejected, then that particular Task instance
-      is finished.  The Task to seek a different Service Provider will be handled with a different instance.)</li>
-    <li><b>completed/failed/cancelled</b> - indicates that service delivery has ended, one way or another.  I.e. the ball is now back in the
-      Service Provider's court.  Service Providers SHOULD always update the Task to represent completion status, though the reality is that occasionally
-      a Task may fall stagnant and get forgotten.  If the status is failed or cancelled, there SHOULD be a statusReason or a note that indicates the
-      reason so that the initiating condition can better choose what steps to take next, if any.</li>
-    <li><b>in-progress</b> - indicates that the Service Provider has actually started to deliver services to the patient.  Not all Service Providers
-      will necessarily communicate this point in the workflow (and not all Care Managers will be interested in knowing this).</li>
-    <li><b>on-hold</b> - indicates that the patient has taken a break from receiving therapy, but there's an expectation that therapy will resume.
-      Again, an explanation in statusReason or a note is encouraged.</li>
-  </ul>
   
   <a name="observations"> </a>
-  <h5>Using measurements</h5>
+  <h6>Using measurements</h6>
   <p>
     Even without looking at status, a Care Manager system that opts to receive or access a patient's physical activity <a href="measures.html">measures</a>
     can keep tabs on whether the patient's physical activity level is changing.  Supporting measures capturing activity-specific exercise information
@@ -389,7 +324,7 @@
   </p>
 
   <a name="reports"> </a>
-  <h5>Using diagnostic reports</h5>
+  <h6>Using diagnostic reports</h6>
   <p>
     The <a href="StructureDefinition-pa-diagnosticreport.html">PA Intervention Report</a> profile allows the use of the DiagnosticReport
     resource to convey a summary of the intervention(s) performed by the Service Provider.  These would typically be created at the completion of the
@@ -448,14 +383,5 @@
   <p>
     Use of this functionality is not required.  It is simply available where Care Managers and/or Service Providers feel that soliciting patient
     feedback is useful and where an electronic mechanism of doing so is more useful than using traditional paper-based approaches.
-  </p>
-  
-  <a name="monitor"> </a>
-  <h3>Monitoring for change</h3>
-  <p>
-    This IG involves resources that reside and are updated on one system (typically the Care Manager) that are of interest to other systems
-    (typically the Patient Engagement and Referral Receiver systems).  There are two architectural mechanisms that can be used for such monitoring:
-    polling and subscription.  The SDOH IG provides considerable detail about how each of these mechanisms functions for tasks 
-    <a href="{{site.data.fhir.ver.sdoh}}/checking_task_status.html">here</a>.  
   </p>
 </div>

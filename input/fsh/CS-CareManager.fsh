@@ -106,7 +106,7 @@ Usage:          #definition
     * insert SearchParam("requester", Task-requester, #reference, #SHALL, "Allows filtering to only retrieve tasks initiated by a specific provider.")
     * insert SearchParam("status", ServiceRequest-status, #token, #SHALL, "Allows filtering to only retrieve active or completed orders.")
     * insert SearchParam("focus", Task-focus, #reference, #SHOULD, "Allows retrieving the task(s\) seeking fulfillment of a particular ServiceRequest.")
-    * insert SearchParam("output", Task-output-reference, #reference, #SHOULD, "Allows for the 'output' of a Task to be included when retrieving a Task.")
+    * insert SearchParam2("output", http://hl7.org/fhir/us/sdoh-clinicalcare/SearchParameter/Task-output-reference, #reference, #SHOULD, "Allows for the 'output' of a Task to be included when retrieving a Task.")
 * rest[+]
   * mode = #server
   * documentation = "Care Managers act primarily as servers, allowing [light](CapabilityStatement-pa-service-provider-light.html) and [full](CapabilityStatement-pa-service-provider-full.html) service providers and [patient engagement systems](CapabilityStatement-pa-patient-engagement.html) to retrieve information stored on the manager, and in some cases to create and update information present on the manager."
@@ -262,7 +262,7 @@ Usage:          #definition
     * referencePolicy = #literal
     * insert SearchInclude("ServiceRequest:patient", #SHOULD)
     * insert SearchInclude("ServiceRequest:requester", #SHOULD)
-    * insert SearchParam("_id", /Resource-id, #token, #SHALL, "Allows retrieving known service request records - and more specifically\, retrieving more than one in a single call to poll for updates.")
+    * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known service request records - and more specifically\, retrieving more than one in a single call to poll for updates.")
     * insert SearchParam("_lastUpdated", Resource-lastUpdated, #date, #SHOULD, "Allows filtering for only records that have changed since last query.")
     * insert SearchParam("authored", ServiceRequest-authored, #date, #SHOULD, "Allows filtering orders based on when they were created.")
     * insert SearchParam("category", ServiceRequest-category, #token, #SHALL, "Allows retrieving only those referrals related to physical activity.")
@@ -295,7 +295,7 @@ Usage:          #definition
     * insert SearchParam("requester", Task-requester, #reference, #SHALL, "Allows filtering to only retrieve tasks initiated by a specific provider.")
     * insert SearchParam("status", ServiceRequest-status, #token, #SHALL, "Allows filtering to only retrieve active or completed orders.")
     * insert SearchParam("focus", Task-focus, #reference, #SHOULD, "Allows retrieving the task(s\) seeking fulfillment of a particular ServiceRequest.")
-    * insert SearchParam("output", Task-output-reference, #reference, #SHOULD, "Allows for the 'output' of a Task to be included when retrieving a Task.")
+    * insert SearchParam2("output", http://hl7.org/fhir/us/sdoh-clinicalcare/SearchParameter/Task-output-reference, #reference, #SHOULD, "Allows for the 'output' of a Task to be included when retrieving a Task.")
 
 // TODO: What includes/revincludes should be supported (if any)?  E.g. Provenance when retrieving
 // history

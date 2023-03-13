@@ -89,7 +89,7 @@ ValueSet:    PAReferralTaskStatus
 Title:       "Physical Activity Referral Task Status"
 Description: "Codes indicating allowed for Tasks seeking fulfillment of physical activity-related referrals"
 * ^experimental  = false
-* ^compose.include[0].valueSet = TaskStatus
+* ^compose.include[0].valueSet = http://hl7.org/fhir/ValueSet/task-status
 * ^compose.exclude[0].system = http://hl7.org/fhir/task-status
 * ^compose.exclude[0].concept[+].code = #received
 * ^compose.exclude[0].concept[+].code = #ready

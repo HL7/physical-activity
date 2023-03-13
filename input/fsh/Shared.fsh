@@ -24,6 +24,14 @@ RuleSet: SearchInclude(include, conf)
 * searchInclude[+] = {include}
   * extension[$conf].valueCode = {conf}
 
+RuleSet: SearchParam2(name, def, type, conf, doc)
+* searchParam[+]
+  * extension[$conf].valueCode = {conf}
+  * name = {name}
+  * definition = "{def}"
+  * type = {type}
+  * documentation = {doc}
+
 RuleSet: SearchParam(name, def, type, conf, doc)
 * searchParam[+]
   * extension[$conf].valueCode = {conf}

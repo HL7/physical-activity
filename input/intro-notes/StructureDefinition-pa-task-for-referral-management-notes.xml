@@ -118,7 +118,7 @@
   <p>General Notes:</p>
   <ul>
     <li>When reading Task resources from another system, all statuses must be supported.  However, when updating Task status,
-      <a href="CapabilityStatement-pa-service-provider.html">Service Providers</a> only need to be able to support those marked in bold.
+      <i>Service Providers</i> only need to be able to support those marked in bold.
       The remaining codes only need to be used when they are appropriate for the <i>Service Provider's</i> architecture.</li>
   </ul>
 </div>

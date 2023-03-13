@@ -76,7 +76,7 @@
   <p>
     The second measure allows evaluation of the patient against guidelines for muscle-strengthening activity.  
   </p>
-  <p>
+<!--  <p>
     If a system does not wish to support directly capturing the answers to these key measures as Observations but is able to handle
     filling out a FHIR Questionnaire, this IG also defines a standard <a href="{{site.data.fhir.ver.sdc}}">Structured Data Capture</a>
     Questionnaire instance that includes the relevant metadata to allow automated extraction of a completed QuestionnaireResponse
@@ -85,7 +85,7 @@
     <a href="{{site.data.fhir.ver.sdc}}/extraction.html#structuremap-based-extraction">StructureMap-based</a> approach.  The
     Questionnaire is <a href="Questionnaire-questionnaire-evs.html">here</a>.  An example QuestionnaireResponse that would correspond to the
     examples listed above can be found <a href="QuestionnaireResponse-qr-evs-example.html">here</a>.
-  </p>
+  </p>-->
   
   
   <a name="support"> </a>
@@ -182,8 +182,8 @@
       </ul>
       The absence of a 'Y' in the column of a particular type of reporter does not mean this type of Observation <i>cannot</i> be performed by that
       type of individual, merely that it would be unusual or uncommon.  It also means that systems focused on supporting data capture by that type
-      of individual (<a href="CapabilityStatement-pa-patient-engagement.html">Patient-engagement</a> systems for patient-reported and 
-      <a href="CapabilityStatement-pa-care-manager.html">Care Manager</a> and <a href="CapabilityStatement-pa-service-provider.html">Service Provider</a>
+      of individual (<a href="workflow.html#patient">Patient-engagement</a> systems for patient-reported and 
+      <a href="workflow.html#caremanager">Care Manager</a> and <a href="workflow.html#serviceprovider">Service Provider</a>
       systems for provider-reported) would not typically support capturing observations not associated with their target user type.  That said,
       all such systems <b>SHOULD</b> support receiving and storing all supporting information observations.
     </li>

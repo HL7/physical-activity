@@ -44,6 +44,11 @@ dependencies:
     version: 1.1.0
     reason: |
       The backport IG defines standards for automatically detecting that data has changed on a system and providing notifications to interested systems.  The Gravity SDOH implementation guide uses this to allow systems to monitor for updates between EHR systems and service delivery systems.  This implementation guide allows the same approach.
+  hl7.fhir.uv.extensions:
+    id: ext
+    version: current
+    reason: |
+      Provides access to all of the 'standard' extensions defined in the core spec
 #  hl7.fhir.r4.examples:
 #    id: examples
 #    version: 4.0.1

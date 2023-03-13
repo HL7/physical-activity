@@ -66,8 +66,8 @@
   </p>
   <ol>
     <li><a href="measures.html">Physical Activity Measures</a> defines a <a href="measures.html#base">profiles</a> for the standardized capture of a patient's 
-      physical activity level.  It also defines an optional FHIR <a href="Questionnaire-questionnaire-evs.html">Questionnaire</a> that can be used by questionnaire-based systems to 
-      capture that measure.  In addition, it defines additional profiles to capture <a href="measures.html#support">supplemental observations</a>
+      physical activity level.  <!--It also defines an optional FHIR <a href="Questionnaire-questionnaire-evs.html">Questionnaire</a> that can be used by questionnaire-based systems to 
+      capture that measure.-->  In addition, it defines profiles to capture <a href="measures.html#support">supplemental observations</a>
       assertions around physical activity levels, such as daily physical activity log entries, heart rate measurements, and step counts.  The specification also covers how to link
       these supporting records to the primary physical activity measure.</li>
     <li><a href="interventions.html">Physical Activity Interventions</a> defines profiles supporting the ordering of interventions intended to increase patient physical activity
