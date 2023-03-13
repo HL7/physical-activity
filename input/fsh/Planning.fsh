@@ -193,6 +193,12 @@ Description:    "Represents a request for fufillment of a physical activity-rela
 * for 1..1 MS
 * for only Reference(USCorePatientProfile)
 * authoredOn 1..1 MS
+* note MS
+* note.author[x] 1..1 MS
+* note.author[x] only Reference(Practitioner)
+* note.author[x] ^type[0].extension[$typeMS].valueBoolean = true
+* note.time 1..1 MS
+* note.text MS
 * owner MS
 * owner only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile or USCoreOrganizationProfile)
 * owner ^type[0].targetProfile[0].extension[$typeMS].valueBoolean = true
