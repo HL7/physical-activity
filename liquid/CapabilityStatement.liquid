@@ -1,33 +1,27 @@
 <div>
-  {% if requirements.exists() %}  
-    <p>
-      <b>Requirements:</b>
+  {% for sft in software %}
+    <p>Applies to software: {{sft.name}}
+      {% if sft.version.exists() %}version: {{sft.version}}{% endif %}
+      {% if sft.date.exists() %}{{sft.date}}{% endif %}
     </p>
-    {{ purpose | markdownify }}
-  {% endif %}
-  {% if software.exists() %}
-    <p>Applies to software: {{software.name}}
-      {% if software.version.exists() %}version: {{software.version}}{% endif %}
-      {% if software.date.exists() %}{{software.date}}{% endif %}
-    </p>
-  {% endif %}
-  {% if implemenation.exists() %}
+  {% endfor %}
+  {% for imp in implementation %}
     <div>
-      <p>Implementation: {{implementation.url}}"/>
-        {% if custodian.display.exists() %}
+      <p>Implementation: {{imp.url}}"/>
+        {% if imp.custodian.display.exists() %}
           managed by:
-          {% if custodian.reference.exists() %}
-            <a href="{{custodian.reference}}">
-              {{custodian.display}}
+          {% if imp.custodian.reference.exists() %}
+            <a href="{{imp.custodian.reference}}">
+              {{imp.custodian.display}}
             </a>
           {% else %}
-            {{custodian.display}}
+            {{imp.custodian.display}}
           {% endif %}
         {% endif %}
       </p>
-      {{description | markdownify}}
+      {{imp.description}}
     </div>
-  {% endif %}
+  {% endfor %}
   <br/>
   <h2>General</h2>
   <div class="table-wrapper">
@@ -110,7 +104,7 @@
     <br/>
     <h2>REST {{Arest.mode}} behavior</h2>
     {% if Arest.documentation.exists() %}
-      <div>{{Arest.documentation | markdownify}}</div>
+      <div>{{Arest.documentation}}</div>
     {% endif %}
     {% if Arest.security.exists() %}
       <br/>
@@ -125,7 +119,7 @@
         </ul>
       {% endif %}
       {% if Arest.security.description %}
-        <div>{{ Arest.security.description | markdownify }}</div>
+        <div>{{ Arest.security.description }}</div>
       {% endif %}
     {% endif %}
     {% if Arest.resource.exists() %}
@@ -158,7 +152,8 @@
                 </th>
                 <td>
                   {% for Aop in Aresource.interaction.where(code = 'search-type') %}
-                    <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
+                    <a title="{{Aop.documentation.value}}" href="#{{Aresource.type}}-{{Aop.code}}">
+
                       {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
                         {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
                       {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
@@ -171,7 +166,7 @@
                 </td>
                 <td>
                   {% for Aop in Aresource.interaction.where(code = 'read') %}
-                    <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
+                    <a title="{{Aop.documentation.value}}" href="#{{Aresource.type}}-{{Aop.code}}">
                       {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
                         {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
                       {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
@@ -187,7 +182,7 @@
                 </td>
                 <td>
                   {% for Aop in Aresource.interaction.where(code = 'vread') %}
-                    <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
+                    <a title="{{Aop.documentation.value}}" href="#{{Aresource.type}}-{{Aop.code}}">
                       {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
                         {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
                       {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
@@ -201,7 +196,7 @@
                 </td>
                 <td>
                   {% for Aop in Aresource.interaction.where(code = 'history-instance') %}
-                    <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
+                    <a title="{{Aop.documentation.value}}" href="#{{Aresource.type}}-{{Aop.code}}">
                       {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
                         {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
                       {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
@@ -214,7 +209,7 @@
                 </td>
                 <td>
                   {% for Aop in Aresource.interaction.where(code = 'history-type') %}
-                    <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
+                    <a title="{{Aop.documentation.value}}" href="#{{Aresource.type}}-{{Aop.code}}">
                       {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
                         {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
                       {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
@@ -227,7 +222,7 @@
                 </td>
                 <td>
                   {% for Aop in Aresource.interaction.where(code = 'create') %}
-                    <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
+                    <a title="{{Aop.documentation.value}}" href="#{{Aresource.type}}-{{Aop.code}}">
                       {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
                         {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
                       {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
@@ -241,7 +236,7 @@
                 </td>
                 <td>
                   {% for Aop in Aresource.interaction.where(code = 'update') %}
-                    <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
+                    <a title="{{Aop.documentation.value}}" href="#{{Aresource.type}}-{{Aop.code}}">
                       {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
                         {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
                       {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
@@ -256,7 +251,7 @@
                 </td>
                 <td>
                   {% for Aop in Aresource.interaction.where(code = 'delete') %}
-                    <a title="{{Aop.documentation | markdownify}}" href="#{{Aresource.type}}-{{Aop.code}}">
+                    <a title="{{Aop.documentation.value}}" href="#{{Aresource.type}}-{{Aop.code}}">
                       {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
                         {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
                       {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
@@ -342,7 +337,7 @@
                 </td>
               {% endif %}
               <td>
-                {{Aop.documentation | markdownify}}
+                {{Aop.documentation}}
               </td>
             </tr>
           {% endfor %}
@@ -354,17 +349,17 @@
       <br/>
       <br/>
       <h3>
-        <a href="{{site.data.fhir.path}}{{Aresource.type | downcase}}.html">{{Aresource.type}}</a>              
+        <a href="http://hl7.org/fhir/{{Aresource.type | downcase}}.html">{{Aresource.type}}</a>              
       </h3>
       {% for Aprofile in Aresource.profile %}
-        <p>Profile: <a href="{{Aprofile}}">{{Aprofile}}</a></p>
+        <p>Profile: {{Aprofile}}</p>
       {% endfor %}
       {% if Aresource.supportedProfile.exists() %}
         <p>Supported Profile(s):</p>
         <ul>
           {% for Aprofile in Aresource.supportedProfile %}
             <li>
-              <a href="{{Aprofile}}">{{Aprofile}}</a>
+              {{Aprofile}}
               {% if Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').exists() %}
                 {{Aop.extension('http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation').value}}
               {% elsif Aop.modifierExtension.where(url='http://hl7.org/fhir/StructureDefinition/capabilitystatement-prohibited').value = true %}
@@ -382,9 +377,9 @@
         {% if Aresource.referencePolicy.exists() %}
           <p>Reference policy: {{Aresource.referencePolicy}}</p>
         {% endif %}
-      {% endif %}          
+      {% endif %}
       <!-- Note: description doesn't exist yet -->
-      {{documentation | markdownify}}
+      {{documentation}}
       <h4>Interactions</h4>
       <div class="table-wrapper">
         <table class="list">
@@ -422,7 +417,7 @@
                   </td>
                 {% endif %}
                 <td>
-                  {{Aop.documentation | markdownify}}
+                  {{Aop.documentation}}
                 </td>
               </tr>
             {% endfor %}
@@ -445,7 +440,7 @@
                   </td>
                 {% endif %}
                 <td>
-                  {{Aop.documentation | markdownify}}
+                  {{Aop.documentation}}
                 </td>
               </tr>
             {% endfor %}
@@ -480,7 +475,7 @@
                     <td>
                       <b>
                         {% if Aparam.definition.exists() %}
-                          <a href="{{Aparam.definition}}">{{Aparam.name}}</a>
+                          <a href="{{Aparam.definition.value}}">{{Aparam.name}}</a>
                         {% else %}
                           {{Aparam.name}}
                         {% endif %}
@@ -502,7 +497,7 @@
                       {% endif %}
                     </td>
                     <td>
-                      {{Aparam.documentation | markdownify}}
+                      {{Aparam.documentation}}
                       {% if Aparam.chain.exists() %}
                         Chaining: {{Aparam.chain}}
                       {% endif %}
@@ -550,7 +545,7 @@
         </table>
       </div>
     {% endif %}
-    {{Amsg.documentation | markdownify}}
+    {{Amsg.documentation}}
     <div class="table-wrapper">
       <table class="grid">
         <thead>
@@ -573,15 +568,15 @@
               <td>{{Aevent.focus}}</td>
               <td>
                 {%for Aref in Aevent.request.reference %}
-                  <a href="{{Aref}}.html">{{Aref}}</a>
+                  <a href="{{Aref.value}}.html">{{Aref}}</a>
                 {% endfor %}
               </td>
               <td>
                 {%for Aref in Aevent.response.reference %}
-                  <a href="{{Aref}}.html">{{Aref}}</a>
+                  <a href="{{Aref.value}}.html">{{Aref}}</a>
                 {% endfor %}
               </td>
-              <td>{{Aevent.documentation|markdownify}}</td>
+              <td>{{Aevent.documentation}}</td>
             </tr>
           {% endfor %}
         </tbody>
@@ -607,10 +602,10 @@
               <td>{{Adoc.mode}}</td>
               <td>
                 {% for Aprofile in Adoc.profile %}
-                  <a href="{{Aprofile}}">{{Aprofile}}</a>
+                  {{Aprofile}}
                 {% endfor %}
               </td>
-              <td>{{Adoc.documentation|markdownify}}</td>
+              <td>{{Adoc.documentation}}</td>
             </tr>
           {% endfor %}
         </tbody>

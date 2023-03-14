@@ -13,13 +13,13 @@ Usage:          #definition
 * format[+]   = #xml
 * rest[+]
   * mode = #client
-  * documentation = "Care managers only act as clients in situation where they are interacting with 'advanced' [service providers](CapabilityStatement-pa-service-provider.html) which have their own FHIR server interfaces.  In this mode, the Care Manager can create and/or retrieve information from the referral recipient.  There is no expectation that [patient engagement](CapabilityStatement-pa-patient-engagement.html) systems will have their own FHIR server interfaces."
+  * documentation = "Care managers only act as clients in situation where they are interacting with 'full' [service providers](CapabilityStatement-pa-service-provider-full.html) which have their own FHIR server interfaces.  In this mode, the Care Manager can create and/or retrieve information from the referral recipient.  There is no expectation that [patient engagement](CapabilityStatement-pa-patient-engagement.html) systems will have their own FHIR server interfaces."
   * resource[+]
     * extension[$conf].valueCode = #SHOULD
     * type = #CarePlan
     * insert SupportedProfile(PACarePlan, #SHALL)
     * documentation = "Allows accessing and manipulating Care Plans stored on a Service Provider."
-    * insert Interaction(#update, #SHOULD, "Allows a clinician to make updates to a plan owened by a service provider.")
+    * insert Interaction(#update, #SHOULD, "Allows a clinician to make updates to a plan owned by a service provider.")
     * insert Interaction(#search-type, #SHALL, "Allows retrieval of care plans for a given patient.")
     * insert Interaction(#history-instance, #MAY, "Allows seeing how a care plan has changed over time.  This may be particularly important if multiple stakeholders have the ability to make adjustments to the plan.  However\, history is not widely supported.")
     * versioning      = #versioned-update

@@ -13,7 +13,7 @@ Usage:          #definition
 * format[+]   = #xml
 * rest[+]
   * mode          = #client
-  * documentation = "Systems for patients  only act as RESTful clients.  While they may create and store some of their own data, this data is always made available by 'pushing' it to the server of a [care manager](CapabilityStatement-pa-care-manager.html) or a [service provider](CapabilityStatement-pa-service-provider.html) system."
+  * documentation = "Systems for patients  only act as RESTful clients.  While they may create and store some of their own data, this data is always made available by 'pushing' it to the server of a [care manager](CapabilityStatement-pa-care-manager.html) or a [full service provider](CapabilityStatement-pa-service-provider-full.html) system."
   * resource[+]
     * extension[$conf].valueCode = #SHOULD
     * type = #CarePlan
