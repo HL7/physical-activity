@@ -97,7 +97,7 @@ Instance:    ExampleActivityPeakHR
 InstanceOf:  PAActivityMeasure
 Title:       "Example Observation Activity Measure - Peak Heart Rate"
 Description: "An example observation capturing the patient's peak heart rate during their run."
-* code              = $loinc#55422-0 "Maximum Heat rate in Unspecified Time"
+* code              = $loinc#55422-0 "Heart rate Encounter maximum"
 * subject	        = Reference(http://example.org/Patient/1)
 * effectiveDateTime = "2022-06-08"
 * performer         = Reference(http://example.org/Patient/1)
@@ -107,7 +107,7 @@ Instance:    ExampleActivityCalories
 InstanceOf:  PAActivityMeasure
 Title:       "Example Observation Activity Measure - Calories"
 Description: "An example observation capturing the patient's estimated calorie expenditure during their run."
-* code              = $loinc#41979-6 "Calories burned in Unspecified Time, Pedometer"
+* code              = $loinc#41979-6 "Calories burned in 24 hour Calculated"
 * subject	        = Reference(http://example.org/Patient/1)
 * effectiveDateTime = "2022-06-08"
 * performer         = Reference(http://example.org/Patient/1)
