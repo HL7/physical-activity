@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Wed, Mar 22, 2023 14:30+0000 for FHIR v5.0.0-cibuild 
+  Generated on Wed, Mar 22, 2023 19:31+0000 for FHIR v5.0.0-cibuild 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="5.0.0-cibuild">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -2469,11 +2469,6 @@
       <xs:enumeration value="SubscriptionTopic">
         <xs:annotation>
           <xs:documentation xml:lang="en">SubscriptionTopic</xs:documentation>
-        </xs:annotation>
-      </xs:enumeration>
-      <xs:enumeration value="TestPlan">
-        <xs:annotation>
-          <xs:documentation xml:lang="en">TestPlan</xs:documentation>
         </xs:annotation>
       </xs:enumeration>
       <xs:enumeration value="TestScript">
@@ -25995,7 +25990,7 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="forenameInitials" minOccurs="0" maxOccurs="1" type="string">
             <xs:annotation>
-              <xs:documentation xml:lang="en">Initials for forename.</xs:documentation>
+              <xs:documentation xml:lang="en">For citation styles that use initials.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="affiliation" minOccurs="0" maxOccurs="unbounded" type="Reference">

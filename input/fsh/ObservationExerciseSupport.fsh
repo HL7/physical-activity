@@ -67,8 +67,8 @@ Description:    "A profile for observations that capture physical activity-relat
 * code from PATimeMeasures (extensible)
 * value[x] only Quantity
 * value[x] ^comment = "...The value **SHALL** be constrained to the unit as indicated in [the table](measures.html#time)"
-* effective[x] ^type[0].targetProfile[0].extension[$typeMS].valueBoolean = true
-* effective[x] ^type[0].targetProfile[1].extension[$typeMS].valueBoolean = true
+* effective[x] ^type[0].extension[$typeMS].valueBoolean = true
+* effective[x] ^type[1].extension[$typeMS].valueBoolean = true
 * component ^slicing.discriminator.type = #pattern
 * component ^slicing.discriminator.path = "code"
 * component ^slicing.rules = #open
