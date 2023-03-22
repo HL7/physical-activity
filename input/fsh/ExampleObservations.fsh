@@ -45,7 +45,7 @@ Description: "An example observation capturing information about a specific pati
 * subject	        = Reference(http://example.org/Patient/1)
 * effectiveDateTime = "2022-06-08"
 * performer         = Reference(http://example.org/Patient/1)
-* hasMember[+]      = Reference(PAActivityType)
+* hasMember[+]      = Reference(ExampleActivityType)
 * hasMember[+]      = Reference(ExampleActivityDuration)
 * hasMember[+]      = Reference(ExampleActivityModerate)
 * hasMember[+]      = Reference(ExampleActivityVigorous)
