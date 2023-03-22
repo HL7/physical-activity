@@ -22,6 +22,12 @@ Description:    "A profile describing base requirements for all primary physical
 * valueQuantity.system = "http://unitsofmeasure.org"
 * note MS
 * note ^comment = "...Comments allows supporting and qualifying information"
+* note.author[x] 1..1 MS
+* note.author[x] only Reference(Practitioner or Patient or RelatedPerson)
+* note.author[x] ^type[0].targetProfile[0].extension[$typeMS].valueBoolean = true
+* note.author[x] ^type[0].targetProfile[1].extension[$typeMS].valueBoolean = true
+* note.time 1..1 MS
+* note.text MS
 
 
 Profile:        PAActivityMeasure
@@ -34,7 +40,6 @@ Description:    "A profile for observations that capture physical activity-relat
 * effective[x] ^comment = "...This will typically be a dateTime specific to the day.  If the information is available, a Period can be used
     to indicate the specific start and end times."
 * effective[x] ^type[0].extension[$typeMS].valueBoolean = true
-* effective[x] ^type[1].extension[$typeMS].valueBoolean = true
 * value[x] only Quantity or CodeableConcept
 * value[x] ^comment = "...The value **SHALL** be constrained to the type and unit or ValueSet as indicated in [the table](measures.html#activity)"
 
@@ -62,6 +67,8 @@ Description:    "A profile for observations that capture physical activity-relat
 * code from PATimeMeasures (extensible)
 * value[x] only Quantity
 * value[x] ^comment = "...The value **SHALL** be constrained to the unit as indicated in [the table](measures.html#time)"
+* effective[x] ^type[0].targetProfile[0].extension[$typeMS].valueBoolean = true
+* effective[x] ^type[0].targetProfile[1].extension[$typeMS].valueBoolean = true
 * component ^slicing.discriminator.type = #pattern
 * component ^slicing.discriminator.path = "code"
 * component ^slicing.rules = #open

@@ -5,6 +5,8 @@ Title:          "Physical Activity Care Plan"
 Description:    "A plan describing the plan to improve or maintain a patient's level of physical activity"
 * intent = #plan
 * period MS
+* period.start MS
+* period.end MS
 * category ^slicing.discriminator.type = #pattern
 * category ^slicing.discriminator.path = "$this"
 * category ^slicing.rules = #open
@@ -29,20 +31,29 @@ Description:    "A goal that sets a target for a patient's physical activity lev
 * category ^slicing.rules = #open
 * category contains PA 1..1 MS
 * category[PA] = TemporaryCodes#PhysicalActivity
+* description.text MS
 * target MS
 * target.measure 0..1 MS
 * target.measure from ValueSetEVS (extensible)
 * target.measure ^comment = "... If a target is specified with only a date and no measure, then it 
   is generally indicating a due date for the overall Goal as specified in the description"
 * target.detailQuantity MS
+* addresses MS
 * addresses ^slicing.discriminator.type = #profile
-* addresses ^slicing.discriminator.path = "$this"
+* addresses ^slicing.discriminator.path = "$this.resolve()"
 * addresses ^slicing.rules = #open
-* addresses contains SupportedAddresses 0..* MS
-* addresses[SupportedAddresses] only Reference(LowPACondition or EVSDaysPerWeek or EVSMinutesPerDay)
-* addresses[SupportedAddresses] ^type[0].targetProfile[0].extension[$typeMS].valueBoolean = true
-* addresses[SupportedAddresses] ^type[0].targetProfile[1].extension[$typeMS].valueBoolean = true
-* addresses[SupportedAddresses] ^type[0].targetProfile[2].extension[$typeMS].valueBoolean = true
+* addresses contains PAIssues 0..* MS
+* addresses[PAIssues] only Reference(LowPACondition or EVSMinutesPerWeek or StrengthDaysPerWeek)
+* addresses ^type[0].targetProfile[0].extension[$typeMS].valueBoolean = true
+* addresses ^type[0].targetProfile[1].extension[$typeMS].valueBoolean = true
+* addresses ^type[0].targetProfile[2].extension[$typeMS].valueBoolean = true
+/*
+* addresses contains LowPA 0..1 MS
+* addresses contains EVSMinutesPerWeek 0..* MS
+* addresses contains StrengthDaysPerWeek 0..* MS
+* addresses[LowPA] only Reference(LowPACondition)
+* addresses[EVSMinutesPerWeek] only Reference(EVSMinutesPerWeek)
+* addresses[StrengthDaysPerWeek] only Reference(StrengthDaysPerWeek)*/
 * note MS
 * note.author[x] 1..1 MS
 * note.author[x] only Reference(Practitioner or Patient or RelatedPerson)
@@ -81,7 +92,7 @@ Description:    "A condition that conveys the fact that a patient has a clinical
 * evidence.detail ^slicing.discriminator.path = "resolve()"
 * evidence.detail ^slicing.rules = #open
 * evidence.detail contains SupportedDetail 0..* MS
-* evidence.detail[SupportedDetail] only Reference(EVSMinutesPerDay or EVSDaysPerWeek)
+* evidence.detail[SupportedDetail] only Reference(EVSMinutesPerDay or EVSDaysPerWeek or EVSMinutesPerWeek or StrengthDaysPerWeek)
 * evidence.detail[SupportedDetail] ^comment = "... A variety of resources might provide support for 
   asserting this condition, however at minimum, systems must support the Physical Activity Vital Sign 
   observations."
@@ -106,7 +117,7 @@ Description:    "Represents orders and referrals for interventions that help to 
 * category ^slicing.rules = #open
 * category contains PA 1..1 MS and USCore 1..1
 * category[PA] = TemporaryCodes#PhysicalActivity
-* category[USCore] from USCorePAServiceRequestCategory (extensible)
+* category[USCore] from USCorePAServiceRequestCategory (required)
 * priority MS
 * code 1..1 MS
 * code from PAInterventions (extensible)
@@ -114,8 +125,11 @@ Description:    "Represents orders and referrals for interventions that help to 
 * subject only Reference(USCorePatientProfile)
 // TODO add support for 'focus'
 * occurrence[x] MS
-* occurrence[x] only Period or dateTime or Timing
-* occurrence[x] ^type[0].extension[$typeMS].valueBoolean = true
+* occurrence[x] only dateTime or Period or Timing
+* occurrence[x] ^type[1].extension[$typeMS].valueBoolean = true
+* occurrencePeriod MS
+* occurrencePeriod.start MS
+* occurrencePeriod.end MS
 * authoredOn 0..1 MS
 * requester MS
 * requester only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile or USCoreOrganizationProfile)
@@ -150,8 +164,11 @@ course of the services delivered by a Service Provider, typically in response to
 * basedOn ^slicing.rules = #open
 * basedOn contains SupportedBasedOn 0..* MS
 * basedOn[SupportedBasedOn] only Reference(PAServiceRequest)
-//* category contains PAProcedure 1..1 MS
-//* category[PAProcedure] = TemporaryCodes#PhysicalActivity
+* category ^slicing.discriminator.type = #pattern
+* category ^slicing.discriminator.path = "$this"
+* category ^slicing.rules = #open
+* category contains PAProc 1..1 MS
+* category[PAProc] = TemporaryCodes#PhysicalActivity
 * code from PAReports (extensible)
 * encounter ^comment = "... While this is inherited as MustSupport from US Core, this element will typically
   not be relevant in the physical activity space as most reports will describe events spanning multiple

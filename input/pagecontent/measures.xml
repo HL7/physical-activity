@@ -397,7 +397,11 @@
         <td style="text-align: center">Y</td>
         <td></td>
         <td>Progress</td>
-        <td>As above</td>
+        <td>This measure is dependent on the device knowing height and/or weight (depending on type of activity), 
+          so without personalization this measure may be less precise.  As well, estimated calories can from device 
+          to device.  Hoewver, comparing measures made with the same device is useful to show progress and set targets.
+          This measure is often 'meaningful' to patients.  However, it can't easily be used to determine exertion levels
+          or duration and thus can't really be used to estimate the <a href="#base">exercise vital sign</a>.</td>
       </tr>
     </tbody>
   </table>

@@ -6,7 +6,7 @@
     status diagram</a> on the Workflow page describes the relationships between the states.  The table below provides additional
     detail on each state, as well as rules around its use.
   </p>
-  <table>
+  <table class="grid">
     <thead>
       <tr>
         <th>Status</th>

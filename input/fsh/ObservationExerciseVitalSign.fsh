@@ -20,7 +20,7 @@ Parent:         EVS
 Id:             observation-evs-days-per-week
 Title:          "Physical Activity Vital Sign Days per Week"
 Description:    "A profile for observations that capture a patient's average days per week of moderate-to-vigorous physical activity."
-* code = http://loinc.org#89555-7
+* code = $loinc#89555-7
 * valueQuantity.code = #d/wk
   
 Profile:        EVSMinutesPerDay
@@ -28,7 +28,7 @@ Parent:         EVS
 Id:             observation-evs-min-per-day
 Title:          "Physical Activity Vital Sign Minutes per Day"
 Description:    "A profile for observations that capture a patient's average minutes per day of moderate-to-vigorous physical activity."
-* code = http://loinc.org#68516-4
+* code = $loinc#68516-4
 * valueQuantity.code = #min/d
 
 Profile:        EVSMinutesPerWeek
@@ -36,7 +36,7 @@ Parent:         EVS
 Id:             observation-evs-min-per-week
 Title:          "Physical Activity Vital Sign Minutes per Week"
 Description:    "A profile for observations that capture a patient's average minutes per week of moderate-to-vigorous physical activity."
-* code = http://loinc.org#82290-8
+* code = $loinc#82290-8
 * valueQuantity.code = #min/wk
 
 Profile:        StrengthDaysPerWeek
@@ -44,5 +44,5 @@ Parent:         EVS
 Id:             observation-strength-days-per-week
 Title:          "Physical Activity Strength Days Week"
 Description:    "A profile for observations that capture a patient's average days per week of muscle-strengthing physical activity."
-* code = http://loinc.org#82291-6
+* code = $loinc#82291-6
 * valueQuantity.code = #d/wk

@@ -29,8 +29,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:cffc4069-2c2f-41af-9f8e-6e1b0907ff71",
-    "timestamp" : "2023-01-31T17:36:03.651Z",
+    "identifier" : "urn:uuid:4eb413b1-9ba6-44f1-b357-40e99c91333a",
+    "timestamp" : "2023-03-15T13:56:26.698Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -5046,5 +5046,25 @@ e: {
   }
 },
   "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "Z72.3"
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--3", "version": "3.1.1", "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Lack of physical exercise",
+  "code" : "Z72.3",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
+  "code" : "Z72.3"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Lack of physical exercise",
+  "code" : "Z72.3",
+  "system" : "http://hl7.org/fhir/sid/icd-10-cm"
 }
 -------------------------------------------------------------------------------------

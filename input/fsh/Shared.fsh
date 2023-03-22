@@ -3,6 +3,10 @@ Alias: $loinc          = http://loinc.org
 Alias: $sct            = http://snomed.info/sct
 Alias: $SDOHCCTemp     = http://hl7.org/fhir/us/sdoh-clinicalcare/CodeSystem/SDOHCC-CodeSystemTemporaryCodes
 
+Alias: $clinicalStatus  = http://terminology.hl7.org/CodeSystem/condition-clinical
+Alias: $verifyStatus    = http://terminology.hl7.org/CodeSystem/condition-ver-status
+Alias: $goalAchievement = http://terminology.hl7.org/CodeSystem/goal-achievement
+
 Alias: $conf           = http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation
 Alias: $minLength      = http://hl7.org/fhir/StructureDefinition/minLength
 Alias: $pertainsToGoal = http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal

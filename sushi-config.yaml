@@ -90,6 +90,49 @@ pages:
       title: Credits
     openissues.xml: 
       title: Open Issues
+resources:
+  ExampleEVSDaysPerWeek:
+    exampleCanonical: EVSDaysPerWeek
+  ExampleEVSMinutesPerDay:
+    exampleCanonical: EVSMinutesPerDay
+  ExampleEVSMinutesPerWeek:
+    exampleCanonical: EVSMinutesPerWeek
+  ExampleStrengthDaysPerWeek:
+    exampleCanonical: StrengthDaysPerWeek
+  ExampleCondition:
+    exampleCanonical: LowPACondition
+  ExampleCarePlan:
+    exampleCanonical: PACarePlan
+  ExampleGoal:
+    exampleCanonical: PAGoal
+  ExampleServiceRequest:
+    exampleCanonical: PAServiceRequest
+  ExampleFufillmentTask:
+    exampleCanonical: PATaskForReferralManagement
+  ExampleReport:
+    exampleCanonical: PADiagnosticReport
+  ExampleActivityGroup:
+    exampleCanonical: PAActivityGroup
+  ExampleActivityType:
+    exampleCanonical: PAActivityMeasure
+  ExampleActivityDuration:
+    exampleCanonical: PAActivityMeasure
+  ExampleActivityModerate:
+    exampleCanonical: PAActivityMeasure
+  ExampleActivityVigorous:
+    exampleCanonical: PAActivityMeasure
+  ExampleActivityPeakHR:
+    exampleCanonical: PAActivityMeasure
+  ExampleActivityCalories:
+    exampleCanonical: PAActivityMeasure
+  ExampleDailySteps:
+    exampleCanonical: PATimeMeasure
+  ExamplePeakDailyHeartRate:
+    exampleCanonical: PATimeMeasure
+  ExampleAverageRestingHeartRate:
+    exampleCanonical: PATimeMeasure
+  ExampleCaloriesPerDay:
+    exampleCanonical: PATimeMeasure
 menu:
   Contents: toc.html
   Home: index.html

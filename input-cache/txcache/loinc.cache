@@ -72,8 +72,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:66db2923-1416-4fe4-a0a1-831df5ca865f",
-    "timestamp" : "2023-01-31T17:35:36.183Z",
+    "identifier" : "urn:uuid:ca49fbff-b6cc-4156-b7ac-f7f70434f4fd",
+    "timestamp" : "2023-03-15T13:56:03.495Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -148,8 +148,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:110074fa-8972-408c-9a89-5886b83469be",
-    "timestamp" : "2023-01-31T17:35:37.105Z",
+    "identifier" : "urn:uuid:9e8b3ba3-4c37-4eec-a312-550faf2bd36a",
+    "timestamp" : "2023-03-15T13:56:04.105Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -211,8 +211,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:4512131c-cc88-44af-862d-0ebb12b024bf",
-    "timestamp" : "2023-01-31T17:35:37.964Z",
+    "identifier" : "urn:uuid:314ad48b-e1ce-469d-b854-5a22640c975d",
+    "timestamp" : "2023-03-15T13:56:04.573Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -272,8 +272,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:99c71129-49ce-406e-9b7b-c87d60179c97",
-    "timestamp" : "2023-01-31T17:35:38.870Z",
+    "identifier" : "urn:uuid:6e286777-2663-4a40-bb4f-30412939bfc4",
+    "timestamp" : "2023-03-15T13:56:04.995Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -514,8 +514,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:8f93427b-a2f4-46ab-ac7f-2a792ee3b213",
-    "timestamp" : "2023-01-31T17:35:52.933Z",
+    "identifier" : "urn:uuid:39d12004-1345-469e-a2b8-e5a3d4ebdd08",
+    "timestamp" : "2023-03-15T13:56:21.198Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -617,8 +617,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:06cfab41-aca8-4dc2-8f87-598f64674893",
-    "timestamp" : "2023-01-31T17:35:53.198Z",
+    "identifier" : "urn:uuid:75911b3a-352d-4a23-a6f5-68c25adaf444",
+    "timestamp" : "2023-03-15T13:56:21.433Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -720,8 +720,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:ec3d06e5-cb37-4286-8444-ba6dfff5f16e",
-    "timestamp" : "2023-01-31T17:35:53.683Z",
+    "identifier" : "urn:uuid:8f8eb3e1-7bb6-4e2c-b141-6d56849d3237",
+    "timestamp" : "2023-03-15T13:56:21.605Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -5763,8 +5763,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:19bcf81e-91a8-4782-9096-a2d60089e63b",
-    "timestamp" : "2023-01-31T17:35:54.386Z",
+    "identifier" : "urn:uuid:c16d663d-d92b-4755-8f02-171b21eae047",
+    "timestamp" : "2023-03-15T13:56:22.120Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -10806,8 +10806,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:202db4ed-a3e6-4de9-867f-145f48e3c037",
-    "timestamp" : "2023-01-31T17:35:54.792Z",
+    "identifier" : "urn:uuid:1121d584-1d37-49cd-9b62-4866b30601ad",
+    "timestamp" : "2023-03-15T13:56:22.652Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -15849,8 +15849,8 @@ e: {
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:731f2d40-0ded-4da2-9ba3-f2c555d94b34",
-    "timestamp" : "2023-01-31T17:35:55.167Z",
+    "identifier" : "urn:uuid:84bbb9b2-9a5d-4e1d-b493-5c27333edf17",
+    "timestamp" : "2023-03-15T13:56:22.980Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -20888,8 +20888,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:dfd01710-bc52-4d51-b5ec-3d11f2087abc",
-    "timestamp" : "2023-01-31T17:35:55.651Z",
+    "identifier" : "urn:uuid:d66234e2-9cf6-4e9d-a7ee-bee9d4191aaf",
+    "timestamp" : "2023-03-15T13:56:23.417Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -20961,8 +20961,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:c4ba7502-9f9d-4bce-ac9f-b7d5f3644351",
-    "timestamp" : "2023-01-31T17:35:56.339Z",
+    "identifier" : "urn:uuid:61feaff1-3756-4045-8b58-2ae17b0b57fd",
+    "timestamp" : "2023-03-15T13:56:23.667Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -21018,8 +21018,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:bbc32d1d-5d6d-432f-8b84-d9c44105a251",
-    "timestamp" : "2023-01-31T17:37:10.760Z",
+    "identifier" : "urn:uuid:4f4158ea-6897-49da-a24a-1debb8476aa2",
+    "timestamp" : "2023-03-15T13:57:31.120Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -21090,8 +21090,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:4a1f6c8d-0f86-4e25-9887-13539d573ce5",
-    "timestamp" : "2023-01-31T17:37:11.854Z",
+    "identifier" : "urn:uuid:64bb7636-8de1-4b82-963e-55bf9b3dba71",
+    "timestamp" : "2023-03-15T13:57:32.011Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -21149,8 +21149,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:0c9db5f7-e0c5-4cc4-971b-f3dc0e29157d",
-    "timestamp" : "2023-01-31T17:37:12.510Z",
+    "identifier" : "urn:uuid:5c7249d1-9206-4f53-89cf-a86cdffa01b0",
+    "timestamp" : "2023-03-15T13:57:32.355Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -21206,8 +21206,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:aaaf8e12-dec4-4e40-b7ab-e46dc4189720",
-    "timestamp" : "2023-01-31T17:37:13.417Z",
+    "identifier" : "urn:uuid:4603130f-7e0d-4ebd-9d60-3cdd70336166",
+    "timestamp" : "2023-03-15T13:57:33.073Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -21243,12 +21243,347 @@ e: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://loinc.org",
-  "code" : "5792-7"
-}, "valueSet" :{
-  "resourceType" : "ValueSet"
-}, "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+  "code" : "89555-7"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/ValueSetEVS--0", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "How many days per week did you engage in moderate to strenuous physical activity in the last 30 days",
+  "code" : "89555-7",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "89555-7"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/ValueSetEVS", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "How many days per week did you engage in moderate to strenuous physical activity in the last 30 days",
+  "code" : "89555-7",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "82290-8"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/ValueSetEVS--0", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Frequency of moderate to vigorous aerobic physical activity",
+  "code" : "82290-8",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "82290-8"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/ValueSetEVS", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "Frequency of moderate to vigorous aerobic physical activity",
+  "code" : "82290-8",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "68516-4"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/ValueSetEVS--0", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "On those days that you engage in moderate to strenuous exercise, how many minutes, on average, do you exercise",
+  "code" : "68516-4",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "68516-4"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/ValueSetEVS", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "On those days that you engage in moderate to strenuous exercise, how many minutes, on average, do you exercise",
+  "code" : "68516-4",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "82291-6"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/ValueSetEVS--0", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Frequency of muscle-strengthening physical activity",
+  "code" : "82291-6",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "82291-6"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/ValueSetEVS", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "Frequency of muscle-strengthening physical activity",
+  "code" : "82291-6",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "77592-4"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PAActivityMeasures--0", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Moderate physical activity [IPAQ]",
+  "code" : "77592-4",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "77592-4",
+  "display" : "Calories burned in Unspecified Time, Pedometer"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PAActivityMeasures", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "Moderate physical activity [IPAQ]",
+  "code" : "77592-4",
+  "system" : "http://loinc.org",
+  "severity" : "warning",
+  "error" : "The display \"Calories burned in Unspecified Time, Pedometer\" is not a valid display for the code {http://loinc.org}77592-4 - should be one of ['Moderate physical activity [IPAQ]', ''] (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "77592-4"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Moderate physical activity [IPAQ]",
+  "code" : "77592-4",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "55411-3"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PAActivityMeasures--0", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Exercise duration",
+  "code" : "55411-3",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "55411-3",
+  "display" : "Exercise duration"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PAActivityMeasures", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "Exercise duration",
+  "code" : "55411-3",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "55411-3"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Exercise duration",
+  "code" : "55411-3",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "77592-4",
+  "display" : "Moderate physical activity"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PAActivityMeasures", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "Moderate physical activity [IPAQ]",
+  "code" : "77592-4",
+  "system" : "http://loinc.org",
+  "severity" : "warning",
+  "error" : "The display \"Moderate physical activity\" is not a valid display for the code {http://loinc.org}77592-4 - should be one of ['Moderate physical activity [IPAQ]', ''] (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "77592-4",
+  "display" : "Maximum Heat rate in Unspecified Time"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PAActivityMeasures", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "Moderate physical activity [IPAQ]",
+  "code" : "77592-4",
+  "system" : "http://loinc.org",
+  "severity" : "warning",
+  "error" : "The display \"Maximum Heat rate in Unspecified Time\" is not a valid display for the code {http://loinc.org}77592-4 - should be one of ['Moderate physical activity [IPAQ]', ''] (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "73985-4"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PAActivityMeasures--0", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Exercise activity",
+  "code" : "73985-4",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "73985-4",
+  "display" : "Exercise Activity"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PAActivityMeasures", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "Exercise activity",
+  "code" : "73985-4",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "73985-4"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Exercise activity",
+  "code" : "73985-4",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "LA11836-6",
+  "display" : "Running"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Running",
+  "code" : "LA11836-6",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "77592-4",
+  "display" : "Vigorous physical activity"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PAActivityMeasures", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "Moderate physical activity [IPAQ]",
+  "code" : "77592-4",
+  "system" : "http://loinc.org",
+  "severity" : "warning",
+  "error" : "The display \"Vigorous physical activity\" is not a valid display for the code {http://loinc.org}77592-4 - should be one of ['Moderate physical activity [IPAQ]', ''] (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "40443-4"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PATimeMeasures--0", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Heart rate --resting",
+  "code" : "40443-4",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "40443-4",
+  "display" : "Heart rate - resting"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PATimeMeasures", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "Heart rate --resting",
+  "code" : "40443-4",
+  "system" : "http://loinc.org",
+  "severity" : "warning",
+  "error" : "The display \"Heart rate - resting\" is not a valid display for the code {http://loinc.org}40443-4 - should be one of ['Heart rate --resting', 'Heart rate Resting', '', '不明的' (zh-CN), '其他' (zh-CN), '将在相应消息内其他部分之中加以详细说明' (zh-CN), '未作详细说明的' (zh-CN), '未作说明的' (zh-CN), '未做说明的标本' (zh-CN), '未加规定的' (zh-CN), '未加说明的标本' (zh-CN), '杂项 休息' (zh-CN), '休息状态' (zh-CN), '静息状态 单位时间内的数量或计数' (zh-CN), '数量/时间' (zh-CN), '数量型速率' (zh-CN), '数量型速率或计数型速率' (zh-CN), '数量型速率或计数型速率(单位时间)' (zh-CN), '数量或计数型速率' (zh-CN), '计数/时间' (zh-CN), '计数型速率(单位时间)' (zh-CN), '数量或计数型速率(单位时间) 可用数量表示的' (zh-CN), '定量性' (zh-CN), '数值型' (zh-CN), '数量型' (zh-CN), '连续数值型标尺 心搏率' (zh-CN), '心跳速率 时刻' (zh-CN), '随机' (zh-CN), '随意' (zh-CN), '瞬间 特殊心率 速度' (zh-CN), 'nRate' (pt-BR), 'Number rate' (pt-BR), 'Count/time' (pt-BR), 'Point in time' (pt-BR), 'Random' (pt-BR), 'Misc' (pt-BR), 'Miscellaneous' (pt-BR), 'Unspecified' (pt-BR), 'Other' (pt-BR), 'Quantitative' (pt-BR), 'QNT' (pt-BR), 'Quant' (pt-BR), 'Quan' (pt-BR), 'Pulse' (pt-BR), 'Heart beat' (pt-BR), 'HEART RATE.MOLEC' (pt-BR), 'Frequenza cardiaca - molecolare Indice numerico Punto nel tempo (episodio)' (it-IT), 'Количественный Количество скорость Точка во времени' (ru-RU), 'Момент' (ru-RU)] (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "40443-4"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Heart rate --resting",
+  "code" : "40443-4",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "41979-6"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PATimeMeasures--0", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Calories burned in 24 hour Calculated",
+  "code" : "41979-6",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "41979-6",
+  "display" : "Calories burned in 24 Hours, Calc"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PATimeMeasures", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "Calories burned in 24 hour Calculated",
+  "code" : "41979-6",
+  "system" : "http://loinc.org",
+  "severity" : "warning",
+  "error" : "The display \"Calories burned in 24 Hours, Calc\" is not a valid display for the code {http://loinc.org}41979-6 - should be one of ['Calories burned in 24 hour Calculated', 'Calories burned 24h Calc', '', '1天' (zh-CN), '1日' (zh-CN), '24.0小时' (zh-CN), '一天' (zh-CN), '一日' (zh-CN), '二十四个小时' (zh-CN), '二十四小时 做功的速率' (zh-CN), '功率(能量/时间)' (zh-CN), '单位时间内所做功的量' (zh-CN), '能量/时间' (zh-CN), '能量速率 医疗服务对象' (zh-CN), '客户' (zh-CN), '病人' (zh-CN), '病患' (zh-CN), '病号' (zh-CN), '超系统 - 病人 可用数量表示的' (zh-CN), '定量性' (zh-CN), '数值型' (zh-CN), '数量型' (zh-CN), '连续数值型标尺 已消耗的卡' (zh-CN), '已消耗的大卡' (zh-CN), '已消耗的卡路里' (zh-CN), '已燃烧的卡' (zh-CN), '已燃烧的卡路里' (zh-CN), '已燃烧的大卡' (zh-CN), '已燃烧的热量 计算' (zh-CN), '计算型方法' (zh-CN), 'Power' (pt-BR), 'Energy/time' (pt-BR), '1 day' (pt-BR), '24 hours' (pt-BR), '24HR' (pt-BR), 'Quantitative' (pt-BR), 'QNT' (pt-BR), 'Quant' (pt-BR), 'Quan' (pt-BR), 'Calc' (pt-BR), 'Calculation' (pt-BR), '24 Ore Clinico paziente Potenza (Energia/Tempo)' (it-IT), 'Количественный Мощность (Энергия/Время)' (ru-RU)] (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "41979-6"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Calories burned in 24 hour Calculated",
+  "code" : "41979-6",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "41950-7"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PATimeMeasures--0", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
 v: {
   "severity" : "error",
-  "error" : "The code provided (http://loinc.org#5792-7) is not valid in the value set 'ObservationStatus' (from http://tx.fhir.org/r4)"
+  "error" : "The code provided (http://loinc.org#41950-7) is not valid (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "41950-7",
+  "display" : "Number of steps in 24 Hours, Measured"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Number of steps in 24 hour Measured",
+  "code" : "41950-7",
+  "system" : "http://loinc.org",
+  "severity" : "warning",
+  "error" : "The display \"Number of steps in 24 Hours, Measured\" is not a valid display for the code {http://loinc.org}41950-7 - should be one of ['Number of steps in 24 hour Measured', '# steps 24h nRate Measured', '', '1天' (zh-CN), '1日' (zh-CN), '24.0小时' (zh-CN), '一天' (zh-CN), '一日' (zh-CN), '二十四个小时' (zh-CN), '二十四小时 个数' (zh-CN), '数目 医疗服务对象' (zh-CN), '客户' (zh-CN), '病人' (zh-CN), '病患' (zh-CN), '病号' (zh-CN), '超系统 - 病人 单位时间内的数量或计数' (zh-CN), '数量/时间' (zh-CN), '数量型速率' (zh-CN), '数量型速率或计数型速率' (zh-CN), '数量型速率或计数型速率(单位时间)' (zh-CN), '数量或计数型速率' (zh-CN), '计数/时间' (zh-CN), '计数型速率(单位时间)' (zh-CN), '数量或计数型速率(单位时间) 可用数量表示的' (zh-CN), '定量性' (zh-CN), '数值型' (zh-CN), '数量型' (zh-CN), '连续数值型标尺 测定法' (zh-CN), '量度法' (zh-CN), '量测法 迈出步子的数量' (zh-CN), '步骤数' (zh-CN), '台阶级数' (zh-CN), '# steps' (pt-BR), 'Num' (pt-BR), 'No' (pt-BR), 'nRate' (pt-BR), 'Number rate' (pt-BR), 'Count/time' (pt-BR), '1 day' (pt-BR), '24 hours' (pt-BR), '24HR' (pt-BR), 'Quantitative' (pt-BR), 'QNT' (pt-BR), 'Quant' (pt-BR), 'Quan' (pt-BR), '24 Ore Clinico Indice numerico paziente' (it-IT), 'Количественный Количество скорость' (ru-RU)] (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "8873-2"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PATimeMeasures--0", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Heart rate 24 hour maximum",
+  "code" : "8873-2",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "8873-2",
+  "display" : "Maximum Hear rate 24 Hours"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PATimeMeasures", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "Heart rate 24 hour maximum",
+  "code" : "8873-2",
+  "system" : "http://loinc.org",
+  "severity" : "warning",
+  "error" : "The display \"Maximum Hear rate 24 Hours\" is not a valid display for the code {http://loinc.org}8873-2 - should be one of ['Heart rate 24 hour maximum', 'Heart rate 24h Max', '', '1天' (zh-CN), '1日' (zh-CN), '24.0小时' (zh-CN), '一天' (zh-CN), '一日' (zh-CN), '二十四个小时' (zh-CN), '二十四小时 不明的' (zh-CN), '其他' (zh-CN), '将在相应消息内其他部分之中加以详细说明' (zh-CN), '未作详细说明的' (zh-CN), '未作说明的' (zh-CN), '未做说明的标本' (zh-CN), '未加规定的' (zh-CN), '未加说明的标本' (zh-CN), '杂项 单位时间内的数量或计数' (zh-CN), '数量/时间' (zh-CN), '数量型速率' (zh-CN), '数量型速率或计数型速率' (zh-CN), '数量型速率或计数型速率(单位时间)' (zh-CN), '数量或计数型速率' (zh-CN), '计数/时间' (zh-CN), '计数型速率(单位时间)' (zh-CN), '数量或计数型速率(单位时间) 可用数量表示的' (zh-CN), '定量性' (zh-CN), '数值型' (zh-CN), '数量型' (zh-CN), '连续数值型标尺 定时型特殊心率 心搏率' (zh-CN), '心跳速率 最大' (zh-CN), '极大值 速度' (zh-CN), 'nRate' (pt-BR), 'Number rate' (pt-BR), 'Count/time' (pt-BR), '1 day' (pt-BR), '24 hours' (pt-BR), '24HR' (pt-BR), 'Maximum' (pt-BR), 'Misc' (pt-BR), 'Miscellaneous' (pt-BR), 'Unspecified' (pt-BR), 'Other' (pt-BR), 'Quantitative' (pt-BR), 'QNT' (pt-BR), 'Quant' (pt-BR), 'Quan' (pt-BR), 'Pulse' (pt-BR), 'Heart beat' (pt-BR), 'HEART RATE.TIMED.MOL' (pt-BR), '24 Ore Frequenza cardiaca - cronometrata - molecolare Indice numerico massimo' (it-IT), 'Количественный Количество скорость' (ru-RU)] (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "8873-2"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Heart rate 24 hour maximum",
+  "code" : "8873-2",
+  "system" : "http://loinc.org"
 }
 -------------------------------------------------------------------------------------
