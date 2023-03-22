@@ -235,5 +235,5 @@ Description:    "Represents a request for fufillment of a physical activity-rela
 
 Invariant:   pa-taskrm-1
 Description: "Task.statusReason is required if Task.status is 'rejected', 'on-hold', 'cancelled', or 'failed' and is not permitted otherwise."
-Expression:  "Task.statusReason.exists() = Task.status in {'rejected', 'on-hold', 'cancelled', 'failed'}"
+Expression:  "Task.statusReason.exists() = Task.status='rejected' or Task.status='on-hold' or Task.status='cancelled' or Task.status='failed'}"
 Severity:    #error

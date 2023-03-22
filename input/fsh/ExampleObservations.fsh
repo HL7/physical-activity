@@ -41,11 +41,11 @@ Description: "An example observation capturing a patient's average minutes per d
 Instance:    ExampleActivityGroup
 InstanceOf:  PAActivityGroup
 Title:       "Example Observation Exercise Minutes per Week"
-Description: "An example observation capturing a patient's average minutes per week of moderate to vigorous physical exercise."
+Description: "An example observation capturing information about a specific patient exercise activity."
 * subject	        = Reference(http://example.org/Patient/1)
 * effectiveDateTime = "2022-06-08"
 * performer         = Reference(http://example.org/Patient/1)
-* hasMember[+]      = Reference(PAActivityMeasureType)
+* hasMember[+]      = Reference(PAActivityType)
 * hasMember[+]      = Reference(ExampleActivityDuration)
 * hasMember[+]      = Reference(ExampleActivityModerate)
 * hasMember[+]      = Reference(ExampleActivityVigorous)
@@ -87,7 +87,7 @@ Instance:    ExampleActivityVigorous
 InstanceOf:  PAActivityMeasure
 Title:       "Example Observation Activity Measure - Vigorous Minutes"
 Description: "An example observation capturing how many minutes of running were at vigorous exertion level."
-* code              = $loinc#77592-4 "Vigorous physical activity [IPAQ]"
+* code              = $loinc#77593-2 "Vigorous physical activity [IPAQ]"
 * subject	        = Reference(http://example.org/Patient/1)
 * effectiveDateTime = "2022-06-08"
 * performer         = Reference(http://example.org/Patient/1)
@@ -97,7 +97,7 @@ Instance:    ExampleActivityPeakHR
 InstanceOf:  PAActivityMeasure
 Title:       "Example Observation Activity Measure - Peak Heart Rate"
 Description: "An example observation capturing the patient's peak heart rate during their run."
-* code              = $loinc#77592-4 "Maximum Heat rate in Unspecified Time"
+* code              = $loinc#55422-0 "Maximum Heat rate in Unspecified Time"
 * subject	        = Reference(http://example.org/Patient/1)
 * effectiveDateTime = "2022-06-08"
 * performer         = Reference(http://example.org/Patient/1)
@@ -149,7 +149,7 @@ Description: "An example observation capturing a patient's average resting heart
 Instance:    ExampleCaloriesPerDay
 InstanceOf:  PATimeMeasure
 Title:       "Example Observation Calories per Day"
-Description: "An example observation capturing a patient's average minutes per week of moderate to vigorous physical exercise."
+Description: "An example observation capturing a patient's calories burned over the last day."
 * code              = $loinc#41979-6 "Calories burned in 24 hour Calculated"
 * subject	        = Reference(http://example.org/Patient/1)
 * effectiveDateTime = "2022-06-08"

@@ -21607,3 +21607,93 @@ v: {
   "system" : "http://loinc.org"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "41979-6"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PAActivityMeasures--0", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "severity" : "error",
+  "error" : "The code provided (http://loinc.org#41979-6) is not valid (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "41979-6",
+  "display" : "Calories burned in Unspecified Time, Pedometer"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Calories burned in 24 hour Calculated",
+  "code" : "41979-6",
+  "system" : "http://loinc.org",
+  "severity" : "warning",
+  "error" : "The display \"Calories burned in Unspecified Time, Pedometer\" is not a valid display for the code {http://loinc.org}41979-6 - should be one of ['Calories burned in 24 hour Calculated', 'Calories burned 24h Calc', '', '1天' (zh-CN), '1日' (zh-CN), '24.0小时' (zh-CN), '一天' (zh-CN), '一日' (zh-CN), '二十四个小时' (zh-CN), '二十四小时 做功的速率' (zh-CN), '功率(能量/时间)' (zh-CN), '单位时间内所做功的量' (zh-CN), '能量/时间' (zh-CN), '能量速率 医疗服务对象' (zh-CN), '客户' (zh-CN), '病人' (zh-CN), '病患' (zh-CN), '病号' (zh-CN), '超系统 - 病人 可用数量表示的' (zh-CN), '定量性' (zh-CN), '数值型' (zh-CN), '数量型' (zh-CN), '连续数值型标尺 已消耗的卡' (zh-CN), '已消耗的大卡' (zh-CN), '已消耗的卡路里' (zh-CN), '已燃烧的卡' (zh-CN), '已燃烧的卡路里' (zh-CN), '已燃烧的大卡' (zh-CN), '已燃烧的热量 计算' (zh-CN), '计算型方法' (zh-CN), 'Power' (pt-BR), 'Energy/time' (pt-BR), '1 day' (pt-BR), '24 hours' (pt-BR), '24HR' (pt-BR), 'Quantitative' (pt-BR), 'QNT' (pt-BR), 'Quant' (pt-BR), 'Quan' (pt-BR), 'Calc' (pt-BR), 'Calculation' (pt-BR), '24 Ore Clinico paziente Potenza (Energia/Tempo)' (it-IT), 'Количественный Мощность (Энергия/Время)' (ru-RU)] (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "77592-4",
+  "display" : "Moderate physical activity [IPAQ]"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PAActivityMeasures", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "Moderate physical activity [IPAQ]",
+  "code" : "77592-4",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "77592-4",
+  "display" : "Vigorous physical activity [IPAQ]"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PAActivityMeasures", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "Moderate physical activity [IPAQ]",
+  "code" : "77592-4",
+  "system" : "http://loinc.org",
+  "severity" : "warning",
+  "error" : "The display \"Vigorous physical activity [IPAQ]\" is not a valid display for the code {http://loinc.org}77592-4 - should be one of ['Moderate physical activity [IPAQ]', ''] (from http://tx.fhir.org/r4)"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "40443-4",
+  "display" : "Heart rate Resting"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PATimeMeasures", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "Heart rate --resting",
+  "code" : "40443-4",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "41979-6",
+  "display" : "Calories burned in 24 hour Calculated"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PATimeMeasures", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "Calories burned in 24 hour Calculated",
+  "code" : "41979-6",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "41950-7",
+  "display" : "Number of steps in 24 hour Measured"
+}, "valueSet" :null, "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "versionFlexible":"true"}####
+v: {
+  "display" : "Number of steps in 24 hour Measured",
+  "code" : "41950-7",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "8873-2",
+  "display" : "Heart rate 24 hour maximum"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PATimeMeasures", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+v: {
+  "display" : "Heart rate 24 hour maximum",
+  "code" : "8873-2",
+  "system" : "http://loinc.org"
+}
+-------------------------------------------------------------------------------------
