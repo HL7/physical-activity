@@ -18,6 +18,8 @@ Description:    "A profile describing base requirements for all primary physical
 * effectivePeriod.end 1..1 MS
 * effectivePeriod.end ^extension[$minLength].valueInteger = 10
 * value[x] only CodeableConcept or Quantity
+* valueCodeableConcept 0..1
+* valueQuantity 0..1
 * valueQuantity.value 1..1 MS
 * valueQuantity.system = "http://unitsofmeasure.org"
 * note MS
