@@ -52,7 +52,7 @@ v: {
   "system" : "http://loinc.org",
   "code" : "11488-4",
   "display" : "Consult note"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/PAReports", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-diagnosticreport-type", "version": "1.0.0-ballot", "lang":"null", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "versionFlexible":"true"}####
 v: {
   "display" : "Consult note",
   "code" : "11488-4",

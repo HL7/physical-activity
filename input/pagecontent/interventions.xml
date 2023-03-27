@@ -121,7 +121,7 @@
     <li>enrollment in group programs that support any or all of the above.</li>
   </ul>
   <p>
-    The high-level list of candidate codes for types of interventions that can be ordered is found <a href="ValueSet-PAInterventions.html">here</a>.
+    The high-level list of candidate codes for types of interventions that can be ordered is found <a href="ValueSet-pa-servicerequest-code.html">here</a>.
     However, additional detail can be provided with text and, by mutual agreement, more detailed codes.  The set of codes defined in this
     implementation guide will evolve based on implementer feedback.
   </p>

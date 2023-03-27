@@ -4,9 +4,10 @@
   "compose" : {
     "inactive" : true,
     "include" : [{
-      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/temporary-codes",
+      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
       "concept" : [{
-        "code" : "PAConsultNote"
+        "code" : "PAConsultNote",
+        "display" : "Physical activity Consult note"
       }]
     }]
   }
@@ -17,8 +18,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:fd958e24-087b-4966-8548-6340faf85751",
-    "timestamp" : "2023-03-22T20:33:04.933Z",
+    "identifier" : "urn:uuid:e945b79c-d78a-4385-a2d4-56b7a13f074e",
+    "timestamp" : "2023-03-27T05:20:30.370Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -29,14 +30,14 @@ e: {
     },
     {
       "name" : "version",
-      "valueUri" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/temporary-codes|1.0.0-ballot"
+      "valueUri" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|1.0.0-ballot"
     }],
     "contains" : [{
       "extension" : [{
         "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "A consult note that describes assessments and\r\n  interventions related to a patient's level of physical activity."
+        "valueString" : "A consult note that describes assessments and interventions related to a patient's level of physical activity."
       }],
-      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/temporary-codes",
+      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
       "code" : "PAConsultNote",
       "display" : "Physical activity Consult note"
     }]

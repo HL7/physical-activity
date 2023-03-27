@@ -1,0 +1,6 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <p>
+    This generic profile sets the common expectations that will be inherited by all of the observation profiles in this IG.  It is not
+    intended to be implemented directly.
+  </p>
+</div>

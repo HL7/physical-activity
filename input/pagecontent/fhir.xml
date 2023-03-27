@@ -84,26 +84,4 @@
     operations.
   </p>-->
 
-  <a name="conformance"> </a>
-  <h4>Conformance and Must Support</h4>
-	<p>
-    FHIR defines the notion of <a href="{{site.data.fhir.path}}conformance-rules.html#mustSupport">Must Support</a> to help establish conformance expectations for systems.  The specific meaning of
-    "must support" is left to be defined in individual implementation guides.  For the purposes of <i>this</i> implementation guide, "must support" shall be interpreted as follows:
-  </p>
-	<ul>
-		<li>Conformant systems SHALL be capable of sending and receiving the data element</li>
-		<li>When a system persists a resource instance, all "must support" elements SHALL be persisted and retrieved with other elements</li>
-		<li>TODO: Other things?</li>
-	</ul>
-	
-	<a name="terminology"> </a>
-	<h4>Terminology expectations</h4>
-	<p>
-	  This implementation guide makes use of a number of external terminologies, including LOINC, SNOMED CT and CPT codes.  In
-	  some places, the IG has identified the need for a code that does not yet exist in any of these external locations, but
-	  which probably makes sense to be added to one of those code systems.  In this case, we have defined 'temporary' codes
-	  in the [temporary-codes](CodeSystem-temporary-codes.html) Code system.  The location and value of these codes <b>WILL</b>
-	  change in a future release of the specification.  Implementers should plan to accomodate this as part of their designs.
-	</p>
-
 </div>

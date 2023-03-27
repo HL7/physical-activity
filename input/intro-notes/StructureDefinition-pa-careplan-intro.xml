@@ -1,0 +1,8 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <p>
+    This resource allows capturing a textual care plan describing how to address a patient's physical activity needs.  It can be linked to
+    specific <a href="StructureDefinition-pa-goal.html">goals</a> and also allows different participants in a patient's care to make comments.
+    CarePlans might be developed and stored on <a href="CapabilityStatement-pa-care-manager.html">Care Managers</a> or
+    <a href="CapabilityStatement-pa-service-provider-full.html">Full Service Providers</a>.
+  </p>
+</div>

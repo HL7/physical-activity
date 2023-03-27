@@ -1,0 +1,7 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <p>
+    Used to capture observations in accordance with the codes, data types, and other constraints shown in the <a href="measures.html#activity">Activity-based Measures</a> section
+    on the Measures page.  All measures associated with a single contiguous exercise event are typically grouped in the
+    <a href="StructureDefinition-pa-observation-activity-group.html">Activity Group</a> observation.
+  </p>
+</div>

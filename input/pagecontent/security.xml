@@ -1,6 +1,54 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
   <p>
-    Todo - expectations for secure connection and authentication; reference to Gravity, US-core and international pages; expectations around consent; shared/delegated access
-    HIPAA expectations for providers - pointer to education
+    While exercise-related information is typically less sensitive than most healthcare information, it is still considered to be protected healthcare
+    information.  As such, the data sharing enabledy by this IG requires authentication, authorization, and secure transport.
+  </p>
+  <p>
+    Implementers of this IG are expected to adhere to the same security and privacy rules as are <a href="{{site.data.fhir.ver.sdoh}}/privacy_and_security.html">defined
+    in the Gravity IG</a>.  Gravity allows several alternative authentication mechanisms, however in the near-term, implementers of this IG are strongly encouraged
+    to use the <a href="http://hl7.org/fhir/smart-app-launch/2023Jan/app-launch.html">SMART App Launch</a> mechanism for user-mediated interactions (e.g. 
+    interactions from a <a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagement</a> system or 
+    <a href="CapabilityStatement-pa-service-provider-light.html">Light Service Provider</a>) and
+    <a href="http://hl7.org/fhir/smart-app-launch/2023Jan/backend-services.html">SMART Backend Services</a> for system-to-system interactions that do not
+    necessarily involve human intervention (e.g. between a <a href="CapabilityStatement-pa-care-manager.html">Care Manager</a> and a 
+    <a href="CapabilityStatement-pa-service-provider-full.html">Full Service Provider</a>).
+  </p>
+  
+  <a name="consent"> </a>
+  <h3>Consent</h3>
+  <p>
+    Many of the exercise professionals and exercise organizations that will be <a href="workflow.html#serviceprovider">Service Providers</a> in this IG fall outside 
+    the bounds of "Covered Entities" from a HIPAA perspective.  As such, consent will typically be required in order for referrals, plans, goals, observations, etc.
+    to be shared from clinical systems.  In addition, consent will often be needed if patient information is to be shared with a patient's caregivers.  It is the 
+    responsibility of each organization and provider to ensure that consent is gathered when necessary and that disclosures are conducted in compliance with the
+    consents on file.
+  </p>
+  <p>
+    This specification does not set expectations for sharing consent information because, at present, it does not envision the use of
+    <a href="design.html#intermediaries">intermediaries</a> and that would be the primary reason why other systems would need to have an awareness of what
+    consent(s) had been granted.  For implementers who do make use of intermediaries, conveying consent as 
+    <a href="{{site.data.fhir.ver.sdoh}}exchange_workflow.html#workflow-and-managing-consent">described</a> by the Gravity SDOH IG should be workable.
+  </p>
+  
+  <a name="shared"> </a>
+  <h3>Shared or Delegated Access</h3>
+  <p>
+    In implementations where caregivers are involved in accessing and/or reporting patient information via <i>Patient Engagement</i> systems, those systems
+    <b>SHOULD</b> be designed to allow each caregiver to authenticate independently and track what information is accessed, created, or updated by which
+    individual.  Unless both <i>Care Managers</i> and <i>Service Providers</i> maintain a shared or synchronized authorization server that tracks patient
+    delegated access, such users will need to be configured independently for each system they have access to.
+  </p>
+  
+  <a name="access"> </a>
+  <h3>Access Management</h3>
+  <p>
+    This specification relies on RESTful searches to allow retrieval of data from other systems.  When a <i>Service Provider</i> searches for observations,
+    goals, plans, etc. on a <i>Care Manager</i>, it is unlikely that they will (or should) have access to all data available.  It is the responsibility of
+    all systems acting as a data source to ensure that the data consumer <i>only</i> has access to the patient records and the data from within those
+    records that is appropriate for the type of care they are offering.  In some cases, that may include information beyond what is defined in this IG.
+    For example, it may be appropriate (with patient consent) to disclose to an exercise professional that a patient is taking an ACE inhibitor, is
+    diabetic, etc.  It is up to organizational policy, in conjunction with regulation and patient preferences, to determine what data should be made
+    available.  As discussed in the <a href="design.html">Design</a> section, <a href="design.html#categories">Categories</a> may prove to be a helpful
+    mechanism to assist in filtering, but they are not the only option, and may not be sufficient for all filtering that needs to be performed.
   </p>
 </div>

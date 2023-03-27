@@ -1,0 +1,7 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <p>
+    Goals might be set by clinicians, patients, caregivers and/or exercise professionals and their status and the notes on them might be updated
+    by any of these individuals as well.  Goals help patients and caregivers to better evaluate their day-to-day <a href="measures.html#support">supporting
+    measures</a> and help provide motivation for change.
+  </p>
+</div>

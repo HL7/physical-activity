@@ -1,0 +1,119 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://hl7.org/fhir/diagnostic-report-status",
+      "concept" : [{
+        "code" : "partial"
+      },
+      {
+        "code" : "preliminary"
+      },
+      {
+        "code" : "final"
+      },
+      {
+        "code" : "amended"
+      },
+      {
+        "code" : "corrected"
+      },
+      {
+        "code" : "appended"
+      },
+      {
+        "code" : "entered-in-error"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:92991c6d-9aea-47cc-807f-26b2fea76ada",
+    "timestamp" : "2023-03-26T06:34:16.760Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://hl7.org/fhir/diagnostic-report-status|4.0.1"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "This is a partial (e.g. initial, interim or preliminary) report: data in the report may be incomplete or unverified."
+      }],
+      "system" : "http://hl7.org/fhir/diagnostic-report-status",
+      "code" : "partial",
+      "display" : "Partial"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Verified early results are available, but not all  results are final."
+      }],
+      "system" : "http://hl7.org/fhir/diagnostic-report-status",
+      "code" : "preliminary",
+      "display" : "Preliminary"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "The report is complete and verified by an authorized person."
+      }],
+      "system" : "http://hl7.org/fhir/diagnostic-report-status",
+      "code" : "final",
+      "display" : "Final"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Subsequent to being final, the report has been modified.  This includes any change in the results, diagnosis, narrative text, or other content of a report that has been issued."
+      }],
+      "system" : "http://hl7.org/fhir/diagnostic-report-status",
+      "code" : "amended",
+      "display" : "Amended"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Subsequent to being final, the report has been modified  to correct an error in the report or referenced results."
+      }],
+      "system" : "http://hl7.org/fhir/diagnostic-report-status",
+      "code" : "corrected",
+      "display" : "Corrected"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Subsequent to being final, the report has been modified by adding new content. The existing content is unchanged."
+      }],
+      "system" : "http://hl7.org/fhir/diagnostic-report-status",
+      "code" : "appended",
+      "display" : "Appended"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "The report has been withdrawn following a previous final release.  This electronic record should never have existed, though it is possible that real-world decisions were based on it. (If real-world activity has occurred, the status should be \"cancelled\" rather than \"entered-in-error\".)."
+      }],
+      "system" : "http://hl7.org/fhir/diagnostic-report-status",
+      "code" : "entered-in-error",
+      "display" : "Entered in Error"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

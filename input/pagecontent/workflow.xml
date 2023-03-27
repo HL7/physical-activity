@@ -80,13 +80,9 @@
     "the patient and/or their care giver(s)".  Information might be gathered from parents, guardians, or any other trusted person who
     has responsibility for the patient's care and/or are otherwise supporting the patient in meeting their healthcare objectives.  This 
     can even include caregivers being the focus of interventions, for example receiving training so they can better assist the patient in 
-    the execution of their exercise plan.
-  </p>
-  <p>
-    The term 'patient' may also be foreign to some of the implementers of this implementation guide.  Personal trainers and gyms may think of those they
-    work with as "clients", "customers", "guests", or some similar term.  FHIR's use of the word 'patient' and the 
-    <a href="{{site.data.fhir.path}}patient.html">Patient</a> resource in no way excludes use by such systems.  The user interfaces for systems should 
-    continue to use whatever terminology is appropriate in their business, regardless of the names of the underlying FHIR objects.
+    the execution of their exercise plan.  Please also review the guidance from the <a href="design.html">Design Considerations page</a>,
+    particularly the sections on <a href="design.html#value">Electronic Sharing with Patients</a>, <a href="design.html#patient-data">Patient
+    Data Management</a> and <a href="design.html#relatedperson">Patient Caregivers</a>.
   </p>
   
   <a name="plans"> </a>
@@ -147,14 +143,14 @@
   </p>
   <p>
     Typically the identification of an issue will begin with the capture of an exercise vital sign using the
-    <a href="StructureDefinition-observation-evs-days-per-week.html">days/week</a>,
-    <a href="StructureDefinition-observation-evs-min-per-day.html">min/day</a>, <a href="StructureDefinition-observation-evs-min-per-week.html">min/week</a>,
-    and <a href="StructureDefinition-observation-strength-days-per-week.html">strength days/week</a> profiles.  This information might be recorded directly
+    <a href="StructureDefinition-pa-observation-evs-days-per-week.html">days/week</a>,
+    <a href="StructureDefinition-pa-observation-evs-min-per-day.html">min/day</a>, <a href="StructureDefinition-pa-observation-evs-min-per-week.html">min/week</a>,
+    and <a href="StructureDefinition-pa-observation-strength-days-per-week.html">strength days/week</a> profiles.  This information might be recorded directly
     by the patient or by the care provider based on information solicited from the patient or one of the patient's caregivers.
   </p>
   <p>
     If the care provider believes the patient's exercise level is problematic for their long-term health, they might choose to record a
-    <a href="StructureDefinition-pa-condition.html">Condition</a> in the record indicating their concern and to act as a focal point for subsequent
+    <a href="StructureDefinition-pa-condition-low-pa.html">Condition</a> in the record indicating their concern and to act as a focal point for subsequent
     plans, goals, and interventions.
   </p>
   <p>
@@ -268,9 +264,9 @@
   <p>
     The <a href="{{site.data.fhir.ver.sdoh}}/StructureDefinition-SDOHCC-TaskForReferralManagement.html">Task</a> is what really drives referral workflow.  
     Typically referrals will not be directed to a particular service provider.  Instead, Tasks will be used to solicit providers who are willing to
-    perform a needed intervention (possibly with guidance from the patient around their preferences).  Service Providers will use a subscription to
-    monitor for new 'requested' Tasks assigned to them and will update the Tasks to indicate acceptance and eventually update the
-    status to 'completed', possibly with a link to a <a href="StructureDefinition-pa-diagnosticreport.html">report</a> showing final outcomes .
+    perform a needed intervention (possibly with guidance from the patient around their preferences).  Service Providers will use a 
+    <a href="#subscription">subscription</a> to monitor for new 'requested' Tasks assigned to them and will update the Tasks to indicate acceptance and eventually 
+    update the status to 'completed', possibly with a link to a <a href="StructureDefinition-pa-diagnosticreport.html">report</a> showing final outcomes.
   </p>
   <p>
     However, in addition to this 'happy' path, the Task is also used to document other workflows.  These include:
@@ -303,10 +299,40 @@
     <a href="StructureDefinition-pa-task-for-referral-management.html#status">table</a> in the notes section of the Task profile.
   </p>
 
+  <a name="subscription"> </a>
+  <h5>Subscription Process</h5>
+  <p>
+    Subscription is the mechanism by which the systems other than the system on which a Task is stored become aware of the fact that a Task
+    has been created or updated.  The Gravity IG describes the subscription process 
+    <a href="{{site.data.fhir.ver.sdoh}}/checking_task_status.html#subscription">here</a>.
+  </p>
+  <p>
+    For the purposes of this guide, there is no requirement
+    for <a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagement</a> and <a href="CapabilityStatement-pa-service-provider-light.html">Light
+    Service Providers</a> will actually create <a href="{{site.data.fhir.ver.sub}}StructureDefinition-backport-subscription.html">Subscription</a> instances.  
+    Instead, the <a href="CapabilityStatement-pa-care-manager.html">Care Manager</a> and <a href="CapabilityStatement-pa-service-provider-full.html">Full Service 
+    Providers</a> <b>SHOULD</b> allow manual establishment of a referral with notifications to the preferred email or SMS (see below) address.  The email or SMS
+    message will provide the prompt for the user to launch their system and query for new Tasks.
+  </p>
+  <p>
+    Based on implementer feedback, this IG defines an additional <code>customChannelType</code> code that can be used to deliver notifications
+    via SMS device rather than email or rest-hook.  Such notifications <b>SHALL</b> only include a short human-readable message indicating the subscription id and 
+    a short message indicating that updated content is available.  They <b>SHALL NOT</b> actually include a subscription notification Bundle.
+    The use of this approach is experimental and feedback is welcome.  The code to use is found
+    <a href="CodeSystem-pa-temporary-codes.html#pa-temporary-codes-sms">here</a>.  The <code>endpoint</code> will be populated with the phone number
+    to send the SMS message to, expressed in compliance with <a href="https://www.rfc-editor.org/rfc/rfc3966">rfc3966</a> - i.e "tel:" followed by the
+    phone number digits.
+  </p>
+  <p>
+    While Gravity supports subscriptions to monitor for changes to both Tasks and ServiceRequests, in this IG, only Tasks need to be supported.  The
+    expectation is that if a ServiceRequest is cancelled, the <i>Care Manager</i> will cancel the associated Task.  If the ServiceRequest is modified,
+    the <i>Care Manager</i> will add a note to the Task.  This will minimize the complexity of the subscription process.
+  </p>
+
   <a name="loop"> </a>
   <h5>Closing the Loop</h5>
   <p>
-    Once a referral has been issued and accepted, there's a need to communicate progress and status back to the initiating practitioner.  There
+    Once a referral has been issued and accepted, there is a need to communicate progress and status back to the initiating practitioner.  There
     are three main mechanisms for accomplishing this: using Task status, ongoing measurements, and diagnostic reports.  Using Task status is further
     discussed in the <a href="design.html#task">Design section</a>.
   </p>
@@ -366,7 +392,7 @@
   <p>
     Another area where this implementation guide borrows from Gravity SDOH is in the use of Questionnaires to solicit feedback from patients (and
     their caregivers) about satisfaction with a particular service provider.  Patient satisfaction with their providers is a key indicator of their
-    long-term success in improving and sustaining their physical activity levels.  (TODO - do we have any evidence for this?).  Gravity also uses
+    long-term success in improving and sustaining their physical activity levels.  Gravity also uses
     the same Task-based mechanism to prompt patients to contact particular service providers, to review documentation, or to perform other 
     ad-hoc actions.
   </p>

@@ -1,0 +1,7 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <p>
+    This resource is used both for <a href="interventions.html#orders">exercise prescriptions</a> where the <code>performer</code> is the Patient,
+    as well as for <a href="interventions.html#referrals">referrals</a>, where the performer will be a Practitioner, PractitionerRole, Organization or
+    unspecified.  In the case of referrals, the resource will be used in the workflow described <a href="workflow.html#referral">here</a>.
+  </p>
+</div>

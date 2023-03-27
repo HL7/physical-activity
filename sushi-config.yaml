@@ -49,6 +49,11 @@ dependencies:
     version: current
     reason: |
       Provides access to all of the 'standard' extensions defined in the core spec
+  hl7.fhir.extensions.r5:
+    id: r5ext
+    version: 4.0.1
+    reason: |
+      Makes available certain R5 elements for use as part of this R4 IG
 #  hl7.fhir.r4.examples:
 #    id: examples
 #    version: 4.0.1
@@ -74,12 +79,14 @@ pages:
       title: FHIR Background
     design.xml: 
       title: Design Considerations
+    conformance.xml: 
+      title: Conformance Expectations
     measures.xml: 
       title: Physical Activity Measures
     interventions.xml: 
       title: Plans & Interventions
     workflow.xml: 
-     title: Conformance & Workflow
+     title: Physical Activity Workflow
     security.xml: 
       title: Privacy and Security Considerations
     artifacts.xml: 
@@ -91,16 +98,18 @@ pages:
     openissues.xml: 
       title: Open Issues
 resources:
+  ExampleRelatedPerson:
+    exampleCanonical: PARelatedPerson
   ExampleEVSDaysPerWeek:
-    exampleCanonical: EVSDaysPerWeek
+    exampleCanonical: PAObservationEVSDaysPerWeek
   ExampleEVSMinutesPerDay:
-    exampleCanonical: EVSMinutesPerDay
+    exampleCanonical: PAObservationEVSMinutesPerDay
   ExampleEVSMinutesPerWeek:
-    exampleCanonical: EVSMinutesPerWeek
+    exampleCanonical: PAObservationEVSMinutesPerWeek
   ExampleStrengthDaysPerWeek:
-    exampleCanonical: StrengthDaysPerWeek
+    exampleCanonical: PAObservationStrengthDaysPerWeek
   ExampleCondition:
-    exampleCanonical: LowPACondition
+    exampleCanonical: PAConditionLowPA
   ExampleCarePlan:
     exampleCanonical: PACarePlan
   ExampleGoal:
@@ -112,27 +121,27 @@ resources:
   ExampleReport:
     exampleCanonical: PADiagnosticReport
   ExampleActivityGroup:
-    exampleCanonical: PAActivityGroup
+    exampleCanonical: PAObservationActivityGroup
   ExampleActivityType:
-    exampleCanonical: PAActivityMeasure
+    exampleCanonical: PAObservationActivityMeasure
   ExampleActivityDuration:
-    exampleCanonical: PAActivityMeasure
+    exampleCanonical: PAObservationActivityMeasure
   ExampleActivityModerate:
-    exampleCanonical: PAActivityMeasure
+    exampleCanonical: PAObservationActivityMeasure
   ExampleActivityVigorous:
-    exampleCanonical: PAActivityMeasure
+    exampleCanonical: PAObservationActivityMeasure
   ExampleActivityPeakHR:
-    exampleCanonical: PAActivityMeasure
+    exampleCanonical: PAObservationActivityMeasure
   ExampleActivityCalories:
-    exampleCanonical: PAActivityMeasure
+    exampleCanonical: PAObservationActivityMeasure
   ExampleDailySteps:
-    exampleCanonical: PATimeMeasure
+    exampleCanonical: PAObservationTimeMeasure
   ExamplePeakDailyHeartRate:
-    exampleCanonical: PATimeMeasure
+    exampleCanonical: PAObservationTimeMeasure
   ExampleAverageRestingHeartRate:
-    exampleCanonical: PATimeMeasure
+    exampleCanonical: PAObservationTimeMeasure
   ExampleCaloriesPerDay:
-    exampleCanonical: PATimeMeasure
+    exampleCanonical: PAObservationTimeMeasure
 menu:
   Contents: toc.html
   Home: index.html
@@ -143,9 +152,10 @@ menu:
     Design Considerations: design.html
     Credits: credits.html
   Specification:
+    Conformance Expectations: conformance.html
     Measures: measures.html
     Plans & Interventions: interventions.html
-    Conformance & Workflow: workflow.html
+    Workflow: workflow.html
     Privacy & Security: security.html
   Artifacts: artifacts.html
   Support:

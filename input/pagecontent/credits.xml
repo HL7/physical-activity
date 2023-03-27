@@ -13,13 +13,13 @@
         <th>Contributor(s)</th>
       </tr>
       <tr>
-        <td><i>Lead author:</i></td>
+        <th><i>Lead author:</i></th>
         <td>
-          <b>Lloyd McKenzie</b> (Accenture)
+          <b>Lloyd McKenzie</b> (Accenture/Dogwood Health)
         </td>
       </tr>
       <tr>
-        <td><i>Steering committee</i></td>
+        <th><i>Steering committee</i></th>
         <td>
           <b>Paul Chase</b> (American Heart Association)<br/>
           <b>Maria Isler</b> (American Heart Association)<br/>
@@ -27,7 +27,34 @@
         </td>
       </tr>
       <tr>
-        <td><i>PAA Expert Advisory Group</i></td>
+        <th><i>Regular Project Participants</i></th>
+        <td>
+          <b>Ross Arena</b> (University Illinois - Chicago)<br/>
+          <b>Amy Bantham</b> (Move to Live More)<br/>
+          <b>Griffin Bariss</b> (Physical Activity Alliance (PAA))<br/>
+          <b>Nathan Botts</b> (Mobile Health Working Group &amp; Westat)<br/>
+          <b>Sheryl Brown</b> (Cooper)<br/>
+          <b>Paige Denison</b> (Evidence in Motion (EIM) - Older Adults)<br/>
+          <b>Ramandeep Dhanoa</b> (Accenture)<br/>
+          <b>Pat Dunn</b> (American Heart Association (AHA))<br/>
+          <b>Matt Elrod</b> (MaxMD)<br/>
+          <b>John Graham</b> (St. Luke's University Health Network)<br/>
+          <b>Mu Huang</b> (American Heart Association (AHA))<br/>
+          <b>Ayanna McKnight</b> (American Heart Association (AHA) &amp; Physical Activity Alliance (PAA))<br/>
+          <b>Graham Melstrand</b> (Physical Activity Alliance (PAA) &amp; American Council on Exercise)<br/>
+          <b>Geoffrey Moore</b> (American Medical Society for Sports Medicine (AMSSM))<br/>
+          <b>Brooke McSwain</b> (American Heart Association (AHA))<br/>
+          <b>Karl Naden</b> (Mitre / PACIO Project)<br/>
+          <b>Rachelle Reed</b> (University of Georgia)<br/>
+          <b>Tom Richards</b> (The Activist in Motion)<br/>
+          <b>Josh Rohrbaugh</b> (WELLD Health)<br/>
+          <b>Michelle Segar</b> (University of Michigan)<br/>
+          <b>Cassandra Stish</b> (WELLD Health)<br/>
+          <b>Dana Wolff-Hughes</b> (National Institutes of Health (NIH))<br/>
+        </td>
+      </tr>
+      <tr>
+        <th><i>PAA Expert Advisory Group</i></th>
         <td>
           <b>Ross Arena, PH.D.</b> (University of Illinois, Chicago)<br/>
           <b>Amy Bantham, Ph.D.</b> (Move to Live More)<br/>
@@ -47,14 +74,11 @@
         </td>
       </tr>
       <tr>
-        <td><i>Additional key contributors:</i></td>
+        <th><i>Additional key contributors:</i></th>
         <td>
           <b>Russel Buchannon</b> (Accenture)<br/>
-          <b>...</b>
         </td>
       </tr>
     </tbody>
   </table>
-  <!-- Todo: Update this before official publication -->
-  
 </div>

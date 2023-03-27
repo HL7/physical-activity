@@ -1,0 +1,100 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <a name="capability"> </a>
+  <h3>Capabilities</h3>
+  <p>
+    While implementers are free to pick and choose useful functionality from this IG as they see fit, in order to claim conformance with this IG, a system must
+    declare that it implements one or more of the four <a href="workflow.html#actors">capability statements</a> described on the <a href="workflow.html">Workflow</a> page.
+    I.e. All systems that conform with this specification must, at minimum, satisfy the <b>SHALL</b> requirements listed in at least one of the following CapabilityStatement 
+    instances:
+  </p>
+  <ul>
+    <li><a href="CapabilityStatement-pa-care-manager.html">Care Manager</a>,</li>
+    <li><a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagment App</a>,</li>
+    <li><a href="CapabilityStatement-pa-service-provider-full.html">Full Service Provider</a>, and/or</li>
+    <li><a href="CapabilityStatement-pa-service-provider-light.html">Light Service Provider</a></li>
+  </ul>
+  
+  <a name="conventions"> </a>
+  <h3>Conventions</h3>
+  <p>
+    This implementation guide documents conformance expectations through declarations in computable artifacts, such as cardinality and vocabulary bindings in 
+    IG <a href="{{site.data.fhir.path}}profiling.html">profiles</a>.  However, it also makes use of conformance language in the text of the IG.  When expressed in upper-case,
+    the words <b>SHALL</b>, <b>SHOULD</b>, <b>MAY</b>, etc. are to be interpretted as described in the FHIR core specification 
+    <a href="{{site.data.fhir.path}}conformance-rules.html#conflang">here</a>.
+  </p>
+
+  <a name="mustSupport"> </a>
+  <h4>Must Support</h4>
+	<p>
+    FHIR defines the notion of <a href="{{site.data.fhir.path}}conformance-rules.html#mustSupport">Must Support</a> to help establish conformance expectations for systems.  
+    The specific meaning of "must support" is left to be defined in individual implementation guides.  For the purposes of <i>this</i> implementation guide, "must support" 
+    shall be interpreted as follows:
+  </p>
+	<ul>
+		<li>Data Sources <b>SHALL</b> be capable of populating the data element when sharing resources compliant with the profile. I.e. the system must be able 
+      to demonstrate the population and sharing of the element, but it is acceptable to omit the element if the system does not have values in a particular 
+      instance. A system that is incapable of ever sharing the element would be non-conformant.</li>
+    <li>Data Consumers <b>SHALL</b> be capable of processing resource instances containing the data elements and doing something useful with them - i.e. displaying,
+      storing, or any other action a reasonable user would expect the system to take with a 'supported' element of that type</li>
+    <li>If the minimum cardinality of an element is greater than 0 – i.e. the element is ‘required’, then the element <b>SHALL</b> be present in the instance and 
+      <b>SHALL</b> have a value unless:
+      <ul>
+        <li>The profile explicitly declares the <a href="{{site.data.fhir.path}}extension-data-absent-reason.html">data-absent-reason</a> extension or other 
+          extension for the element, in which case an extension can be present in place of the value.</li>
+        <li>The profile is inherited from U.S. Core, in which case a data-absent-reason extension may be sent in place of the value even where data-absent-reason is not explicitly 
+          declared in the profile.</li>
+      </ul>
+    </li>
+    <li>Data Consumers <b>SHALL</b> interpret missing data elements within resource instances as data not being present in the Data Source's systems or was not deemed to be 
+      shareable with the Data Consumer for privacy or other business reasons.</li>
+    <li>Where the value set for an element includes concepts such as "unknown", "refused to answer", "not available" or where data-absent-reason is explicitly referenced in a 
+      profile, then Data Sources <b>SHALL</b> use these values/that extension to communicate the reason for missing data.</li>
+    <li>Data Consumers <b>SHALL</b> be able to process resource instances containing data elements that have extensions in place of a value where such extensions are declared as 
+      part of the profile.</li>
+	</ul>
+	<p>NOTE: These expectations are largely drawn from those defined in the <a href="http://hl7.org/fhir/us/davinci-hrex/STU1/conformance.html">Da Vinci Health Record Exchange
+	  (HRex)</a> IG.</p>
+	
+	<a name="profiles"> </a>
+	<h4>Handling profiles and modifiers</h4>
+	<p>
+	  This IG makes significant use of <a href="{{site.data.fhir.path}}profiling.html">profiles</a> to describe both the expected content of instances, as well as which
+	  data elements systems are expected to <a href="#mustSupport">support</a>.  However, not all data hosted by a system will necessarily comply with one of the profiles
+	  defined in this IG.  Data consumers <b>SHALL</b> tolerate receipt of data in response to queries that does not comply with profiles defined in this IG, though they
+	  <b>MAY</b> opt to ignore data that does not conform to the profiles or choose to process it.  All resources that declare a
+	  <a href="CodeSystem-pa-temporary-codes.html#pa-temporary-codes-PhysicalActivity">Physical Activity</a> category <b>SHOULD</b> conform with their respective profile(s)
+	  in this IG.
+	</p>
+	<p>
+	  In addition to potentially receiving non-conformant data, conformant instances <b>MAY</b> contain additional data elements not marked in these profiles as 'mustSupport.  
+	  So long as the elements found are valid in the base <a href="{{site.data.fhir.path}}">FHIR R4</a> resource definitions, systems <b>SHALL</b> accept such instances unless 
+	  the elements present are <a href="{{site.data.fhir.path}}elementdefinition-definitions.html#ElementDefinition.isModifier">modifier elements</a>.  Non-modifier elements 
+	  <b>MAY</b> be ignored.  Modifier elements will generally cause the instances to be non-conformant with the profiles of this IG and may be either ignored or subject to
+	  special processing that takes into account the fact that the meaning of the instances may differ from what is typically expected.
+	</p>
+	<p>
+	  If a system has data with modifier elements that are prohibited by this specification, it is free to send such data.  However, these resources will not comply with the
+	  profiles defined here and might be ignored by receiving systems.
+	</p>
+	<p>
+	  There is <b>NO</b> expectation that instances conforming with this implementation guide will declare their conformance by asserting a <code>meta.profile</code>
+	  value, though systems <b>MAY</b> choose to do so.  Systems <b>SHALL NOT</b> depend on the declaration of such profiles when consuming data.
+	</p>
+	
+	<a name="terminology"> </a>
+	<h4>Terminology expectations</h4>
+	<p>
+	  This implementation guide makes use of a number of external terminologies, including LOINC, SNOMED CT and CPT codes.  In
+	  some places, the IG has identified the need for a code that does not yet exist in any of these external locations, but
+	  which probably makes sense to be added to one of those code systems.  In this case, we have defined 'temporary' codes
+	  in the [temporary-codes](CodeSystem-temporary-codes.html) Code system.  The location and value of these codes <b>WILL</b>
+	  change in a future release of the specification.  Implementers should plan to accomodate this as part of their designs.
+	</p>
+	<p>
+	  Some of the value sets referenced in this IG are not explicitly enumerated.  Instead they are defined by filters on the underlying code systems.  Others are
+	  maintained outside of the FHIR core specification and this IG.  In either case, this may result in the set of codes that are valid changing over time.
+	  Systems <b>SHALL</b> allow for this potential evolution and <b>SHALL NOT</b> reject a code that might be valid unless they have an up-to-date copy of the
+	  underlying code-system and value set definition.  Systems <b>SHOULD</b> ensure that their internal mappings are kept up-to-date as the list of available
+	  codes change.
+	</p>
+</div>

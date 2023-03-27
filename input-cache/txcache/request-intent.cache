@@ -1,0 +1,71 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://hl7.org/fhir/request-intent",
+      "concept" : [{
+        "code" : "original-order"
+      },
+      {
+        "code" : "order"
+      },
+      {
+        "code" : "filler-order"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:a2fcd0ac-af15-4493-ad13-c926aebc9791",
+    "timestamp" : "2023-03-26T06:34:18.526Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://hl7.org/fhir/request-intent|4.0.1"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "The request represents an original authorization for action."
+      }],
+      "system" : "http://hl7.org/fhir/request-intent",
+      "code" : "original-order",
+      "display" : "Original Order"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "The request represents a request/demand and authorization for action by a Practitioner."
+      }],
+      "system" : "http://hl7.org/fhir/request-intent",
+      "code" : "order",
+      "display" : "Order"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "The request represents the view of an authorization instantiated by a fulfilling system representing the details of the fulfiller's intention to act upon a submitted order."
+      }],
+      "system" : "http://hl7.org/fhir/request-intent",
+      "code" : "filler-order",
+      "display" : "Filler Order"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

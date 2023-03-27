@@ -76,13 +76,13 @@ Usage:          #definition
   * resource[+]
     * extension[$conf].valueCode = #SHOULD
     * type = #Observation
-    * insert SupportedProfile(EVSDaysPerWeek, #SHALL)
-    * insert SupportedProfile(EVSMinutesPerDay, #SHALL)
-    * insert SupportedProfile(EVSMinutesPerWeek, #SHALL)
-    * insert SupportedProfile(StrengthDaysPerWeek, #SHOULD)
-    * insert SupportedProfile(PAActivityMeasure, #SHOULD)
-    * insert SupportedProfile(PAActivityGroup, #SHOULD)
-    * insert SupportedProfile(PATimeMeasure, #SHOULD)
+    * insert SupportedProfile(PAObservationEVSDaysPerWeek, #SHALL)
+    * insert SupportedProfile(PAObservationEVSMinutesPerDay, #SHALL)
+    * insert SupportedProfile(PAObservationEVSMinutesPerWeek, #SHALL)
+    * insert SupportedProfile(PAObservationStrengthDaysPerWeek, #SHOULD)
+    * insert SupportedProfile(PAObservationActivityMeasure, #SHOULD)
+    * insert SupportedProfile(PAObservationActivityGroup, #SHOULD)
+    * insert SupportedProfile(PAObservationTimeMeasure, #SHOULD)
     * documentation = "Allows recording and viewing patient physical activity observations."
     * insert Interaction(#create, #SHALL, "Allows recording new observations")
     * insert Interaction(#create, #SHOULD, "Allows correcting a previous observation or revising the status")
@@ -145,10 +145,22 @@ Usage:          #definition
     * insert SearchParam("status", ServiceRequest-status, #token, #SHOULD, "Allows filtering to only retrieve active or completed orders.")
   * resource[+]
     * extension[$conf].valueCode = #SHALL
+    * type = #Subscription
+    * insert SupportedProfile(BackportSubscription, #SHALL)
+    * documentation = "Allows establishing and maintaining subscriptions for Task notifications.  Only needed if not handled manually."
+    * insert Interaction(#create, #SHALL, "Allows establishing a new subscription.")
+    * insert Interaction(#update, #SHALL, "Allows revising an existing subscription - to cancel it or change the email address or SMS number.")
+    * insert Interaction(#search-type, #SHALL, "Allows retrieval of existing subscriptions prior to update.")
+    * versioning      = #versioned-update
+    * referencePolicy = #literal
+    * insert SearchParam2("topic", http://hl7.org/fhir/uv/subscriptions-backport/SearchParameter/Subscription-topic, #uri, #SHOULD, "Allows filtering for just subscriptions for Task monitoring.")
+    * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known subscription records.")
+//    * insert SearchParam("owner",Subscription-owner, #reference, #SHALL, "Allows filtering only for tasks that are owned by the Patient Engagement system.")    
+  * resource[+]
+    * extension[$conf].valueCode = #SHALL
     * type = #Task
     * insert SupportedProfile(PATaskForReferralManagement, #MAY)
-// Todo - put this back when version is properly supported 
-//    * insert SupportedProfile(SDOHCC-TaskForReferralManagement, #SHALL)
+    * insert SupportedProfile(SDOHCCTaskForPatient, #SHALL)
     * documentation = "Allows creation of tasks assigned to the patient, as well as potentially monitoring Tasks assigned to a service provider."
     * insert Interaction(#update, #SHOULD, "Allows updating the status and/or specifying outputs for patient tasks.")
     * insert Interaction(#search-type, #SHALL, "Allows retrieval of existing tasks to check for changes or prior to making updates.  This will typically be prompted by a subscription notification.")

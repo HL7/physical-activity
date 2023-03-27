@@ -100,8 +100,23 @@
       </tbody>
     </table>
   </div>
+  <p>
+    <b>Jump to:</b>
+  </p>
+  <ul>
+    {% for Arest in rest %}
+      <li><a href="#{{Arest.mode}}">REST {{Arest.mode}}</a></li>
+    {% endfor %}
+    {% if messaging %}
+      <li><a href="#messaging">Messaging</a></li>
+    {% endif %}
+    {% if documents %}
+      <li><a href="#documents">Documents</a></li>
+    {% endif %}
+  </ul>
   {% for Arest in rest %}
     <br/>
+    <a name="{{Arest.mode}}"> </a>
     <h2>REST {{Arest.mode}} behavior</h2>
     {% if Arest.documentation.exists() %}
       <div>{{Arest.documentation}}</div>
@@ -514,6 +529,7 @@
   {% for Amsg in messaging %}
     <br/>
     <br/>
+    <a name="messaging"></a>
     <h2>Messaging</h2>
     {% if Amsg.endpoint.exists() %}
       <p>
@@ -586,6 +602,7 @@
   {% if document.exists() %}
     <br/>
     <br/>
+    <a name="documents"> </a>
     <h2>Documents</h2>
     <div class="table-wrapper">
       <table class="grid">

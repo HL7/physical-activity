@@ -62,9 +62,10 @@
   <a name="overview"> </a>
   <h3>Specification overview</h3>
   <p>
-    This implementation guide is organized into four primary sections:
+    This implementation guide is organized into five primary sections that define expectations for conformant systems:
   </p>
   <ol>
+    <li><a href="conformance.html">Conformance Expectations</a> sets general expectations around conformance to the IG.</li>
     <li><a href="measures.html">Physical Activity Measures</a> defines a <a href="measures.html#base">profiles</a> for the standardized capture of a patient's 
       physical activity level.  <!--It also defines an optional FHIR <a href="Questionnaire-questionnaire-evs.html">Questionnaire</a> that can be used by questionnaire-based systems to 
       capture that measure.-->  In addition, it defines profiles to capture <a href="measures.html#support">supplemental observations</a>

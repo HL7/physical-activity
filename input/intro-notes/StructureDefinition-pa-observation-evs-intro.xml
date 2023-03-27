@@ -1,0 +1,6 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <p>
+    This profile defines the common characteristics of all of the "exercise vital sign" observations used as the <a href="measures.html#base">base measures</a>
+    of a patient's physical activity level.  It is not intended to be implemented directly.
+  </p>
+</div>

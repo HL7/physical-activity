@@ -20,7 +20,7 @@ Usage:          #definition
     * insert SupportedProfile(PACarePlan, #SHALL)
     * documentation = "Allows accessing and manipulating Care Plans stored on a Service Provider."
     * insert Interaction(#update, #SHOULD, "Allows a clinician to make updates to a plan owned by a service provider.")
-    * insert Interaction(#search-type, #SHALL, "Allows retrieval of care plans for a given patient.")
+    * insert Interaction(#search-type, #SHOULD, "Allows retrieval of care plans for a given patient.")
     * insert Interaction(#history-instance, #MAY, "Allows seeing how a care plan has changed over time.  This may be particularly important if multiple stakeholders have the ability to make adjustments to the plan.  However\, history is not widely supported.")
     * versioning      = #versioned-update
     * referencePolicy = #literal
@@ -36,7 +36,7 @@ Usage:          #definition
     * insert SupportedProfile(PAGoal, #SHALL)
     * documentation = "Allows accessing and potentially updating goals maintained by a Service Provider."
     * insert Interaction(#update, #SHOULD, "Allows patients or service providers to modify a goal - for example shifting target values or dates\, updating the status\, etc.  Allowing patients\, care-givers\, and service providers to help maintain goals is a key aspect of a patient-centered care plan.  However\, not all care manager systems (or their organizations\) yet have the technical mechanisms or policies in place to support this.")
-    * insert Interaction(#search-type, #SHALL, "Allows retrieval of goals for a given patient.")
+    * insert Interaction(#search-type, #SHOULD, "Allows retrieval of goals for a given patient.")
     * insert Interaction(#history-instance, #MAY, "Allows seeing how goals have changed over time.  This may be particularly important if multiple stakeholders have the ability to make adjustments to goals.  However\, history is not widely supported.")
     * versioning      = #versioned-update
     * referencePolicy = #literal
@@ -49,13 +49,13 @@ Usage:          #definition
   * resource[+]
     * extension[$conf].valueCode = #SHOULD
     * type = #Observation
-    * insert SupportedProfile(EVSDaysPerWeek, #SHALL)
-    * insert SupportedProfile(EVSMinutesPerDay, #SHALL)
-    * insert SupportedProfile(EVSMinutesPerWeek, #SHALL)
-    * insert SupportedProfile(StrengthDaysPerWeek, #SHOULD)
-    * insert SupportedProfile(PAActivityMeasure, #SHOULD)
-    * insert SupportedProfile(PAActivityGroup, #SHOULD)
-    * insert SupportedProfile(PATimeMeasure, #SHOULD)
+    * insert SupportedProfile(PAObservationEVSDaysPerWeek, #SHALL)
+    * insert SupportedProfile(PAObservationEVSMinutesPerDay, #SHALL)
+    * insert SupportedProfile(PAObservationEVSMinutesPerWeek, #SHALL)
+    * insert SupportedProfile(PAObservationStrengthDaysPerWeek, #SHOULD)
+    * insert SupportedProfile(PAObservationActivityMeasure, #SHOULD)
+    * insert SupportedProfile(PAObservationActivityGroup, #SHOULD)
+    * insert SupportedProfile(PAObservationTimeMeasure, #SHOULD)
     * documentation = "Allows accessing observations maintained by a Service Provider."
     * insert Interaction(#search-type, #SHALL, "Allows retrieval of observations for a given patient.")
     * versioning      = #versioned-update
@@ -89,10 +89,9 @@ Usage:          #definition
     * extension[$conf].valueCode = #SHALL
     * type = #Task
     * insert SupportedProfile(PATaskForReferralManagement, #SHALL)
-// Todo - put this back when version is properly supported 
-//    * insert SupportedProfile(SDOHCC-TaskForReferralManagement, #SHALL)
+    * insert SupportedProfile(SDOHCCTaskForPatient, #MAY)
     * documentation = "Allows retrieval and updating of tasks stored on a Service Provider."
-    * insert Interaction(#create, #SHALL, "Allows a creation of Task on a Service Provider system.")
+    * insert Interaction(#create, #SHOULD, "Allows a creation of Task on a Service Provider system.")
     * insert Interaction(#update, #SHOULD, "Allows cancelling or adding notes to an existing Task.")
     * insert Interaction(#search-type, #SHALL, "Allows checking for updates on a Task after receiving a subscription notification.")
     * versioning      = #versioned-update
@@ -107,6 +106,19 @@ Usage:          #definition
     * insert SearchParam("status", ServiceRequest-status, #token, #SHALL, "Allows filtering to only retrieve active or completed orders.")
     * insert SearchParam("focus", Task-focus, #reference, #SHOULD, "Allows retrieving the task(s\) seeking fulfillment of a particular ServiceRequest.")
     * insert SearchParam2("output", http://hl7.org/fhir/us/sdoh-clinicalcare/SearchParameter/Task-output-reference, #reference, #SHOULD, "Allows for the 'output' of a Task to be included when retrieving a Task.")
+  * resource[+]
+    * extension[$conf].valueCode = #SHOULD
+    * type = #Subscription
+    * insert SupportedProfile(BackportSubscription, #SHALL)
+    * documentation = "Allows subscribing to Tasks hosted on a ServiceProvider."
+    * insert Interaction(#create, #SHALL, "Allows establishing a new subscription.")
+    * insert Interaction(#update, #SHALL, "Allows revising an existing subscription - to cancel it or change the email address or SMS number.")
+    * insert Interaction(#search-type, #SHALL, "Allows retrieval of existing subscriptions prior to update.")
+    * versioning      = #versioned-update
+    * referencePolicy = #literal
+    * insert SearchParam2("topic", http://hl7.org/fhir/uv/subscriptions-backport/SearchParameter/Subscription-topic, #uri, #SHOULD, "Allows filtering for just subscriptions for Task monitoring.")
+    * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known subscription records.")
+//    * insert SearchParam("owner",Subscription-owner, #reference, #SHALL, "Allows filtering only for tasks that are owned by the subscribing system.")    
 * rest[+]
   * mode = #server
   * documentation = "Care Managers act primarily as servers, allowing [light](CapabilityStatement-pa-service-provider-light.html) and [full](CapabilityStatement-pa-service-provider-full.html) service providers and [patient engagement systems](CapabilityStatement-pa-patient-engagement.html) to retrieve information stored on the manager, and in some cases to create and update information present on the manager."
@@ -132,7 +144,7 @@ Usage:          #definition
   * resource[+]
     * extension[$conf].valueCode = #SHALL
     * type = #Condition
-    * insert SupportedProfile(LowPACondition, #SHALL)
+    * insert SupportedProfile(PAConditionLowPA, #SHALL)
     * documentation = "Shares information about any concerns about a patient's physical activity level.  There is no expectation that Conditions can be created or modified by other systems."
     * insert Interaction(#search-type, #SHALL, "Allows retrieval of conditions for a given patient.")
     * insert Interaction(#history-instance, #MAY, "Allows seeing how a condition has changed over time.")
@@ -178,13 +190,13 @@ Usage:          #definition
   * resource[+]
     * extension[$conf].valueCode = #SHALL
     * type = #Observation
-    * insert SupportedProfile(EVSDaysPerWeek, #SHALL)
-    * insert SupportedProfile(EVSMinutesPerDay, #SHALL)
-    * insert SupportedProfile(EVSMinutesPerWeek, #SHALL)
-    * insert SupportedProfile(StrengthDaysPerWeek, #SHOULD)
-    * insert SupportedProfile(PAActivityMeasure, #SHOULD)
-    * insert SupportedProfile(PAActivityGroup, #SHOULD)
-    * insert SupportedProfile(PATimeMeasure, #SHOULD)
+    * insert SupportedProfile(PAObservationEVSDaysPerWeek, #SHALL)
+    * insert SupportedProfile(PAObservationEVSMinutesPerDay, #SHALL)
+    * insert SupportedProfile(PAObservationEVSMinutesPerWeek, #SHALL)
+    * insert SupportedProfile(PAObservationStrengthDaysPerWeek, #SHOULD)
+    * insert SupportedProfile(PAObservationActivityMeasure, #SHOULD)
+    * insert SupportedProfile(PAObservationActivityGroup, #SHOULD)
+    * insert SupportedProfile(PAObservationTimeMeasure, #SHOULD)
     * documentation = "Exposes and allows manipulation of physical activity vital sign and supporting observations."
     * insert Interaction(#update, #SHOULD, "Allows correction of or adding comments to previously recorded observations.")
     * insert Interaction(#create, #SHALL, "Allows other systems to record physical-activity related observations.")
@@ -272,11 +284,23 @@ Usage:          #definition
     * insert SearchParam("requester", ServiceRequest-requester, #reference, #SHOULD, "Allows filtering to only retrieve orders solicited by a specific provider.")
     * insert SearchParam("status", ServiceRequest-status, #token, #SHOULD, "Allows filtering to only retrieve active or completed orders.")
   * resource[+]
+    * extension[$conf].valueCode = #SHOULD
+    * type = #Subscription
+    * insert SupportedProfile(BackportSubscription, #SHALL)
+    * documentation = "Allows establishing and maintaining subscriptions for Patient Task as well as for referal tasks for 'light' service providers."
+    * insert Interaction(#create, #SHALL, "Allows establishing a new subscription.")
+    * insert Interaction(#update, #SHALL, "Allows revising an existing subscription - to cancel it or change the email address or SMS number.")
+    * insert Interaction(#search-type, #SHALL, "Allows retrieval of existing subscriptions prior to update.")
+    * versioning      = #versioned-update
+    * referencePolicy = #literal
+    * insert SearchParam2("topic", http://hl7.org/fhir/uv/subscriptions-backport/SearchParameter/Subscription-topic, #uri, #SHOULD, "Allows filtering for just subscriptions for Task monitoring.")
+    * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known subscription records.")
+//    * insert SearchParam("owner",Subscription-owner, #reference, #SHALL, "Allows filtering only for tasks that are owned by the subscribing system.")    
+  * resource[+]
     * extension[$conf].valueCode = #SHALL
     * type = #Task
     * insert SupportedProfile(PATaskForReferralManagement, #SHALL)
-// Todo - put this back when version is properly supported 
-//    * insert SupportedProfile(SDOHCC-TaskForReferralManagement, #SHALL)
+    * insert SupportedProfile(SDOHCCTaskForPatient, #SHOULD)
     * documentation = "Allows retrieval and updating of tasks seeking fulfillment of orders and referrals as well as creation, updating and retrieval of tasks assigned to patients."
     * insert Interaction(#create, #SHOULD, "Allows a service provider to create a patient-assigned Task.")
     * insert Interaction(#update, #SHALL, "Allows existing tasks to be updated - to change their status and/or to attach 'outputs' resulting from the Task.")
@@ -296,6 +320,3 @@ Usage:          #definition
     * insert SearchParam("status", ServiceRequest-status, #token, #SHALL, "Allows filtering to only retrieve active or completed orders.")
     * insert SearchParam("focus", Task-focus, #reference, #SHOULD, "Allows retrieving the task(s\) seeking fulfillment of a particular ServiceRequest.")
     * insert SearchParam2("output", http://hl7.org/fhir/us/sdoh-clinicalcare/SearchParameter/Task-output-reference, #reference, #SHOULD, "Allows for the 'output' of a Task to be included when retrieving a Task.")
-
-// TODO: What includes/revincludes should be supported (if any)?  E.g. Provenance when retrieving
-// history

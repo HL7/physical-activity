@@ -49,13 +49,12 @@
   <p>
     These two questions correspond to the LOINC codes <a href="http://loinc.org/89555-7">89555-7</a> and 
     <a href="http://loinc.org/68516-4">68516-4</a>.  In this implementation guide, there are profiles to capture the answers to each of these 
-    questions - the <a href="StructureDefinition-observation-evs-days-per-week.html">days-per-week</a> and 
-    <a href="StructureDefinition-observation-evs-min-per-day.html">min-per-day</a> profiles.  (Examples of Observations that comply with these
+    questions - the <a href="StructureDefinition-pa-observation-evs-days-per-week.html">days-per-week</a> and 
+    <a href="StructureDefinition-pa-observation-evs-min-per-day.html">min-per-day</a> profiles.  (Examples of Observations that comply with these
     two profiles can be found <a href="Observation-ExampleEVSMinutesPerDay.html">here</a> and 
     <a href="Observation-ExampleEVSDaysPerWeek.html">here</a>.)
   </p>
   <p>
-    <b>TO CONFIRM:</b>
     While these two questions are logically part of a single overall <a href="http://loinc.org/89574-8">89574-8</a> observation, this guide  
     does not require the capture or sharing higher-level grouping observations that link the answers to the two key questions.
   </p>
@@ -223,9 +222,9 @@
     captured, but in that case, the activity typically wouldn't be reported at all.)
   </p>
   <p>
-    Each of these measures is conveyed using the <a href="StructureDefinition-pa-activity-measure.html">Activity Measure profile</a>.
+    Each of these measures is conveyed using the <a href="StructureDefinition-pa-observation-activity-measure.html">Activity Measure profile</a>.
     In addition, these measures might be grouped together under a 'group' Observation that complies with the
-    <a href="StructureDefinition-pa-activity-group.html">Activity Group profile</a>.  All observations collected beneath the group
+    <a href="StructureDefinition-pa-observation-activity-group.html">Activity Group profile</a>.  All observations collected beneath the group
     are considered to be associated with the same physical activity 'occurrence'.
   </p>    
   <table class="grid">
@@ -332,7 +331,7 @@
     of the patient's total steps for the day.
   </p>
   <p>
-    Each of these measures is conveyed using the <a href="StructureDefinition-pa-time-measure.html">Time-Based Measure profile</a>.
+    Each of these measures is conveyed using the <a href="StructureDefinition-pa-observation-time-measure.html">Time-Based Measure profile</a>.
   </p>
   <table class="grid">
     <thead style="background-color: lightblue">

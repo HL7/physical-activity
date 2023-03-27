@@ -33,7 +33,7 @@ Usage:          #definition
   * resource[+]
     * extension[$conf].valueCode = #SHALL
     * type = #Condition
-    * insert SupportedProfile(LowPACondition, #SHOULD)
+    * insert SupportedProfile(PAConditionLowPA, #SHOULD)
     * documentation = "Accessing the formal 'low physical activity' condition may be necessary to support prior authorization or claims."
     * insert Interaction(#search-type, #SHALL, "Allows retrieval of conditions for a given patient.")
     * insert Interaction(#history-instance, #MAY, "Allows seeing how a condition has changed over time.")
@@ -97,13 +97,13 @@ Usage:          #definition
   * resource[+]
     * extension[$conf].valueCode = #SHOULD
     * type = #Observation
-    * insert SupportedProfile(EVSDaysPerWeek, #SHALL)
-    * insert SupportedProfile(EVSMinutesPerDay, #SHALL)
-    * insert SupportedProfile(EVSMinutesPerWeek, #SHALL)
-    * insert SupportedProfile(StrengthDaysPerWeek, #SHOULD)
-    * insert SupportedProfile(PAActivityMeasure, #SHOULD)
-    * insert SupportedProfile(PAActivityGroup, #SHOULD)
-    * insert SupportedProfile(PATimeMeasure, #SHOULD)
+    * insert SupportedProfile(PAObservationEVSDaysPerWeek, #SHALL)
+    * insert SupportedProfile(PAObservationEVSMinutesPerDay, #SHALL)
+    * insert SupportedProfile(PAObservationEVSMinutesPerWeek, #SHALL)
+    * insert SupportedProfile(PAObservationStrengthDaysPerWeek, #SHOULD)
+    * insert SupportedProfile(PAObservationActivityMeasure, #SHOULD)
+    * insert SupportedProfile(PAObservationActivityGroup, #SHOULD)
+    * insert SupportedProfile(PAObservationTimeMeasure, #SHOULD)
     * documentation = "Allows accessing observations maintained by a Care Manager."
     * insert Interaction(#search-type, #SHALL, "Allows retrieval of observations for a given patient.")
     * versioning      = #versioned-update
@@ -171,10 +171,22 @@ Usage:          #definition
     * insert SearchParam("status", ServiceRequest-status, #token, #SHOULD, "Allows filtering to only retrieve active or completed orders.")
   * resource[+]
     * extension[$conf].valueCode = #SHALL
+    * type = #Subscription
+    * insert SupportedProfile(BackportSubscription, #SHALL)
+    * documentation = "Allows establishing and maintaining subscriptions for Task notifications.  Only needed if not handled manually."
+    * insert Interaction(#create, #SHALL, "Allows establishing a new subscription.")
+    * insert Interaction(#update, #SHALL, "Allows revising an existing subscription - to cancel it or change the email address or SMS number.")
+    * insert Interaction(#search-type, #SHALL, "Allows retrieval of existing subscriptions prior to update.")
+    * versioning      = #versioned-update
+    * referencePolicy = #literal
+    * insert SearchParam2("topic", http://hl7.org/fhir/uv/subscriptions-backport/SearchParameter/Subscription-topic, #uri, #SHOULD, "Allows filtering for just subscriptions for Task monitoring.")
+    * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known subscription records.")
+//    * insert SearchParam("owner",Subscription-owner, #reference, #SHALL, "Allows filtering only for tasks that are owned by the Service Provider system.")    
+  * resource[+]
+    * extension[$conf].valueCode = #SHALL
     * type = #Task
     * insert SupportedProfile(PATaskForReferralManagement, #SHALL)
-// Todo - put this back when version is properly supported 
-//    * insert SupportedProfile(SDOHCC-TaskForReferralManagement, #SHALL)
+    * insert SupportedProfile(SDOHCCTaskForPatient, #SHALL)
     * documentation = "Allows creation of tasks for patients, as well as retrieval of Tasks assigned to the Service Provider."
     * insert Interaction(#create, #SHALL, "Allows a service provider to create a patient-assigned Task.")
     * insert Interaction(#update, #SHOULD, "Allows existing tasks to be updated - to change their status and/or to attach 'outputs' resulting from the Task.")

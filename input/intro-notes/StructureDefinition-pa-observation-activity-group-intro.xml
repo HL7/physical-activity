@@ -1,0 +1,6 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <p>
+    This Observation helps to organize the various <a href="measures.html#activity">activity-based measures</a> so that it is easy to identify what
+    measures are associated with the same physical activity episode (run, swim, work-out, etc.).
+  </p>
+</div>
