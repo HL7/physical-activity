@@ -284,8 +284,8 @@ Profile:        PATaskForReferralManagement
 Parent:         Task
 Id:             pa-task-for-referral-management
 Title:          "PA Task for Referral Management"
-Description:    "Represents a request for fufillment of a physical activity-related referral or order and supports management of the same."
-* . ^definition = "Represents a request for fufillment of a physical activity-related referral or order and supports management of the same."
+Description:    "Represents a request for fulfillment of a physical activity-related referral or order and supports management of the same."
+* . ^definition = "Represents a request for fulfillment of a physical activity-related referral or order and supports management of the same."
 * obeys pa-taskrm-1
 * implicitRules ..0
 * modifierExtension ..0

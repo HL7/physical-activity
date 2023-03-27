@@ -93,8 +93,8 @@ Profile:        PAObservationTimeMeasure
 Parent:         PAObservationBase
 Id:             pa-observation-time-measure
 Title:          "PA Measure - Time-based"
-Description:    "A profile for observations that capture physical activity-related measures that apply over an extended period of time, such as a day or week."
-* . ^definition = "A profile for observations that capture physical activity-related measures that apply over an extended period of time, such as a day or week."
+Description:    "A profile for observations that capture physical activity-related measures that apply over an extended period, such as a day or week."
+* . ^definition = "A profile for observations that capture physical activity-related measures that apply over an extended period, such as a day or week."
 * code from PAObservationTimeMeasures (extensible)
 * value[x] only Quantity
   * ^comment = "...The value **SHALL** be constrained to the unit as indicated in [the table](measures.html#time)"

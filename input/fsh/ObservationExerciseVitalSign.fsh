@@ -2,9 +2,9 @@ Profile:        PAObservationEVS
 Parent:         PAObservationBase
 Id:             pa-observation-evs
 Title:          "PA Vital Sign Observation"
-Description:    "A generic profile that encapsulates all of the physical activity vital sign observations."
+Description:    "A generic profile that encapsulates all the physical activity vital sign observations."
 * ^abstract = true
-* . ^definition = "A generic profile that encapsulates all of the physical activity vital sign observations."
+* . ^definition = "A generic profile that encapsulates all the physical activity vital sign observations."
 * code from PAObservationCodeEVS (required)
 * effective[x] only dateTime
 * effectivePeriod ..0
@@ -49,7 +49,7 @@ Profile:        PAObservationStrengthDaysPerWeek
 Parent:         PAObservationEVS
 Id:             pa-observation-strength-days-per-week
 Title:          "PA Strength Days Week"
-Description:    "A profile for observations that capture a patient's average days per week of muscle-strengthing physical activity."
-* . ^definition = "A profile for observations that capture a patient's average days per week of muscle-strengthing physical activity."
+Description:    "A profile for observations that capture a patient's average days per week of muscle-strengthening physical activity."
+* . ^definition = "A profile for observations that capture a patient's average days per week of muscle-strengthening physical activity."
 * code = $loinc#82291-6
 * valueQuantity.code = #d/wk

@@ -116,7 +116,7 @@ resources:
     exampleCanonical: PAGoal
   ExampleServiceRequest:
     exampleCanonical: PAServiceRequest
-  ExampleFufillmentTask:
+  ExampleFulfillmentTask:
     exampleCanonical: PATaskForReferralManagement
   ExampleReport:
     exampleCanonical: PADiagnosticReport

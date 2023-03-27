@@ -44,8 +44,8 @@ Description: "An example observation capturing a patient's average minutes per d
 
 Instance:    ExampleActivityGroup
 InstanceOf:  PAObservationActivityGroup
-Title:       "Example Observation Exercise Minutes per Week"
-Description: "An example observation capturing information about a specific patient exercise activity."
+Title:       "Example Observation Activity Group"
+Description: "An example observation grouping a collection of observations specific to an exercise activity."
 * status            = #final
 * subject	        = Reference(http://example.org/Patient/1) "Example Patient"
 * effectiveDateTime = "2022-06-08"

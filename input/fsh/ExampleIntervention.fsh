@@ -32,7 +32,7 @@ Description: "Condition indicating a diagnosis of 'lack of physical exercise'."
 Instance:       ExampleGoal
 InstanceOf:     PAGoal
 Title:          "Example Physical Activity Goal"
-Description:    "An goal of 100 minutes/week of moderate-vigorous physical activity by a specified date."
+Description:    "A goal of 100 minutes/week of moderate-vigorous physical activity by a specified date."
 * lifecycleStatus     = #active
 * achievementStatus   = $goalAchievement#in-progress
 * description.text    = """Over the next 6 months\, increase your weekly exercise in small increments to at least 100 minutes/week of physical activity that makes you sweat and breath heavily enough that holding a conversation is difficult."""
@@ -85,7 +85,7 @@ Description: "A referral to a gym."
 * performer                = Reference(http://example.org/Organization/1)
 * reasonReference          = Reference(ExampleCondition)
 
-Instance:    ExampleFufillmentTask
+Instance:    ExampleFulfillmentTask
 InstanceOf:  PATaskForReferralManagement
 Title:       "Example Physical Activity Referral Fulfillment Request"
 Description: "An example task seeking fulfillment of a referral"

@@ -28,7 +28,7 @@
   </p>
   <p>
     In the case of an exercise referral, the ServiceRequest 'performer' would be the patient themselves.  The requested activity would be
-    exercise therapy (SNOMED 229065009), possibly with more specific textual details as to the type of physical activity to perform, along
+    "exercise therapy" (SNOMED 229065009), possibly with more specific textual details as to the type of physical activity to perform, along
     with timing information - e.g. 150 minutes/week conveyed in the <code>effectiveTiming</code> element.
   </p>
   <p>
@@ -48,7 +48,7 @@
     <a href="workflow.html#serviceprovider">Service Provider</a> and 
     <a href="workflow.html#patient">Patient Engagement</a> systems.  However, in some environments, Referral
     Recipients and/or patients themselves might be able to create and/or update goals and update care plans.  This standard supports
-    these actions, but leaves it to organizational policy which types of actions can be performed by which users.  Even if updating is
+    these actions but leaves it to organizational policy which types of actions can be performed by which users.  Even if updating is
     permitted, there may be limitations on which elements can be changed.  (For example, changing the 'subject' of a goal or care plan
     typically will not be allowed by anyone, with the possible exception of technical staff at a provider site who manage patient merges
     and splits or otherwise addressing record errors.
@@ -83,13 +83,13 @@
   </p>
   <ul>
     <li>Exercise referrals are formal orders - though they are orders targeted to the patient themselves, rather than another provider.  Plans
-      represent guidance/recommendations, but are not formal orders.</li>
+      represent guidance/recommendations but are not formal orders.</li>
     <li>Exercise prescriptions are 'static'.  Practitioners write them once, but after that the orders typically do not change, beyond eventually being
        marked as completed or cancelled.  Plans, on the other hand, are dynamic.  They may be updated and revised numerous times as circumstances 
        change.</li>
     <li>Exercise prescriptions can only be created or changed by appropriately qualified practitioners.  Plans can be created or changed by
       anyone, potentially including the patient themselves.</li>
-    <li>Exercise prescriptions will typically set specific objectives for what is to be done, but will be limited in description or detail.  For
+    <li>Exercise prescriptions will typically set specific objectives for what is to be done but will be limited in description or detail.  For
       example, "Work towards an average of 10,000 steps per day, and at least 3 days of 20 minutes' worth of strength exercises".  On the other
       hand, plans will often provide much more detail, including descriptions of how, why, interim milestones, conditionality, etc.  A plan
       may have multiple paragraphs and may include computable goals that can be used as targets.</li>
@@ -118,7 +118,7 @@
       abilities and interests,</li>
     <li>training programs to help a patient understand how to perform certain types of exercise safely and effectively,</li>
     <li>ongoing coaching to help provide motivation, correction and adjustment of exercise plans based on patient needs, and/or</li>
-    <li>enrollment in group programs that support any or all of the above.</li>
+    <li>enrollment in group programs that support any or all the above.</li>
   </ul>
   <p>
     The high-level list of candidate codes for types of interventions that can be ordered is found <a href="ValueSet-pa-servicerequest-code.html">here</a>.
@@ -159,9 +159,9 @@
     once.  For example, initially a Task might be directed to Service Provider A, who refuses the task because of availability issues
     or because they no longer provide the desired service.  A new Task (pointing to the same ServiceRequest) might then be spawned
     seeking fulfillment of the referral by Service Provider B.  Service Provider B might initially accept the referral but then later
-    cancel because the service provider moves locations.  Finally a third Task might be created seeking fulfillment by Service Provider C
-    who accepts and delivers the needed service.  Only when that third Task is completed and the ordering clinician is satisfied that their
-    objectives have been satisfied would the original ServiceRequest be marked as 'completed'.
+    cancel because the service provider moves locations.  Finally, a third Task might be created seeking fulfillment by Service Provider C
+    who accepts and delivers the needed service.  Only when that third Task is completed, and the ordering clinician is satisfied that their
+    objectives have been satisfied, would the original ServiceRequest be marked as 'completed'.
   </p>
   <p>
     Further details describing the specific processes involved in creating and sharing referrals can be found in the

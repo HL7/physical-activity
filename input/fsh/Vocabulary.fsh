@@ -14,7 +14,7 @@ Description:    "Codes that will eventually be proposed for LOINC or other code 
 ValueSet:      PAObservationStatus
 Id:            pa-observation-status
 Title:         "PA Observation Statuses"
-Description:   "Codes for Observation.status for Observations that are appropriate for exchange for physical activity purposes.  Excludes non-completed and unknown-status Observations.  Entered-in-error is retained to allow correction of previously-shared results that should not have existed."
+Description:   "Codes for Observation.status for Observations that are appropriate for exchange for physical activity purposes.  Excludes non-completed and unknown-status Observations.  Entered-in-error is retained to allow correction of previously shared results that should not have existed."
 * ^experimental = false
 * $obsStatus#final
 * $obsStatus#amended
@@ -24,7 +24,7 @@ Description:   "Codes for Observation.status for Observations that are appropria
 ValueSet:      PADiagnosticReportStatus
 Id:            pa-diagnosticreport-status
 Title:         "PA DiagnosticReport Statuses"
-Description:   "Codes for DiagnosticReport.status for reports that are appropriate for exchange for physical activity purposes.  Excludes non-completed and unknown-status Observations.  Entered-in-error is retained to allow correction of previously-shared results that should not have existed."
+Description:   "Codes for DiagnosticReport.status for reports that are appropriate for exchange for physical activity purposes.  Excludes non-completed and unknown-status Observations.  Entered-in-error is retained to allow correction of previously shared results that should not have existed."
 * ^experimental = false
 * $reportStatus#partial
 * $reportStatus#preliminary
@@ -58,7 +58,7 @@ Description:   "Codes for Physical Activity Vital Sign components"
 ValueSet:      PADiagnosticReportType
 Id:            pa-diagnosticreport-type
 Title:         "PA Report Types"
-Description:   "Codes types of diagnostic reports relevant to physical activity referrals"
+Description:   "Codes for types of diagnostic reports relevant to physical activity referrals"
 * ^copyright = "This material contains content from LOINC (http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the license at http://loinc.org/license. LOINC® is a registered United States trademark of Regenstrief Institute, Inc"
 * ^experimental = false
 * $loinc#11488-4 "Consult Note"
@@ -108,7 +108,7 @@ Description: "Codes physical activity measures that relate to a single contiguou
 ValueSet:    PAObservationTimeMeasures
 Id:          pa-observation-code-time
 Title:       "PA Observation Time-related codes"
-Description: "Codes for physical activity measures that aggregate or summarize activity over a period of time, such as a day or week"
+Description: "Codes for physical activity measures that aggregate or summarize activity over a time period, such as a day or week"
 * ^copyright = "This material contains content from LOINC (http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the license at http://loinc.org/license. LOINC® is a registered United States trademark of Regenstrief Institute, Inc"
 * ^experimental = false
 * $loinc#41950-7 "Number of steps in 24 hour Measured"

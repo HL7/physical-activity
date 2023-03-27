@@ -1,6 +1,6 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
 	<p>
-    This section of the specification talks about the different types systems and the specific workflows covered by this implementation guide.
+    This section of the specification talks about the different types of systems and the specific workflows covered by this implementation guide.
   </p>
   <p>
     NOTE: Additional systems and/or workflows may be introduced in the future.  E.g. anonymized reporting, quality metric assessment, etc.
@@ -16,7 +16,7 @@
       social workers, or others who have general responsibility for care of the patient.  These are the systems that will typically perform initial
       data capture, whose users may identify an issue with physical activity level, and will coordinate any interventions to improve
       physical activity levels.</li>
-    <li><a name="patient"> </a><a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagment Apps</a> are systems that will be used by patients and/or their caregivers
+    <li><a name="patient"> </a><a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagement Apps</a> are systems that will be used by patients and/or their caregivers
       to capture data to share with clinicians and physical activity specialists.  They will also allow patients and their representatives
       to see and potentially update goals and plans of care related to physical activity.  (Caregivers might include relatives, neighbors,
       friends, or anyone else acting in support of the patient based on their personal relationship.)</li>
@@ -50,7 +50,7 @@
     In addition to the three actor types above, payer systems are also relevant in this space, as they may provide coverage for services offered by Service Providers
     and may need measures reported by any of the other two system types.  However, interaction with payers is outside the scope of this implementation
     guide.  Implementers interested in also supporting interoperability with payer systems related to physical activity are encouraged to
-    exampine the various Da Vinci implementation guides, in particular:
+    examine the various Da Vinci implementation guides, in particular:
   </p>
   <ul>
     <li><a href="http://hl7.org/fhir/us/davinci-crd">Coverage Requirements Discovery (CRD)</a>, <a href="http://hl7.org/fhir/us/davinci-dtr">Documentation, 
@@ -62,7 +62,7 @@
   <p>
     While this IG doesn't define interactions with payer systems, the data standardization of physical activity measures and related referrals
     will improve interoperability for payer processes.  In some cases, the RESTful interfaces defined in this guide that support sharing data with 
-    clinicians, patients, and service providers may be extended (with permisison and oversight of appropriate access) to allow direct query by payer
+    clinicians, patients, and service providers may be extended (with permission and oversight of appropriate access) to allow direct query by payer
     systems.
   </p>
   
@@ -75,7 +75,7 @@
     artifacts have been adapted to reflect the needs of the physical activity space.
   </p>
   <p>
-    NOTE: These workflows will frequently make reference to the 'patient' being involved in the process - as a source of data, as a
+    NOTE: These workflows will frequently refer to the 'patient' being involved in the process - as a source of data, as a
     participant in care planning, as a participant in interventions, etc.  In almost all circumstances, this should be read as 
     "the patient and/or their care giver(s)".  Information might be gathered from parents, guardians, or any other trusted person who
     has responsibility for the patient's care and/or are otherwise supporting the patient in meeting their healthcare objectives.  This 
@@ -92,9 +92,9 @@
   </p>
   <ol>
     <li>The patient is assessed to determine if there is an issue to be addressed.</li>
-    <li>If an issue is found, the care provider works with the patient to determine a goal or set of goals to improve the current state and a plan to meet them</li>
-    <li>The care provider and patient then work together to come up with a plan to meet those goals, possibly involving external interventions</li>
-    <li>From time to time, the care provider and patient touch base to evaluate progress and, as necessary, make adjustments to the plan and goals</li>
+    <li>If an issue is found, the care provider works with the patient to determine a goal or set of goals to improve the current state and a plan to meet them.</li>
+    <li>The care provider and patient then work together to come up with a plan to meet those goals, possibly involving external interventions.</li>
+    <li>From time to time, the care provider and patient touch base to evaluate progress and, as necessary, adjust the plan and goals.</li>
   </ol>
   <p>
     This may continue until the issue is deemed 'resolved' or until the patient determines they no longer wish to address the issue.  Alternatively,
@@ -107,7 +107,7 @@
   <p>
     Some models might refer to this as 'diagnosis', but that word can be somewhat charged with connotations around 'who' is permitted to
     make such decisions.  In the context of this implementation guide, no specific rules are established around who 'authorized' to determine
-    that a patient's level of physical activity is problematic.  However, some insurance plans or programs may introduce such expectations in order
+    that a patient's level of physical activity is problematic.  However, some insurance plans or programs may introduce such expectations 
     to authorize payment for interventions.
   </p>
   <p>
@@ -133,7 +133,7 @@
     However, the determination of when intervention is appropriate is left up
     to care providers and patients to determine.  Comorbidities such as diabetes, hypertension, obesity, cardiac risk factors, etc. may all
     come into play, either indicating that higher target levels or sometimes lower target levels are appropriate.  Payers may set rules for
-    what criteria need to be met in order for interventions to be covered under particular plans.
+    what criteria need to be met for interventions to be covered under specific plans.
   </p>
   <p>
     One key part of the preceding paragraph is that care providers and patients <i>together</i> make a determination as to whether a problem
@@ -209,13 +209,13 @@
     <b>ServiceRequest:</b>
   </p>
   <ul>
-    <li>The the official 'referral'.  It represents the 'authorization' for a patient to receive a particular type of care.</li>
-    <li>To create a 'referral', the author must have appropriate training/licensure</li>
-    <li>Existence of a referral might be necessary for service to be performed and/or for insurance coverage to exist.  However, referrals aren't always needed.</li>
+    <li>The official 'referral'.  It represents the 'authorization' for a patient to receive a particular type of care.</li>
+    <li>To create a 'referral', the author must have appropriate training/licensure.</li>
+    <li>Existence of a referral might be necessary for service to be performed and/or for insurance coverage to exist.  However, referrals are not always needed.</li>
     <li>The status of the referral is generally either 'active', 'cancelled' or 'completed'.  A referral doesn't track what's happening with execution.</li>
-    <li>The referral generally can't be updated by anyone other than the author</li>
+    <li>The referral generally can't be updated by anyone other than the author.</li>
     <li>A referral *might* be targeted to a specific performer.  If so, then only that one performer has authorization.  To change the performer, a new referral is needed.</li>
-    <li>While we might use the term "self referral" for a patient-initiated service, there is no ServiceRequest in this case - there is no FHIR representation of the patient asking for the service.</li>
+    <li>While we might use the term "self-referral" for a patient-initiated service, there is no ServiceRequest in this case - there is no FHIR representation of the patient asking for the service.</li>
   </ul>
   <p>
     <b>Task:</b>
@@ -245,16 +245,16 @@
     Referrals are typically initiated in one of two ways:
   </p>
   <ul>
-    <li>A clinician or other professional determines that a patient's physical activity level is too low and that intervention by an excercise professional
+    <li>A clinician or other professional determines that a patient's physical activity level is too low and that intervention by an exercise professional
       is likely to help improve the patient's activity level.</li>
     <li>A patient is already receiving treatment by an exercise professional and the professional indicates that, with a referral, some portion of the
       services being provided might be covered by insurance.  The patient reaches out to their clinician who, after verifying the patient meets
-      elegibility criteria for referral, may refer for the services currently being rendered or for others.</li>
+      eligibility criteria for referral, may refer for the services currently being rendered or for others.</li>
   </ul>
   <p>
-    Most exercise programs and exercise-related services are not 'gated'.  I.e. no referral is needed in order to access the services.  In these cases,
+    Most exercise programs and exercise-related services are not 'gated'.  I.e. no referral is needed to access the services.  In these cases,
     the primary purpose of a referral is to enable funding to flow from insurance coverage.  However, certain specialized programs, such as
-    those related to post-cancer or cardiac rehabilitiation might require a referral both to ensure the program is appropriate for the patient and
+    those related to post-cancer or cardiac rehabilitation might require a referral both to ensure the program is appropriate for the patient and
     that the patient has sufficiently recovered that beginning an exercise program is appropriate.  In these cases, referrals might be sought even if
     the patient does not have coverage that would support reimbursement.
   </p>
@@ -276,9 +276,9 @@
     <li>After initially 'accepting' the task, changing the Task.status to 'cancelled' and populating Task.reason.  E.g. the service provider has become
       unavailable and is no longer able to satisfy the referral.</li>  
     <li>Changing the Task.status to 'on-hold' and populating Task.reason.  E.g. the patient has been hospitalized or gone on vacation.</li>  
-    <li>Changing the Task.status to 'failed' and populating the Task.reason.  E.g. the patient has chosen to discontinue the training program or the
+    <li>Changing the Task.status to 'failed' and populating the Task.reason.  E.g. the patient has chosen to discontinue the training program, or the
       <i>Care Manager</i> has decided that the referral is no longer appropriate/necessary.</li>
-    <li>Changing the Task.businesStatus to communicate some degree of internal progress.  E.g. "completed intake session", "Developed workout plan",
+    <li>Changing the Task.businessStatus to communicate some degree of internal progress.  E.g. "completed intake session", "Developed workout plan",
       "'fading out' supports", etc.  (There is no requirement to do this, but it helps ensure everyone is on the same page.)</li>
     <li>Adding Task.note repetitions capturing progress against the Task.</li>
   </ul>
@@ -318,9 +318,9 @@
     Based on implementer feedback, this IG defines an additional <code>customChannelType</code> code that can be used to deliver notifications
     via SMS device rather than email or rest-hook.  Such notifications <b>SHALL</b> only include a short human-readable message indicating the subscription id and 
     a short message indicating that updated content is available.  They <b>SHALL NOT</b> actually include a subscription notification Bundle.
-    The use of this approach is experimental and feedback is welcome.  The code to use is found
+    The use of this approach is experimental, and feedback is welcome.  The code to use is found
     <a href="CodeSystem-pa-temporary-codes.html#pa-temporary-codes-sms">here</a>.  The <code>endpoint</code> will be populated with the phone number
-    to send the SMS message to, expressed in compliance with <a href="https://www.rfc-editor.org/rfc/rfc3966">rfc3966</a> - i.e "tel:" followed by the
+    to send the SMS message to, expressed in compliance with <a href="https://www.rfc-editor.org/rfc/rfc3966">rfc3966</a> - i.e. "tel:" followed by the
     phone number digits.
   </p>
   <p>
@@ -373,10 +373,10 @@
     the scope of this IG.  Coverage could be provided in different ways:
   </p>
   <ul>
-    <li>On a fee-for-service basis for delivering specific interventions</li>
-    <li>On a contractual basis where a service provider is paid for delivering a program and reimbursed based on the number of patients who participate</li>
+    <li>On a fee-for-service basis for delivering specific interventions.</li>
+    <li>On a contractual basis where a service provider is paid for delivering a program and reimbursed based on the number of patients who participate.</li>
     <li>As part of a captitated payments program where physical activity services are included as part of set of types of care covered by a bulk payment
-      for each patient for a period of time</li>
+      for each patient for a specific period.</li>
     <li>Others?</li>
   </ul>
   <p>
@@ -391,9 +391,9 @@
   <h4>Capturing Feedback and patient engagement</h4>
   <p>
     Another area where this implementation guide borrows from Gravity SDOH is in the use of Questionnaires to solicit feedback from patients (and
-    their caregivers) about satisfaction with a particular service provider.  Patient satisfaction with their providers is a key indicator of their
+    their caregivers) about satisfaction with a service provider.  Patient satisfaction with their providers is a key indicator of their
     long-term success in improving and sustaining their physical activity levels.  Gravity also uses
-    the same Task-based mechanism to prompt patients to contact particular service providers, to review documentation, or to perform other 
+    the same Task-based mechanism to prompt patients to contact specific service providers, to review documentation, or to perform other 
     ad-hoc actions.
   </p>
   <p>

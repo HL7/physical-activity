@@ -3,7 +3,7 @@
     This page provides a list of download packages that may be helpful for implementers and other readers of this implementation guide.
   </p>
 	<p>NOTE: This FHIR implementation guide (and all other FHIR IGs) have links to content in the FHIR core specification
-	  and, in most cases, to other IGs.  While it is possible to download all of these specifications and navigate them
+	  and, in most cases, to other IGs.  While it is possible to download these specifications and navigate them
 	  locally, hyperlinks <i>between</i> specifications will always refer to the web-hosted version of the specification.
 	  If you are working offline, you'll need to look up the corresponding page in your local copy when navigating such
 	  links.</p>

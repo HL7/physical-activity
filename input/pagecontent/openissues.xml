@@ -26,8 +26,7 @@
   <ol>
     <li>Various: Create diagrams to represent information visually where it makes sense to</li>
     <li>Artifacts: Create complete examples (and possibly ExampleScenarios) for all profiles leveraging domain epxert input</li>
-    <li>Everywhere: Full spelling and grammer check, plus review for clarity and readability (feel free to report issues you find though!)</li>
-    <li>QA Report: Create Jira file</li>
+    <li>Everywhere: Review for clarity and readability (feel free to report issues you find though!)</li>
     <li>Update US Realm approval on RelatedPerson</li>
   </ol>
 </div>

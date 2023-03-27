@@ -9,7 +9,7 @@
   </p>
   <ul>
     <li><a href="CapabilityStatement-pa-care-manager.html">Care Manager</a>,</li>
-    <li><a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagment App</a>,</li>
+    <li><a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagement App</a>,</li>
     <li><a href="CapabilityStatement-pa-service-provider-full.html">Full Service Provider</a>, and/or</li>
     <li><a href="CapabilityStatement-pa-service-provider-light.html">Light Service Provider</a></li>
   </ul>
@@ -19,7 +19,7 @@
   <p>
     This implementation guide documents conformance expectations through declarations in computable artifacts, such as cardinality and vocabulary bindings in 
     IG <a href="{{site.data.fhir.path}}profiling.html">profiles</a>.  However, it also makes use of conformance language in the text of the IG.  When expressed in upper-case,
-    the words <b>SHALL</b>, <b>SHOULD</b>, <b>MAY</b>, etc. are to be interpretted as described in the FHIR core specification 
+    the words <b>SHALL</b>, <b>SHOULD</b>, <b>MAY</b>, etc. are to be interpreted as described in the FHIR core specification 
     <a href="{{site.data.fhir.path}}conformance-rules.html#conflang">here</a>.
   </p>
 
@@ -35,7 +35,7 @@
       to demonstrate the population and sharing of the element, but it is acceptable to omit the element if the system does not have values in a particular 
       instance. A system that is incapable of ever sharing the element would be non-conformant.</li>
     <li>Data Consumers <b>SHALL</b> be capable of processing resource instances containing the data elements and doing something useful with them - i.e. displaying,
-      storing, or any other action a reasonable user would expect the system to take with a 'supported' element of that type</li>
+      storing, or any other action a reasonable user would expect the system to take with a 'supported' element of that type.</li>
     <li>If the minimum cardinality of an element is greater than 0 – i.e. the element is ‘required’, then the element <b>SHALL</b> be present in the instance and 
       <b>SHALL</b> have a value unless:
       <ul>
@@ -84,14 +84,14 @@
 	<a name="terminology"> </a>
 	<h4>Terminology expectations</h4>
 	<p>
-	  This implementation guide makes use of a number of external terminologies, including LOINC, SNOMED CT and CPT codes.  In
+	  This implementation guide makes use of several external terminologies, including LOINC, SNOMED CT and CPT codes.  In
 	  some places, the IG has identified the need for a code that does not yet exist in any of these external locations, but
 	  which probably makes sense to be added to one of those code systems.  In this case, we have defined 'temporary' codes
 	  in the [temporary-codes](CodeSystem-temporary-codes.html) Code system.  The location and value of these codes <b>WILL</b>
-	  change in a future release of the specification.  Implementers should plan to accomodate this as part of their designs.
+	  change in a future release of the specification.  Implementers should plan to accommodate this as part of their designs.
 	</p>
 	<p>
-	  Some of the value sets referenced in this IG are not explicitly enumerated.  Instead they are defined by filters on the underlying code systems.  Others are
+	  Some of the value sets referenced in this IG are not explicitly enumerated.  Instead, they are defined by filters on the underlying code systems.  Others are
 	  maintained outside of the FHIR core specification and this IG.  In either case, this may result in the set of codes that are valid changing over time.
 	  Systems <b>SHALL</b> allow for this potential evolution and <b>SHALL NOT</b> reject a code that might be valid unless they have an up-to-date copy of the
 	  underlying code-system and value set definition.  Systems <b>SHOULD</b> ensure that their internal mappings are kept up-to-date as the list of available

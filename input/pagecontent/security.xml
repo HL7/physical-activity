@@ -1,7 +1,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml">
   <p>
     While exercise-related information is typically less sensitive than most healthcare information, it is still considered to be protected healthcare
-    information.  As such, the data sharing enabledy by this IG requires authentication, authorization, and secure transport.
+    information.  As such, the data sharing enabled by this IG requires authentication, authorization, and secure transport.
   </p>
   <p>
     Implementers of this IG are expected to adhere to the same security and privacy rules as are <a href="{{site.data.fhir.ver.sdoh}}/privacy_and_security.html">defined
@@ -18,7 +18,7 @@
   <h3>Consent</h3>
   <p>
     Many of the exercise professionals and exercise organizations that will be <a href="workflow.html#serviceprovider">Service Providers</a> in this IG fall outside 
-    the bounds of "Covered Entities" from a HIPAA perspective.  As such, consent will typically be required in order for referrals, plans, goals, observations, etc.
+    the bounds of "Covered Entities" from a HIPAA perspective.  As such, consent will typically be required for referrals, plans, goals, observations, etc.
     to be shared from clinical systems.  In addition, consent will often be needed if patient information is to be shared with a patient's caregivers.  It is the 
     responsibility of each organization and provider to ensure that consent is gathered when necessary and that disclosures are conducted in compliance with the
     consents on file.
