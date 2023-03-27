@@ -149,6 +149,8 @@
       there's a need for electronic sharing of audit records.)</li>
     <li><a href="http://hl7.org/fhir/us/bulkdata/">Bulk Data Access</a> - defines standards for sharing large volumes of FHIR data at one time.  This may be relevant if sharing
       large volumes of patient exercise, heart rate, and/or other information between systems.</li>
+    <li><a href="http://www.hl7.org/documentcenter/public/ballots/2022SEP/downloads/HL7_PCD_R1_I1_2022SEP.pdf">Patient Contributed Data</a> - defines guidance for incorporation of
+      patient and caregiver-collected information into clinical records (which this IG supports and advocates for).</li>
   </ul>
   <p>
     An extensive list of FHIR implementation guides published by HL7 and other related organizations can be found <a href="http://fhir.org/guides/registry">here</a>.
