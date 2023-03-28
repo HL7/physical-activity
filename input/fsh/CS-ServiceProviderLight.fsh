@@ -181,6 +181,7 @@ Usage:          #definition
     * referencePolicy = #literal
     * insert SearchParam2("topic", http://hl7.org/fhir/uv/subscriptions-backport/SearchParameter/Subscription-topic, #uri, #SHOULD, "Allows filtering for just subscriptions for Task monitoring.")
     * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known subscription records.")
+    * insert SearchParam("url",Subscription-url, #uri, #SHALL, "Allows filtering only for subscriptions that notify a specific endpoint.  Substituting for the 'owner' search parameter\, which doesn't exist in R4.")    
 //    * insert SearchParam("owner",Subscription-owner, #reference, #SHALL, "Allows filtering only for tasks that are owned by the Service Provider system.")    
   * resource[+]
     * extension[$conf].valueCode = #SHALL

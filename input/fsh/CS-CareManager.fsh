@@ -26,9 +26,9 @@ Usage:          #definition
     * referencePolicy = #literal
     * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known care plan records - and more specifically\, retrieving more than one in a single call to check for updates.")
     * insert SearchParam("_lastUpdated", Resource-lastUpdated, #date, #SHOULD, "Allows filtering for only records that have changed since last query.")
-    * insert SearchParam("category", CarePlan-category, #token, #SHOULD, "Allows retrieving only those plans related to physical activity.")
+    * insert SearchParam("category", CarePlan-category, #token, #SHALL, "Allows retrieving only those plans related to physical activity.  Required in US Core.")
     * insert SearchParam("date", clinical-date, #date, #SHOULD, "Allows filtering plans based on the time frame they apply(ied\) to.")
-    * insert SearchParam("lifecycle-status", CarePlan-status, #token, #SHALL, "Allows filtering to only active or draft plans.")
+    * insert SearchParam("status", CarePlan-status, #token, #SHOULD, "Allows filtering to only active or draft plans.")
     * insert SearchParam("patient", clinical-patient, #reference, #SHALL, "Allows filtering to only those plans for a specific patient.  Most systems will treat this as a mandatory search parameter\, though systems MAY support cross-patient search\, at least through bulk-data interfaces for payer or research use.")
   * resource[+]
     * extension[$conf].valueCode = #SHOULD
@@ -42,7 +42,7 @@ Usage:          #definition
     * referencePolicy = #literal
     * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known goal records - and more specifically\, retrieving more than one in a single call to poll for updates.")
     * insert SearchParam("_lastUpdated", Resource-lastUpdated, #date, #SHOULD, "Allows filtering for only records that have changed since last query.")
-    * insert SearchParam("category", Goal-category, #token, #SHALL, "Allows retrieving only those goals related to physical activity.")
+    * insert SearchParam("category", Goal-category, #token, #SHOULD, "Allows retrieving only those goals related to physical activity.  Not needed in US-Core.")
     * insert SearchParam("lifecycle-status", Goal-lifecycle-status, #token, #SHOULD, "Allows filtering to only active\, completed or other goal statuses.")
     * insert SearchParam("patient", clinical-patient, #reference, #SHALL, "Allows filtering to only those goals for a specific patient.  Most systems will treat this as a mandatory search parameter\, though systems MAY support cross-patient search\, at least through bulk-data interfaces for payer or research use.")
     * insert SearchParam("target-date", Goal-target-date, #date, #SHOULD, "Allows filtering goals based on when they're to be achieved.")
@@ -72,7 +72,7 @@ Usage:          #definition
     * extension[$conf].valueCode = #SHALL
     * type = #DiagnosticReport
     * insert SupportedProfile(PADiagnosticReport, #SHALL)
-    * documentation = "Allows retrieval of reports created by a Service Provider."
+    * documentation = "Allows retrieval of reports created by a Full Service Provider."
     * insert Interaction(#search-type, #SHALL, "Allows searching for reports for a particular patient or checking for updates to previously retrieved records.")
     * versioning      = #versioned-update
     * referencePolicy = #literal
@@ -90,9 +90,9 @@ Usage:          #definition
     * type = #Task
     * insert SupportedProfile(PATaskForReferralManagement, #SHALL)
     * insert SupportedProfile(SDOHCCTaskForPatient, #MAY)
-    * documentation = "Allows retrieval and updating of tasks stored on a Service Provider."
-    * insert Interaction(#create, #SHOULD, "Allows a creation of Task on a Service Provider system.")
-    * insert Interaction(#update, #SHOULD, "Allows cancelling or adding notes to an existing Task.")
+    * documentation = "Allows retrieval and updating of tasks stored on a Full Service Provider."
+    * insert Interaction(#create, #SHALL, "Allows a creation of Task on a Full Service Provider system.")
+    * insert Interaction(#update, #SHALL, "Allows cancelling or adding notes to an existing Task.")
     * insert Interaction(#search-type, #SHALL, "Allows checking for updates on a Task after receiving a subscription notification.")
     * versioning      = #versioned-update
     * referencePolicy = #literal
@@ -104,7 +104,7 @@ Usage:          #definition
     * insert SearchParam("patient", clinical-patient, #reference, #SHALL, "Allows filtering to only those tasks for a specific patient.  Most systems will treat this as a mandatory search parameter\, though systems MAY support cross-patient search\, at least through bulk-data interfaces for payer or research use.")
     * insert SearchParam("requester", Task-requester, #reference, #SHALL, "Allows filtering to only retrieve tasks initiated by a specific provider.")
     * insert SearchParam("status", ServiceRequest-status, #token, #SHALL, "Allows filtering to only retrieve active or completed orders.")
-    * insert SearchParam("focus", Task-focus, #reference, #SHOULD, "Allows retrieving the task(s\) seeking fulfillment of a particular ServiceRequest.")
+    * insert SearchParam("focus", Task-focus, #reference, #SHALL, "Allows retrieving the task(s\) seeking fulfillment of a particular ServiceRequest.")
     * insert SearchParam2("output", http://hl7.org/fhir/us/sdoh-clinicalcare/SearchParameter/Task-output-reference, #reference, #SHOULD, "Allows for the 'output' of a Task to be included when retrieving a Task.")
   * resource[+]
     * extension[$conf].valueCode = #SHOULD
@@ -118,7 +118,8 @@ Usage:          #definition
     * referencePolicy = #literal
     * insert SearchParam2("topic", http://hl7.org/fhir/uv/subscriptions-backport/SearchParameter/Subscription-topic, #uri, #SHOULD, "Allows filtering for just subscriptions for Task monitoring.")
     * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known subscription records.")
-//    * insert SearchParam("owner",Subscription-owner, #reference, #SHALL, "Allows filtering only for tasks that are owned by the subscribing system.")    
+    * insert SearchParam("url",Subscription-url, #uri, #SHALL, "Allows filtering only for subscriptions that notify a specific endpoint.  Substituting for the 'owner' search parameter\, which doesn't exist in R4.")    
+//    * insert SearchParam("owner",Subscription-owner, #reference, #SHALL, "Allows filtering only for subscriptions that are owned by the subscribing system.")    
 * rest[+]
   * mode = #server
   * documentation = "Care Managers act primarily as servers, allowing [light](CapabilityStatement-pa-service-provider-light.html) and [full](CapabilityStatement-pa-service-provider-full.html) service providers and [patient engagement systems](CapabilityStatement-pa-patient-engagement.html) to retrieve information stored on the manager, and in some cases to create and update information present on the manager."
@@ -198,7 +199,7 @@ Usage:          #definition
     * insert SupportedProfile(PAObservationActivityGroup, #SHOULD)
     * insert SupportedProfile(PAObservationTimeMeasure, #SHOULD)
     * documentation = "Exposes and allows manipulation of physical activity vital sign and supporting observations."
-    * insert Interaction(#update, #SHOULD, "Allows correction of or adding comments to previously recorded observations.")
+    * insert Interaction(#update, #SHALL, "Allows correction of or adding comments to previously recorded observations.")
     * insert Interaction(#create, #SHALL, "Allows other systems to record physical-activity related observations.")
     * insert Interaction(#search-type, #SHALL, "Allows retrieval of observations for a given patient.")
     * versioning      = #versioned-update
@@ -217,7 +218,7 @@ Usage:          #definition
     * insert SupportedProfile(PADiagnosticReport, #SHALL)
     * documentation = "Allows recording and retrieval of the reports on physical activity-related interventions."
     * insert Interaction(#create, #SHALL, "Allows recording of reports about physical activity interventions.")
-    * insert Interaction(#update, #SHOULD, "Allows updating or correcting a report on physical activity interventions.  E.g. updating to change status\, add notes\, etc.")
+    * insert Interaction(#update, #SHALL, "Allows updating or correcting a report on physical activity interventions.  E.g. updating to change status\, add notes\, etc.")
     * insert Interaction(#search-type, #SHALL, "Allows searching for reports for a particular patient or checking for updates to previously retrieved records.")
     * versioning      = #versioned-update
     * referencePolicy = #literal
@@ -253,7 +254,7 @@ Usage:          #definition
     * type = #QuestionnaireResponse
     * insert SupportedProfile(SDCQuestionnaireResponse, #SHALL)
     * documentation = "Allows recording and retrieval of questionnaire responses."
-    * insert Interaction(#update, #SHOULD, "Allows correction of or continued editing of a previously recorded questionnaire response.")
+    * insert Interaction(#update, #SHALL, "Allows correction of or continued editing of a previously recorded questionnaire response.")
     * insert Interaction(#create, #SHALL, "Allows other systems to record questionnaire responses.")
     * insert Interaction(#search-type, #SHALL,"Allows retrieval of completed or in-progresss questionnaire responses.")
     * versioning      = #versioned-update
@@ -295,6 +296,7 @@ Usage:          #definition
     * referencePolicy = #literal
     * insert SearchParam2("topic", http://hl7.org/fhir/uv/subscriptions-backport/SearchParameter/Subscription-topic, #uri, #SHOULD, "Allows filtering for just subscriptions for Task monitoring.")
     * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known subscription records.")
+    * insert SearchParam("url",Subscription-url, #uri, #SHALL, "Allows filtering only for subscriptions that notify a specific endpoint.  Substituting for the 'owner' search parameter\, which doesn't exist in R4.")    
 //    * insert SearchParam("owner",Subscription-owner, #reference, #SHALL, "Allows filtering only for tasks that are owned by the subscribing system.")    
   * resource[+]
     * extension[$conf].valueCode = #SHALL
