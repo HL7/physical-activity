@@ -18,8 +18,8 @@ e: {
   "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:7329f102-0211-44fb-9585-9e4ca23b9338",
-    "timestamp" : "2023-03-28T20:30:12.135Z",
+    "identifier" : "urn:uuid:7bc6d89c-b1ce-411d-b6de-a2700ac7b206",
+    "timestamp" : "2023-04-11T15:15:46.042Z",
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -30,7 +30,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueUri" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|1.0.0-ballot"
+      "valueUri" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|current"
     }],
     "contains" : [{
       "extension" : [{

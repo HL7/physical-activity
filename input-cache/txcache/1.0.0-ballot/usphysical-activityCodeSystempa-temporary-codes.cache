@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
+      "concept" : [{
+        "code" : "PAConsultNote",
+        "display" : "Physical activity Consult note"
+      }]
+    }]
+  }
+}}####
+e: {
+  "error" : "Error from server: Unable to provide support for code system http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes"
+}
+-------------------------------------------------------------------------------------
