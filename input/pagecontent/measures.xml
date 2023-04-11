@@ -89,6 +89,7 @@
   
   <a name="support"> </a>
   <h3>Supporting Measures</h3>
+  <img style="float:right;padding:3px" src="treadmill.png" alt="Woman on a Treadmil"/>
   <p>
     While it is certainly possible for patients and their caregivers to estimate their average days/week and minutes/day of moderate to
     high-intensity exercise, relying exclusively on estimates is not necessarily ideal.  Therefore, capturing additional information about
@@ -228,7 +229,7 @@
     are considered to be associated with the same physical activity 'occurrence'.
   </p>    
   <table class="grid">
-    <thead style="background-color: lightblue">
+    <thead style="background-color:WhiteSmoke">
       <tr>
         <th rowspan="2">Measure Name</th>
         <th rowspan="2">Code</th>
@@ -334,7 +335,7 @@
     Each of these measures is conveyed using the <a href="StructureDefinition-pa-observation-time-measure.html">Time-Based Measure profile</a>.
   </p>
   <table class="grid">
-    <thead style="background-color: lightblue">
+    <thead style="background-color:WhiteSmoke">
       <tr>
         <th rowspan="2">Measure Name</th>
         <th rowspan="2">Code</th>

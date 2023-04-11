@@ -30,6 +30,7 @@
     The specific meaning of "must support" is left to be defined in individual implementation guides.  For the purposes of <i>this</i> implementation guide, "must support" 
     shall be interpreted as follows:
   </p>
+  <img style="float:right;padding:3px" src="workout.png" alt="A Woman in Brown Leggings Holding a Dumbbell"/>
 	<ul>
 		<li>Data Sources <b>SHALL</b> be capable of populating the data element when sharing resources compliant with the profile. I.e. the system must be able 
       to demonstrate the population and sharing of the element, but it is acceptable to omit the element if the system does not have values in a particular 

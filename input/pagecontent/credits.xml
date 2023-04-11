@@ -1,84 +1,187 @@
-<div xmlns="http://www.w3.org/1999/xhtml">
-  <p>
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../input-cache/schemas/R4/fhir-xhtml.xsd">
+	<p>
     The development of this IG was sponsored in part by funding donated by David W. Bernauer – Retired, Former Chairman/CEO at Walgreen Co.  
     Project management and director leadership was provided by the <a href="http://heart.org">American Heart Association</a> and the 
     <a href="http://paamovewithus.org">Physical Activity Alliance</a>.
     
   </p>
-  <p>Key contributors include:</p>
+	<p>Key contributors include:</p>
+	<img style="float:right;padding:3px" src="kids.png" alt="Four pre-school children stretching"/>
 	<table>
-    <tbody>
-      <tr style="color:blue">
-        <th>Role</th>
-        <th>Contributor(s)</th>
-      </tr>
-      <tr>
-        <th><i>Lead author:</i></th>
-        <td>
-          <b>Lloyd McKenzie</b> (Accenture/Dogwood Health)
+		<tbody>
+			<tr style="color:blue">
+				<th>Role</th>
+				<th>Contributor(s)</th>
+			</tr>
+			<tr>
+				<th>
+					<i>Lead author:</i>
+				</th>
+				<td>
+					<b>Lloyd McKenzie</b> (Accenture/Dogwood Health)
         </td>
-      </tr>
-      <tr>
-        <th><i>Steering committee</i></th>
-        <td>
-          <b>Paul Chase</b> (American Heart Association)<br/>
-          <b>Maria Isler</b> (American Heart Association)<br/>
-          <b>Laurie Whitsel</b> (American Heart Association)<br/>
-        </td>
-      </tr>
-      <tr>
-        <th><i>Regular Project Participants</i></th>
-        <td>
-          <b>Ross Arena</b> (University Illinois - Chicago)<br/>
-          <b>Amy Bantham</b> (Move to Live More)<br/>
-          <b>Griffin Bariss</b> (Physical Activity Alliance (PAA))<br/>
-          <b>Nathan Botts</b> (Mobile Health Working Group &amp; Westat)<br/>
-          <b>Sheryl Brown</b> (Cooper)<br/>
-          <b>Paige Denison</b> (Evidence in Motion (EIM) - Older Adults)<br/>
-          <b>Ramandeep Dhanoa</b> (Accenture)<br/>
-          <b>Pat Dunn</b> (American Heart Association (AHA))<br/>
-          <b>Matt Elrod</b> (MaxMD)<br/>
-          <b>John Graham</b> (St. Luke's University Health Network)<br/>
-          <b>Mu Huang</b> (American Heart Association (AHA))<br/>
-          <b>Ayanna McKnight</b> (American Heart Association (AHA) &amp; Physical Activity Alliance (PAA))<br/>
-          <b>Graham Melstrand</b> (Physical Activity Alliance (PAA) &amp; American Council on Exercise)<br/>
-          <b>Geoffrey Moore</b> (American Medical Society for Sports Medicine (AMSSM))<br/>
-          <b>Brooke McSwain</b> (American Heart Association (AHA))<br/>
-          <b>Karl Naden</b> (Mitre / PACIO Project)<br/>
-          <b>Rachelle Reed</b> (University of Georgia)<br/>
-          <b>Tom Richards</b> (The Activist in Motion)<br/>
-          <b>Josh Rohrbaugh</b> (WELLD Health)<br/>
-          <b>Michelle Segar</b> (University of Michigan)<br/>
-          <b>Cassandra Stish</b> (WELLD Health)<br/>
-          <b>Dana Wolff-Hughes</b> (National Institutes of Health (NIH))<br/>
-        </td>
-      </tr>
-      <tr>
-        <th><i>PAA Expert Advisory Group</i></th>
-        <td>
-          <b>Ross Arena, Ph.D.</b> (University of Illinois, Chicago)<br/>
-          <b>Amy Bantham, Ph.D.</b> (Move to Live More)<br/>
-          <b>Matthew Buman, Ph.D.</b> (Arizona State University’s College of Health Solutions)<br/>
-          <b>Randall Cook, MD</b> (Retired, PCP)<br/>
-          <b>Chris Craytor</b> (CEO, WELLD Health)<br/>
-          <b>Pat Dunn, Ph.D.</b> (American Heart Association)<br/>
-          <b>Liz Joy, MD</b> (Intermountain Health)<br/>
-          <b>Felipe Lobelo, MD, Ph.D.</b> (Emory University)<br/>
-          <b>Brooke McSwain</b> (American Heart Association)<br/>
-          <b>Eddie Phillips, MD</b> (Whole Health Medical Director at Boston VA Medical Center)<br/>
-          <b>Deborah Rohm Young, Ph.D., MBA</b> (Kaiser Permanente)<br/>
-          <b>Robert Ross, Ph.D.</b> (Queens University)<br/>
-          <b>Xuemei (Mei) Sui, MD, MPH, Ph.D.</b> (University of South Carolina)<br/>
-          <b>Bob Sallis, MD</b> (Kaiser Permanente)<br/>
-          <b>Dana Wolff-Hughes, Ph.D.</b> (National Institutes of Health)<br/>
-        </td>
-      </tr>
-      <tr>
-        <th><i>Additional key contributors:</i></th>
-        <td>
-          <b>Russell Buchanan</b> (Accenture)<br/>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+			</tr>
+			<tr>
+				<th>
+					<i>Steering committee</i>
+				</th>
+				<td>
+					<b>Paul Chase</b> (American Heart Association)<br/>
+					<b>Maria Isler</b> (American Heart Association)<br/>
+					<b>Laurie Whitsel</b> (American Heart Association)<br/>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<i>Regular Project Participants</i>
+				</th>
+				<td>
+					<b>Ross Arena</b> (University Illinois - Chicago)<br/>
+					<b>Amy Bantham</b> (Move to Live More)<br/>
+					<b>Griffin Bariss</b> (Physical Activity Alliance (PAA))<br/>
+					<b>Nathan Botts</b> (Mobile Health Working Group &amp; Westat)<br/>
+					<b>Sheryl Brown</b> (Cooper)<br/>
+					<b>Paige Denison</b> (Evidence in Motion (EIM) - Older Adults)<br/>
+					<b>Ramandeep Dhanoa</b> (Accenture)<br/>
+					<b>Pat Dunn</b> (American Heart Association (AHA))<br/>
+					<b>Matt Elrod</b> (MaxMD)<br/>
+					<b>John Graham</b> (St. Luke's University Health Network)<br/>
+					<b>Mu Huang</b> (American Heart Association (AHA))<br/>
+					<b>Ayanna McKnight</b> (American Heart Association (AHA) &amp; Physical Activity Alliance (PAA))<br/>
+					<b>Graham Melstrand</b> (Physical Activity Alliance (PAA) &amp; American Council on Exercise)<br/>
+					<b>Geoffrey Moore</b> (American Medical Society for Sports Medicine (AMSSM))<br/>
+					<b>Brooke McSwain</b> (American Heart Association (AHA))<br/>
+					<b>Karl Naden</b> (Mitre / PACIO Project)<br/>
+					<b>Rachelle Reed</b> (University of Georgia)<br/>
+					<b>Tom Richards</b> (The Activist in Motion)<br/>
+					<b>Josh Rohrbaugh</b> (WELLD Health)<br/>
+					<b>Michelle Segar</b> (University of Michigan)<br/>
+					<b>Cassandra Stish</b> (WELLD Health)<br/>
+					<b>Dana Wolff-Hughes</b> (National Institutes of Health (NIH))<br/>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<i>PAA Expert Advisory Group</i>
+				</th>
+				<td>
+					<b>Ross Arena, Ph.D.</b> (University of Illinois, Chicago)<br/>
+					<b>Amy Bantham, Ph.D.</b> (Move to Live More)<br/>
+					<b>Matthew Buman, Ph.D.</b> (Arizona State University’s College of Health Solutions)<br/>
+					<b>Randall Cook, MD</b> (Retired, PCP)<br/>
+					<b>Chris Craytor</b> (CEO, WELLD Health)<br/>
+					<b>Pat Dunn, Ph.D.</b> (American Heart Association)<br/>
+					<b>Liz Joy, MD</b> (Intermountain Health)<br/>
+					<b>Felipe Lobelo, MD, Ph.D.</b> (Emory University)<br/>
+					<b>Brooke McSwain</b> (American Heart Association)<br/>
+					<b>Eddie Phillips, MD</b> (Whole Health Medical Director at Boston VA Medical Center)<br/>
+					<b>Deborah Rohm Young, Ph.D., MBA</b> (Kaiser Permanente)<br/>
+					<b>Robert Ross, Ph.D.</b> (Queens University)<br/>
+					<b>Xuemei (Mei) Sui, MD, MPH, Ph.D.</b> (University of South Carolina)<br/>
+					<b>Bob Sallis, MD</b> (Kaiser Permanente)<br/>
+					<b>Dana Wolff-Hughes, Ph.D.</b> (National Institutes of Health)<br/>
+				</td>
+			</tr>
+			<tr>
+				<th>
+					<i>Additional key contributors:</i>
+				</th>
+				<td>
+					<b>Russell Buchanan</b> (Accenture)<br/>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3>Images</h3>
+	<p>
+    This website includes images created by the following people and organizations.  We thank them for making
+    their work available for use free of charge.  Use of these images is in accordance with the image license
+    terms.  Anyone intending re-use should consult the original license terms.
+  </p>
+	<ul>
+		<li>
+			<a href="https://www.pexels.com/photo/young-obese-female-with-ethnic-male-instructor-exercising-together-in-park-6551456">
+			Photo by Andres Ayrton</a> on Pexels</li>
+		<li>
+			<a href="https://www.pexels.com/photo/woman-doing-yoga-4057732">
+			Photo by Cliff Booth</a> on Pexels</li>
+		<li>
+			<a href="https://www.pexels.com/photo/person-wearing-silver-aluminum-case-apple-watch-with-white-sport-band-5083221">
+			Photo by Cottonbro Studio</a> on Pexels</li>
+		<li>
+			<a href="https://www.pexels.com/photo/a-physician-in-lab-coat-writing-a-prescription-5998470">
+			Photo by Pavel Danilyuk</a> on Pexels</li>
+    <li>
+      <a href="https://pixabay.com/photos/fitness-training-cardio-gym-1877210">
+      Photo by Darren Constance</a> on Pixabay</li>
+    <li>
+      <a href="https://pixabay.com/photos/woman-gym-exercise-workout-5807825">
+      Photo by Erak007</a> on Pixabay</li>
+		<li>
+			<a href="https://www.pexels.com/photo/a-woman-talking-to-a-doctor-4266944">
+			Photo by Cedric Fauntleroy</a> on Pexels</li>
+		<li>
+			<a href="https://www.pexels.com/photo/black-server-racks-on-a-room-325229">
+			Photo by Manuel Geissinger</a> on Pexels</li>
+    <li>
+      <a href="https://www.pexels.com/photo/chiropractor-examining-female-patient-with-reached-arm-and-dumbbell-4506112">
+      Photo by Karolina Grabowska</a> on Pexels</li>
+    <li>
+      <a href="https://pixabay.com/photos/fitness-room-fitness-sport-1180062">
+      Photo by Janeb13</a> on Pixabay</li>
+    <li>
+      <a href="https://pixabay.com/photos/exercise-weightlifting-2728335">
+      Photo by Michal Jarmoluk</a> on Pixabay</li>
+		<li>
+			<a href="https://www.pexels.com/photo/a-man-in-blue-sweater-wearing-eyeglasses-doing-exercise-7551627">
+			Photo by Kampus Production</a> on Pexels</li>
+		<li>
+			<a href="https://www.pexels.com/photo/man-sitting-on-wheelchair-while-playing-with-the-ball-7289814">
+			Photo by Alesia Kozik</a> on Pexels</li>
+		<li>
+			<a href="https://www.pexels.com/photo/active-kids-doing-bending-exercise-8613305">
+			Photo by Yan Krukau</a> on Pexels</li>
+		<li>
+			<a href="https://www.pexels.com/photo/people-doing-raised-hands-pose-in-yoga-class-8436587">
+			Photo by Yan Krukau</a> on Pexels</li>
+		<li>
+			<a href="https://www.pexels.com/photo/multiethnic-young-man-and-woman-doing-butt-exercise-with-weigh-balls-in-gym-6455818">
+			Photo by Julia Larson</a> on Pexels</li>
+    <li>
+      <a href="https://www.pexels.com/photo/serious-asian-lady-in-pink-boxing-gloves-in-studio-6798720">
+      Photo by Michelle Leman</a> on Pexels</li>
+		<li>
+			<a href="https://www.freepik.com/free-vector/gym-icon-flat-set_3817390.htm">
+			Image by Macrovector</a> on Freepik</li>
+    <li>
+      <a href="https://www.pexels.com/photo/a-woman-in-brown-leggings-holding-a-dumbbell-8846108">
+      Photo by MART PRODUCTION</a> on Pexels</li>
+		<li>
+			<a href="https://www.pexels.com/photo/man-in-black-t-shirt-and-gray-shorts-doing-leg-exercises-with-rubber-strength-band-8846282">
+			Photo by MART PRODUCTION</a> on Pexels</li>
+		<li>
+			<a href="https://www.pexels.com/photo/faceless-woman-in-bay-climbing-wall-in-bouldering-studio-5383520">
+			Photo by Allan Mas</a> on Pexels</li>
+    <li>
+      <a href="https://pixabay.com/photos/cross-country-skiing-sports-3991044">
+      Photo by NoName_13</a> on Pixabay</li>
+    <li>
+      <a href="https://pixabay.com/photos/doctor-patient-psychiatrist-5710147">
+      Photo by RazorMax</a> on Pixabay</li>
+    <li>
+      <a href="https://pixabay.com/photos/zumba-marathon-sport-exercise-4333580">
+      Photo by Andrzej Rembowski</a> on Pixabay</li>
+		<li>
+			<a href="https://www.pexels.com/photo/woman-in-blue-activewear-posing-near-white-wall-7240306">
+			Photo by RODNAE Productions</a> on Pexels</li>
+		<li>
+			<a href="https://www.pexels.com/photo/woman-on-a-treadmill-4944975">
+			Photo by Anastasia Shuraeva</a> on Pexels</li>
+    <li>
+      <a href="https://pixabay.com/photos/bicycle-bike-biking-sport-cycle-384566">
+      Photo by Rudy and Peter Skitterians</a> on Pixabay</li>
+    <li>
+      <a href="https://pixabay.com/photos/water-swimming-man-male-933172">
+      Photo by Tookapic</a> on Pixabay</li>
+	</ul>
 </div>

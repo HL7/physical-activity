@@ -42,46 +42,238 @@
   </p>
 
 	<a name="resources"> </a>
-	<h4>Resources</h4>
+	<h3>Resources</h3>
 	<p>
-    This implementation guide defines profiles on several resources.  Where implementers adhere to one of the profiles defined in this guide, they
-    will also need to adhere to the base expectations defined in the profiled resource.  Implementers are strongly encouraged to read through the
+    This implementation guide defines profiles on several resources.  It also leverages profiles from underlying guides.
+    Where implementers adhere to one of the profiles defined in this guide, they
+    will also need to adhere to the base expectations defined in the profiled resource.  The table below lists all resources
+    used as part of the current IG and indicates where they are used, as well as which profiles apply.
+    Implementers are strongly encouraged to read through the
     introductions and implementation notes associated with each resource they will implement, though not all resource guidance will necessarily apply
     in the context of implementing this guide.
   </p>
 	<table class="grid">
-		<tbody>
+    <thead style="background-color:WhiteSmoke">
 			<tr>
-				<th>Based on FHIR Resource</th>
-				<th>Physical Activity Profile(s)</th>
-				<th>Purpose</th>
+				<th>FHIR Resource</th>
+				<th>Use</th>
+				<th>Profile(s)</th>
+				<th>Defining IG</th>
 			</tr>
-<!--			<tr>
+    </thead>
+    <tbody>
+			<tr>
 				<td>
-					<a href="sdc-structuredefinition.html">SDC Data Element (DE) Profile</a>
+					<a href="{{site.data.fhir.path}}careplan.html">CarePlan</a>
 				</td>
+				<td>Used to share planned approaches to help the patient become more physically active.  For more information, see the 
+          <a href="interventions.html#plans">Plans &amp; Interventions page</a>.</td>
 				<td>
-					<a href="{{site.data.fhir.path}}structuredefinition.html">StructureDefinition</a>
+					<a href="StructureDefinition-pa-careplan.html">PA Care Plan</a>
 				</td>
-				<td>Used to define data elements using FHIR logical models that can be referenced in questionnaires and can be used to auto-populate form data</td>
-			</tr>-->
+				<td>Physical Activity</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="{{site.data.fhir.path}}condition.html">Condition</a>
+				</td>
+				<td>Allows sharing a formal diagnosis of insufficient exercise.  For more information, see the <a href="workflow.html#diagnosis">Workflow page</a>.</td>
+				<td>
+					<a href="StructureDefinition-pa-condition-low-pa.html">PA Condition - Low Physical Activity</a>
+				</td>
+				<td>Physical Activity</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="{{site.data.fhir.path}}diagnosticreport.html">DiagnosticReport</a>
+				</td>
+				<td>Allows sharing an interim or final summary of actions taken as part of a referral and/or recommendations for next steps.  
+          For more information, see the <a href="interventions.html#reports">Plans &amp; Interventions page</a>.</td>
+				<td>
+					<a href="StructureDefinition-pa-diagnosticreport.html">PA Intervention Report</a>
+				</td>
+				<td>Physical Activity</td>
+			</tr>
+      <tr>
+        <td>
+					<a href="{{site.data.fhir.path}}documentreference.html">DocumentReference</a>
+				</td>
+        <td>Allows packaging or pointing to a PDF or video a provider would like the patient to review.  Used as part of the Patient Task process described in the
+          <a href="{{site.data.fhir.ver.sdoh}}/exchange_workflow.html#detailed-workflow-for-a-single-questionnaire">SDOH Patient Coordination Workflow.</a>
+        </td>
+				<td>
+					<a href="{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-documentreference.html">US Core DocumentReference</a>
+        </td>
+        <td>
+          <a href="{{site.data.fhir.ver.uscore}}">US Core</a>
+        </td>
+      </tr>
+			<tr>
+				<td>
+					<a href="{{site.data.fhir.path}}goal.html">Goal</a>
+				</td>
+				<td>Used to share targets for physical activity measures.  For more information, see the <a href="interventions.html#plans">Plans &amp; Interventions page</a>.</td>
+				<td>
+					<a href="StructureDefinition-pa-goal.html">PA Goal</a>
+				</td>
+				<td>Physical Activity</td>
+			</tr>
+      <tr>
+        <td>
+					<a href="{{site.data.fhir.path}}healthcareservice.html">HealthCareService</a>
+				</td>
+        <td>Allows indicating the contact information for a provider to call or visit.  Used as part of the Patient Task process described in the
+          <a href="{{site.data.fhir.ver.sdoh}}/exchange_workflow.html#detailed-workflow-for-a-single-questionnaire">SDOH Patient Coordination Workflow</a>.</td>
+				<td>
+					<a href="{{site.data.fhir.ver.sdoh}}/StructureDefinition-SDOHCC-HealthcareService.html">SDOHCC Healthcare Service</a>
+        </td>
+        <td>
+          <a href="{{site.data.fhir.ver.sdoh}}">Gravity SDOH</a>
+        </td>
+      </tr>
+			<tr>
+				<td>
+					<a href="{{site.data.fhir.path}}observation.html">Observation</a>
+				</td>
+				<td>Used to capture and share various measures of physical activity.  For more information, see the <a href="measures.html">Measures page</a>.</td>
+				<td>
+					<a href="StructureDefinition-pa-observation-base.html">PA Measure - Base </a>,
+					<a href="StructureDefinition-pa-observation-evs.html">PA Measure - EVS Base</a>,
+					<a href="StructureDefinition-pa-observation-activity-group.html">PA Measure - Activity Group</a>,
+					<a href="StructureDefinition-pa-observation-activity-measure.html">PA Measure - Activity-based</a>,
+					<a href="StructureDefinition-pa-observation-evs-days-per-week.html">PA Measure - EVS Days/Week</a>,
+					<a href="StructureDefinition-pa-observation-evs-min-per-day.html">PA Measure - EVS Minutes/Day</a>,
+					<a href="StructureDefinition-pa-observation-evs-min-per-week.html">PA Measure - EVS Minutes/Week</a>,
+					<a href="StructureDefinition-pa-observation-strength-days-per-week.html">PA Measure - Strength Days/Week</a>, and
+					<a href="StructureDefinition-pa-observation-time-measure.html">PA Measure - Time-based</a>
+				</td>
+				<td>Physical Activity</td>
+			</tr>
+      <tr>
+        <td>
+					<a href="{{site.data.fhir.path}}organization.html">Organization</a>
+				</td>
+        <td>Used to indicate a performer of a referal and/or to indicate what delivery organization a given provider works for.  Referenced by
+          many of the other resources.</td>
+				<td>
+					<a href="{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-organization.html">US Core Organization</a>
+        </td>
+        <td>
+          <a href="{{site.data.fhir.ver.uscore}}">US Core</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+					<a href="{{site.data.fhir.path}}patient.html">Patient</a>
+				</td>
+        <td>Used to indicate the subject of care - i.e. the individual being assisted in improving or sustaining their levels of
+          physical activity.  For discussion on the use of the word 'patient', see the <a href="design.html#value">Design Considerations page</a>.</td>
+				<td>
+					<a href="{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-patient.html">US Core Patient</a>
+        </td>
+        <td>
+          <a href="{{site.data.fhir.ver.uscore}}">US Core</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+					<a href="{{site.data.fhir.path}}practitioner.html">Practitioner</a>
+				</td>
+        <td>An individual involved in the care delivery process, independent of what organization they work for or what 'hat' they are wearing.
+          Used in most resources to represent requesters, performers, etc.
+          For further discussion of practitioners, see the <a href="design.html#provider">Design Considerations page</a>.</td>
+				<td>
+					<a href="{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-practitioner.html">US Core Practitioner</a>
+        </td>
+        <td>
+          <a href="{{site.data.fhir.ver.uscore}}">US Core</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+					<a href="{{site.data.fhir.path}}practitionerrole.html">PractitionerRole</a>
+				</td>
+        <td>Someone involved in the care delivery process with the ability to identify the specific individual, the organization they are working for,
+          and/or the 'hat' they are wearing.  Used in most resources to represent requesters, performers, etc. when more than just the individual is
+          relevant.  For further discussion of practitioners, see the <a href="design.html#provider">Design Considerations page</a>.</td>
+				<td>
+					<a href="{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-practitionerrole.html">US Core PractitionerRole</a>
+        </td>
+        <td>
+          <a href="{{site.data.fhir.ver.uscore}}">US Core</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+					<a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>
+				</td>
+        <td>Allows sharing a specific form to be filled out by a patient or caregiver as part of the care coordination process.  Used as part of the Patient Task process described in the
+          <a href="{{site.data.fhir.ver.sdoh}}/exchange_workflow.html#detailed-workflow-for-a-single-questionnaire">SDOH Patient Coordination Workflow</a>.</td>
+				<td>
+					<a href="{{site.data.fhir.ver.sdc}}/StructureDefinition-sdc-questionnaire.html">SDC Base Questionnaire</a>
+        </td>
+        <td>
+          <a href="{{site.data.fhir.ver.sdc}}">SDC</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+					<a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a>
+				</td>
+        <td>Allows sharing a partially or fully completed formform that was filled out by a patient or caregiver.  Used as part of the Patient Task process described in the
+          <a href="{{site.data.fhir.ver.sdoh}}/exchange_workflow.html#detailed-workflow-for-a-single-questionnaire">SDOH Patient Coordination Workflow</a>.</td>
+				<td>
+					<a href="{{site.data.fhir.ver.sdc}}/StructureDefinition-sdc-questionnaireresponse.html">SDC Questionnaire Response</a>
+        </td>
+        <td>
+          <a href="{{site.data.fhir.ver.sdc}}">SDC</a>
+        </td>
+      </tr>
+			<tr>
+				<td>
+					<a href="{{site.data.fhir.path}}relatedperson.html">RelatedPerson</a>
+				</td>
+				<td>Allows capturing the participation of caregivers such as family members or neighbors (rather than only the patient) in the process - 
+          as authors, performers, subjects, etc.  For more information on the involvement of caregivers, see the <a href="design.html#relatedperson">Design Considerations page</a>.</td>
+				<td>
+					<a href="StructureDefinition-pa-relatedperson.html">PA Related Person</a>
+				</td>
+				<td>Physical Activity</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="{{site.data.fhir.path}}servicerequest.html">Service Request</a>
+				</td>
+				<td>Can be used to represent either an <a href="interventions.html#orders">exercise prescription</a> - an order for physical activity
+				  directed at the patient, or a <a href="interventions.html#referrals">referral</a> - a request for another provider or organization to assist
+				  with the patient's physical activity in some way.</td>
+				<td>
+					<a href="StructureDefinition-pa-servicerequest.html">PA</a>
+				</td>
+				<td>Physical Activity</td>
+			</tr>
+      <tr>
+        <td rowspan="2">
+					<a href="{{site.data.fhir.path}}task.html">Task</a>
+				</td>
+        <td rowspan="2">Used to monitor the process of asking someone to do something, as well as tracking the status of the resulting
+          execution and providing any results of the action back to the requester.  Used when seeking actions by a patient or caregiver as part of the
+          <a href="{{site.data.fhir.ver.sdoh}}/exchange_workflow.html#detailed-workflow-for-a-single-questionnaire">SDOH Patient Coordination Workflow</a>, as
+          well as when asking a <a href="workflow.html#serviceprovider">Service Provider</a> to <a href="workflow.html#referral">fulfill a referral</a>.
+        </td>
+				<td>
+					<a href="{{site.data.fhir.ver.sdoh}}/StructureDefinition-SDOHCC-TaskForPatient.html">SDOHCC Task for Patient</a>
+        </td>
+        <td>
+          <a href="{{site.data.fhir.ver.sdoh}}">Gravity SDOH</a>
+        </td>
+      </tr>
+			<tr>
+				<td>
+					<a href="StructureDefinition-pa-task-for-referral-management.html">PA</a>
+				</td>
+				<td>Physical Activity</td>
+			</tr>
 		</tbody>
 	</table>
-<!--	<p>
-    Additional resources such as <a href="{{site.data.fhir.path}}patient.html">Patient</a>, <a href="{{site.data.fhir.path}}practitioner.html">Practitioner</a>,
-    <a href="{{site.data.fhir.path}}binary.html">Binary</a>, <a href="{{site.data.fhir.path}}conceptmap.html">ConceptMap</a>, <a href="{{site.data.fhir.path}}structuremap.html">StructureMap</a>,
-    <a href="{{site.data.fhir.path}}provenance.html">Provenance</a>, <a href="{{site.data.fhir.path}}auditevent.html">AuditEvent</a> and others are also
-    likely to be used in SDC solutions, though no SDC-specific profiles have been created for them.
-	</p>
-
-	<a name="terminologyops"> </a>
-	<h4>Terminology Operations</h4>
-	<p>
-    In addition to the QuestionnaireResponse <a href="populate.html">population operations</a>, <a href="OperationDefinition-QuestionnaireResponse-extract.html">extract operation</a>, <a href="OperationDefinition-Questionnaire-next-question.html">next-question operation</a> and <a href="OperationDefinition-Questionnaire-process-response.html">process response operation</a>, it will be useful for Form Filler and Form Manager systems to support some of FHIR's
-    <a href="{{site.data.fhir.path}}terminology-service.html">terminology service</a> capabilities - specifically the
-    <a href="{{site.data.fhir.path}}operation-valueset-expand.html">Valueset Expand</a> and
-    <a href="{{site.data.fhir.path}}operation-valueset-validate-code.html">Validate code</a>
-    operations.
-  </p>-->
-
 </div>

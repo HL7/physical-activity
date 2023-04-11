@@ -11,6 +11,7 @@
   <p>
     There are three specific types of systems that cooperate to help manage and improve patient physical activity levels.  They are:
 	</p>
+  <img style="float:right;padding:3px" src="yoga-stretch.png" alt="Woman Doing Yoga"/>
 	<ul>
     <li><a name="caremanager"> </a><a href="CapabilityStatement-pa-care-manager.html">Care Managers</a> are electronic health record or similar systems used by physicians, 
       social workers, or others who have general responsibility for care of the patient.  These are the systems that will typically perform initial
@@ -94,7 +95,8 @@
     <li>The patient is assessed to determine if there is an issue to be addressed.</li>
     <li>If an issue is found, the care provider works with the patient to determine a goal or set of goals to improve the current state and a plan to meet them.</li>
     <li>The care provider and patient then work together to come up with a plan to meet those goals, possibly involving external interventions.</li>
-    <li>From time to time, the care provider and patient touch base to evaluate progress and, as necessary, adjust the plan and goals.</li>
+    <li>The plan is executed and progress against the goals is measured</li>
+    <li>The pattern repeats as, from time to time, the care provider and patient touch base to evaluate progress and, as necessary, adjust the plan and goals.</li>
   </ol>
   <p>
     This may continue until the issue is deemed 'resolved' or until the patient determines they no longer wish to address the issue.  Alternatively,
@@ -113,12 +115,14 @@
   <p>
     U.S. Health and Human Services provides the following minimum recommendations for physical activity for Americans:
   </p>
-  <table style="grid">
-    <tbody>
-      <tr>
+  <table class="grid">
+    <thead>
+      <tr style="background-color:WhiteSmoke;">
         <th>Age group</th>
         <th>Target activity level</th>
       </tr>
+    </thead>
+    <tbody>
       <tr>
         <td>6-17 years</td>
         <td>60 minutes/day moderate-vigorous activity</td>
@@ -160,6 +164,7 @@
   
   <a name="plan"> </a>
   <h4>Planning</h4>
+  <img style="float:left;padding:3px" src="elastic.png" alt="Man in Black T-Shirt and Gray Shorts Doing Leg Exercises with Rubber Strength Band"/>
   <p>
     The planning step involves coming to agreement with the patient about what their target should be for exercise frequency and duration, possibly
     with sub-targets along the way, as well as target timeframes for meeting those objectives.  Then the two need to agree on what steps will best help 
@@ -390,6 +395,7 @@
 
   <a name="engagement"> </a>
   <h4>Capturing Feedback and patient engagement</h4>
+  <img style="float:right;padding:3px" src="dumbbell.png" alt="Provider examining female patient with reached arm and dumbbell"/>
   <p>
     Another area where this implementation guide borrows from Gravity SDOH is in the use of Questionnaires to solicit feedback from patients (and
     their caregivers) about satisfaction with a service provider.  Patient satisfaction with their providers is a key indicator of their
