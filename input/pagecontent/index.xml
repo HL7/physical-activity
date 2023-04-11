@@ -41,11 +41,12 @@
     The IG also provides additional guidance to support all the above, including registries, consent, status monitoring, etc.
   </p>
   <p>
-    The following diagram shows the different areas covered by this IG and how they fit into the overall cycle of care:
+    The following diagram shows the participants and functions covered by this IG and how they fit into the overall cycle of care:
   </p>
   <div>
     <div style="display:flex;justify-content:center">
-      <img alt="Diagram showing a circular cycle around the label 'Improving Physical Activity'.  The bullets in the circle are: Assessment: Is patient getting sufficient physical activity?; 
+      <img alt="Diagram showing a circular cycle around icons representing Care Managers, Patients and Service Providers.  The bullets in the circle are: 
+        Assessment: Is patient getting sufficient physical activity?; 
         Plans &amp; Goals: What steps need to be taken? How? Targets? By when?; Prescription &amp; Referral: Wh can help and how?; Monitoring: Exercise logs, heart rate, steps, etc.; 
         Engagement: Videos, reading, satisfaction surveys, etc.; Reporting: What was done? Any issues? What should happen next?" src="Physical Activity cycle.svg"/>
     </div>
@@ -84,7 +85,7 @@
   </p>
   <ul>
     <li><a href="toc.html">Table of Contents</a> - A complete listing of all the pages in this implementation guide (helpful if you're not sure how to navigate to a page or want to ensure
-      you've read every page there is).</li>
+      you have read every page there is).</li>
     <li><a href="fhir.html">Understanding FHIR</a> - This page is aimed at implementers who might be new to using FHIR.  It identifies the key pieces of the FHIR specification an
       implementer should read and be familiar with before reading through the technical artifacts and instructions found in this implementation guide.  It also defines key
       documentation conventions used in this IG.  Finally, it defines the rules for asserting conformance with this implementation guide.</li>
