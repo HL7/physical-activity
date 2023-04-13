@@ -1,7 +1,7 @@
 Profile:        PAObservationBase
 Parent:         Observation
 Id:             pa-observation-base
-Title:          "PA Base Observation"
+Title:          "PA Measure Base"
 Description:    "A profile describing base requirements for all primary physical activity observations."
 * ^abstract = true
 * . ^definition = "A profile describing base requirements for all primary physical activity observations."
@@ -62,7 +62,7 @@ Description:    "A profile describing base requirements for all primary physical
 Profile:        PAObservationActivityMeasure
 Parent:         PAObservationBase
 Id:             pa-observation-activity-measure
-Title:          "PA Observation - Activity-based"
+Title:          "PA Measure - Activity-based"
 Description:    "A profile for observations that capture physical activity-related measures that are specific to a single
   physical activity."
 * . ^definition = "A profile for observations that capture physical activity-related measures that are specific to a single physical activity."
@@ -76,7 +76,7 @@ Description:    "A profile for observations that capture physical activity-relat
 Profile:        PAObservationActivityGroup
 Parent:         PAObservationBase
 Id:             pa-observation-activity-group
-Title:          "PA Observation Activity Group"
+Title:          "PA Measure - Activity Group"
 Description:    "A profile for observations that collects a set of activity-related measures that all pertain to the same physical activity instance."
 * . ^definition = "A profile for observations that collects a set of activity-related measures that all pertain to the same physical activity instance."
 * code = PATemporaryCodes#PAPanel

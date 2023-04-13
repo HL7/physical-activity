@@ -1,9 +1,10 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../input-cache/schemas/R4/fhir-xhtml.xsd">
 	<p>
-    The development of this IG was sponsored in part by funding donated by David W. Bernauer – Retired, Former Chairman/CEO at Walgreen Co.  
+    The development of this IG was sponsored in part by funding donated by David W. Bernauer – Retired, Former Chairman/CEO at Walgreen Co.
+  </p>
+  <p>
     Project management and director leadership was provided by the <a href="http://heart.org">American Heart Association</a> and the 
     <a href="http://paamovewithus.org">Physical Activity Alliance</a>.
-    
   </p>
 	<p>Key contributors include:</p>
 	<img style="float:right;padding:3px" src="kids.png" alt="Four pre-school children stretching"/>
@@ -92,6 +93,8 @@
 			</tr>
 		</tbody>
 	</table>
+	
+	<a name="images"> </a>
 	<h3>Images</h3>
 	<p>
     This website includes images created by the following people and organizations.  We thank them for making

@@ -7,8 +7,8 @@ fhirVersion: 4.0.1
 status: active
 date: 2022-05-29
 copyrightYear: 2022+
-version: 1.0.0-ballot
-releaseLabel: STU1 ballot-draft
+version: current
+releaseLabel: Continuous Integration
 jurisdiction: urn:iso:std:iso:3166#US
 publisher:
   name: HL7 International - Patient Care WG
@@ -38,15 +38,15 @@ dependencies:
     version: 3.0.0
     reason: |
       SDC defines standards for creating, populating, extracting data from and otherwise manipulating [Questionnaires]({{site.data.fhir.path}}questionnaire.html) and [QuestionnaireResponses]({{site.data.fhir.path}}questionnaireresponse.html).  This implementation guide allows optional use of Questionnaires when gathering information from patients and care givers about physical activity levels.  It also uses questionnaires as part of the evaluation process.  Leveraging SDC ensures that questionnaires created with this guide will be able to be rendered and, where appropriate, automatically have some of their answers pre-populated into and/or extracted from using off-the-shelf tooling that already supports the SDC implementation guide.
-#  hl7.fhir.uv.subscriptions-backport.r4:
-  hl7.fhir.uv.subscriptions-backport:
+  hl7.fhir.uv.subscriptions-backport.r4:
+#  hl7.fhir.uv.subscriptions-backport:
     id: sub
     version: 1.1.0
     reason: |
       The backport IG defines standards for automatically detecting that data has changed on a system and providing notifications to interested systems.  The Gravity SDOH implementation guide uses this to allow systems to monitor for updates between EHR systems and service delivery systems.  This implementation guide allows the same approach.
   hl7.fhir.uv.extensions:
     id: ext
-    version: current
+    version: 1.0.0
     reason: |
       Provides access to all of the 'standard' extensions defined in the core spec
   hl7.fhir.extensions.r5:

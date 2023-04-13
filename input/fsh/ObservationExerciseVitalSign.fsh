@@ -1,7 +1,7 @@
 Profile:        PAObservationEVS
 Parent:         PAObservationBase
 Id:             pa-observation-evs
-Title:          "PA Vital Sign Observation"
+Title:          "PA Measure - EVS Base"
 Description:    "A generic profile that encapsulates all the physical activity vital sign observations."
 * ^abstract = true
 * . ^definition = "A generic profile that encapsulates all the physical activity vital sign observations."
@@ -21,7 +21,7 @@ Description:    "A generic profile that encapsulates all the physical activity v
 Profile:        PAObservationEVSDaysPerWeek
 Parent:         PAObservationEVS
 Id:             pa-observation-evs-days-per-week
-Title:          "PA Vital Sign Days per Week"
+Title:          "PA Measure - EVS Days/Week"
 Description:    "A profile for observations that capture a patient's average days per week of moderate-to-vigorous physical activity."
 * . ^definition = "A profile for observations that capture a patient's average days per week of moderate-to-vigorous physical activity."
 * code = $loinc#89555-7
@@ -30,7 +30,7 @@ Description:    "A profile for observations that capture a patient's average day
 Profile:        PAObservationEVSMinutesPerDay
 Parent:         PAObservationEVS
 Id:             pa-observation-evs-min-per-day
-Title:          "PA Vital Sign Minutes per Day"
+Title:          "PA Measure - EVS Minutes/Day"
 Description:    "A profile for observations that capture a patient's average minutes per day of moderate-to-vigorous physical activity."
 * . ^definition = "A profile for observations that capture a patient's average minutes per day of moderate-to-vigorous physical activity."
 * code = $loinc#68516-4
@@ -39,7 +39,7 @@ Description:    "A profile for observations that capture a patient's average min
 Profile:        PAObservationEVSMinutesPerWeek
 Parent:         PAObservationEVS
 Id:             pa-observation-evs-min-per-week
-Title:          "PA Vital Sign Minutes per Week"
+Title:          "PA Measure - EVS Minutes/Week"
 Description:    "A profile for observations that capture a patient's average minutes per week of moderate-to-vigorous physical activity."
 * . ^definition = "A profile for observations that capture a patient's average minutes per week of moderate-to-vigorous physical activity."
 * code = $loinc#82290-8
@@ -48,7 +48,7 @@ Description:    "A profile for observations that capture a patient's average min
 Profile:        PAObservationStrengthDaysPerWeek
 Parent:         PAObservationEVS
 Id:             pa-observation-strength-days-per-week
-Title:          "PA Strength Days Week"
+Title:          "PA Measure - Strength Days/Week"
 Description:    "A profile for observations that capture a patient's average days per week of muscle-strengthening physical activity."
 * . ^definition = "A profile for observations that capture a patient's average days per week of muscle-strengthening physical activity."
 * code = $loinc#82291-6

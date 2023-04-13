@@ -20,7 +20,7 @@ Alias: $pertainsToGoal   = http://hl7.org/fhir/StructureDefinition/resource-pert
 Alias: $observationFocus = http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.focus
 Alias: $typeMS           = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
 
-
+// CapabilityStatement RuleSets
 RuleSet: SupportedProfile(profile, conf)
 * supportedProfile[+] = Canonical({profile})
   * extension[$conf].valueCode = {conf}
@@ -35,19 +35,19 @@ RuleSet: SearchInclude(include, conf)
 * searchInclude[+] = {include}
   * extension[$conf].valueCode = {conf}
 
-RuleSet: SearchParam2(name, def, type, conf, doc)
-* searchParam[+]
-  * extension[$conf].valueCode = {conf}
-  * name = {name}
-  * definition = "{def}"
-  * type = {type}
-  * documentation = {doc}
-
 RuleSet: SearchParam(name, def, type, conf, doc)
 * searchParam[+]
   * extension[$conf].valueCode = {conf}
   * name = {name}
   * definition = "http://hl7.org/fhir/SearchParameter/{def}"
+  * type = {type}
+  * documentation = {doc}
+
+RuleSet: SearchParam2(name, def, type, conf, doc)
+* searchParam[+]
+  * extension[$conf].valueCode = {conf}
+  * name = {name}
+  * definition = "{def}"
   * type = {type}
   * documentation = {doc}
 

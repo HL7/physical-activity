@@ -8,6 +8,7 @@ Usage:          #definition
 * status      = #active
 * kind        = #requirements
 * date        = 2022-06-18
+* imports[+]  = "http://hl7.org/fhir/us/core/CapabilityStatement/us-core-server"
 * fhirVersion = #4.0.1
 * format[+]   = #json
 * format[+]   = #xml
