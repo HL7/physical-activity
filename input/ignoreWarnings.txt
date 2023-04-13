@@ -25,6 +25,13 @@ WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/physical-activi
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-observation-activity-group').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-observation-base').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles
 
+# This value set is defined in R4B, not R4, and the subscription backport IG doesn't re-define it for use with R4 implementations.
+# Have manually verified that the codes used are valid against the R4B value set.
+WARNING: Bundle/ExampleSubscriptionBundleWithIds: Bundle.entry[0].resource/*Parameters/ExampleSubscriptionStatusWithIds*/.parameter[2].value.ofType(code): ValueSet http://hl7.org/fhir/ValueSet/subscription-notification-type not found by validator
+WARNING: Bundle/ExampleSubscriptionBundleWithNoIds: Bundle.entry[0].resource/*Parameters/ExampleSubscriptionStatusWithNoIds*/.parameter[2].value.ofType(code): ValueSet http://hl7.org/fhir/ValueSet/subscription-notification-type not found by validator
+WARNING: Parameters/ExampleSubscriptionStatusWithIds: Parameters.parameter[2].value.ofType(code): ValueSet http://hl7.org/fhir/ValueSet/subscription-notification-type not found by validator
+WARNING: Parameters/ExampleSubscriptionStatusWithNoIds: Parameters.parameter[2].value.ofType(code): ValueSet http://hl7.org/fhir/ValueSet/subscription-notification-type not found by validator
+
 # This *does* derive from the US core profile - the one in 3.1.1, not 6.0.0.  The only deviation from the 6.0.0 "US Core Condition Problems and Health Concerns Profile" is that there is no
 # mustSupport on the SDOH category because the physical activity profile is constrained to a condition that is definitely not an SDOH condition.
 # https://jira.hl7.org/browse/FHIR-40399 approved

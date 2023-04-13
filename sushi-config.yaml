@@ -142,6 +142,21 @@ resources:
     exampleCanonical: PAObservationTimeMeasure
   ExampleCaloriesPerDay:
     exampleCanonical: PAObservationTimeMeasure
+  ExampleSubscriptionWebhook:
+    exampleCanonical: BackportSubscription
+  ExampleSubscriptionEmail:
+    exampleCanonical: BackportSubscription
+  ExampleSubscriptionSMS:
+    exampleCanonical: BackportSubscription
+  ExampleSubscriptionBundleWithIds:
+    exampleCanonical: BackportSubscriptionNotificationR4
+  ExampleSubscriptionBundleWithNoIds:
+    exampleCanonical: BackportSubscriptionNotificationR4
+  ExampleSubscriptionStatusWithIds:
+    exampleCanonical: BackportSubscriptionStatusR4
+  ExampleSubscriptionStatusWithNoIds:
+    exampleCanonical: BackportSubscriptionStatusR4
+
 menu:
   Contents: toc.html
   Home: index.html
