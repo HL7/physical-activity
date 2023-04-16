@@ -31,5 +31,6 @@
     <li>Update US Realm approval on RelatedPerson</li>
     <li>Add maturity levels</li>
     <li>Fix subscriptions search</li>
+    <li>Ensure Figure labels are unique and sequential (and maybe create a table of them?)</li>
   </ol>
 </div>

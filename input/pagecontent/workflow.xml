@@ -89,7 +89,7 @@
   <a name="plans"> </a>
   <h4>Physical Activity Care Planning</h4>
   <p>
-    Care planning around physical activity follows a 'loop' pattern similar to all clinical care planning:
+    Care planning is an all-encompassing process that actually includes the referral management process.  It follows a 'loop' pattern similar to all clinical care planning:
   </p>
   <ol>
     <li>The patient is assessed to determine if there is an issue to be addressed.</li>
@@ -102,10 +102,18 @@
     This may continue until the issue is deemed 'resolved' or until the patient determines they no longer wish to address the issue.  Alternatively,
     it may continue indefinitely, even when a target state has been reached, just to monitor and ensure ongoing success.
   </p>
+  <div style="display:flex;justify-content:center">
+    <img src="PAManagement.svg" alt="Diagram showing PA management phases of Assessment, Planning, Order/Referral, parallel steps Monitoring and Engagement, and Reporting.  All steps are connected in a loop.  Beneath each of these top level-categories are additional details about the resources used in each step: Assessment shows USCDI Observations (Must Support) and 'Low Physical Activity' Condition (should support), with a decision box showing optional creation of condition if USCDI assessment shows not meeting guidelines, and an optional path to a 'Sustain' Care Plan if they are.  The Condition box shows an optional pathway to an 'improve' CarePlan and to a ServiceRequest.  Beneath Planning are the CarePlan resource (Should Support)
+ with either a 'Sustain' or 'Improve' version, as well as an optional link to Goal (Should Support).  Beneath Order/Referral is ServiceRequest (Must Support) with options for Exercise Rx or Referral and a required link to 'Please Fulfill' Task (also Shall Support).  Referral has an optional pathway to Diagnostic Report. Monitoring is associated with Observations (Should Support) with sub-types USCDI, Activity-based and Time-based.  Engagement is associated with Tasks for Patient (Should Support) with options of 'Please Review', 'Please contact' and 'Complete form'.  Finally, Reporting is associated with DiagnosticReport (Should Support) with information about what's in an Intervention Report."/>
+  </div>
+  <p style="text-indent:25px">
+    <b>Figure 3:</b> <i>Physical Activity Management Overview</i>
+  </p>
+  <br/>  
   <p>Breaking these steps up into more detail:</p>
   
   <a name="diagnosis"> </a>
-  <h5>Issue identification</h5>
+  <h5>Assessment</h5>
   <p>
     Some models might refer to this as 'diagnosis', but that word can be somewhat charged with connotations around 'who' is permitted to
     make such decisions.  In the context of this implementation guide, no specific rules are established around who 'authorized' to determine
@@ -193,7 +201,14 @@
   </p>
 
   <a name="referral"> </a>
-  <h4>Referral Management</h4>
+  <h4>Order and Referral Management</h4>
+  <p>
+    As described on the <a href="interventions.html#orders">the intervention page</a>, exercise 'prescriptions' are targeted directly to the Patient.  
+    Not much workflow is required for this - if electronic exchange occurs at all, the <a href="#caremanager">Care Manager</a> simply performs a search 
+    for <a href="StructureDefinition-pa-servicerequest.html">ServiceRequests</a> that have the patient listed as a performer (possibly filtering further 
+    by category).  There is no status management involved, except for the order prover potentially marking the order as complete or perhaps "renewing" it.
+    However, referrals to other providers are a bit more complex.
+  </p>
   <p>
     As discussed on the <a href="interventions.html#referrals">interventions page</a>, referrals are the mechanism by which a Care Manager authorizes
     interventions to be performed by a physical activity professional.  The <a href="StructureDefinition-pa-servicerequest.html">referral record</a>
@@ -208,7 +223,7 @@
       (Task.focus->ServiceRequest; Task.output->DiagnosticReport; DiagnosticReport.basedOn->ServiceRequest)"/>
   </div>
   <p style="text-indent:25px">
-    <b>Figure 2:</b> <i>Referral Resources</i>
+    <b>Figure 4:</b> <i>Referral Resources</i>
   </p>
   <p>
     <b>ServiceRequest:</b>
@@ -294,7 +309,7 @@
   <a name="taskstatus"> </a>
   <div>
     <img src="task-states.svg" alt="State diagram showing all of the Task status code values with allowed transitions"/>
-    <p><b>Figure 3</b> - Task statuses</p>
+    <p><b>Figure 5:</b> <i>Task statuses</i></p>
   </div>
   <p>
     NOTE: Not shown in this diagram is the 'entered-in-error' status which is an allowed transition from <b>all</b> states.
@@ -352,7 +367,7 @@
     practitioner who only provides counselling around increasing physical activity can have access to information about activity levels and types and
     get insight into how well the patient is adhering to the agreed plan.  In most cases, this review would happen at the time of the next visit, though
     a proactive practitioner might opt to monitor how the patient is doing between visits so that they can reach out to provide support/adjustment if
-    needed.
+    needed.  See <a href="#monitoring">monitoring</a> below.
   </p>
 
   <a name="reports"> </a>
@@ -393,8 +408,31 @@
     are relevant to enhancing patient physical activity.
   </p>
 
+  <a name="monitoring"> </a>
+  <h4>Monitoring</h4>
+  <p>
+    Once interventions have been taken, whether councilling the patient, giving them an <a href="interventions.html#orders">exercise prescription</a>, and/or
+    writing a referral, it is useful to monitor the patient's level of physical activity to see if the interventions are having the desired level of impact.
+    In some cases, the monitoring is entirely self-monitoring.  The patient (or their caregiver) tracks their activity levels and adjusts as necessary to
+    reach their target physical activity levels.  In this case, there is no need for data exchange.
+  </p>
+  <p>
+    However, in many cases, it will be helpful for the <a href="#caremanager">Care Manager</a> and/or <a href="#serviceprovider">Service Provider</a> to have
+    access to this information to give them better insight on how things are going, whether adjustments are needed, and whether the patient needs any
+    additional guidance or support.  While this <i>can</i> be done by informal means such as verbal communications or even having the patient showing a
+    provider their phone, ideally the data can actually be 'pushed' from the patient's system to the relevant provider(s) system.  In FHIR this is done
+    with a <a href="{{site.data.fhir.path}}http.html#create">RESTful create</a> of the relevant <a href="measures.html#base">base measures</a> and/or
+    <a href="measures.html#support">supporting measures</a>.
+  </p>
+  <p>
+    If data is being shared between <i>Care Managers</i> or <i>Service Providers</i>, there is an additional exchange option.  If the source system has
+    a FHIR interface (always true for Care Managers and for <a href="CapabilityStatement-pa-service-provider-light.html">Light Service Providers</a>), then
+    the client can simply perform a <a href="{{site.data.fhir.path}}search.html">RESTful search</a> on Observations for the patient based on patient, category 
+    and/or code, and possibly further filtering by date.
+  </p>
+  
   <a name="engagement"> </a>
-  <h4>Capturing Feedback and patient engagement</h4>
+  <h4>Patient Engagement and Feedback</h4>
   <img style="float:right;padding:3px" src="dumbbell.png" alt="Provider examining female patient with reached arm and dumbbell"/>
   <p>
     Another area where this implementation guide borrows from Gravity SDOH is in the use of Questionnaires to solicit feedback from patients (and
@@ -416,5 +454,20 @@
   <p>
     Use of this functionality is not required.  It is simply available where Care Managers and/or Service Providers feel that soliciting patient
     feedback is useful and where an electronic mechanism of doing so is more useful than using traditional paper-based approaches.
+  </p>
+  
+  <a name="report"> </a>
+  <h4>Reporting</h4>
+  <p>
+    In situations where the <a href="#serviceprovider">Service Provider</a> opts to create an 
+    <a href="StructureDefinition-pa-diagnosticreport.html">PA Intervention Report</a>, the workflow to deliver it will be handled as part of the
+    <a href="#referral">Referral Management</a> process.  Specifically, the <i>Service Provider</i> will create the report (on their own system
+    for <a href="CapabilityStatement-pa-service-provider-full.html">Full Service Providers</a> or on the <a href="#caremanager">Care Manager</a>
+    system for <a href="CapabilityStatement-pa-service-provider-light.html">Light Service Providers</a>.  The <i>Service Provider</i> will then
+    update the Task to include a Task.output that points to the report.
+  </p>
+  <p>
+    In most cases, the report will only be produced at the 'end' of the service delivery process, but in some cases a draft report might be made
+    available earlier, or in some cases, multiple reports might be made available over time throughout the delivery process.
   </p>
 </div>

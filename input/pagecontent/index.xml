@@ -165,7 +165,7 @@
   </p>
   <p>    
     This guide includes profiles and examples making use of terminologies such
-    as LOINC, SNOMED CT and CPT codes that have more restrictive licensing requirements.  Implementers should make themselves familiar with licensing and
+    as LOINC and SNOMED CT codes that have more restrictive licensing requirements.  Implementers should make themselves familiar with licensing and
     any other constraints of the terminologies, questionnaires, and other components used as part of their implementation process.  In some cases,
     licensing requirements may limit the systems that data captured using certain artifacts may be shared with.
   </p>
