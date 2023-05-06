@@ -15,11 +15,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:24994016-78c4-42f9-83ee-f64a3f6b16ad",
-    "timestamp" : "2023-04-16T03:12:55.386Z",
+    "identifier" : "urn:uuid:da2df0cc-9331-4578-aaeb-18a223e5055e",
+    "timestamp" : "2023-05-06T20:43:45.010Z",
+    "total" : 1,
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -33,10 +33,6 @@ e: {
       "valueUri" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|current"
     }],
     "contains" : [{
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "A consult note that describes assessments and interventions related to a patient's level of physical activity."
-      }],
       "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
       "code" : "PAConsultNote",
       "display" : "Physical activity Consult note"
