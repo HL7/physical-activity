@@ -33,7 +33,7 @@
 	  sufficiently active to maintain good health".
 	</p>
 	<p>
-	  This guide therefore mandates a slightly modified version of the very simple Exercise Vital Sign (LOINC <a href="http://loinc.org/89574-8">89574-8</a> 
+	  This guide therefore mandates a slightly modified version of the very simple Exercise Vital Sign (LOINC <a href="http://loinc.org/89574-8">89574-8</a>) 
 	  as the primary measure of patient physical activity level for exchange and evaluation.  The <a href="background.html#pa-measure">background page</a>
 	  provides details on the evidence that supports this measure as accurate and appropriate for evaluating how well a patient meets guidelines for
 	  physical activity.
@@ -62,7 +62,7 @@
     In addition, this guide captures two additional measures:
   </p>
   <ul>
-    <li>The product of the two EVS measures, giving an average amount of moderate to vigorous physical activity in minutes/week (and captured 
+    <li>The product of the two Exercise Vital Sign (EVS) measures, giving an average amount of moderate to vigorous physical activity in minutes/week (and captured 
       using LOINC code <a href="http://loinc.org/82290-8">82290-8</a>)</li>
     <li>An indication of the frequency of strength-based exercises a patient has performed, expressed as days/week (and captured using
       LOINC code <a href="http://loinc.org/82291-6">82291-6</a>)</li>
@@ -398,7 +398,7 @@
         <td></td>
         <td>Progress</td>
         <td>This measure is dependent on the device knowing height and/or weight (depending on type of activity), 
-          so without personalization this measure may be less precise.  As well, estimated calories can from device 
+          so without personalization this measure may be less precise.  As well, estimated calories can vary from device 
           to device.  However, comparing measures made with the same device is useful to show progress and set targets.
           This measure is often 'meaningful' to patients.  However, it can't easily be used to determine exertion levels
           or duration and thus can't really be used to estimate the <a href="#base">exercise vital sign</a>.</td>
