@@ -15,9 +15,12 @@ Description:    "A profile describing base requirements for all primary physical
   * ^slicing.discriminator.type = #pattern
   * ^slicing.discriminator.path = "$this"
   * ^slicing.rules = #open
-* category contains SocialHistory 1..1 MS and PhysicalActivity 0..1
+* category contains SocialHistory 1..1 MS and PhysicalActivity 0..1 MS
 * category[SocialHistory] = $obsCategory#social-history
+  * ^short = "Social History"
 * category[PhysicalActivity] = PATemporaryCodes#PhysicalActivity
+  * ^short = "Physical Activity"
+  * ^comment = "Systems receiving external or legacy data SHOULD update that data to tag it with a 'physical-activity' category to allow for more consistent searching/retrieval/access control.  Because this category is not mandatory, systems should be cautious about relying on it as a sole mechanism of retrieving physical-activity relevant data."
 * code 1..1 MS 
 * code from LOINCCodes (preferred)
 * subject 1..1 MS
