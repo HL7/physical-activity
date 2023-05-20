@@ -21,6 +21,15 @@ Description:   "Codes for Observation.status for Observations that are appropria
 * $obsStatus#corrected
 * $obsStatus#entered-in-error
 
+ValueSet:      PAConditionVerificationStatus
+Id:            pa-condition-verification-status
+Title:         "PA Condition Verification Status"
+Description:   "Codes for Condition.verificationStatus for conditions that are appropriate for exchange for physical activity purposes.  Excludes unconfirmed, provisional and differential."
+* ^experimental = false
+* $verStatus#confirmed
+* $verStatus#refuted
+* $verStatus#entered-in-error
+
 ValueSet:      PADiagnosticReportStatus
 Id:            pa-diagnosticreport-status
 Title:         "PA DiagnosticReport Statuses"

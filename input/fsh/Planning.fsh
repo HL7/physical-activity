@@ -119,6 +119,8 @@ Description:    "A condition that conveys the fact that a patient has a clinical
 * . ^definition = "A condition that conveys the fact that a patient has a clinically significant and insufficient level of physical activity"
 * implicitRules ..0
 * modifierExtension ..0
+* verificationStatus from PAConditionVerificationStatus (required)
+  * ^short = "confirmed | refuted | entered-in-error"
 * category
   * ^slicing.discriminator.type = #pattern
   * ^slicing.discriminator.path = "$this"
