@@ -44,7 +44,7 @@ Description:    "A plan describing the plan to improve or maintain a patient's l
 * text.div MS
 * intent = #plan
   * ^short = "Plan"
-* status ^comment = "...The only status source systems are expected to support are 'active' and 'completed'.  Receiving systems must handle the others if present, though they do not need to differentiate additional statues other than 'entered-in-error'."
+* status ^comment = "In most instances, the 'status' of the CarePlan is expected to be 'active'. However, when the goals of the CarePlan are either achieved or no longer applicable, the status should be updated to 'completed' or 'revoked' respectively. While there are additional statuses available, they might not be universally used across all systems.  Even though source systems are only expected to support 'active' and 'completed', receiving systems must handle the others if present, though they do not need to differentiate additional statues other than 'entered-in-error'."
 * period MS
   * start MS
   * end MS
