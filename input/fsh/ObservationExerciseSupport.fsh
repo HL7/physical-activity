@@ -27,7 +27,6 @@ Description:    "A profile describing base requirements for all primary physical
 * subject only Reference(us-core-patient)
   * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest"
 * focus ..0
-* bodySite ..0
 * specimen ..0
 * effective[x] 1..1 MS
 * effective[x] only dateTime or Period
