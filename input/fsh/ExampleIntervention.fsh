@@ -53,17 +53,22 @@ Title:          "Example Physical Activity Care Plan"
 Description: 	  "Sample care plan."
 * text
   * status            = #additional
-  * div               = """<div xmlns="http://www.w3.org/1999/xhtml">Put contents of CarePlan here</div>"""
-* status              = #active
+  * div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">This care plan focuses on increasing the patient's physical activity levels. Over the next six months, the goal is to gradually increase the weekly exercise in small increments to at least 100 minutes of physical activity per week that makes the patient sweat and breathe heavily. Regular reviews will be conducted to assess the patient's progress and adjust the plan as necessary.</div>"
+* status = #active
 * intent              = #plan
 * subject	          = Reference(http://example.org/fhir/Patient/1) "Example Patient"
 * period
   * start             = 2022-06-08
   * end               = 2023-06-08
+* goal = Reference(Goal/ExampleGoal) "Increase physical activity to 100 minutes/week"
+* activity.detail                                                           
+  * code = $sct#229065009 "Exercise therapy"
+  * status = #not-started
+  * description = "Over the next 6 months, increase your weekly exercise in small increments to at least 100 minutes/week of physical activity that makes you sweat and breathe heavily."
 * note
   * authorReference   = Reference(ExampleRelatedPerson) "Mother"
   * time              = 2022-12-15
-  * text              = "Some comments."
+  * text = "The patient has been making significant progress, regularly exceeding the target and has found an activity they enjoy. Regular reviews will be conducted to assess the patient's progress and adjust the plan as necessary."
 
 Instance:    ExampleServiceRequest
 InstanceOf:  PAServiceRequest
