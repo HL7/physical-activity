@@ -152,6 +152,7 @@
       large volumes of patient exercise, heart rate, and/or other information between systems.</li>
     <li><a href="http://www.hl7.org/documentcenter/public/ballots/2022SEP/downloads/HL7_PCD_R1_I1_2022SEP.pdf">Patient Contributed Data</a> - defines guidance for incorporation of
       patient and caregiver-collected information into clinical records (which this IG supports and advocates for).</li>
+    <li><a href="http://http://hl7.org/fhir/us/bser/">BSeR: Bidirectional Services_eReferral</a> - also deals with referrals and Gravity and Physical Activity are likely to both be formal constraints on BSeR once it has more explicit support for RESTful referral management.</li>
   </ul>
   <p>
     An extensive list of FHIR implementation guides published by HL7 and other related organizations can be found <a href="http://fhir.org/guides/registry">here</a>.
