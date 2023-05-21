@@ -134,3 +134,12 @@ Description: "Codes indicating allowed for Tasks seeking fulfillment of physical
 * ^compose.exclude[0].system = "http://hl7.org/fhir/task-status"
 * ^compose.exclude[0].concept[+].code = #received
 * ^compose.exclude[0].concept[+].code = #ready
+
+ValueSet: PAGoalMeasurement
+Id: pa-goal-target-measure
+Title: "PA Goal Target Measure Codes"
+Description: "Value set for measure codes used in the target element of a Physical Activity-related Goal"
+* ^status = #draft
+* ^experimental = true
+* include codes from valueset PAObservationTimeMeasures
+* include codes from valueset PAObservationCodeEVS

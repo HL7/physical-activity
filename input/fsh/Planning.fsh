@@ -33,6 +33,7 @@ Expression:  "given.exists() or family.exists()"
 Severity:    #error
 XPath:       "exists(f:given) or exists(f:family)"
 
+
 Profile:        PACarePlan
 Parent:         USCoreCarePlanProfile
 Id:             pa-careplan
@@ -66,12 +67,20 @@ Description:    "A plan describing the plan to improve or maintain a patient's l
   * time 1..1 MS
   * text MS
 
+
+Invariant:    pa-goal-1
+Description:  "Either a description or a target SHALL be provided (or both)"
+Expression:   "description.exists() or target.exists()"
+Severity:     #error
+XPath:        "exists(f:description) or exists(f:target)"
+
 Profile:        PAGoal
 Parent:         USCoreGoalProfile
 Id:             pa-goal
 Title:          "PA-Related Goal"
 Description:    "A goal that sets a target for a patient's physical activity level"
 * . ^definition = "A goal that sets a target for a patient's physical activity level"
+* obeys pa-goal-1
 * implicitRules ..0
 * modifierExtension ..0
 * achievementStatus MS
@@ -85,9 +94,13 @@ Description:    "A goal that sets a target for a patient's physical activity lev
 * target MS
   * modifierExtension ..0
   * measure 0..1 MS
-  * measure from PAObservationCodeEVS (extensible)
+  * measure from PAGoalMeasurement (extensible)
     * ^comment = "... If a target is specified with only a date and no measure, then it is generally indicating a due date for the overall Goal as specified in the description"
-  * detailQuantity MS
+  * detailQuantity 1.. MS
+    * value MS
+    * code MS
+    * system MS
+    * system ^fixedUri = "http://unitsofmeasure.org"
 * addresses MS
   * ^slicing.discriminator.type = #profile
   * ^slicing.discriminator.path = "$this.resolve()"
