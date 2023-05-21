@@ -1,0 +1,9 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <p>
+    This will typically be the outcome of a clinical assessment based on the <a href="measures.html#base">base measures</a>, including the exercise
+    vital sign if the determination is that the patient is not meeting national guidelines for their age.  It can serve as the reason for subsequent
+    <a href="StructureDefinition-pa-servicerequest.html">Referrals and Exercise Prescriptions</a> and may be necessary for payers to provide coverage
+    for physical activity-related services. In this IG, creation or updating of a Condition is always done internally by a Care Manager. However, external systems (i.e. Service Providers and Patient Engagement systems) can search for and retrieve these records.
+    
+  </p>
+</div>
