@@ -1,7 +1,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
   <p>
     Having a standardized way of measuring patient physical activity - and sharing those measurements - is an essential step to improving physical activity levels, both at an
-    individual and at a population level.  Practitioners need standard measures to:
+    individual and at a population level.  Patients, care-givers and Practitioners need standard measures to:
   </p>
   <ul>
     <li>Consistently evaluate whether a patient's activity levels are adequate for good health.</li>
