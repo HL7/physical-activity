@@ -266,7 +266,7 @@ Description:    "Conveys a summary of the interventions and patient interactions
 * category[PAProc] = PATemporaryCodes#PhysicalActivity
 * status from PADiagnosticReportStatus
   * ^short = "partial | preliminary | final | amended | corrected | appended | entered-in-error"
-* code from PADiagnosticReportType (required)
+* code from PADiagnosticReportType (extensible)
 * encounter ^comment = "... While this is inherited as MustSupport from US Core, this element will typically not be relevant in the physical activity space as most reports will describe events spanning multiple encounters"
 * result
   * ^slicing.discriminator.type = #profile
