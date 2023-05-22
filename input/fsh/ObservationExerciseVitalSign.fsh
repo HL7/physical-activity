@@ -11,10 +11,10 @@ Description:    "A generic profile that encapsulates all the physical activity v
 * value[x] only Quantity
 * valueCodeableConcept ..0
 * derivedFrom
-  * ^slicing.discriminator.type = #pattern
-  * ^slicing.discriminator.path = "code"
+  * ^slicing.discriminator.type = #profile
+  * ^slicing.discriminator.path = "resolve()"
   * ^slicing.rules = #open
-* derivedFrom contains supportingObs 0..*
+* derivedFrom contains supportingObs 0..* MS
 * derivedFrom[supportingObs] only Reference(PAObservationBase)
   * ^comment = "...While this element is not required to be supported, we encourage systems to track supporting observations"
 
