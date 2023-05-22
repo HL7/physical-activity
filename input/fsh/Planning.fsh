@@ -169,12 +169,20 @@ Description:    "A condition that conveys the fact that a patient has a clinical
     * ^type[0].targetProfile[1].extension[$typeMS].valueBoolean = true
 
 
+Invariant: pa-sr-1
+Description: "At least one of reasonCode or reasonReference must be provided"
+Expression: "reasonCode.exists() or reasonReference.exists()"
+Severity: #error
+XPath: "exists(f:reasonCode) or exists(f:reasonReference)"
+
+
 Profile:        PAServiceRequest
 Parent:         ServiceRequest
 Id:             pa-servicerequest
 Title:          "PA Service Request"
 Description:    "Represents orders and referrals for interventions that help to improve or maintain a patient's level of physical activity"
 * . ^definition = "Represents orders and referrals for interventions that help to improve or maintain a patient's level of physical activity"
+* obeys pa-sr-1 
 * implicitRules ..0
 * modifierExtension ..0
 * extension contains 
@@ -192,6 +200,8 @@ Description:    "Represents orders and referrals for interventions that help to 
   * ^short   = "original-order | order | filler-order"
   * ^comment = "...Multiple codes are allowed to support situations where a Task might point to a filler order instead of an original.  However, in almost all cases, the intent should be 'original-order' or just 'order'."
 * status MS
+* status from PAServiceRequestStatus (required)
+  * ^short = "draft | active | on-hold | revoked | completed | entered-in-error"
 * category
   * ^slicing.discriminator.type = #pattern
   * ^slicing.discriminator.path = "$this"
@@ -212,8 +222,8 @@ Description:    "Represents orders and referrals for interventions that help to 
 * occurrencePeriod MS
   * start MS
   * end MS
-* authoredOn 0..1 MS
-* requester MS
+* authoredOn 1..1 MS
+* requester 1..1 MS
 * requester only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile)
   * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest-or-logical"
 * performer MS
@@ -241,6 +251,9 @@ Description:    "Represents orders and referrals for interventions that help to 
 * supportingInfo[SupportedSupportingInfo] only Reference(PAObservationEVS)
   * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest"
 * specimen 0..0
+* note
+  * ^short = "Additional details about the service request"
+  * ^definition = "This field contains additional details about the service request (for e.g. the appropriate time and mechanism for the service provider to contact the patient). Please note that service providers typically won't see notes that are added once a ServiceRequest has been accepted."
 
 
 Profile:        PADiagnosticReport

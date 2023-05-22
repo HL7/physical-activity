@@ -143,3 +143,17 @@ Description: "Value set for measure codes used in the target element of a Physic
 * ^experimental = true
 * include codes from valueset PAObservationTimeMeasures
 * include codes from valueset PAObservationCodeEVS
+
+ValueSet: PAServiceRequestStatus
+Id: pa-servicerequest-status
+Title: "PA Service Request Status"
+Description: "The status values that are permitted for the PAServiceRequest resource, excluding 'unknown'"
+* ^status = #draft
+* ^experimental = true
+* http://hl7.org/fhir/ValueSet/request-status#draft
+* http://hl7.org/fhir/ValueSet/request-status#active
+* http://hl7.org/fhir/ValueSet/request-status#on-hold
+* http://hl7.org/fhir/ValueSet/request-status#revoked
+* http://hl7.org/fhir/ValueSet/request-status#completed
+* http://hl7.org/fhir/ValueSet/request-status#entered-in-error
+* http://hl7.org/fhir/ValueSet/request-status#suspended
