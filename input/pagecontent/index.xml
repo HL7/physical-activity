@@ -117,7 +117,10 @@
   </p>
   
   {%include dependency-table-short.xhtml %}
-  
+<p>
+This Implementation Guide (IG) is derived from US Core version 3.1.1. However, certain resources, such as RelatedPerson, were not part of this US Core release. 
+Consequently, the profiles for these resources have been designed to mirror the requirements of future US Core versions.
+</p>
   <p>
     In addition to those implementation guides, there are several other HL7 specifications that may be of interest to implementers of this IG.  The guides below are
     listed for information purposes only.  None of their content is needed in order to conform with this Physical Activity guide.
