@@ -19,7 +19,14 @@ Description:    "A profile on RelatedPerson that mirrors the requirements of fut
   * given MS
   * family MS
 * telecom MS
+  * system 1..1 MS
+  * value 1..1 MS
+  * use MS
 * address MS
+  * line MS
+  * city MS
+  * state MS
+  * postalCode MS
 
 Invariant:   us-core-14
 Description: "Either a name or a relationship SHALL be provided (or both)"
