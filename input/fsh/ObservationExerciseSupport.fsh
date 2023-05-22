@@ -48,6 +48,7 @@ Description:    "A profile describing base requirements for all primary physical
 * valueQuantity 0..1
 * valueQuantity only SimpleQuantity
   * value 1..1 MS
+  * system 1..1 
   * system = "http://unitsofmeasure.org"
   * code 1..1 MS
 * note MS
