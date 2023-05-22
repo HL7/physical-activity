@@ -24,6 +24,8 @@ Title:       "Example Low Physical Activity Condition"
 Description: "Condition indicating a diagnosis of 'lack of physical exercise'."
 * clinicalStatus     = $clinicalStatus#active
 * verificationStatus = $verifyStatus#confirmed
+* category[0] = $condition-category#health-concern "Health Concern"
+* category[+] = PATemporaryCodes#PhysicalActivity
 * subject	         = Reference(http://example.org/fhir/Patient/1) "Example Patient"
 * onsetDateTime      = "2022-06-08"
 * asserter           = Reference(http://example.org/fhir/PractitionerRole/1) "Ordering Clinician"
@@ -225,6 +227,8 @@ Title:       "Example Physical Activity Report"
 Description: "An example physical activity report"
 * basedOn             = Reference(ExampleServiceRequest) "Referral"
 * status              = #final
+* category[0] = $loinc#LP29708-2 "Cardiology"
+* category[+] = PATemporaryCodes#PhysicalActivity
 * code                = $loinc#11488-4 "Consult note"
 * subject             = Reference(http://example.org/fhir/Patient/1) "Example Patient"
 * effectivePeriod

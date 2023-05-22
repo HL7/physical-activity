@@ -141,12 +141,14 @@ Description:    "A condition that conveys the fact that a patient has a clinical
 * modifierExtension ..0
 * verificationStatus from PAConditionVerificationStatus (required)
   * ^short = "confirmed | refuted | entered-in-error"
-* category
+* category 2..*
   * ^slicing.discriminator.type = #pattern
   * ^slicing.discriminator.path = "$this"
   * ^slicing.rules = #open
+  * ^definition = "Category codes related to the condition. This element is intended to allow inclusion of any of the three codes from the US Core Condition Category codes or other extensibly identified existing concepts. However, in addition to these, a coding instance with the temporary code 'PhysicalActivity' should be included in this category."
 * category contains PA 1..1 MS
 * category[PA] = PATemporaryCodes#PhysicalActivity
+  * ^short = "Additional category indicating the condition is related to physical activity"
 * code = $ICD10#Z72.3 "Lack of physical exercise"
   * ^short = "Lack of physical exercise"
 * bodySite 0..0
@@ -278,12 +280,14 @@ Description:    "Conveys a summary of the interventions and patient interactions
 * basedOn contains SupportedBasedOn 0..* MS
 * basedOn[SupportedBasedOn] only Reference(PAServiceRequest)
   * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest"
-* category
+* category 2..*
   * ^slicing.discriminator.type = #pattern
   * ^slicing.discriminator.path = "$this"
   * ^slicing.rules = #open
+  * ^definition = "Category codes related to the service category. This element is intended to allow inclusion of any of the three codes from the US Core Diagnostic report Category codes or other extensibly identified existing concepts. However, in addition to these, a coding instance with the temporary code 'PhysicalActivity' should be included in this category."
 * category contains PAProc 1..1 MS
 * category[PAProc] = PATemporaryCodes#PhysicalActivity
+  * ^short = "Additional category indicating that the service category is related to physical activity"
 * status from PADiagnosticReportStatus
   * ^short = "partial | preliminary | final | amended | corrected | appended | entered-in-error"
 * code from PADiagnosticReportType (extensible)
