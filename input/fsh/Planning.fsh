@@ -147,6 +147,7 @@ Description:    "A condition that conveys the fact that a patient has a clinical
   * ^slicing.rules = #open
   * ^definition = "Category codes related to the condition. This element is intended to allow inclusion of any of the three codes from the US Core Condition Category codes or other extensibly identified existing concepts. However, in addition to these, a coding instance with the temporary code 'PhysicalActivity' should be included in this category."
 * category contains PA 1..1 MS
+* category[PA] from PATemporaryCodesValueSet (required)
 * category[PA] = PATemporaryCodes#PhysicalActivity
   * ^short = "Additional category indicating the condition is related to physical activity"
 * code = $ICD10#Z72.3 "Lack of physical exercise"

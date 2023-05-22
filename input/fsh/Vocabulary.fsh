@@ -157,3 +157,11 @@ Description: "The status values that are permitted for the PAServiceRequest reso
 * http://hl7.org/fhir/ValueSet/request-status#completed
 * http://hl7.org/fhir/ValueSet/request-status#entered-in-error
 * http://hl7.org/fhir/ValueSet/request-status#suspended
+
+ValueSet:  PATemporaryCodesValueSet
+Id:            pa-temporary-codes-valueset
+Title:         "Temporary Codes ValueSet"
+Description:   "A ValueSet that includes all codes from the PATemporaryCodes CodeSystem"
+* ^status = #draft
+* ^experimental = true
+* include codes from system PATemporaryCodes
