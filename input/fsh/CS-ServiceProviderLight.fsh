@@ -127,14 +127,14 @@ Usage:          #definition
     * referencePolicy = #literal
     * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known questionnaire records - and more specifically\, retrieving more than one in a single call to poll for updates.")
     * insert SearchParam("_lastUpdated", Resource-lastUpdated, #date, #SHOULD, "Allows filtering for only records that have changed since last query.")
-    * insert SearchParam("url", Questionnaire-url, #uri, #SHALL, "Allows retrieving a referenced Questionnaire.")
-    * insert SearchParam("version", Questionnaire-version, #token, #SHOULD, "Allows retrieving a specific version of a referenced questionnaire.")
-    * insert SearchParam("context-type-value", Questionnaire-context-type-value, #composite, #SHOULD, "Allows filtering for Questionnaires that are phyical activity-related.")
-    * insert SearchParam("identifier", Questionnaire-identifier, #token, #SHOULD, "Allows retrieving Questionnaires with a known identifier.")
-    * insert SearchParam("publisher", Questionnaire-publisher, #string, #SHOULD, "Allows retrieving Questionnaires based on who is responsible for having defined the form.")
-    * insert SearchParam("status", Questionnaire-status, #token, #SHOULD, "Allows filtering to only retrieve active questionnaires.")
+    * insert SearchParam("url", CanonicalResource-url, #uri, #SHALL, "Allows retrieving a referenced Questionnaire.")
+    * insert SearchParam("version", CanonicalResource-version, #token, #SHOULD, "Allows retrieving a specific version of a referenced questionnaire.")
+    * insert SearchParam("context-type-value", CanonicalResource-context-type-value, #composite, #SHOULD, "Allows filtering for Questionnaires that are phyical activity-related.")
+    * insert SearchParam("identifier", CanonicalResource-identifier, #token, #SHOULD, "Allows retrieving Questionnaires with a known identifier.")
+    * insert SearchParam("publisher", CanonicalResource-publisher, #string, #SHOULD, "Allows retrieving Questionnaires based on who is responsible for having defined the form.")
+    * insert SearchParam("status", CanonicalResource-status, #token, #SHOULD, "Allows filtering to only retrieve active questionnaires.")
     * insert SearchParam("subject-type", Questionnaire-subject-type, #token, #SHOULD, "Allows retrieving Questionnaires that are intended to provide information about patients - as opposed to practitioners\, organizations\, etc.")
-    * insert SearchParam("title",Questionnaire-title, #string, #SHOULD, "Allows searching for forms by name.")
+    * insert SearchParam("title", CanonicalResource-title, #string, #SHOULD, "Allows searching for forms by name.")
   * resource[+]
     * extension[$conf].valueCode = #SHALL
     * type = #QuestionnaireResponse

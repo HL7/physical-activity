@@ -213,8 +213,8 @@ Usage:          #definition
     * referencePolicy = #literal
     * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known questionnaire records - and more specifically\, retrieving more than one in a single call to poll for updates.")
     * insert SearchParam("_lastUpdated", Resource-lastUpdated, #date, #SHOULD, "Allows filtering for only records that have changed since last query.")
-    * insert SearchParam("url", Questionnaire-url, #uri, #SHALL, "Allows retrieving a referenced Questionnaire.")
-    * insert SearchParam("version", Questionnaire-version, #token, #SHOULD, "Allows retrieving a specific version of a referenced questionnaire.")
+    * insert SearchParam("url", CanonicalResource-url, #uri, #SHALL, "Allows retrieving a referenced Questionnaire.")
+    * insert SearchParam("version", CanonicalResource-version, #token, #SHOULD, "Allows retrieving a specific version of a referenced questionnaire.")
   * resource[+]
     * extension[$conf].valueCode = #SHALL
     * type = #QuestionnaireResponse
