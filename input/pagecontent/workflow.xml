@@ -250,6 +250,9 @@
     <li>Even if the referral itself was directed, Task is necessary to give the ability to accept or refused, convey progress and link to results.</li>
   </ul>
   <p>
+    Note: The process to stop the ServiceRequest is to change the Task status to 'cancelled'.  This indicates to the performer that they should cease delivery as soon as practical. 
+  </p>
+  <p>
     <b>DiagnosticReport:</b>
   </p>
   <ul>
