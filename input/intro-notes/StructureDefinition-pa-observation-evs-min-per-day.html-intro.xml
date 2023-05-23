@@ -2,6 +2,6 @@
   <p>
     This is the second component of the <a href="measures.html#base">Exercise Vital Sign</a>.  It will be used to help calculate the 
     <a href="StructureDefinition-pa-observation-evs-min-per-week.html">Minutes Per Week EVS</a> which can in turn be compared to national guidelines based
-    on age to assess patient physical actity level.
+    on age to assess patient physical activity level.
   </p>
 </div>

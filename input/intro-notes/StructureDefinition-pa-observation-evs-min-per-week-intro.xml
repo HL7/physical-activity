@@ -3,6 +3,6 @@
     This is a calculated value, created by multiplying the first two components of the <a href="measures.html#base">Exercise Vital Sign</a> - 
     <a href="StructureDefinition-pa-observation-evs-days-per-week.html">EVS Days per Week</a> and
     <a href="StructureDefinition-pa-observation-evs-min-per-day.html">EVS Minutes per Day</a>. It can be compared to national guidelines based
-    on age to assess patient physical actity level.
+    on age to assess patient physical activity level.
   </p>
 </div>

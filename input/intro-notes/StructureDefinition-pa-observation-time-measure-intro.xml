@@ -1,6 +1,6 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
   <p>
     Used to capture observations in accordance with the codes, data types, and other constraints shown in the <a href="measures.html#time">Time-based Measures</a> section
-    on the Measures page.  These measures are primarily captured on a per/day basis, though resting heart rate may occur of a longer period of time.
+    on the Measures page.  These measures are primarily captured on a per/day basis, though resting heart rate may occur over a longer period of time.
   </p>
 </div>
