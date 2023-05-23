@@ -7,7 +7,7 @@
       Welcome to our first ballot!  This specification is the result of hundreds of hours of work by a <a href="credits.html">wide variety of people</a> who are passionate
       about enabling and supporting patients in improving their levels of physical activity.  We are happy to receive feedback from the broader community about everything
       we've written here, but particularly about any concerns with respect to implementability or how we can make it easier to get these features into production systems.
-      If you're interested in joining with us, check out our <a href="https://confluence.hl7.org/display/PC/Physical+Activity">project page</a>, or come join the 
+      If you're interested in joining us, check out our <a href="https://confluence.hl7.org/display/PC/Physical+Activity">project page</a>, or come join the 
       <a href="https://chat.fhir.org/#narrow/stream/327137-Physical-Activity">discussion</a> on http://chat.fhir.org.
     </p>
   </blockquote>
@@ -15,16 +15,16 @@
   <h3>Scope and purpose</h3>
   <p>
     Being physically active is one of the most important lifestyle behaviors people can engage in to maintain physical and mental health and well-being.
-    Regular physical activity is both health-promoting and important for chronic disease and infectious disease treatment and prevention.  It provides numerous benefits that contribute to a 
-    disability-free lifespan.  Currently in the US, one in four adults are physically inactive, with increasing prevalence across some geographies and in certain race/ethnicities.
+    Regular physical activity is both health-promoting and important for chronic and infectious disease treatment and prevention.  It provides numerous benefits that contribute to a 
+    disability-free lifespan.  Currently in the US, one in four adults are physically inactive, with increasing prevalence across some geographies and in certain races/ethnicities.
     (For more information and research citations highlighting the importance of physical activity and intervening to improve it, see <a href="background.html">the background page</a> of this IG.)
   </p>
-	<p>
-	  This implementation guide standardizes interoperability expectations for systems involved in measuring, reporting, and intervening to improve patient physical
-	  activity levels.  It defines interface expectations that are relevant for patient-facing applications, patient physical activity measurement devices, clinical electronic health records,
-	  payers, quality measurement systems, and applications used by health and fitness professionals, personal trainers, and community-based fitness centers.
-	  By improving standardization and interoperability around measuring physical activity levels and data sharing needed to help patients improve their physical
-	  activity levels, we can make a significant impact on overall patient health at both the individual and the population level.
+  <p>
+    This implementation guide standardizes interoperability expectations for systems involved in measuring, reporting, and intervening to improve patient physical
+    activity levels.  It defines interface expectations that are relevant for patient-facing applications, patient physical activity measurement devices, clinical electronic health records,
+    payers, quality measurement systems, and applications used by health and fitness professionals, personal trainers, and community-based fitness centers.
+    By improving standardization and interoperability around measuring physical activity levels and data sharing needed to help patients improve their physical
+    activity levels, we can make a significant impact on overall patient health at both the individual and the population level.
   </p>
   <p>
     This version of the specification defines standards for the following:
@@ -34,11 +34,11 @@
     <li>How to create and share care plans and goals related to improving a patient's level of physical activity; </li>
     <li>How to order interventions that can assist a patient in improving their levels of physical activity;</li>
     <li>How to capture and share information that supports that primary measure - for patient, clinical, insurance or other use;</li>
-    <li>How to engage with the patient and their care givers to provide support and/or gather information as a patient works towards their physical activity goals; and</li>
+    <li>How to engage with the patient and their caregivers to provide support and/or gather information as a patient works towards their physical activity goals; and</li>
     <li>What are the reporting mechanisms to close the referral loop on an interim basis or when referrals are complete?</li>
   </ul>
   <p>
-    The IG also provides additional guidance to support all the above, including registries, consent, status monitoring, etc.
+    The IG also provides additional guidance to support all of the above, including registries, consent, status monitoring, etc.
   </p>
   <p>
     The following diagram shows the participants and functions covered by this IG and how they fit into the overall cycle of care:
@@ -67,7 +67,7 @@
   </p>
   <ol>
     <li><a href="conformance.html">Conformance Expectations</a> sets general expectations around conformance to the IG.</li>
-    <li><a href="measures.html">Physical Activity Measures</a> defines a <a href="measures.html#base">profiles</a> for the standardized capture of a patient's 
+    <li><a href="measures.html">Physical Activity Measures</a> defines a <a href="measures.html#base">profile</a> for the standardized capture of a patient's 
       physical activity level.  <!--It also defines an optional FHIR <a href="Questionnaire-questionnaire-evs.html">Questionnaire</a> that can be used by questionnaire-based systems to 
       capture that measure.-->  In addition, it defines profiles to capture <a href="measures.html#support">supplemental observations</a>
       assertions around physical activity levels, such as daily physical activity log entries, heart rate measurements, and step counts.  The specification also covers how to link
@@ -94,7 +94,7 @@
       business case for implementing this IG.</li>
     <li><a href="scenarios.html">Scenarios</a> describes examples of real-world scenarios where this IG would come into play and how the interactions between the software
       systems supported by this IG would impact patients, clinicians and others using those systems.</li>
-    <li><a href="design.html">Design Considerations</a> lists a variety architectural and other considerations that have gone into the creation of this implementation guide and
+    <li><a href="design.html">Design Considerations</a> lists a variety of architectural and other considerations that have gone into the creation of this implementation guide and
       explains why the functionality it provides has been implemented as it has.  It also lists a few areas where implementers have been left some flexibility and provides
       guidance about how to best decide amongst implementation alternatives based on implementation context.</li>
     <li><a href="artifacts.html">Artifacts</a> - This provides a summary of the technical artifacts defined in this implementation guide.  It also provides a list of the
@@ -133,7 +133,7 @@
     <li><a href="http://hl7.org/fhir/us/davinci-deqm">Data Exchange for Quality Measures (DEQM)</a> - Allows sharing patient data with payers to support quality measures
       and capitated care.  Physical activity measures may be reported to payers for patients covered under such measures.</li>
     <li><a href="http://hl7.org/fhir/smart-app-launch">SMART App Launch</a> - allows launching third party applications in the context of another system, including allowing
-      the application to controlled access to patient information.  Rather than developing Questionnaire form filler capabilities within their own system, Care Providers and
+      the application to control access to patient information.  Rather than developing Questionnaire form filler capabilities within their own system, Care Providers and
       Service Provider systems may opt to use a 3rd party SMART App to handle form rendering, data capture, form population and data extraction.</li>
     <li><a href="http://hl7.org/fhir/us/pacio-fs">PACIO Functional Status</a> - defines standards for sharing information about a patient's physical capabilities, which may
       influence what types of physical activity interventions are appropriate.</li>
@@ -157,9 +157,9 @@
     An extensive list of FHIR implementation guides published by HL7 and other related organizations can be found <a href="http://fhir.org/guides/registry">here</a>.
   </p>
   
-	<a name="ip"> </a>
-	<h3>Intellectual Property Considerations</h3>
-	<p>
+  <a name="ip"> </a>
+  <h3>Intellectual Property Considerations</h3>
+  <p>
     This implementation guide and the underlying FHIR specification are licensed as public domain under the <a href="{{site.data.fhir.path}}license.html#license">FHIR license</a>.  The
     license page also describes rules for the use of the FHIR name and logo.
   </p>

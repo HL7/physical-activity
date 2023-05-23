@@ -4,7 +4,7 @@
     that intervention is called for.  There are three main mechanisms defined:
 	</p>
 	<ul>
-    <li>creating <a href="#orders">exercise prescriptions</a> detailing what level of physical activity a patient should performing on
+    <li>creating <a href="#orders">exercise prescriptions</a> detailing what level of physical activity a patient should be performing on
       a regular basis</li>
     <li>setting <a href="#plans">plans and goals</a> with the patient and their supports around what their physical activity level should
       look like - and how they can realistically get there, and</li>
@@ -43,7 +43,7 @@
   <h3>Plans and Goals</h3>
   <img  style="float:left;padding:3px" src="rock-climb.png" alt="Woman in bay climbing wall in bouldering studio"/>
   <p>
-    A key step in improving a patient's physical activity levels are establishing and monitoring against goals for a desired level of
+    A key step in improving a patient's physical activity levels is establishing and monitoring goals for a desired level of
     physical activity and agreeing on a plan to attain that level of activity.  In some cases, these might be established and maintained
     only in the system of the <a href="workflow.html#caremanager">care manager</a> and merely be retrieved by the 
     <a href="workflow.html#serviceprovider">Service Provider</a> and 
@@ -52,7 +52,7 @@
     these actions but leaves it to organizational policy which types of actions can be performed by which users.  Even if updating is
     permitted, there may be limitations on which elements can be changed.  (For example, changing the 'subject' of a goal or care plan
     typically will not be allowed by anyone, with the possible exception of technical staff at a provider site who manage patient merges
-    and splits or otherwise addressing record errors.
+    and splits or otherwise address record errors.
   </p>
   <p>
     In this implementation guide, both goals and plans are relatively simple, with only a small subset of the potential data elements
@@ -62,7 +62,7 @@
   </p>
   <p>
     The purpose of the <a href="{{site.data.fhir.path}}careplan.html">CarePlan</a> resource is to allow a shared understanding of what actions 
-    the patient (and those around them) will take to help improve their level of physical activity.  Systems may express this as simple narrative.  
+    the patient (and those around them) will take to help improve their level of physical activity.  Systems may express this as a simple narrative.  
     The plan can be updated to reflect changes based on patient need and on what's working - or is not working.
   </p>
   <p>
