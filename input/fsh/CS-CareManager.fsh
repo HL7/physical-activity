@@ -70,6 +70,43 @@ Usage:          #definition
     * insert SearchParam("status", Observation-status, #token, #SHALL, "Allows excluding entered-in-error or non-final observations.")
     * insert SearchParam("value-quantity", Observation-value-quantity, #quantity, #SHOULD, "Allows retrieval of only those observations that fall in a particular range.  Particularly useful for cross-patient queries.")
   * resource[+]
+    * extension[$conf].valueCode = #SHOULD
+    * type = #Patient
+    * documentation = "Allows searching of the patients."
+    * insert Interaction(#search-type, #SHALL, "Allows searching of the patients.")
+    * versioning      = #versioned-update
+    * referencePolicy = #literal
+    * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known reports - and more specifically\, retrieving more than one in a single call to poll for updates.")
+    * insert SearchParam("_lastUpdated", Resource-lastUpdated, #date, #SHOULD, "Allows filtering for only records that have changed since last query.")
+    * insert SearchParam("birthdate", individual-birthdate, #date, #MAY, "Allows filtering of individuals based on their date of birth.")
+    * insert SearchParam("family", individual-family, #string, #MAY, "Allows filtering of individuals based on their family name.")
+    * insert SearchParam("gender", individual-gender, #token, #MAY, "Allows filtering of individuals based on their gender.")
+    * insert SearchParam("given", individual-given, #string, #MAY, "Allows filtering of individuals based on their given name.")
+    * insert SearchParam("identifier", Patient-identifier, #token, #SHALL, "Enables filtering of patients based on their unique identifiers.")
+    * insert SearchParam("name", Patient-name, #string, #SHALL, "Enables filtering of patients based on their full name.")
+  * resource[+]
+    * extension[$conf].valueCode = #SHOULD
+    * type = #Practitioner
+    * documentation = "Allows searching of the practitioners."
+    * insert Interaction(#search-type, #SHALL, "Allows searching of the practitioners.")
+    * versioning      = #versioned-update
+    * referencePolicy = #literal
+    * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known reports - and more specifically\, retrieving more than one in a single call to poll for updates.")
+    * insert SearchParam("_lastUpdated", Resource-lastUpdated, #date, #SHOULD, "Allows filtering for only records that have changed since last query.")
+    * insert SearchParam("identifier", Practitioner-identifier, #token, #SHOULD, "Enables filtering of practitioners based on their unique identifiers.")
+    * insert SearchParam("name", Practitioner-name, #string, #SHOULD, "Enables filtering of practitioners based on their full name.")
+  * resource[+]
+    * extension[$conf].valueCode = #SHOULD
+    * type = #PractitionerRole
+    * documentation = "Allows searching of the practitioner roles."
+    * insert Interaction(#search-type, #SHALL, "Allows searching of the practitioner roles.")
+    * versioning      = #versioned-update
+    * referencePolicy = #literal
+    * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known reports - and more specifically\, retrieving more than one in a single call to poll for updates.")
+    * insert SearchParam("_lastUpdated", Resource-lastUpdated, #date, #SHOULD, "Allows filtering for only records that have changed since last query.")
+    * insert SearchParam("specialty", PractitionerRole-specialty, #token, #SHOULD, "Allows filtering of practitioner specialty.")
+    * insert SearchParam("practitioner", PractitionerRole-practitioner, #reference, #SHOULD, "Enables filtering of practitioner roles based on the associated practitioner.")
+  * resource[+]
     * extension[$conf].valueCode = #SHALL
     * type = #DiagnosticReport
     * insert SupportedProfile(PADiagnosticReport, #SHALL)
@@ -232,6 +269,43 @@ Usage:          #definition
     * insert SearchParam("patient", clinical-patient, #reference, #SHALL, "Allows filtering to only those reports for a specific patient.  Most systems will treat this as a mandatory search parameter\, though systems MAY support cross-patient search\, at least through bulk-data interfaces for payer or research use.")
     * insert SearchParam("performer", ServiceRequest-performer, #reference, #SHOULD, "Allows filtering to only retrieve reports created by a specific performer.")
     * insert SearchParam("status", ServiceRequest-status, #token, #SHOULD, "Allows filtering to only retrieve active or completed reports.")
+  * resource[+]
+    * extension[$conf].valueCode = #SHOULD
+    * type = #Patient
+    * documentation = "Allows searching of the patients."
+    * insert Interaction(#search-type, #SHALL, "Allows searching of the patients.")
+    * versioning      = #versioned-update
+    * referencePolicy = #literal
+    * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known reports - and more specifically\, retrieving more than one in a single call to poll for updates.")
+    * insert SearchParam("_lastUpdated", Resource-lastUpdated, #date, #SHOULD, "Allows filtering for only records that have changed since last query.")
+    * insert SearchParam("birthdate", individual-birthdate, #date, #MAY, "Allows filtering of individuals based on their date of birth.")
+    * insert SearchParam("family", individual-family, #string, #MAY, "Allows filtering of individuals based on their family name.")
+    * insert SearchParam("gender", individual-gender, #token, #MAY, "Allows filtering of individuals based on their gender.")
+    * insert SearchParam("given", individual-given, #string, #MAY, "Allows filtering of individuals based on their given name.")
+    * insert SearchParam("identifier", Patient-identifier, #token, #SHALL, "Enables filtering of patients based on their unique identifiers.")
+    * insert SearchParam("name", Patient-name, #string, #SHALL, "Enables filtering of patients based on their full name.")
+  * resource[+]
+    * extension[$conf].valueCode = #SHOULD
+    * type = #Practitioner
+    * documentation = "Allows searching of the practitioners."
+    * insert Interaction(#search-type, #SHALL, "Allows searching of the practitioners.")
+    * versioning      = #versioned-update
+    * referencePolicy = #literal
+    * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known reports - and more specifically\, retrieving more than one in a single call to poll for updates.")
+    * insert SearchParam("_lastUpdated", Resource-lastUpdated, #date, #SHOULD, "Allows filtering for only records that have changed since last query.")
+    * insert SearchParam("identifier", Practitioner-identifier, #token, #SHOULD, "Enables filtering of practitioners based on their unique identifiers.")
+    * insert SearchParam("name", Practitioner-name, #string, #SHOULD, "Enables filtering of practitioners based on their full name.")
+  * resource[+]
+    * extension[$conf].valueCode = #SHOULD
+    * type = #PractitionerRole
+    * documentation = "Allows searching of the practitioner roles."
+    * insert Interaction(#search-type, #SHALL, "Allows searching of the practitioner roles.")
+    * versioning      = #versioned-update
+    * referencePolicy = #literal
+    * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known reports - and more specifically\, retrieving more than one in a single call to poll for updates.")
+    * insert SearchParam("_lastUpdated", Resource-lastUpdated, #date, #SHOULD, "Allows filtering for only records that have changed since last query.")
+    * insert SearchParam("specialty", PractitionerRole-specialty, #token, #SHOULD, "Allows filtering of practitioner specialty.")
+    * insert SearchParam("practitioner", PractitionerRole-practitioner, #reference, #SHOULD, "Enables filtering of practitioner roles based on the associated practitioner.")
   * resource[+]
     * extension[$conf].valueCode = #SHALL
     * type = #Questionnaire
