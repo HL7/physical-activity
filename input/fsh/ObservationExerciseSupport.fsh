@@ -15,12 +15,13 @@ Description:    "A profile describing base requirements for all primary physical
   * ^slicing.discriminator.type = #pattern
   * ^slicing.discriminator.path = "$this"
   * ^slicing.rules = #open
-* category contains SocialHistory 1..1 MS and PhysicalActivity 0..1 MS
-* category[SocialHistory] = $obsCategory#social-history
-  * ^short = "Social History"
+* category contains Activity 1..1 MS and PhysicalActivity 1..1 MS
+* category[Activity] = $obsCategory#activity
+  * ^short = "Activity (Required for U.S. Core)"
+  * ^definition = "Observations that measure or record any bodily activity that enhances or maintains physical fitness and overall health and wellness."
 * category[PhysicalActivity] = PATemporaryCodes#PhysicalActivity
   * ^short = "Physical Activity"
-  * ^comment = "Systems receiving external or legacy data SHOULD update that data to tag it with a 'physical-activity' category to allow for more consistent searching/retrieval/access control.  Because this category is not mandatory, systems should be cautious about relying on it as a sole mechanism of retrieving physical-activity relevant data."
+  * ^comment = "Systems that are conformant to the IG are expected to have the ability to record, share, and search using the category. However, it's worth noting that it's not necessary for the category to be stored. Furthermore, systems might contain data related to physical activity that does not comply with this IG, and consequently, the data may not be accessible when executing searches by category."
 * code 1..1 MS 
 * code from LOINCCodes (preferred)
 * subject 1..1 MS
