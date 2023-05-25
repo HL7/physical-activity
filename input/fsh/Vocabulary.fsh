@@ -9,7 +9,7 @@ Description:    "Codes that will eventually be proposed for LOINC or other code 
 * #PAPanel                "Physical Activity Panel"        "A panel observation intended to group measures related to a specific occurrence of physical activity."
 * #DeviceActivePercentage "Device Active Percentage"       "Indicates the percentage of the overall time associated with an aggregate or average measure that the device capturing the raw data used to calculate the sum or average was enabled and available to take measurements.  For example, if a pedometer capturing steps was only worn for 2 hours when calculating a daily step count, the percentage would be 2/24 - or 8%."
 * #PAConsultNote          "Physical activity Consult note" "A consult note that describes assessments and interventions related to a patient's level of physical activity."
-* #sms                    "SMS Channel"                    "A subscription channel in which subscription notifications are transmitted as a human-readable SMS message and the endpoint is expressed as a phone number."
+//* #sms                    "SMS Channel"                    "A subscription channel in which subscription notifications are transmitted as a human-readable SMS message and the endpoint is expressed as a phone number."
 
 ValueSet:      PAObservationStatus
 Id:            pa-observation-status
@@ -20,6 +20,15 @@ Description:   "Codes for Observation.status for Observations that are appropria
 * $obsStatus#amended
 * $obsStatus#corrected
 * $obsStatus#entered-in-error
+
+ValueSet:      PAConditionVerificationStatus
+Id:            pa-condition-verification-status
+Title:         "PA Condition Verification Status"
+Description:   "Codes for Condition.verificationStatus for conditions that are appropriate for exchange for physical activity purposes.  Excludes unconfirmed, provisional and differential."
+* ^experimental = false
+* $verStatus#confirmed
+* $verStatus#refuted
+* $verStatus#entered-in-error
 
 ValueSet:      PADiagnosticReportStatus
 Id:            pa-diagnosticreport-status
@@ -125,3 +134,34 @@ Description: "Codes indicating allowed for Tasks seeking fulfillment of physical
 * ^compose.exclude[0].system = "http://hl7.org/fhir/task-status"
 * ^compose.exclude[0].concept[+].code = #received
 * ^compose.exclude[0].concept[+].code = #ready
+
+ValueSet: PAGoalMeasurement
+Id: pa-goal-target-measure
+Title: "PA Goal Target Measure Codes"
+Description: "Value set for measure codes used in the target element of a Physical Activity-related Goal"
+* ^status = #draft
+* ^experimental = true
+* include codes from valueset PAObservationTimeMeasures
+* include codes from valueset PAObservationCodeEVS
+
+ValueSet: PAServiceRequestStatus
+Id: pa-servicerequest-status
+Title: "PA Service Request Status"
+Description: "The status values that are permitted for the PAServiceRequest resource, excluding 'unknown'"
+* ^status = #draft
+* ^experimental = true
+* http://hl7.org/fhir/ValueSet/request-status#draft
+* http://hl7.org/fhir/ValueSet/request-status#active
+* http://hl7.org/fhir/ValueSet/request-status#on-hold
+* http://hl7.org/fhir/ValueSet/request-status#revoked
+* http://hl7.org/fhir/ValueSet/request-status#completed
+* http://hl7.org/fhir/ValueSet/request-status#entered-in-error
+* http://hl7.org/fhir/ValueSet/request-status#suspended
+
+ValueSet:  PATemporaryCodesValueSet
+Id:            pa-temporary-codes-valueset
+Title:         "Temporary Codes ValueSet"
+Description:   "A ValueSet that includes all codes from the PATemporaryCodes CodeSystem"
+* ^status = #draft
+* ^experimental = true
+* include codes from system PATemporaryCodes

@@ -43,7 +43,11 @@
   <h3>Plans and Goals</h3>
   <img  style="float:left;padding:3px" src="rock-climb.png" alt="Woman in bay climbing wall in bouldering studio"/>
   <p>
+<<<<<<< HEAD
     A key step in improving a patient's physical activity levels is establishing and monitoring goals for a desired level of
+=======
+    A key step in improving a patient's physical activity levels is establishing and monitoring against goals for a desired level of
+>>>>>>> 13327db16e2e9a56d67d6ecad8567fea59341c8c
     physical activity and agreeing on a plan to attain that level of activity.  In some cases, these might be established and maintained
     only in the system of the <a href="workflow.html#caremanager">care manager</a> and merely be retrieved by the 
     <a href="workflow.html#serviceprovider">Service Provider</a> and 

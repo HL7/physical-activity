@@ -19,7 +19,14 @@ Description:    "A profile on RelatedPerson that mirrors the requirements of fut
   * given MS
   * family MS
 * telecom MS
+  * system 1..1 MS
+  * value 1..1 MS
+  * use MS
 * address MS
+  * line MS
+  * city MS
+  * state MS
+  * postalCode MS
 
 Invariant:   us-core-14
 Description: "Either a name or a relationship SHALL be provided (or both)"
@@ -33,6 +40,7 @@ Expression:  "given.exists() or family.exists()"
 Severity:    #error
 XPath:       "exists(f:given) or exists(f:family)"
 
+
 Profile:        PACarePlan
 Parent:         USCoreCarePlanProfile
 Id:             pa-careplan
@@ -44,7 +52,7 @@ Description:    "A plan describing the plan to improve or maintain a patient's l
 * text.div MS
 * intent = #plan
   * ^short = "Plan"
-* status ^comment = "...The only status source systems are expected to support are 'active' and 'completed'.  Receiving systems must handle the others if present, though they do not need to differentiate additional statues other than 'entered-in-error'."
+* status ^comment = "In most instances, the 'status' of the CarePlan is expected to be 'active'. However, when the goals of the CarePlan are either achieved or no longer applicable, the status should be updated to 'completed' or 'revoked' respectively. While there are additional statuses available, they might not be universally used across all systems.  Even though source systems are only expected to support 'active' and 'completed', receiving systems must handle the others if present, though they do not need to differentiate additional statues other than 'entered-in-error'."
 * period MS
   * start MS
   * end MS
@@ -66,12 +74,20 @@ Description:    "A plan describing the plan to improve or maintain a patient's l
   * time 1..1 MS
   * text MS
 
+
+Invariant:    pa-goal-1
+Description:  "Either a description or a target SHALL be provided (or both)"
+Expression:   "description.exists() or target.exists()"
+Severity:     #error
+XPath:        "exists(f:description) or exists(f:target)"
+
 Profile:        PAGoal
 Parent:         USCoreGoalProfile
 Id:             pa-goal
 Title:          "PA-Related Goal"
 Description:    "A goal that sets a target for a patient's physical activity level"
 * . ^definition = "A goal that sets a target for a patient's physical activity level"
+* obeys pa-goal-1
 * implicitRules ..0
 * modifierExtension ..0
 * achievementStatus MS
@@ -85,9 +101,13 @@ Description:    "A goal that sets a target for a patient's physical activity lev
 * target MS
   * modifierExtension ..0
   * measure 0..1 MS
-  * measure from PAObservationCodeEVS (extensible)
+  * measure from PAGoalMeasurement (extensible)
     * ^comment = "... If a target is specified with only a date and no measure, then it is generally indicating a due date for the overall Goal as specified in the description"
-  * detailQuantity MS
+  * detailQuantity 1.. MS
+    * value MS
+    * code MS
+    * system MS
+    * system ^fixedUri = "http://unitsofmeasure.org"
 * addresses MS
   * ^slicing.discriminator.type = #profile
   * ^slicing.discriminator.path = "$this.resolve()"
@@ -119,12 +139,17 @@ Description:    "A condition that conveys the fact that a patient has a clinical
 * . ^definition = "A condition that conveys the fact that a patient has a clinically significant and insufficient level of physical activity"
 * implicitRules ..0
 * modifierExtension ..0
-* category
+* verificationStatus from PAConditionVerificationStatus (required)
+  * ^short = "confirmed | refuted | entered-in-error"
+* category 2..*
   * ^slicing.discriminator.type = #pattern
   * ^slicing.discriminator.path = "$this"
   * ^slicing.rules = #open
+  * ^definition = "Category codes related to the condition. This element is intended to allow inclusion of any of the three codes from the US Core Condition Category codes or other extensibly identified existing concepts. However, in addition to these, a coding instance with the temporary code 'PhysicalActivity' should be included in this category."
 * category contains PA 1..1 MS
+* category[PA] from PATemporaryCodesValueSet (required)
 * category[PA] = PATemporaryCodes#PhysicalActivity
+  * ^short = "Additional category indicating the condition is related to physical activity"
 * code = $ICD10#Z72.3 "Lack of physical exercise"
   * ^short = "Lack of physical exercise"
 * bodySite 0..0
@@ -154,12 +179,20 @@ Description:    "A condition that conveys the fact that a patient has a clinical
     * ^type[0].targetProfile[1].extension[$typeMS].valueBoolean = true
 
 
+Invariant: pa-sr-1
+Description: "At least one of reasonCode or reasonReference must be provided"
+Expression: "reasonCode.exists() or reasonReference.exists()"
+Severity: #error
+XPath: "exists(f:reasonCode) or exists(f:reasonReference)"
+
+
 Profile:        PAServiceRequest
 Parent:         ServiceRequest
 Id:             pa-servicerequest
 Title:          "PA Service Request"
 Description:    "Represents orders and referrals for interventions that help to improve or maintain a patient's level of physical activity"
 * . ^definition = "Represents orders and referrals for interventions that help to improve or maintain a patient's level of physical activity"
+* obeys pa-sr-1 
 * implicitRules ..0
 * modifierExtension ..0
 * extension contains 
@@ -177,6 +210,8 @@ Description:    "Represents orders and referrals for interventions that help to 
   * ^short   = "original-order | order | filler-order"
   * ^comment = "...Multiple codes are allowed to support situations where a Task might point to a filler order instead of an original.  However, in almost all cases, the intent should be 'original-order' or just 'order'."
 * status MS
+* status from PAServiceRequestStatus (required)
+  * ^short = "draft | active | on-hold | revoked | completed | entered-in-error"
 * category
   * ^slicing.discriminator.type = #pattern
   * ^slicing.discriminator.path = "$this"
@@ -197,8 +232,8 @@ Description:    "Represents orders and referrals for interventions that help to 
 * occurrencePeriod MS
   * start MS
   * end MS
-* authoredOn 0..1 MS
-* requester MS
+* authoredOn 1..1 MS
+* requester 1..1 MS
 * requester only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile)
   * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest-or-logical"
 * performer MS
@@ -226,6 +261,9 @@ Description:    "Represents orders and referrals for interventions that help to 
 * supportingInfo[SupportedSupportingInfo] only Reference(PAObservationEVS)
   * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest"
 * specimen 0..0
+* note
+  * ^short = "Additional details about the service request"
+  * ^definition = "This field contains additional details about the service request (for e.g. the appropriate time and mechanism for the service provider to contact the patient). Please note that service providers typically won't see notes that are added once a ServiceRequest has been accepted."
 
 
 Profile:        PADiagnosticReport
@@ -243,15 +281,17 @@ Description:    "Conveys a summary of the interventions and patient interactions
 * basedOn contains SupportedBasedOn 0..* MS
 * basedOn[SupportedBasedOn] only Reference(PAServiceRequest)
   * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest"
-* category
+* category 2..*
   * ^slicing.discriminator.type = #pattern
   * ^slicing.discriminator.path = "$this"
   * ^slicing.rules = #open
+  * ^definition = "Category codes related to the service category. This element is intended to allow inclusion of any of the three codes from the US Core Diagnostic report Category codes or other extensibly identified existing concepts. However, in addition to these, a coding instance with the temporary code 'PhysicalActivity' should be included in this category."
 * category contains PAProc 1..1 MS
 * category[PAProc] = PATemporaryCodes#PhysicalActivity
+  * ^short = "Additional category indicating that the service category is related to physical activity"
 * status from PADiagnosticReportStatus
   * ^short = "partial | preliminary | final | amended | corrected | appended | entered-in-error"
-* code from PADiagnosticReportType (required)
+* code from PADiagnosticReportType (extensible)
 * encounter ^comment = "... While this is inherited as MustSupport from US Core, this element will typically not be relevant in the physical activity space as most reports will describe events spanning multiple encounters"
 * result
   * ^slicing.discriminator.type = #profile
@@ -312,6 +352,7 @@ Description:    "Represents a request for fulfillment of a physical activity-rel
 * for only Reference(USCorePatientProfile)
   * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest"
 * authoredOn 1..1 MS
+* reasonCode.text 1..1 MS
 * note MS
   * author[x] 1..1 MS
   // TODO - add support for PractitionerRole when we move to different US Core
@@ -322,7 +363,7 @@ Description:    "Represents a request for fulfillment of a physical activity-rel
   //  * ^type[0].targetProfile[1].extension[$typeMS].valueBoolean = true
   * time 1..1 MS
   * text MS
-* owner MS
+* owner 1..1 MS
 * owner only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile or USCoreOrganizationProfile)
   * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest"
   * ^type[0].targetProfile[0].extension[$typeMS].valueBoolean = true

@@ -19,6 +19,9 @@ Alias: $minLength        = http://hl7.org/fhir/StructureDefinition/minLength
 Alias: $pertainsToGoal   = http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal
 Alias: $observationFocus = http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.focus
 Alias: $typeMS           = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
+Alias: $verStatus        = http://terminology.hl7.org/CodeSystem/condition-ver-status
+Alias: $condition-category = http://hl7.org/fhir/us/core/CodeSystem/condition-category
+Alias: $pa-temporary-codes = http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes
 
 // CapabilityStatement RuleSets
 RuleSet: SupportedProfile(profile, conf)

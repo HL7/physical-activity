@@ -63,7 +63,7 @@
     In addition, this guide captures two additional measures:
   </p>
   <ul>
-    <li>The product of the two EVS measures, giving an average amount of moderate to vigorous physical activity in minutes/week (and captured 
+    <li>The product of the two Exercise Vital Sign (EVS) measures, giving an average amount of moderate to vigorous physical activity in minutes/week (and captured 
       using LOINC code <a href="http://loinc.org/82290-8">82290-8</a>)</li>
     <li>An indication of the frequency of strength-based exercises a patient has performed, expressed as days/week (and captured using
       LOINC code <a href="http://loinc.org/82291-6">82291-6</a>)</li>
