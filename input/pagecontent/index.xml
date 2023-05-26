@@ -126,11 +126,11 @@ Consequently, the profiles for these resources have been designed to mirror the 
     listed for information purposes only.  None of their content is needed in order to conform with this Physical Activity guide.
   </p>
   <ul>
-    <li><a href="http://hl7.org/fhir/us/davinci-crd">Coverage Requirements Discovery (CRD)</a>, <a href="http://hl7.org/fhir/us/davinci-crd">Documentation, Templates, and Rules (DTR)</a>,
-      and <a href="http://hl7.org/fhir/us/davinci-crd">Prior Authorization Support (PAS)</a> - these three IGs (collectively known as the Da Vinci Burden Reduction IGs) provide
+    <li><a href="http://hl7.org/fhir/us/davinci-crd">Coverage Requirements Discovery (CRD)</a>, <a href="http://hl7.org/fhir/us/davinci-dtr">Documentation, Templates, and Rules (DTR)</a>,
+      and <a href="http://hl7.org/fhir/us/davinci-pas">Prior Authorization Support (PAS)</a> - these three IGs (collectively known as the Da Vinci Burden Reduction IGs) provide
       support for prior authorization and other documentation capture.  They may assist in determining whether a patient is or can be covered for physical activity-related
       interventions.</li>
-    <li><a href="http://hl7.org/fhir/us/davinci-crd">Clinical Documentation Exchange (CDex)</a> - Allows payers to retrieve or solicit records from an EHR related to
+    <li><a href="http://hl7.org/fhir/us/davinci-cdex">Clinical Documentation Exchange (CDex)</a> - Allows payers to retrieve or solicit records from an EHR related to
       patients covered under their plans.  May be used to allow payers retrieving physical activity-related information for quality measures or in support of contractual or other
       payment schemes.</li>
     <li><a href="http://hl7.org/fhir/us/davinci-deqm">Data Exchange for Quality Measures (DEQM)</a> - Allows sharing patient data with payers to support quality measures
@@ -142,7 +142,7 @@ Consequently, the profiles for these resources have been designed to mirror the 
       influence what types of physical activity interventions are appropriate.</li>
     <li><a href="http://hl7.org/fhir/us/cqfmeasures">Quality Measure Implementation Guide</a> - defines standards for sharing clinical quality measures electronically, allowing
       defining and sharing measures related to patient physical activity and appropriate clinical interventions related to physical activity.</li>
-    <li><a href="http://hl7.org/fhir/uv/phd/">Personal Health Device (PHD) IG</a> - defines standards for sharing information from personal healthcare devices (heart rate monitors,
+    <li><a href="http://hl7.org/fhir/uv/phd">Personal Health Device (PHD) IG</a> - defines standards for sharing information from personal healthcare devices (heart rate monitors,
       step trackers, etc.) using FHIR - either directly or via intermediaries.  While not all relevant devices will support this standard, a consistent way of handling data from those
       that do should be useful.</li>
     <li><a href="http://hl7.org/fhir/us/directory-exchange">National Healthcare Directory Exchange</a> - a U.S. Office of the National Coordinator-sponsored IG supporting the exchange
@@ -151,11 +151,11 @@ Consequently, the profiles for these resources have been designed to mirror the 
     <li><a href="https://wiki.ihe.net/index.php/Audit_Trail_and_Node_Authentication">IHE FHIR Audit Event Query and Feed to ATNA</a> - for systems wishing to maintain robust audit
       records of changes and access to patient records (always a good idea), this IG defines standards for using FHIR to do so.  (Note that this standard is only really relevant if
       there's a need for electronic sharing of audit records.)</li>
-    <li><a href="http://hl7.org/fhir/us/bulkdata/">Bulk Data Access</a> - defines standards for sharing large volumes of FHIR data at one time.  This may be relevant if sharing
+    <li><a href="http://hl7.org/fhir/us/bulkdata">Bulk Data Access</a> - defines standards for sharing large volumes of FHIR data at one time.  This may be relevant if sharing
       large volumes of patient exercise, heart rate, and/or other information between systems.</li>
     <li><a href="http://www.hl7.org/documentcenter/public/ballots/2022SEP/downloads/HL7_PCD_R1_I1_2022SEP.pdf">Patient Contributed Data</a> - defines guidance for incorporation of
       patient and caregiver-collected information into clinical records (which this IG supports and advocates for).</li>
-    <li><a href="http://http://hl7.org/fhir/us/bser/">BSeR: Bidirectional Services_eReferral</a> - also deals with referrals and Gravity and Physical Activity are likely to both be formal constraints on BSeR once it has more explicit support for RESTful referral management.</li>
+    <li><a href="http://http://hl7.org/fhir/us/bser">BSeR: Bidirectional Services_eReferral</a> - also deals with referrals and Gravity and Physical Activity are likely to both be formal constraints on BSeR once it has more explicit support for RESTful referral management.</li>
   </ul>
   <p>
     An extensive list of FHIR implementation guides published by HL7 and other related organizations can be found <a href="http://fhir.org/guides/registry">here</a>.
