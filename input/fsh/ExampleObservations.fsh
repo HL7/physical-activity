@@ -169,4 +169,4 @@ Description: "An example observation capturing a patient's calories burned over 
 * subject	        = Reference(http://example.org/Patient/1) "Example Patient"
 * effectiveDateTime = "2022-06-08"
 * performer         = Reference(http://example.org/Patient/1) "Example Patient"
-* valueQuantity     = 1561 'kcal'
+* valueQuantity     = 1561 'kcal/24.h'
