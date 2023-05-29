@@ -1,7 +1,7 @@
 Instance:       pa-service-provider-light
 InstanceOf:     CapabilityStatement
 Usage:          #definition
-* title       = "Physical Activity Light Service Provider Capability Statement"
+Title:        "Physical Activity Light Service Provider Capability Statement"
 * description = "Describes the expected capabilities of a system used by a personal trainer, community fitness organization, or other entity that delivers services that help a patient to improve or maintain their level of physical activity.  This set of capabilities is appropriate for service providers that CANNOT expose their own FHIR server and that rely on the Care Manager to store Tasks, reports and other resources."
 * url         = "http://hl7.org/fhir/us/physical-activity/CapabilityStatement/pa-service-provider-light"
 * name        = "PAServiceProviderLight"

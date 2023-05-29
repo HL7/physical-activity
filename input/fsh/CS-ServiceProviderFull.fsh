@@ -1,7 +1,7 @@
 Instance:       pa-service-provider-full
 InstanceOf:     CapabilityStatement
 Usage:          #definition
-* title       = "Physical Activity Full Service Provider Capability Statement"
+Title:        "Physical Activity Full Service Provider Capability Statement"
 * description = "Describes the expected capabilities of a system used by a personal trainer, community fitness organization, or other entity that delivers services that help a patient to improve or maintain their level of physical activity.  This set of capabilities is appropriate for service providers that CAN expose their own FHIR server and that store Tasks, reports and other resources locally and expose them for query by [Care Managers](CapabilityStatement-pa-care-manager.html) and [Patient Engagement systems](CapabilityStatement-pa-patient-engagement.html)."
 * url         = "http://hl7.org/fhir/us/physical-activity/CapabilityStatement/pa-service-provider-full"
 * name        = "PAServiceProviderFull"

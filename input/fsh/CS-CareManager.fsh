@@ -1,7 +1,7 @@
 Instance:       pa-care-manager
 InstanceOf:     CapabilityStatement
 Usage:          #definition
-* title       = "Physical Activity Care Manager Capability Statement"
+Title:        "Physical Activity Care Manager Capability Statement"
 * description = "Describes the expected capabilities of a system that is responsible for managing issues related to the physical activity level of a patient."
 * url         = "http://hl7.org/fhir/us/physical-activity/CapabilityStatement/pa-care-manager"
 * name        = "PACareManager"
