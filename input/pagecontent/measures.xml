@@ -1,7 +1,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
   <p>
     Having a standardized way of measuring patient physical activity - and sharing those measurements - is an essential step to improving physical activity levels, both at an
-    individual and at a population level.  Patients, care-givers and Practitioners need standard measures to:
+    individual and at a population level.  Patients, care-givers, and Practitioners need standard measures to:
   </p>
   <ul>
     <li>Consistently evaluate whether a patient's activity levels are adequate for good health.</li>
@@ -30,11 +30,12 @@
 	  While fine-grained and detailed records (e.g. exactly which type of exercise was performed, which muscle groups were activated, how
 	  many repetitions were performed, how many intervals were done, etc.) are important for certain types of therapy and for research
 	  purposes, they are too complex and onerous for wide-spread use and are not easily evaluated to assess whether "this patient is
-	  sufficiently active to maintain good health".
+	  sufficiently active to maintain good health". This is not to suggest that fine-grained measures should not be captured and shared, merely that they are currently outside the scope of interoperability intended to be fostered by this implementation guide.
+
 	</p>
 	<p>
-	  This guide therefore mandates a slightly modified version of the very simple Exercise Vital Sign (LOINC <a href="http://loinc.org/89574-8">89574-8</a>) 
-	  as the primary measure of patient physical activity level for exchange and evaluation.  The <a href="background.html#pa-measure">background page</a>
+	  This guide therefore mandates a slightly modified version of the very simple Exercise Vital Sign (LOINC <a href="http://loinc.org/89574-8">89574-8</a> 
+	  ) as the primary measure of patient physical activity level for exchange and evaluation.  The <a href="background.html#pa-measure">background page</a>
 	  provides details on the evidence that supports this measure as accurate and appropriate for evaluating how well a patient meets guidelines for
 	  physical activity.
 	</p>
@@ -70,7 +71,7 @@
   <p>
     While the first of these is theoretically redundant with the two EVS measures, this calculated minutes/week measure is the one that is
     actually compared against national guidelines to determine whether a patient has adequate physical activity or not.  As such, having
-    it explicitly captured and stored allows for easier searching, trending and diagnosis.
+    it explicitly captured and stored allows for easier searching, trending and diagnosis. It is a derived measure.
   </p>
   <p>
     The second measure allows evaluation of the patient against guidelines for muscle-strengthening activity.  
@@ -99,7 +100,7 @@
   </p>
   <ul>
     <li>Step counts,</li>
-    <li>Heartrate measurements,</li>
+    <li>Heart rate measurements,</li>
     <li>Daily activity logs,</li>
     <li>Others?</li>
   </ul>
@@ -149,7 +150,7 @@
   <p>
     The selected measures fall into two categories - <a href="#activity">activity-based</a> measures and <a href="#time">time-period-based</a> 
     measures.  Rather than defining a separate profile for each measure, profiles are defined for each category, because the behavior is 
-    largely the same for each measure withing the category.  Only the Observation codes, allowed data type for response and unit of measure or 
+    largely the same for each measure within the category.  Only the Observation codes, allowed data type for response and unit of measure or 
     response value set are different from measure to measure.  Tables below list these varying parts.  Eventually, computable 
     <a href="{{site.data.fhir.path}}observationdefinition.html">ObservationDefinitions</a> will be created for each measure once the FHIR
     tooling supports using these as part of the validation process.
@@ -175,7 +176,7 @@
           <a href="{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-patient.html">Patient</a> or
           <a href="{{site.data.fhir.path}}relatedperson.html">RelatedPerson</a>.</li>
         <li><i>Providers (Prov.)</i> are anyone working professionally delivering healthcare related services.  This includes licensed healthcare professionals
-         such as nurses, clinicians, and physio therapists.  However, it also covers individuals who might not be licensed such as personal trainers.
+         such as nurses, clinicians, and physiotherapists.  However, it also covers individuals who might not be licensed such as personal trainers.
          This type of reporter would mean that the performer of the observation would be a
           <a href="{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-practitioner.html">Practitioner</a> or
           <a href="{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-practitionerrole.html">PractitionerRole</a>.</li>
@@ -196,7 +197,7 @@
           or averages might also not be directly calculated by the device that measures the raw parameter but might instead be calculated by
           intermediary devices such as a smart phone or personal computer.  If the raw data comes from a device, the measurement is still considered
           device-based.  Device-based observations <b>SHOULD</b> include information about the source device if the device does the reporting to allow
-          tracking of when measurements come from the same or differing devices (as a change in device might explain a change in measurement).</li>
+          tracking of when measurements come from the same or different devices (as a change in device might explain a change in measurement).</li>
         <li><i>Manual (Man.)</i> observations are directly made by the patient or by someone observing and interacting with the patient.</li>
       </ul>
     </li>
@@ -256,7 +257,7 @@
         <td></td>
         <td style="text-align: center">Y</td>
         <td>N/A</td>
-        <td>Allows provider to understand types of muscle groups activated and engage in discussion about what's working and what isn't.</td>
+        <td>Allows providers to understand types of muscle groups activated and engage in discussion about what's working and what isn't.</td>
       </tr>
       <tr>
         <th>Activity duration</th>
@@ -311,7 +312,7 @@
         <td style="text-align: center">Y</td>
         <td></td>
         <td>Progress</td>
-        <td>Measures are dependent on device knowing height/weight, so without personalization may be less precise.  
+        <td>Measures are dependent on the device knowing height/weight, so without personalization may be less precise.  
           Can be variability from device to device.  Useful to show progress and communicate with patients.</td>
       </tr>
     </tbody>

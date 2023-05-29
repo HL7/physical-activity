@@ -14,9 +14,8 @@
   <img style="float:right;padding:3px" src="yoga-stretch.png" alt="Woman Doing Yoga"/>
 	<ul>
     <li><a name="caremanager"> </a><a href="CapabilityStatement-pa-care-manager.html">Care Managers</a> are electronic health record or similar systems used by physicians, 
-      social workers, or others who have general responsibility for care of the patient.  These are the systems that will typically perform initial
-      data capture, whose users may identify an issue with physical activity level, and will coordinate any interventions to improve
-      physical activity levels.</li>
+      social workers, or others who have general responsibility for care of the patient. These are the systems that will typically perform initial 
+     data capture, whose users may identify an issue with physical activity level, and will coordinate any interventions to improve physical activity levels.</li>
     <li><a name="patient"> </a><a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagement Apps</a> are systems that will be used by patients and/or their caregivers
       to capture data to share with clinicians and physical activity specialists.  They will also allow patients and their representatives
       to see and potentially update goals and plans of care related to physical activity.  (Caregivers might include relatives, neighbors,
@@ -46,7 +45,7 @@
   </ul>
   
   <a name="payers"> </a>
-  <h4>Payers as an actor</h4>
+  <h4>Payers as an Actor</h4>
   <p>
     In addition to the three actor types above, payer systems are also relevant in this space, as they may provide coverage for services offered by Service Providers
     and may need measures reported by any of the other two system types.  However, interaction with payers is outside the scope of this implementation
@@ -78,7 +77,7 @@
   <p>
     NOTE: These workflows will frequently refer to the 'patient' being involved in the process - as a source of data, as a
     participant in care planning, as a participant in interventions, etc.  In almost all circumstances, this should be read as 
-    "the patient and/or their care giver(s)".  Information might be gathered from parents, guardians, or any other trusted person who
+    "the patient and/or their caregiver(s)".  Information might be gathered from parents, guardians, or any other trusted person who
     has responsibility for the patient's care and/or are otherwise supporting the patient in meeting their healthcare objectives.  This 
     can even include caregivers being the focus of interventions, for example receiving training so they can better assist the patient in 
     the execution of their exercise plan.  Please also review the guidance from the <a href="design.html">Design Considerations page</a>,
@@ -247,7 +246,7 @@
     <li>Tasks can be updated by both the referral initiator (Care Provider) - e.g. to cancel, as well as the service provider - e.g. to update status.</li>
     <li>Task is also how the service provider can indicate progress and link to any produced results (interim or final).</li>
     <li>Task is not needed if the referral solicitation process is manual (e.g. the patient shopping around a paper referral trying to find someone who can perform the service)</li>
-    <li>Even if the referral itself was directed, Task is necessary to give the ability to accept or refused, convey progress and link to results.</li>
+    <li>Even if the referral itself was directed, Task is necessary to give the ability to accept or refuse, convey progress and link to results.</li>
   </ul>
   <p>
     Note: The process to stop the ServiceRequest is to change the Task status to 'cancelled'.  This indicates to the performer that they should cease delivery as soon as practical. 
@@ -399,7 +398,7 @@
   <ul>
     <li>On a fee-for-service basis for delivering specific interventions.</li>
     <li>On a contractual basis where a service provider is paid for delivering a program and reimbursed based on the number of patients who participate.</li>
-    <li>As part of a captitated payments program where physical activity services are included as part of set of types of care covered by a bulk payment
+    <li>As part of a captitated payments program where physical activity services are included as part of a set of types of care covered by a bulk payment
       for each patient for a specific period.</li>
     <li>Others?</li>
   </ul>

@@ -61,7 +61,7 @@
 	<p>
 	  This IG makes significant use of <a href="{{site.data.fhir.path}}profiling.html">profiles</a> to describe both the expected content of instances, as well as which
 	  data elements systems are expected to <a href="#mustSupport">support</a>.  However, not all data hosted by a system will necessarily comply with one of the profiles
-	  defined in this IG.  Data consumers <b>SHALL</b> tolerate receipt of data in response to queries that does not comply with profiles defined in this IG, though they
+	  defined in this IG.  Data consumers <b>SHALL</b> tolerate receipt of data in response to queries that do not comply with profiles defined in this IG, though they
 	  <b>MAY</b> opt to ignore data that does not conform to the profiles or choose to process it.  All resources that declare a
 	  <a href="CodeSystem-pa-temporary-codes.html#pa-temporary-codes-PhysicalActivity">Physical Activity</a> category <b>SHOULD</b> conform with their respective profile(s)
 	  in this IG.

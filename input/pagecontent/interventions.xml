@@ -43,7 +43,11 @@
   <h3>Plans and Goals</h3>
   <img  style="float:left;padding:3px" src="rock-climb.png" alt="Woman in bay climbing wall in bouldering studio"/>
   <p>
+<<<<<<< HEAD
+    A key step in improving a patient's physical activity levels is establishing and monitoring goals for a desired level of
+=======
     A key step in improving a patient's physical activity levels is establishing and monitoring against goals for a desired level of
+>>>>>>> 13327db16e2e9a56d67d6ecad8567fea59341c8c
     physical activity and agreeing on a plan to attain that level of activity.  In some cases, these might be established and maintained
     only in the system of the <a href="workflow.html#caremanager">care manager</a> and merely be retrieved by the 
     <a href="workflow.html#serviceprovider">Service Provider</a> and 
@@ -62,7 +66,7 @@
   </p>
   <p>
     The purpose of the <a href="{{site.data.fhir.path}}careplan.html">CarePlan</a> resource is to allow a shared understanding of what actions 
-    the patient (and those around them) will take to help improve their level of physical activity.  Systems may express this as simple narrative.  
+    the patient (and those around them) will take to help improve their level of physical activity.  Systems may express this as a simple narrative.  
     The plan can be updated to reflect changes based on patient need and on what's working - or is not working.
   </p>
   <p>

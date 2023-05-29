@@ -1,6 +1,6 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
   <p>
     This is the final <a href="measures.html#base">Base Measure</a> used by this implementation guide.  It can also be compared to national guidelines based
-    on age to assess patient physical actity level.
+    on age to assess patient physical activity level.
   </p>
 </div>

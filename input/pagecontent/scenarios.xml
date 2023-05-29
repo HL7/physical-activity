@@ -43,7 +43,7 @@
     The two of them spend a few minutes discussing activities Mr. Khatun had enjoyed in the past and how he might increase his physical activity level
     without his children to drive that behavior.  Dr. Patel captures those ideas in his notes.  The two of them agree to schedule their next visit in 6 
     months and that by then, Mr. Khatun would aim to be doing at least 100 minutes of moderate to vigorous exercise.  At the conclusion of his visit,
-    Mr. Khatun receives a brochure with a QI-code link to an app he can use to track his physical activity.  Dr. Patel also provides him a formal 
+    Mr. Khatun receives a brochure with a QR-code link to an app he can use to track his physical activity.  Dr. Patel also provides him a formal 
     prescription for exercise, indicating "This prescription is as important as any medication or lab test, only this one can be free - and even fun."
   </p>
   <p>
@@ -127,16 +127,16 @@
     Dr. Lopez's nurse, Mr. Holland accesses a regional provider directory to retrieve a list of candidate trainers.  He first sends
     a request to Mrs. Wang whose office is closest to Mrs. Johansson's home address.  However, he shortly after receives a notification that Mrs.
     Wang's earliest opening was two months later than the referral window.  Trying again, he sends a request to Mr. Matthews who is slightly
-    further away, but still a workable distance.  Mr. Matthews' clerk retrieves the referral and, after consulting briefly with Mr. Matthews submits
+    further away, but still a workable distance.  Mr. Matthews' clerk retrieves the referral and, after consulting briefly with Mr. Matthews, submits
     a prior authorization request, leveraging Dr. Lopez's diagnosis of 'lack of physical exercise' as supporting information.  After receiving 
-    confirmation of prior authorization, the clerk, returns an acceptance of the referral.  Shortly thereafter, Mrs. Johansson receives a phone 
+    confirmation of prior authorization, the clerk returns an acceptance of the referral.  Shortly thereafter, Mrs. Johansson receives a phone 
     call from Mr. Matthews office to schedule her initial appointment.
   </p>
   <p>
     Over the course of a few appointments, Mr. Matthews works with Mrs. Johansson and helps her to better understand which types of discomfort
     she should gently work through, and which types signal a need to change her approach to exercise.  He also captures information about her levels
     of physical activity and uses that information to judge her progress.  With some tips and adjustments, she's soon
-    able to resume exercising in a manner similar to what she was previously accustomed and is slowly working her way towards the level
+    able to resume exercising in a manner similar to what she was previously accustomed to and is slowly working her way towards the level
     of vigor and frequency she had enjoyed prior to her heart issues.
   </p>
   <p>
@@ -234,7 +234,7 @@
   </p>
   <p>
     Mr. Shevchenko uses his patient portal to send a message to his general practitioner, Dr. Blackrock.  The clinician looks
-    up the program details on the fitness center website.  Based on the Mr. Shevchenko's most recent exam, Dr. Blackrock feels that
+    up the program details on the fitness center website.  Based on Mr. Shevchenko's most recent exam, Dr. Blackrock feels that
     the program is a good fit for his patient's current stage of recovery and happily writes up the referral and transmits a notification to
     the fitness center, then sends a reply to Mr. Shevchenko. He also makes a mental note of the program as something he wants to 
     recommend to a couple of his other patients.
@@ -317,9 +317,9 @@
   <h4>How this IG applies</h4>
   <p>
     Ms. Rocha uses a third-party secure FHIR server to manage information for her clients and <a href="{{site.data.fhir.path}}http.html#create">creates</a>
-    <a href="{{site.data.fhir.path}}http.html#update">updates</a> the CarePlan and Goals, which comply with the 
+    <a href="{{site.data.fhir.path}}http.html#update">updates</a> to the CarePlan and Goals, which comply with the 
     <a href="StructureDefinition-pa-careplan.html">exercise plan</a> and <a href="StructureDefinition-pa-goal.html">goal</a>.  Ms. Scarborough's app
-    <a href="{{site.data.fhir.path}}search.html">searches</a> and, when appropriate also updates and (for goals) possibly even creates instances.
+    <a href="{{site.data.fhir.path}}search.html">searches</a> and, when appropriate, also updates and (for goals) possibly even creates instances.
   </p>
   <p>
     Ms. Rocha's app also <a href="{{site.data.fhir.path}}http.html#create">creates</a> Task instances that comply with the 
@@ -362,7 +362,7 @@
     Rosalie is a 15-year-old female with Type 1 diabetes. Rosalie’s endocrinologist Dr. Flores has been working with Rosalie's mother, Nadia, 
     to keep Rosalie's blood glucose levels and A1c levels stable. Rosalie currently uses an insulin pump that requires her to test her blood sugar 
     levels regularly and adjust her insulin levels based on the results. Most of the time this is manageable for the family but Rosalie has had some 
-    wider A1c fluctuations and a multiple low blood sugar events in the past year. Nadia is concerned that this will continue to get more difficult 
+    wider A1c fluctuations and multiple low blood sugar events in the past year. Nadia is concerned that this will continue to get more difficult 
     to manage over time as Rosalie gets older and expresses concern about when her daughter eventually leaves home. When discussing factors that might 
     be impacting the accuracy of the insulin dosages, Nadia indicates that it seems to get worse during spring sports season. Last year Rosalie started 
     working with a personal trainer, Mrs. O'Shea as team tryouts have become more competitive. Dr. Flores asks Nadia and Rosalie to enter Rosalie's physical activity 
@@ -376,7 +376,7 @@
     the week. After discussing the results with Nadia and Rosalie, Dr. Flores recommends a continuous glucose monitoring insulin pump. The insulin pump's 
     connected smartphone application allows Rosalie and Nadia to enter additional information like physical activity levels.  The pump uses the combination 
     of continuous monitoring data and the data collected through the partner application to develop a better patient profile for Rosalie that she can share 
-    with both Mrs. O'Shea and Dr. Flores.  The profile allows her the trainer to better adapt the training regime to Rosalie's needs.
+    with both Mrs. O'Shea and Dr. Flores.  The profile allows her trainer to better adapt the training regime to Rosalie's needs.
   </p>
 
   <a name="pediatrics-fit"> </a>
@@ -392,7 +392,7 @@
   <h4>Alternatives</h4>
   <ul>
     <li>Rather than entering the data into an EHR portal, the data could be captured using an app on Nadia and/or Rosalie's phone.</li>
-    <li>The continuous glucose monitoring pump could be automatically fed activity level information from a smart watch or other device capable of
+    <li>The continuous glucose monitoring pump could be automatically fed activity level information from a smartwatch or other device capable of
       monitoring activity levels.</li>
   </ul>
 
