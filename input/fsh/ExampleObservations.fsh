@@ -118,7 +118,7 @@ InstanceOf:  PAObservationActivityMeasure
 Title:       "Example Observation Activity Measure - Calories"
 Description: "An example observation capturing the patient's estimated calorie expenditure during their run."
 * status            = #final
-* code              = $loinc#41979-6 "Calories burned in 24 hour Calculated"
+* code              = $loinc#55424-6 "Calories burned in unspecified time Pedometer"
 * subject	        = Reference(http://example.org/Patient/1) "Example Patient"
 * effectiveDateTime = "2022-06-08"
 * performer         = Reference(http://example.org/Patient/1) "Example Patient"
