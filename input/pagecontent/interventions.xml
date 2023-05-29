@@ -76,29 +76,53 @@
   </p>
   
   <a name="choosing"> </a>
-  <h4>Choosing between Exercise Prescriptions and Plans</h4>
+  <h4>Choosing between Exercise Prescriptions and Plans of Care</h4>
   <p>
-    To a certain extent, a plan and an exercise referral serve similar purposes - practitioners can use both to set an expectation for a patient
+    To a certain extent, a plan of care and an exercise prescription serve similar purposes - practitioners can use both to set an expectation for a patient
     to achieve an improved level of physical activity.  In some cases, an implementer might choose to use only one of the two.  Key
     differences between them (which may help determine whether you need one, the other, or both) are as follows:
   </p>
-  <ul>
-    <li>Exercise referrals are formal orders - though they are orders targeted to the patient themselves, rather than another provider.  Plans
-      represent guidance/recommendations but are not formal orders.</li>
-    <li>Exercise prescriptions are 'static'.  Practitioners write them once, but after that the orders typically do not change, beyond eventually being
-       marked as completed or cancelled.  Plans, on the other hand, are dynamic.  They may be updated and revised numerous times as circumstances 
-       change.</li>
-    <li>Exercise prescriptions can only be created or changed by appropriately qualified practitioners.  Plans can be created or changed by
-      anyone, potentially including the patient themselves.</li>
-    <li>Exercise prescriptions will typically set specific objectives for what is to be done but will be limited in description or detail.  For
-      example, "Work towards an average of 10,000 steps per day, and at least 3 days of 20 minutes' worth of strength exercises".  On the other
-      hand, plans will often provide much more detail, including descriptions of how, why, interim milestones, conditionality, etc.  A plan
-      may have multiple paragraphs and may include computable goals that can be used as targets.</li>
-    <li>An exercise prescription has a single status - it can be draft, active, on hold, cancelled or completed.  On the other hand, each step 
-      within a plan and each goal can have its own status to track completion, degree of success and notes around how things are going.</li>
-    <li>Because of these characteristics, plans will often take more time and effort to create and to manage.  They are therefore more likely to be
-      used by practitioners who are more heavily engaged and focused on the patient's exercise progress.</li>
-  </ul>
+    <table class="grid">
+    <thead style="background-color:WhiteSmoke">
+      <tr>
+        <th rowspan="2">Characteristic</th>
+        <th rowspan="2">Exercise Prescription</th>
+        <th rowspan="2">Plan of Care</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Formal?</td>
+        <td>Exercise prescriptions are formal orders targeted to the patient themselves, rather than another provider.</td>
+        <td>Plan of care represents guidance/recommendations but are not formal orders.</td>
+      </tr>
+      <tr>
+        <td>Dynamic Nature</td>
+        <td>Exercise prescriptions are 'static'. Practitioners write them once, but after that the orders typically do not change, beyond eventually being marked as completed or cancelled.</td>
+        <td>Plans of care, on the other hand, are dynamic. They may be updated and revised numerous times as circumstances change.</td>
+      </tr>
+      <tr>
+        <td>Creation and Modification</td>
+        <td>Exercise prescriptions can only be created or changed by appropriately qualified practitioners.</td>
+        <td>Plans of care can be created or changed by anyone, potentially including the patient themselves.</td>
+      </tr>
+      <tr>
+        <td>Details and Objectives</td>
+        <td>Exercise prescriptions will typically set specific objectives for what is to be done but will be limited in description or detail. For example: "Work towards an average of 10,000 steps per day, and at least 3 days of 20 minutes' worth of strength exercises".</td>
+        <td>Plan of care will often provide much more detail, including descriptions of how, why, interim milestones, conditionality, etc. A plan of care may have multiple paragraphs and may include computable goals that can be used as targets.</td>
+      </tr>
+      <tr>
+        <td>Status</td>
+        <td>An exercise prescription has a single status - it can be draft, active, on hold, cancelled or completed.</td>
+        <td>Each step within a plan of care and each goal can have its own status to track completion, degree of success and notes around how things are going.</td>
+      </tr>
+      <tr>
+        <td>Time and Effort</td>
+        <td>Because of their characteristics, exercise prescriptions will often take less time and effort to create and manage.</td>
+        <td>Plans of care will take more time and effort to create and manage. They are therefore more likely to be used by practitioners who are more heavily engaged and focused on the patient's exercise progress.</td>
+      </tr>
+    </tbody>
+  </table>
 
   <a name="referrals"> </a>
   <h3>Referrals</h3>
