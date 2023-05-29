@@ -13,10 +13,10 @@
 	</p>
   <img style="float:right;padding:3px" src="yoga-stretch.png" alt="Woman Doing Yoga"/>
 	<ul>
-    <li><a name="caremanager"> </a><a href="CapabilityStatement-pa-care-manager.html">Care Managers</a> are electronic health record or similar systems used by physicians, 
-      social workers, or others who have general responsibility for care of the patient. These are the systems that will typically perform initial 
+    <li><a name="caremanager"> </a><a href="CapabilityStatement-pa-care-manager.html">Care Managers</a> are health information technology (HIT) platforms used by physicians, 
+      social workers, or others who have general responsibility for care of the patient. These HIT platforms will typically perform initial 
      data capture, whose users may identify an issue with physical activity level, and will coordinate any interventions to improve physical activity levels.</li>
-    <li><a name="patient"> </a><a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagement Apps</a> are systems that will be used by patients and/or their caregivers
+    <li><a name="patient"> </a><a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagement Apps</a> are HIT platforms that will be used by patients and/or their caregivers
       to capture data to share with clinicians and physical activity specialists.  They will also allow patients and their representatives
       to see and potentially update goals and plans of care related to physical activity.  (Caregivers might include relatives, neighbors,
       friends, or anyone else acting in support of the patient based on their personal relationship.)</li>
