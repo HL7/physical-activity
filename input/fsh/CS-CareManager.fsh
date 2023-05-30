@@ -167,8 +167,8 @@ Title:        "Physical Activity Care Manager Capability Statement"
     * extension[$conf].valueCode = #SHALL
     * type = #CarePlan
     * insert SupportedProfile(PACarePlan, #SHALL)
-    * documentation = "Shares and, ideally, allows external systems to add and update care plans."
-    * insert Interaction(#update, #SHOULD, "Allows patients or service providers to modify a care plan.  Allowing patients\, care-givers\, and service providers to help maintain care plans is a key aspect of a patient-centered care plan.  However\, not all care manager systems (or their organizations\) yet have the technical mechanisms or policies in place to support this.")
+    * documentation = "Shares and, ideally, allows external systems to add and update care plans. If 'create' interaction is supported, 'update' becomes mandatory."
+    * insert Interaction(#update, #SHOULD, "Allows patients or service providers to modify a care plan.  Allowing patients\, care-givers\, and service providers to help maintain care plans is a key aspect of a patient-centered care plan.  However\, not all care manager systems (or their organizations\) yet have the technical mechanisms or policies in place to support this. Please note if 'create' is supported\, 'update' becomes mandatory\, as systems supporting creation should have the necessary mechanisms in place to support updates.")
     * insert Interaction(#create, #SHOULD, "Allows patients or service providers to add additional physical activity related care plans.  As with updates\, this is a key part of a patient-centered care plan\, but not all systems or organizations will be able to do this.")
     * insert Interaction(#search-type, #SHALL, "Allows retrieval of care plans for a given patient.")
     * insert Interaction(#history-instance, #MAY, "Allows seeing how a care plan has changed over time.  This may be particularly important if multiple stakeholders have the ability to make adjustments to the plan.  However\, history is not widely supported.")
@@ -202,7 +202,7 @@ Title:        "Physical Activity Care Manager Capability Statement"
     * documentation = "Allows retrieving PDFs or similar content referenced by a Patient Task.  These generally will not be patient-specific resources."
     * insert Interaction(#create, #SHOULD, "Allows a ServiceProvider to add additional images/documents for later retrieval.")
     * insert Interaction(#update, #MAY, "Allows a ServiceProvider to replace an existing image/document with a newer version.")
-    * insert Interaction(#search-type, #SHALL, "Allows monitoring of previously-retrieved DocumentReferences in the event the image/document is amended\, corrected\, or updated.")
+    * insert Interaction(#search-type, #SHOULD, "Allows monitoring of previously-retrieved DocumentReferences in the event the image/document is amended\, corrected\, or updated.")
     * referencePolicy = #literal
     * insert SearchParam("_id", Resource-id, #token, #SHALL, "Allows retrieving known document-reference records - and more specifically\, retrieving  more than one in a single call to poll for updates.")
     * insert SearchParam("_lastUpdated", Resource-lastUpdated, #date, #SHOULD, "Allows filtering for only records that have changed since last query.")
@@ -213,8 +213,8 @@ Title:        "Physical Activity Care Manager Capability Statement"
     * extension[$conf].valueCode = #SHALL
     * type = #Goal
     * insert SupportedProfile(PAGoal, #SHALL)
-    * documentation = "Shares and, ideally, allows external systems to add and update goals."
-    * insert Interaction(#update, #SHOULD, "Allows patients or service providers to modify a goal - for example shifting target values or dates\, updating the status\, etc.  Allowing patients\, care-givers\, and service providers to help maintain goals is a key aspect of a patient-centered care plan.  However\, not all care manager systems (or their organizations\) yet have the technical mechanisms or policies in place to support this.")
+    * documentation = "Shares and, ideally, allows external systems to add and update goals. If 'create' interaction is supported, 'update' becomes mandatory."
+    * insert Interaction(#update, #SHOULD, "Allows patients or service providers to modify a goal - for example shifting target values or dates\, updating the status\, etc.  Allowing patients\, care-givers\, and service providers to help maintain goals is a key aspect of a patient-centered care plan.  However\, not all care manager systems (or their organizations\) yet have the technical mechanisms or policies in place to support this. Please note if 'create' is supported\, 'update' becomes mandatory\, as systems supporting creation should have the necessary mechanisms in place to support updates.")
     * insert Interaction(#create, #SHOULD, "Allows patients or service providers to add additional physical activity related goals.  As with updates\, this is a key part of a patient-centered care plan\, but not all systems or organizations will be able to do this.")
     * insert Interaction(#search-type, #SHALL, "Allows retrieval of goals for a given patient.")
     * insert Interaction(#history-instance, #MAY, "Allows seeing how goals have changed over time.  This may be particularly important if multiple stakeholders have the ability to make adjustments to goals.  However\, history is not widely supported.")
@@ -379,7 +379,7 @@ Title:        "Physical Activity Care Manager Capability Statement"
     * insert SupportedProfile(PATaskForReferralManagement, #SHALL)
     * insert SupportedProfile(SDOHCCTaskForPatient, #SHOULD)
     * documentation = "Allows retrieval and updating of tasks seeking fulfillment of orders and referrals as well as creation, updating and retrieval of tasks assigned to patients."
-    * insert Interaction(#create, #SHOULD, "Allows a service provider to create a patient-assigned Task.")
+    * insert Interaction(#create, #SHALL, "Allows a service provider to create a patient-assigned Task.")
     * insert Interaction(#update, #SHALL, "Allows existing tasks to be updated - to change their status and/or to attach 'outputs' resulting from the Task.")
     * insert Interaction(#search-type, #SHALL, "Allows polling multiple tasks simultaneously\, as well as retrieving referenced resources as part of a single query.")
     * versioning      = #versioned-update
@@ -395,5 +395,5 @@ Title:        "Physical Activity Care Manager Capability Statement"
     * insert SearchParam("patient", clinical-patient, #reference, #SHALL, "Allows filtering to only those tasks for a specific patient.  Most systems will treat this as a mandatory search parameter\, though systems MAY support cross-patient search\, at least through bulk-data interfaces for payer or research use.")
     * insert SearchParam("requester", Task-requester, #reference, #SHALL, "Allows filtering to only retrieve tasks initiated by a specific provider.")
     * insert SearchParam("status", ServiceRequest-status, #token, #SHALL, "Allows filtering to only retrieve active or completed orders.")
-    * insert SearchParam("focus", Task-focus, #reference, #SHOULD, "Allows retrieving the task(s\) seeking fulfillment of a particular ServiceRequest.")
+    * insert SearchParam("focus", Task-focus, #reference, #SHALL, "Allows retrieving the task(s\) seeking fulfillment of a particular ServiceRequest.")
     * insert SearchParam2("output", http://hl7.org/fhir/us/sdoh-clinicalcare/SearchParameter/Task-output-reference, #reference, #SHOULD, "Allows for the 'output' of a Task to be included when retrieving a Task.")
