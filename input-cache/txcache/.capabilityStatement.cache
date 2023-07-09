@@ -9,10 +9,10 @@
     }]
   },
   "url" : "http://tx.fhir.org/r4/metadata",
-  "version" : "4.0.1-2.0.14",
+  "version" : "4.0.1-2.1.0",
   "name" : "FHIR Reference Server Conformance Statement",
   "status" : "active",
-  "date" : "2023-03-17T10:47:24.496Z",
+  "date" : "2023-07-06T03:30:21.852Z",
   "contact" : [{
     "telecom" : [{
       "system" : "other",
@@ -23,7 +23,7 @@
   "instantiates" : ["http://hl7.org/fhir/CapabilityStatement/terminology-server"],
   "software" : {
     "name" : "Reference Server",
-    "version" : "2.0.14",
+    "version" : "2.1.0",
     "releaseDate" : "2022-05-13T19:50:55.040Z"
   },
   "implementation" : {

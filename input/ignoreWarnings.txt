@@ -3,11 +3,21 @@
 # Spurious error caused by IG dependency fragment that includes a valid link to R4B, but the validator yells because this is an R4 IG
 ERROR: D:\Git\_IGs\physical-activity\output\index.html#/html/body/div/div/div/div/div/div/div/table/tr/td/a at Line 352, column 2652: The link 'http://hl7.org/fhir/R4B' for "R4B" cannot be resolved
 
-# This SubscriptionTopic is defined by SDOH, but is not defined as a resource because SubscriptionTopic doesn't exist in R4.  Instead, it's just defined as part of the IG text.
+# The Gravity IG defines this SubscriptionTopic with text only - it does not create a resolvable resource.  However, one is not needed for the purpose of the I
+The value provided ('entity') is not in the value set 'ExampleScenarioActorType' (http://hl7.org/fhir/ValueSet/examplescenario-actor-type|4.0.1), and a code is required from this value set) (error message = Unknown Code 'entity' in the system 'http://hl7.org/fhir/examplescenario-actor-type'; The provided code http://hl7.org/fhir/examplescenario-actor-type#entity is not in the value set 'http://hl7.org/fhir/ValueSet/examplescenario-actor-type|4.0.1')
+ExampleScenario.instance.resourceType: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/ExampleScenario|4.0.1)
+ExampleScenario.process.step.operation.number: minimum required = 1, but only found 0 (from http://hl7.org/fhir/StructureDefinition/ExampleScenario|4.0.1)
+
+# This SubscriptionTopic is defined by SDOH, but is not defined as a resource because SubscriptionTopic doesn't exist in R4.  Instead, it's just defined as parG
+ERROR: Canonical URL 'http://hl7.org/fhir/us/sdoh-clinicalcare/SubscriptionTopic/Task' does not resolve
+
+# There are conversion errrors for ExampleScenario that are causing these validation errorst of the IG text.
 # The narrative rendering for the resources, however, thinks it should be a valid link.  Not clear how to stop the narrative from doing that...
 # In any event, it's an issue with the SDOH IG, not physical-activity.
 The link 'http://hl7.org/fhir/us/sdoh-clinicalcare/SubscriptionTopic/Task' for "http://hl7.org/fhir/us/sdoh-clinicalcare/SubscriptionTopic/Task" cannot be resolved
-Canonical URL 'http://hl7.org/fhir/us/sdoh-clinicalcare/SubscriptionTopic/Task' does not resolve
+
+# This is an example Questionnaire canonical that isn't expected to resolve and isn't relevant for the scope of the scenario
+The questionnaire 'http://example.org/Questionnaire/scen4Questionnaire' could not be resolved, so no validation can be performed against the base questionnaire
 
 # All of these observations largely comply with the US Core R6 "Simple Observation" profile, which is not available in the 3.1.1 release used by this IG
 # The only exception is that the physical activity profiles do not have the 'derivedFrom' element marked as mustSupport.  In general, these observations will always be recorded directly
@@ -25,12 +35,17 @@ WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/physical-activi
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-observation-activity-group').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-observation-base').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles
 
+# These repetitions are to satisfy US core expectations.  (In this release of the US Core IG, it doesn't define slices, but instead defines extensible bindings across all repetitions.)
+INFORMATION: Condition/ExampleCondition: Condition.category[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-condition-low-pa|current
+INFORMATION: DiagnosticReport/ExampleReport: DiagnosticReport.category[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-diagnosticreport|current
+
 # This value set is defined in R4B, not R4, and the subscription backport IG doesn't re-define it for use with R4 implementations.
 # Have manually verified that the codes used are valid against the R4B value set.
-WARNING: Bundle/ExampleSubscriptionBundleWithIds: Bundle.entry[0].resource/*Parameters/ExampleSubscriptionStatusWithIds*/.parameter[2].value.ofType(code): ValueSet http://hl7.org/fhir/ValueSet/subscription-notification-type not found by validator
-WARNING: Bundle/ExampleSubscriptionBundleWithNoIds: Bundle.entry[0].resource/*Parameters/ExampleSubscriptionStatusWithNoIds*/.parameter[2].value.ofType(code): ValueSet http://hl7.org/fhir/ValueSet/subscription-notification-type not found by validator
-WARNING: Parameters/ExampleSubscriptionStatusWithIds: Parameters.parameter[2].value.ofType(code): ValueSet http://hl7.org/fhir/ValueSet/subscription-notification-type not found by validator
-WARNING: Parameters/ExampleSubscriptionStatusWithNoIds: Parameters.parameter[2].value.ofType(code): ValueSet http://hl7.org/fhir/ValueSet/subscription-notification-type not found by validator
+ValueSet http://hl7.org/fhir/ValueSet/subscription-notification-type not found
+WARNING: Bundle/ExampleSubscriptionBundleWithIds: Bundle.entry[0].resource/*Parameters/ExampleSubscriptionStatusWithIds*/.parameter[2].value.ofType(code): ValueSet http://hl7.org/fhir/ValueSet/subscription-notification-type not found
+WARNING: Bundle/ExampleSubscriptionBundleWithNoIds: Bundle.entry[0].resource/*Parameters/ExampleSubscriptionStatusWithNoIds*/.parameter[2].value.ofType(code): ValueSet http://hl7.org/fhir/ValueSet/subscription-notification-type not found
+WARNING: Parameters/ExampleSubscriptionStatusWithIds: Parameters.parameter[2].value.ofType(code): ValueSet http://hl7.org/fhir/ValueSet/subscription-notification-type not found
+WARNING: Parameters/ExampleSubscriptionStatusWithNoIds: Parameters.parameter[2].value.ofType(code): ValueSet http://hl7.org/fhir/ValueSet/subscription-notification-type not found
 
 # This *does* derive from the US core profile - the one in 3.1.1, not 6.0.0.  The only deviation from the 6.0.0 "US Core Condition Problems and Health Concerns Profile" is that there is no
 # mustSupport on the SDOH category because the physical activity profile is constrained to a condition that is definitely not an SDOH condition.
@@ -48,3 +63,6 @@ WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/physical-activi
 
 # Confirmed that the tag in the markdown is not intended to be rendered as HTML, also it's inherited from core spec.
 WARNING: StructureDefinition/pa-careplan: StructureDefinition.snapshot.element[9].comment: The markdown contains content that appears to be an embedded HTML tag starting at 'Th'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+
+# The code from the desired value set is already present.  This is an additional category
+None of the codings provided are in the value set 'Observation Category Codes' (http://hl7.org/fhir/ValueSet/observation-category|4.0.1), and a coding is recommended to come from this value set) (codes = http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes#PhysicalActivity)

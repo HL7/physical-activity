@@ -10,10 +10,20 @@ copyrightYear: 2022+
 version: current
 releaseLabel: Continuous Integration
 jurisdiction: urn:iso:std:iso:3166#US
+extension:
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+    valueCode: trial-use
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
+    valueInteger: 3
 publisher:
   name: HL7 International - Patient Care WG
   url: http://www.hl7.org/Special/committees/patientcare
 dependencies:
+#  hl7.fhir.core:
+#    id: r4b
+#    version: 4.6.0
+#    reason: |
+#      This IG leverages subscription constructs pre-adopted from R4B.  Importing this IG makes the relevant terminologies available.
   hl7.fhir.us.sdoh-clinicalcare:
     id: sdoh
     version: 2.0.0
@@ -156,7 +166,208 @@ resources:
     exampleCanonical: BackportSubscriptionStatusR4
   ExampleSubscriptionStatusWithNoIds:
     exampleCanonical: BackportSubscriptionStatusR4
-
+  scen1ExercisePrescription:
+    groupingId: ex-scenario-1
+  scen1Careplan:
+    groupingId: ex-scenario-1
+  scen1CareplanV2:
+    groupingId: ex-scenario-1
+  scen1Goal:
+    groupingId: ex-scenario-1
+  scen1GoalV2:
+    groupingId: ex-scenario-1
+  scen1ServiceRequest:
+    groupingId: ex-scenario-1
+  scen1Task:
+    groupingId: ex-scenario-1
+  scen1ObservationDaysPerWeek:
+    groupingId: ex-scenario-1
+  scen1ObservationMinsPerDay:
+    groupingId: ex-scenario-1
+  scen1ObservationMinsPerWeek:
+    groupingId: ex-scenario-1
+  scen1ObservationStrengthDaysPerWeek:
+    groupingId: ex-scenario-1
+  scen1OrgGoodhealth:
+    groupingId: ex-scenario-1
+  scen1PatientKhatun:
+    groupingId: ex-scenario-1
+  scen1PractitionerPatel:
+    groupingId: ex-scenario-1
+  scen1RolePatel:
+    groupingId: ex-scenario-1
+  scen2ProviderToPersonaltrainerReferral:
+    groupingId: ex-scenario-2
+  scen2SubscriptionEhr:
+    groupingId: ex-scenario-2
+  scen2SubscriptionGetfit:
+    groupingId: ex-scenario-2
+  scen2PractitionerTrainerSearchsetBundle:
+    groupingId: ex-scenario-2
+  scen2RoleWang:
+    groupingId: ex-scenario-2
+  scen2PractitionerWang:
+    groupingId: ex-scenario-2
+  scen2RoleMatthew:
+    groupingId: ex-scenario-2
+  scen2PractitionerMatthew:
+    groupingId: ex-scenario-2
+  scen2SubscriptionNotificationNewtaskBundle:
+    groupingId: ex-scenario-2
+  scen2parameters:
+    groupingId: ex-scenario-2
+  scen2TaskGetfitResponseBundle:
+    groupingId: ex-scenario-2
+  scen2TaskGetfit:
+    groupingId: ex-scenario-2
+  scen2TaskGetfitV2:
+    groupingId: ex-scenario-2
+  scen2PatientJohansson:
+    groupingId: ex-scenario-2
+  scen2Servicerequest:
+    groupingId: ex-scenario-2
+  scen2TaskFit4life:
+    groupingId: ex-scenario-2
+  scen2TaskFit4lifeV2:
+    groupingId: ex-scenario-2
+  scen2TaskFit4lifeV3:
+    groupingId: ex-scenario-2
+  scen2TaskFit4lifeResponseBundle:
+    groupingId: ex-scenario-2
+  scen2ConditionResponseBundle:
+    groupingId: ex-scenario-2
+  scen2ConditionCardio:
+    groupingId: ex-scenario-2
+  scen2ObservationResponseBundle:
+    groupingId: ex-scenario-2
+  scen2ObsDaysPerWeek:
+    groupingId: ex-scenario-2
+  scen2ObsMinutesPerDay:
+    groupingId: ex-scenario-2
+  scen2NotificationUpdatedtaskBundle:
+    groupingId: ex-scenario-2
+  scen2parameters2:
+    groupingId: ex-scenario-2
+  scen2NotificationCompletedtaskBundle:
+    groupingId: ex-scenario-2
+  scen2parameters3:
+    groupingId: ex-scenario-2
+  scen2DiagnosticReportObservationsResponseBundle:
+    groupingId: ex-scenario-2
+  scen2DiagnosticReport:
+    groupingId: ex-scenario-2
+  scen2ObsDaysPerWeek2:
+    groupingId: ex-scenario-2
+  scen2ObsMinutesPerDay2:
+    groupingId: ex-scenario-2
+  scen2ObsActivityCalories:
+    groupingId: ex-scenario-2
+  scen2ObsActivityPeakHR:
+    groupingId: ex-scenario-2
+  scen2OrgFit4life:
+    groupingId: ex-scenario-2
+  scen2OrgGetfittraining:
+    groupingId: ex-scenario-2
+  scen3ProviderToYMCAReferral:
+    groupingId: ex-scenario-3
+  scen3SubscriptionEhr:
+    groupingId: ex-scenario-3
+  scen3TaskYMCA:
+    groupingId: ex-scenario-3
+  scen3TaskYMCAV2:
+    groupingId: ex-scenario-3
+  scen3TaskYMCAV3:
+    groupingId: ex-scenario-3
+  scen3PatientShevchenko:
+    groupingId: ex-scenario-3
+  scen3Servicerequest:
+    groupingId: ex-scenario-3
+  scen3NotificationUpdatedtaskBundle:
+    groupingId: ex-scenario-3
+  scen3parameters1:
+    groupingId: ex-scenario-3
+  scen3NotificationCompletedtaskBundle:
+    groupingId: ex-scenario-3
+  scen3parameters2:
+    groupingId: ex-scenario-3
+  scen3OrgMainclinic:
+    groupingId: ex-scenario-3
+  scen3OrgYMCA:
+    groupingId: ex-scenario-3
+  scen3PractitionerBlackrock:
+    groupingId: ex-scenario-3
+  scen3RoleBlackrock:
+    groupingId: ex-scenario-3
+  scen4PhysicalActivityPlan:
+    groupingId: ex-scenario-4
+  scen4Careplan:
+    groupingId: ex-scenario-4
+  scen4Goal1:
+    groupingId: ex-scenario-4
+  scen4Goal1V2:
+    groupingId: ex-scenario-4
+  scen4Goal2:
+    groupingId: ex-scenario-4
+  scen4Goal2V2:
+    groupingId: ex-scenario-4
+  scen4ObservationActivityType:
+    groupingId: ex-scenario-4
+  scen4ObservationEVSMinutesPerDay:
+    groupingId: ex-scenario-4
+  scen4ObservationPeakDailyHeartRate:
+    groupingId: ex-scenario-4
+  scen4ObservationEVSMinutesPerDay2:
+    groupingId: ex-scenario-4
+  scen4ObservationCaloriesPerDay:
+    groupingId: ex-scenario-4
+  scen4ObservationDailySteps:
+    groupingId: ex-scenario-4
+  scen4ObservationEVSMinutesPerDay3:
+    groupingId: ex-scenario-4
+  scen4TaskFillSurvey:
+    groupingId: ex-scenario-4
+  scen4TaskFillSurveyV2:
+    groupingId: ex-scenario-4
+  scen4TaskFillSurvey2:
+    groupingId: ex-scenario-4
+  scen4TaskFillSurvey2V2:
+    groupingId: ex-scenario-4
+  scen4TaskReviewVideo:
+    groupingId: ex-scenario-4
+  scen4TaskReviewVideoV2:
+    groupingId: ex-scenario-4
+  scen4Questionnaire:
+    groupingId: ex-scenario-4
+  scen4QuestionnaireResponse:
+    groupingId: ex-scenario-4
+  scen4QuestionnaireResponse2:
+    groupingId: ex-scenario-4
+  scen4PatientScarborough:
+    groupingId: ex-scenario-4
+  scen4Practitioner:
+    groupingId: ex-scenario-4
+  scen5ActivityAndGlucoseObservations:
+    groupingId: ex-scenario-5
+  scen5ObservationActivityType:
+    groupingId: ex-scenario-5
+  scen5ObservationEVSMinutesPerDay:
+    groupingId: ex-scenario-5
+  scen5ObservationPeakDailyHeartRate:
+    groupingId: ex-scenario-5
+  scen5ObservationCaloriesPerDay:
+    groupingId: ex-scenario-5
+  scen5ObservationDailySteps:
+    groupingId: ex-scenario-5
+  scen5ObservationBloodGlucose1:
+    groupingId: ex-scenario-5
+  scen5ObservationBloodGlucose2:
+    groupingId: ex-scenario-5
+  scen5ObservationsResponseBundle:
+    groupingId: ex-scenario-5
+  scen5RelatedpersonNadia:
+    groupingId: ex-scenario-5
+  scen5PatientRosalie:
+    groupingId: ex-scenario-5
 menu:
   Contents: toc.html
   Home: index.html

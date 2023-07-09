@@ -150,13 +150,12 @@ Title: "PA Service Request Status"
 Description: "The status values that are permitted for the PAServiceRequest resource, excluding 'unknown'"
 * ^status = #draft
 * ^experimental = true
-* http://hl7.org/fhir/ValueSet/request-status#draft
-* http://hl7.org/fhir/ValueSet/request-status#active
-* http://hl7.org/fhir/ValueSet/request-status#on-hold
-* http://hl7.org/fhir/ValueSet/request-status#revoked
-* http://hl7.org/fhir/ValueSet/request-status#completed
-* http://hl7.org/fhir/ValueSet/request-status#entered-in-error
-* http://hl7.org/fhir/ValueSet/request-status#suspended
+* http://hl7.org/fhir/request-status#draft
+* http://hl7.org/fhir/request-status#active
+* http://hl7.org/fhir/request-status#on-hold
+* http://hl7.org/fhir/request-status#revoked
+* http://hl7.org/fhir/request-status#completed
+* http://hl7.org/fhir/request-status#entered-in-error
 
 ValueSet:  PATemporaryCodesValueSet
 Id:            pa-temporary-codes-valueset

@@ -1,6 +1,0 @@
--------------------------------------------------------------------------------------
-{"hierarchical" : false, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-diagnosticreport-type", "version": "1.0.0-ballot"}####
-e: {
-  "error" : "Error from server: Unable to provide support for code system http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes"
-}
--------------------------------------------------------------------------------------

@@ -88,7 +88,7 @@
 	  This implementation guide makes use of several external terminologies, including LOINC, SNOMED CT and CPT codes.  In
 	  some places, the IG has identified the need for a code that does not yet exist in any of these external locations, but
 	  which probably makes sense to be added to one of those code systems.  In this case, we have defined 'temporary' codes
-	  in the <a href="CodeSystem-temporary-codes.html">temporary-codes</a>) Code system.  The location and value of these codes <b>WILL</b>
+	  in the <a href="CodeSystem-pa-temporary-codes.html">temporary-codes</a>) Code system.  The location and value of these codes <b>WILL</b>
 	  change in a future release of the specification.  Implementers should plan to accommodate this as part of their designs.
 	</p>
 	<p>

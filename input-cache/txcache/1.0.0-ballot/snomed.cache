@@ -27,11 +27,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:02d78242-8bb9-4dc3-8a9e-d1ab89beaaba",
-    "timestamp" : "2023-04-07T21:14:43.103Z",
+    "identifier" : "urn:uuid:9923ba7e-813f-4338-8e47-4781cf4b2801",
+    "timestamp" : "2023-07-06T04:15:27.307Z",
+    "total" : 4,
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -42,7 +42,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20220901"
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230301"
     }],
     "contains" : [{
       "system" : "http://snomed.info/sct",
@@ -109,11 +109,11 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:473c22ed-4ba2-4534-8b3d-9cb9f008728e",
-    "timestamp" : "2023-04-07T21:14:47.697Z",
+    "identifier" : "urn:uuid:81c780c1-a5d3-4a88-b292-5b55d0a2f067",
+    "timestamp" : "2023-07-06T04:15:31.260Z",
+    "total" : 7,
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -124,7 +124,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20220901"
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230301"
     }],
     "contains" : [{
       "system" : "http://snomed.info/sct",

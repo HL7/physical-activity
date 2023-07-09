@@ -337,12 +337,12 @@
     message will provide the prompt for the user to launch their system and query for new Tasks.
   </p>
   <p>
-    Based on implementer feedback, this IG defines an additional <code>customChannelType</code> code that can be used to deliver notifications
-    via SMS device rather than email or rest-hook.  Such notifications <b>SHALL</b> only include a short human-readable message indicating the subscription id and 
+    Based on implementer feedback, this IG leverages the <a href="{{site.data.fhir.path}}codesystem-subscription-channel-type.html#subscription-channel-type-sms">SMS 
+    channel type</a> which has been removed in future versions of the FHIR spec.
+    Such notifications <b>SHALL</b> only include a short human-readable message indicating the subscription id and 
     a short message indicating that updated content is available.  <code>Subscription.contentType</code> <b>SHALL</b> be "omit" for
     both security as well as bandwidth reasons.  The SMS message <b>SHALL NOT</b> actually include a subscription notification Bundle.
-    The use of this approach is experimental, and feedback is welcome.  The code to use is found
-    <a href="CodeSystem-pa-temporary-codes.html#pa-temporary-codes-sms">here</a>.  The <code>endpoint</code> will be populated with the phone number
+    The use of this approach is experimental, and feedback is welcome.    The <code>endpoint</code> will be populated with the phone number
     to send the SMS message to, expressed in compliance with <a href="https://www.rfc-editor.org/rfc/rfc3966">rfc3966</a> - i.e. "tel:" followed by the
     phone number digits.
   </p>

@@ -6,6 +6,76 @@
     "include" : [{
       "system" : "http://loinc.org",
       "concept" : [{
+        "code" : "89555-7",
+        "display" : "How many days per week did you engage in moderate to strenuous physical activity in the last 30 days"
+      },
+      {
+        "code" : "68516-4",
+        "display" : "On those days that you engage in moderate to strenuous exercise, how many minutes, on average, do you exercise"
+      },
+      {
+        "code" : "82290-8",
+        "display" : "Frequency of moderate to vigorous aerobic physical activity"
+      },
+      {
+        "code" : "82291-6",
+        "display" : "Frequency of muscle-strengthening physical activity"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:dd567e0c-95f2-4996-b0a4-847047181230",
+    "timestamp" : "2023-07-06T04:15:26.103Z",
+    "total" : 4,
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://loinc.org|2.74"
+    }],
+    "contains" : [{
+      "system" : "http://loinc.org",
+      "code" : "89555-7",
+      "display" : "How many days per week did you engage in moderate to strenuous physical activity in the last 30 days"
+    },
+    {
+      "system" : "http://loinc.org",
+      "code" : "68516-4",
+      "display" : "On those days that you engage in moderate to strenuous exercise, how many minutes, on average, do you exercise"
+    },
+    {
+      "system" : "http://loinc.org",
+      "code" : "82290-8",
+      "display" : "Frequency of moderate to vigorous aerobic physical activity"
+    },
+    {
+      "system" : "http://loinc.org",
+      "code" : "82291-6",
+      "display" : "Frequency of muscle-strengthening physical activity"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://loinc.org",
+      "concept" : [{
         "code" : "11488-4",
         "display" : "Consult Note"
       },
@@ -27,11 +97,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:fb7f5cc2-0f24-402b-9326-2d6e48f73c51",
-    "timestamp" : "2023-04-07T21:14:43.525Z",
+    "identifier" : "urn:uuid:a209e31f-cadf-449e-a1f7-437208dd7ab8",
+    "timestamp" : "2023-07-06T04:15:28.713Z",
+    "total" : 4,
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -42,7 +112,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueUri" : "http://loinc.org|2.73"
+      "valueUri" : "http://loinc.org|2.74"
     }],
     "contains" : [{
       "system" : "http://loinc.org",
@@ -105,11 +175,11 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:5d0a7ea2-4131-4fdd-9cbb-4072a0ee8471",
-    "timestamp" : "2023-04-07T21:14:45.744Z",
+    "identifier" : "urn:uuid:a57d81a6-776a-42c0-84f3-b5fa28d8532b",
+    "timestamp" : "2023-07-06T04:15:29.682Z",
+    "total" : 6,
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -120,7 +190,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueUri" : "http://loinc.org|2.73"
+      "valueUri" : "http://loinc.org|2.74"
     }],
     "contains" : [{
       "system" : "http://loinc.org",
@@ -164,76 +234,6 @@ e: {
     "include" : [{
       "system" : "http://loinc.org",
       "concept" : [{
-        "code" : "89555-7",
-        "display" : "How many days per week did you engage in moderate to strenuous physical activity in the last 30 days"
-      },
-      {
-        "code" : "68516-4",
-        "display" : "On those days that you engage in moderate to strenuous exercise, how many minutes, on average, do you exercise"
-      },
-      {
-        "code" : "82290-8",
-        "display" : "Frequency of moderate to vigorous aerobic physical activity"
-      },
-      {
-        "code" : "82291-6",
-        "display" : "Frequency of muscle-strengthening physical activity"
-      }]
-    }]
-  }
-}}####
-e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "language" : "en",
-  "status" : "active",
-  "expansion" : {
-    "identifier" : "urn:uuid:c32ddfd9-d7ad-43e5-adc6-59f6d5fcb738",
-    "timestamp" : "2023-04-07T21:14:46.087Z",
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "excludeNested",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "version",
-      "valueUri" : "http://loinc.org|2.73"
-    }],
-    "contains" : [{
-      "system" : "http://loinc.org",
-      "code" : "89555-7",
-      "display" : "How many days per week did you engage in moderate to strenuous physical activity in the last 30 days"
-    },
-    {
-      "system" : "http://loinc.org",
-      "code" : "68516-4",
-      "display" : "On those days that you engage in moderate to strenuous exercise, how many minutes, on average, do you exercise"
-    },
-    {
-      "system" : "http://loinc.org",
-      "code" : "82290-8",
-      "display" : "Frequency of moderate to vigorous aerobic physical activity"
-    },
-    {
-      "system" : "http://loinc.org",
-      "code" : "82291-6",
-      "display" : "Frequency of muscle-strengthening physical activity"
-    }]
-  }
-},
-  "error" : ""
-}
--------------------------------------------------------------------------------------
-{"hierarchical" : false, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "inactive" : true,
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
         "code" : "41950-7",
         "display" : "Number of steps in 24 hour Measured"
       },
@@ -255,11 +255,11 @@ e: {
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:29896e81-90b8-40a6-acea-81259f49553c",
-    "timestamp" : "2023-04-07T21:14:46.509Z",
+    "identifier" : "urn:uuid:402f8b06-41e9-4946-8b4d-3a53125e1e60",
+    "timestamp" : "2023-07-06T04:15:30.510Z",
+    "total" : 4,
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -270,7 +270,7 @@ e: {
     },
     {
       "name" : "version",
-      "valueUri" : "http://loinc.org|2.73"
+      "valueUri" : "http://loinc.org|2.74"
     }],
     "contains" : [{
       "system" : "http://loinc.org",

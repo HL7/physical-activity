@@ -11,15 +11,15 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "language" : "en",
   "status" : "active",
   "expansion" : {
     "extension" : [{
       "url" : "http://hl7.org/fhir/StructureDefinition/valueset-toocostly",
       "valueBoolean" : true
     }],
-    "identifier" : "urn:uuid:98acedf9-7bef-4189-a448-768fcebf661d",
-    "timestamp" : "2023-03-26T06:36:12.636Z",
+    "identifier" : "urn:uuid:09fdf1e1-4602-4540-bbae-f1b70cbbbf96",
+    "timestamp" : "2023-07-06T04:19:28.479Z",
+    "total" : 1000,
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true

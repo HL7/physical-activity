@@ -17,11 +17,11 @@
 e: {
   "valueSet" : {
   "resourceType" : "ValueSet",
-  "language" : "en",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:81220669-615f-4c3a-857f-88ef75778699",
-    "timestamp" : "2023-03-26T06:34:18.682Z",
+    "identifier" : "urn:uuid:665f152f-f344-4545-979d-1601e959a00e",
+    "timestamp" : "2023-07-06T04:14:17.634Z",
+    "total" : 2,
     "parameter" : [{
       "name" : "limitedExpansion",
       "valueBoolean" : true
@@ -35,19 +35,11 @@ e: {
       "valueUri" : "http://hl7.org/fhir/task-status|4.0.1"
     }],
     "contains" : [{
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "A potential performer has claimed ownership of the task and is evaluating whether to perform it."
-      }],
       "system" : "http://hl7.org/fhir/task-status",
       "code" : "received",
       "display" : "Received"
     },
     {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
-        "valueString" : "The task is ready to be performed, but no action has yet been taken.  Used in place of requested/received/accepted/rejected when request assignment and acceptance is a given."
-      }],
       "system" : "http://hl7.org/fhir/task-status",
       "code" : "ready",
       "display" : "Ready"

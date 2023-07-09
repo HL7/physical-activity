@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Fri, May 26, 2023 00:17+0000 for FHIR v6.0.0-cibuild 
+  Generated on Mon, Jun 26, 2023 15:14+0000 for FHIR v6.0.0-cibuild 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="6.0.0-cibuild">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -16282,11 +16282,17 @@ A coverage may only be responsible for specific types of charges, and the sequen
           </xs:element>
           <xs:choice minOccurs="0" maxOccurs="1" >
             <xs:annotation>
-              <xs:documentation xml:lang="en">The date (and perhaps time) when the adverse event occurred.</xs:documentation>
+              <xs:documentation xml:lang="en">The date (and perhaps time) when the cause of the AdverseEvent occurred.</xs:documentation>
             </xs:annotation>
-            <xs:element name="occurrenceDateTime" type="dateTime"/>
-            <xs:element name="occurrencePeriod" type="Period"/>
-            <xs:element name="occurrenceTiming" type="Timing"/>
+            <xs:element name="causeDateTime" type="dateTime"/>
+            <xs:element name="causePeriod" type="Period"/>
+          </xs:choice>
+          <xs:choice minOccurs="0" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The date (and perhaps time) when the effect of the AdverseEvent occurred.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="effectDateTime" type="dateTime"/>
+            <xs:element name="effectPeriod" type="Period"/>
           </xs:choice>
           <xs:element name="detected" minOccurs="0" maxOccurs="1" type="dateTime">
             <xs:annotation>
@@ -24279,7 +24285,7 @@ of the resource representation.</xs:documentation>
               <xs:documentation xml:lang="en">Reference to a specific published clinical protocol that was followed during this assessment, and/or that provides evidence in support of the diagnosis.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="summary" minOccurs="0" maxOccurs="1" type="string">
+          <xs:element name="summary" minOccurs="0" maxOccurs="1" type="markdown">
             <xs:annotation>
               <xs:documentation xml:lang="en">A text summary of the investigations and the diagnosis.</xs:documentation>
            </xs:annotation>
@@ -24419,7 +24425,7 @@ of the resource representation.</xs:documentation>
           </xs:element>
           <xs:element name="subject" minOccurs="0" maxOccurs="unbounded" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The medication, product, substance, device, procedure etc. for which this is an indication.</xs:documentation>
+              <xs:documentation xml:lang="en">The medication, product, substance, device, procedure etc. for which this is an indication, contraindication, interaction, undesirable effect, or warning.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="status" minOccurs="0" maxOccurs="1" type="CodeableConcept">
@@ -33623,14 +33629,34 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="1" >
+            <xs:annotation>
+              <xs:documentation xml:lang="en">When this characteristic is used.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="conditionCodeableConcept" type="CodeableConcept"/>
+            <xs:element name="conditionExpression" type="Expression"/>
+          </xs:choice>
           <xs:element name="code" minOccurs="1" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">Description of a component of the method to generate the statistic.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="value" minOccurs="0" maxOccurs="1" type="Quantity">
+          <xs:choice minOccurs="0" maxOccurs="1" >
             <xs:annotation>
-              <xs:documentation xml:lang="en">Further specification of the quantified value of the component of the method to generate the statistic.</xs:documentation>
+              <xs:documentation xml:lang="en">Further specification of the value of the component of the method to generate the statistic.</xs:documentation>
+            </xs:annotation>
+            <xs:element name="valueQuantity" type="Quantity"/>
+            <xs:element name="valueRange" type="Range"/>
+            <xs:element name="valueCodeableConcept" type="CodeableConcept"/>
+          </xs:choice>
+          <xs:element name="intended" minOccurs="0" maxOccurs="1" type="boolean">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The plan for analysis.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="applied" minOccurs="0" maxOccurs="1" type="boolean">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">The analysis that was applied.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="variable" type="Evidence.Variable" minOccurs="0" maxOccurs="unbounded">
@@ -33641,6 +33667,11 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
           <xs:element name="attributeEstimate" type="Evidence.AttributeEstimate" minOccurs="0" maxOccurs="unbounded">
             <xs:annotation>
               <xs:documentation xml:lang="en">An attribute of the statistic used as a model characteristic.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="modelCharacteristic" type="Evidence.ModelCharacteristic" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Model component.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -36665,7 +36696,7 @@ See guidance around (not) making local changes to elements [here](canonicalresou
         <xs:sequence>
           <xs:element name="code" minOccurs="1" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system.</xs:documentation>
+              <xs:documentation xml:lang="en">The actual condition, allergy, or intolerance specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system.</xs:documentation>
            </xs:annotation>
           </xs:element>
           <xs:element name="outcome" minOccurs="0" maxOccurs="1" type="CodeableConcept">
@@ -36823,6 +36854,11 @@ See guidance around (not) making local changes to elements [here](canonicalresou
           <xs:element name="author" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">The person, organization or device that created the flag.</xs:documentation>
+           </xs:annotation>
+          </xs:element>
+          <xs:element name="supportingInfo" minOccurs="0" maxOccurs="unbounded" type="Reference">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">Additional information that may be relevant to the flag, such as why the flag was created or how to guide management of the flag.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
