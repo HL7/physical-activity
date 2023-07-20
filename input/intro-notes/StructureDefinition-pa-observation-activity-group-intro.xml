@@ -3,4 +3,10 @@
     This Observation helps to organize the various <a href="measures.html#activity">activity-based measures</a> so that it is easy to identify what
     measures are associated with the same physical activity episode (run, swim, work-out, etc.).
   </p>
+  <p>
+    NOTE: While this guide defines a standardized code for the organization of physical activity information, additional codings can
+    also be used if they are appropriate for the same collection of information.  As well, observations may be collected under other
+    'grouping' observations if there's a desire to organize collected data in alternate ways.  (E.g. an Observation with members that
+    list all 'running' durations in a particular time-period.)
+  </p>
 </div>
