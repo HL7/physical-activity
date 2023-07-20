@@ -212,11 +212,11 @@ Description:    "Represents orders and referrals for interventions that help to 
 * status MS
 * status from PAServiceRequestStatus (required)
   * ^short = "draft | active | on-hold | revoked | completed | entered-in-error"
-* category
+* category 1..*
   * ^slicing.discriminator.type = #pattern
   * ^slicing.discriminator.path = "$this"
   * ^slicing.rules = #open
-* category contains PA 1..1 MS and USCore 1..1
+* category contains PA 1..1 MS and USCore 0..*
 * category[PA] = PATemporaryCodes#PhysicalActivity
 * category[USCore] from PAServiceRequestCategory (required)
 * priority MS
@@ -379,7 +379,7 @@ Description:    "Represents a request for fulfillment of a physical activity-rel
 * output contains PerformedActivity 0..* MS
 * output[PerformedActivity]
   * modifierExtension ..0
-  * type = $SDOHCCTemp#resulting-activity
+  * type = $SDOHCC-Temp#resulting-activity
   * value[x] MS
   * value[x] only CodeableConcept or Reference(PADiagnosticReport or Resource)
     * ^type[0].extension[$typeMS].valueBoolean = true
