@@ -439,4 +439,14 @@
     Healthcare Devices</a> that provides a mechanism for implementers to expose raw device measurements as FHIR.  In many cases, it may be simpler
     to leverage the Apple HealthKit, Android Fit or similar APIs to access the fine-grained measurements in order to determine the relevant averages.
   </p>
+  <h4>Additional Measures</h4>
+  <p>
+    This guide does not define all types of observations that may be of interest to physical activity professionals.  Certain
+    lab tests, vital signs, details on functional limitations, etc. might also be helpful to be shared between care managers, patients
+    and physical activity service providers.  Expectations for the standardized exchange of most of these other types of observations
+    is covered under US Core or some of the other <a href="index.html#igs">'relevant' implementation guides listed on the home page</a>.
+    Systems are free to support and share such additional information using the same exchange patterns defined in this IG.  These observations
+    (and in fact, any relevant records that support the 'category' element) may also be flagged with a category of "Physical Activity" if that
+    is useful in managing access to information.
+  </p>
 </div>
