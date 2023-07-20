@@ -363,6 +363,12 @@ Description:    "Represents a request for fulfillment of a physical activity-rel
   //  * ^type[0].targetProfile[1].extension[$typeMS].valueBoolean = true
   * time 1..1 MS
   * text MS
+* requester 1..1 MS
+* requester only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile or USCoreOrganizationProfile)
+  * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest"
+  * ^type[0].targetProfile[0].extension[$typeMS].valueBoolean = true
+  * ^type[0].targetProfile[1].extension[$typeMS].valueBoolean = true
+  * ^type[0].targetProfile[2].extension[$typeMS].valueBoolean = true
 * owner 1..1 MS
 * owner only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile or USCoreOrganizationProfile)
   * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest"
