@@ -55,6 +55,12 @@
     </p>
   </div>
   <p>
+    The focus of this guide is on sharing data related to "what the patient is currently doing/planning to do" from a physical activity perspective as well as how to support 
+    the patient in improving and maintaining activity levels.  It does not deal with exchanging information about the various factors that may be impact a patient's ability to 
+    be physically active.  There are several other FHIR implementation guides that deal with the exchange of health conditions, social determinants, functional status, and other
+    considerations that may influence physical activity levels.  Refer to the <a href="#igs">Relationships with Other Work</a> section below for references.
+  </p>
+  <p>
     The stakeholders who created this guide were primarily U.S.-based and in some places the IG requires the use of code systems that are U.S.-centric.  However, the general architecture
     of the solutions defined here - and most of the interoperability expectations - are likely to be relevant irrespective of country.  Implementers in non-U.S. jurisdictions are
     welcome to leverage this content.  If there is sufficient interest, a future version of this implementation guide might be developed that is international in scope.
