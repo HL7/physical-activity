@@ -150,6 +150,8 @@
     <li><a href="http://hl7.org/fhir/us/directory-exchange">National Healthcare Directory Exchange</a> - a U.S. Office of the National Coordinator-sponsored IG supporting the exchange
       of directory information for a wide range of service providers and organizations.  Once in place, this directory will significantly reduce the efforts to find and connect with
       Care Provider and Service Provider systems.</li>
+    <li><a href="http://hl7.org/fhir/us/odh">Occupational Data for Health (ODH)</a> - a guide that focuses on gathering information about a patient's occupation - which may provide
+      context when evaluating their level of physical activity from their occupation, as well as influence what guidance is appropriate for introducing additional physical activity.</li>
     <li><a href="https://wiki.ihe.net/index.php/Audit_Trail_and_Node_Authentication">IHE FHIR Audit Event Query and Feed to ATNA</a> - for systems wishing to maintain robust audit
       records of changes and access to patient records (always a good idea), this IG defines standards for using FHIR to do so.  (Note that this standard is only really relevant if
       there's a need for electronic sharing of audit records.)</li>
