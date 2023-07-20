@@ -102,12 +102,23 @@ Description: "An example observation capturing how many minutes of running were 
 * performer         = Reference(http://example.org/Patient/1) "Example Patient"
 * valueQuantity     = 35 'min'
 
+Instance:    ExampleActivityMeanHR
+InstanceOf:  PAObservationActivityMeasure
+Title:       "Example Observation Activity Measure - Mean Heart Rate"
+Description: "An example observation capturing the patient's average heart rate during their run."
+* status            = #final
+* code              = $loinc#55425-3 "Heart rate unspecified time mean by pedometer"
+* subject	        = Reference(http://example.org/Patient/1) "Example Patient"
+* effectiveDateTime = "2022-06-08"
+* performer         = Reference(http://example.org/Patient/1) "Example Patient"
+* valueQuantity     = 150 '/min'
+
 Instance:    ExampleActivityPeakHR
 InstanceOf:  PAObservationActivityMeasure
 Title:       "Example Observation Activity Measure - Peak Heart Rate"
 Description: "An example observation capturing the patient's peak heart rate during their run."
 * status            = #final
-* code              = $loinc#55422-0 "Heart rate Encounter maximum"
+* code              = $loinc#55426-1 "Heart rate unspecified time maximum by Pedometer"
 * subject	        = Reference(http://example.org/Patient/1) "Example Patient"
 * effectiveDateTime = "2022-06-08"
 * performer         = Reference(http://example.org/Patient/1) "Example Patient"

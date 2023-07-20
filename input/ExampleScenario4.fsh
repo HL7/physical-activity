@@ -1,11 +1,3 @@
-Alias: $physical-activity-category = http://hl7.org/fhir/us/physical-activity/CodeSystem/physical-activity-category
-Alias: $careplan-category = http://hl7.org/fhir/us/core/CodeSystem/careplan-category
-Alias: $loinc = http://loinc.org
-Alias: $goal-achievement = http://terminology.hl7.org/CodeSystem/goal-achievement
-Alias: $observation-category = http://terminology.hl7.org/CodeSystem/observation-category
-Alias: $pa-temporary-codes = http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes
-Alias: $task-outputtype = http://hl7.org/fhir/us/sdoh-clinicalcare/CodeSystem/SDOHCC-CodeSystemTemporaryCodes
-
 Instance: scen4PhysicalActivityPlan
 InstanceOf: ExampleScenario
 Title:       "Scenario 4 - Patient Works with Personal Trainer"
@@ -14,7 +6,7 @@ Usage: #definition
 * status = #draft
 * version = "4.0.1"
 * name = "PatientWorkswithPersonalTrainer"
-* actor[0]
+* actor[+]
   * actorId = "patient-app"
   * type = #entity
   * name = "Patient App"
@@ -22,10 +14,18 @@ Usage: #definition
   * actorId = "provider-app"
   * type = #entity
   * name = "Provider App"
-* instance[0]
+* instance[+]
+  * resourceId = "scen4query1"
+  * resourceType = #Binary
+  * description = "Search for CarePlan: `GET /CarePlan?patient=scen4PatientScarborough&category=PhysicalActivity`"
+* instance[+]
+  * resourceId = "scen4query2"
+  * resourceType = #Binary
+  * description = "Search for Goal: `GET /Goal?patient=scen4PatientScarborough`"
+* instance[+]
   * resourceId = "scen4Careplan"
   * resourceType = #CarePlan
-  * version[0]
+  * version[+]
     * versionId = "1"
     * description = "Initial care plan"
   * version[+]
@@ -34,7 +34,7 @@ Usage: #definition
 * instance[+]
   * resourceId = "scen4Goal1"
   * resourceType = #Goal
-  * version[0]
+  * version[+]
     * versionId = "1"
     * description = "Initial goal"
   * version[+]
@@ -94,7 +94,7 @@ Usage: #definition
 * instance[+]
   * resourceId = "scen4TaskSurvey"
   * resourceType = #Task
-  * version[0]
+  * version[+]
     * versionId = "1"
     * description = "Initial task to fill out survey"
   * version[+]
@@ -103,7 +103,7 @@ Usage: #definition
 * instance[+]
   * resourceId = "scen4TaskSurvey2"
   * resourceType = #Task
-  * version[0]
+  * version[+]
     * versionId = "1"
     * description = "Initial task to fill out survey"
   * version[+]
@@ -112,33 +112,33 @@ Usage: #definition
 * instance[+]
   * resourceId = "scen4TaskReviewVideo"
   * resourceType = #Task
-  * version[0]
+  * version[+]
     * versionId = "1"
     * description = "Task to review exercise video"
   * version[+]
     * versionId = "2"
     * description = "Patient indicates task as done"
-* process[0]
+* process[+]
   * title = "Physical Activity Plan Establishment and Observations"
   * preConditions = "CarePlan and initial Goal are created, Patient and Provider apps are operational"
   * postConditions = "CarePlan and Goal successfully retrieved"
-  * step[0].operation
+  * step[+].operation
     * number = "1"
     * type = "search-type"
-    * description = "Patient App to Provider App - Search for CarePlan. Request: GET /CarePlan?patient=scen4PatientScarborough&category=PhysicalActivity"
+    * description = "Patient App to Provider App - Search for CarePlan."
     * initiator = "patient-app"
     * receiver = "provider-app"
-    * request.resourceId = "sc4textFile1"
+    * request.resourceId = "scen4query1"
     * response
       * resourceId = "scen4Careplan"
       * versionId = "1"
   * step[+].operation
     * number = "2"
     * type = "search-type"
-    * description = "Patient App to Provider App - Search for Goal. Request: GET /Goal?patient=scen4PatientScarborough"
+    * description = "Patient App to Provider App - Search for Goal."
     * initiator = "patient-app"
     * receiver = "provider-app"
-    * request.resourceId = "sc4textFile2"
+    * request.resourceId = "scen4query2"
     * response
       * resourceId = "scen4Goal1"
       * versionId = "1"
@@ -146,7 +146,7 @@ Usage: #definition
   * title = "Post Observations, CarePlan adjustment and new Goals"
   * preConditions = "Initial care plan and goal retrieved"
   * postConditions = "Care plan followed, various observations are posted by the patient and initial goal accomplished (along with filling survey). Care plan is adjusted, new goal is set, and observations are posted"
-  * step[0]
+  * step[+]
     * pause = true
     * operation
       * number = "3"
@@ -293,20 +293,20 @@ Usage: #definition
   * step[+].operation
     * number = "16"
     * type = "search-type"
-    * description = "Patient App to Provider App - Search Careplan. Request: GET /CarePlan?patient=scen4PatientScarborough&category=PhysicalActivity"
+    * description = "Patient App to Provider App - Search Careplan."
     * initiator = "patient-app"
     * receiver = "provider-app"
-    * request.resourceId = "sc4textFile1"
+    * request.resourceId = "scen4query1"
     * response
       * resourceId = "scen4Careplan"
       * versionId = "2"
   * step[+].operation
     * number = "17"
     * type = "search-type"
-    * description = "Patient App to Provider App - Search Goal. Request: GET /Goal?patient=scen4PatientScarborough"
+    * description = "Patient App to Provider App - Search Goal."
     * initiator = "patient-app"
     * receiver = "provider-app"
-    * request.resourceId = "sc4textFile2"
+    * request.resourceId = "scen4query2"
     * response
       * resourceId = "scen4Goal2"
       * versionId = "1"
@@ -370,7 +370,7 @@ Usage: #example
   * lastUpdated = "2023-05-15T11:00:00Z"
 * status = #active
 * intent = #plan
-* category[0] = $pa-temporary-codes#PhysicalActivity "Physical Activity"
+* category[+] = $PA-Temp#PhysicalActivity "Physical Activity"
   * text = "Physical Activity"
 * category[+] = $careplan-category#assess-plan
 * subject = Reference(Patient/scen4PatientScarborough)
@@ -398,16 +398,16 @@ Usage: #example
   * lastUpdated = "2023-06-16T11:00:00Z"
 * status = #active
 * intent = #plan
-* category[0] = $pa-temporary-codes#PhysicalActivity "Physical Activity"
+* category[+] = $PA-Temp#PhysicalActivity "Physical Activity"
   * text = "Physical Activity"
 * category[+] = $careplan-category#assess-plan
 * subject = Reference(Patient/scen4PatientScarborough)
 * period
   * start = "2023-06-16"
   * end = "2023-07-15"
-* goal[0] = Reference(Goal/scen4Goal1V2) "completed"
+* goal[+] = Reference(Goal/scen4Goal1V2) "completed"
 * goal[+] = Reference(Goal/scen4Goal2) "in-progress"
-* activity[0].detail
+* activity[+].detail
   * status = #in-progress
   * code = $loinc#LA33432-8 "Stretching Exercises (stretching out your muscles)"
   * description = "Stretching exercises for 20 minutes a day, 5 days a week to reduce shoulder discomfort"
@@ -505,8 +505,8 @@ Usage: #example
   * versionId = "1"
   * lastUpdated = "2022-05-20T12:00:00Z"
 * status = #final
-* category[0] = $observation-category#activity
-* category[+] = $pa-temporary-codes#PhysicalActivity
+* category[+] = $observation-category#activity
+* category[+] = $PA-Temp#PhysicalActivity
 * code = $loinc#73985-4 "Exercise Activity"
 * subject = Reference(Patient/scen4PatientScarborough)
 * effectiveDateTime = "2022-05-20T12:00:00Z"
@@ -522,8 +522,8 @@ Usage: #example
   * versionId = "1"
   * lastUpdated = "2023-06-15T11:00:00Z"
 * status = #final
-* category[0] = $observation-category#activity
-* category[+] = $pa-temporary-codes#PhysicalActivity
+* category[+] = $observation-category#activity
+* category[+] = $PA-Temp#PhysicalActivity
 * code = $loinc#41950-7 "Number of steps in 24 hour Measured"
 * subject = Reference(Patient/scen4PatientScarborough)
 * effectiveDateTime = "2022-03-15T11:00:00Z"
@@ -539,8 +539,8 @@ Usage: #example
   * versionId = "1"
   * lastUpdated = "2022-05-20T12:00:00Z"
 * status = #final
-* category[0] = $observation-category#activity
-* category[+] = $pa-temporary-codes#PhysicalActivity
+* category[+] = $observation-category#activity
+* category[+] = $PA-Temp#PhysicalActivity
 * code = $loinc#68516-4
 * subject = Reference(Patient/scen4PatientScarborough)
 * effectiveDateTime = "2022-05-20T12:00:00Z"
@@ -556,8 +556,8 @@ Usage: #example
   * versionId = "1"
   * lastUpdated = "2022-05-20T12:00:00Z"
 * status = #final
-* category[0] = $observation-category#activity
-* category[+] = $pa-temporary-codes#PhysicalActivity
+* category[+] = $observation-category#activity
+* category[+] = $PA-Temp#PhysicalActivity
 * code = $loinc#8873-2 "Heart rate 24 hour maximum"
 * subject = Reference(Patient/scen4PatientScarborough)
 * effectiveDateTime = "2022-05-20T12:00:00Z"
@@ -573,8 +573,8 @@ Usage: #example
   * versionId = "1"
   * lastUpdated = "2023-06-15T11:00:00Z"
 * status = #final
-* category[0] = $observation-category#activity
-* category[+] = $pa-temporary-codes#PhysicalActivity
+* category[+] = $observation-category#activity
+* category[+] = $PA-Temp#PhysicalActivity
 * code = $loinc#41979-6 "Calories burned in 24 hour Calculated"
 * subject = Reference(Patient/scen4PatientScarborough)
 * effectiveDateTime = "2022-03-15T11:00:00Z"
@@ -590,8 +590,8 @@ Usage: #example
   * versionId = "1"
   * lastUpdated = "2023-06-15T11:00:00Z"
 * status = #final
-* category[0] = $observation-category#activity
-* category[+] = $pa-temporary-codes#PhysicalActivity
+* category[+] = $observation-category#activity
+* category[+] = $PA-Temp#PhysicalActivity
 * code = $loinc#68516-4
 * subject = Reference(Patient/scen4PatientScarborough)
 * effectiveDateTime = "2023-06-15T11:00:00Z"
@@ -607,8 +607,8 @@ Usage: #example
   * versionId = "1"
   * lastUpdated = "2023-07-15T11:00:00Z"
 * status = #final
-* category[0] = $observation-category#activity
-* category[+] = $pa-temporary-codes#PhysicalActivity
+* category[+] = $observation-category#activity
+* category[+] = $PA-Temp#PhysicalActivity
 * code = $loinc#68516-4
 * subject = Reference(Patient/scen4PatientScarborough)
 * effectiveDateTime = "2023-07-15T11:00:00Z"
@@ -649,7 +649,7 @@ Usage: #example
 * authoredOn = "2023-06-15T13:00:00Z"
 * requester = Reference(Practitioner/scen4Practitioner)
 * output
-  * type = $task-outputtype#resulting-activity
+  * type = $SDOHCC-Temp#resulting-activity
     * text = "Questionnaire Response"
   * valueReference = Reference(QuestionnaireResponse/scen4QuestionnaireResponse)
 
@@ -683,7 +683,7 @@ Usage: #example
 * for = Reference(Patient/scen4PatientScarborough)
 * requester = Reference(Practitioner/scen4Practitioner)
 * output
-  * type = $task-outputtype#resulting-activity
+  * type = $SDOHCC-Temp#resulting-activity
     * text = "Patient annotation"
   * valueAnnotation.text = "Reviewed the exercise video"
 
@@ -719,7 +719,7 @@ Usage: #example
 * authoredOn = "2023-06-15T13:00:00Z"
 * requester = Reference(Practitioner/scen4Practitioner)
 * output
-  * type = $task-outputtype#resulting-activity
+  * type = $SDOHCC-Temp#resulting-activity
     * text = "Questionnaire Response"
   * valueReference = Reference(QuestionnaireResponse/scen4QuestionnaireResponse2)
 
@@ -730,7 +730,7 @@ Description:  "A questionnaire to assess the patient's satisfaction with the exe
 Usage: #example
 * status = #active
 * subjectType = #Patient
-* item[0]
+* item[+]
   * linkId = "1"
   * text = "Are you satisfied with your current exercise plan?"
   * type = #boolean
@@ -752,7 +752,7 @@ Usage: #example
 * questionnaire = "http://example.org/Questionnaire/scen4Questionnaire"
 * subject = Reference(Patient/scen4PatientScarborough)
 * basedOn = Reference(CarePlan/scen4Careplan)
-* item[0]
+* item[+]
   * linkId = "1"
   * answer.valueBoolean = true
 * item[+]
@@ -771,7 +771,7 @@ Usage: #example
 * questionnaire = "http://example.org/Questionnaire/scen4Questionnaire"
 * subject = Reference(Patient/scen4PatientScarborough)
 * basedOn = Reference(CarePlan/scen4Careplan)
-* item[0]
+* item[+]
   * linkId = "1"
   * answer.valueBoolean = true
 * item[+]

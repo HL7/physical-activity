@@ -29,8 +29,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:72f19015-d79a-4727-9015-635147ed8257",
-    "timestamp" : "2023-07-06T04:14:14.197Z",
+    "identifier" : "urn:uuid:e47497e2-4e46-43c6-987b-f049e3c56c35",
+    "timestamp" : "2023-07-10T03:12:07.650Z",
     "total" : 4,
     "parameter" : [{
       "name" : "limitedExpansion",
@@ -111,8 +111,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:0fc455c6-ff88-4127-ad71-807bea3004ff",
-    "timestamp" : "2023-07-06T04:14:17.275Z",
+    "identifier" : "urn:uuid:7d44e85d-85fd-4d19-902b-e549ae07656c",
+    "timestamp" : "2023-07-10T03:12:08.635Z",
     "total" : 7,
     "parameter" : [{
       "name" : "limitedExpansion",
@@ -494,7 +494,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "38341003",
-  "display" : "Hypertension (disorder)"
+  "display" : "Hypertension"
 }, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
@@ -509,9 +509,10 @@ v: {
   }]
 }}####
 v: {
-  "severity" : "error",
-  "error" : "Wrong Display Name 'Hypertension (disorder)' for http://snomed.info/sct#38341003 - should be one of 14 choices: ''High blood pressure', '\"Hypertensive vascular disease\"', '\"Hypertensive vascular degeneration\"', '\"Hypertension\"', '\"BP - High blood pressure\"', '\"Systemic arterial hypertension\"', '\"HBP - High blood pressure\"', '\"HT - Hypertension\"', '\"High blood pressure disorder\"', '\"BP+ - Hypertension\"', '\"Hypertensive disorder, systemic arterial (disorder)\"', '\"Hypertensive disorder\"', '\"HTN - Hypertension\"' or '\"Hypertensive disorder, systemic arterial\"'' for the language(s) '--' (from Tx-Server)",
-  "class" : "UNKNOWN"
+  "display" : "High blood pressure",
+  "code" : "38341003",
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108/version/20230301"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -564,8 +565,8 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://snomed.info/sct",
-  "code" : "73651003",
-  "display" : "Moderate to vigorous exercise (regime/therapy)"
+  "code" : "408581006",
+  "display" : "Physical activity target moderate exercise"
 }, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
@@ -580,15 +581,16 @@ v: {
   }]
 }}####
 v: {
-  "severity" : "error",
-  "error" : "Wrong Display Name 'Moderate to vigorous exercise (regime/therapy)' for http://snomed.info/sct#73651003 - should be one of 3 choices: ''Diaphragmatic hernia with gangrene AND obstruction', '\"Obstructed diaphragmatic hernia with gangrene (disorder)\"' or '\"Obstructed diaphragmatic hernia with gangrene\"'' for the language(s) '--' (from Tx-Server)",
-  "class" : "UNKNOWN"
+  "display" : "Physical activity target moderate exercise (finding)",
+  "code" : "408581006",
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108/version/20230301"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://snomed.info/sct",
-  "code" : "26298009",
-  "display" : "Muscle strengthening exercise (regime/therapy)"
+  "code" : "266741004",
+  "display" : "Muscle strength exercise (regime/therapy)"
 }, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
@@ -603,9 +605,10 @@ v: {
   }]
 }}####
 v: {
-  "severity" : "error",
-  "error" : "Unable to find code 26298009 in http://snomed.info/sct (version http://snomed.info/sct/731000124108/version/20230301); Unknown Code '26298009' in the system 'http://snomed.info/sct'; The provided code http://snomed.info/sct#26298009 is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
-  "class" : "UNKNOWN"
+  "display" : "Muscle strength exercise",
+  "code" : "266741004",
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108/version/20230301"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -821,7 +824,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "394814009",
-  "display" : "General practice"
+  "display" : "General practice (specialty)"
 }, "url": "http://hl7.org/fhir/ValueSet/c80-practice-codes", "version": "4.0.1", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
@@ -836,9 +839,10 @@ v: {
   }]
 }}####
 v: {
-  "severity" : "error",
-  "error" : "Wrong Display Name 'General practice' for http://snomed.info/sct#394814009 - should be one of 2 choices: ''General practice (specialty) (qualifier value)' or '\"General practice (specialty)\"'' for the language(s) '--' (from Tx-Server)",
-  "class" : "UNKNOWN"
+  "display" : "General practice (specialty) (qualifier value)",
+  "code" : "394814009",
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108/version/20230301"
 }
 -------------------------------------------------------------------------------------
 {"code" : {
@@ -866,8 +870,8 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://snomed.info/sct",
-  "code" : "38341003",
-  "display" : "Hypertension"
+  "code" : "17561000",
+  "display" : "Cardiologist"
 }, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
@@ -882,8 +886,8 @@ v: {
   }]
 }}####
 v: {
-  "display" : "High blood pressure",
-  "code" : "38341003",
+  "display" : "Cardiologist",
+  "code" : "17561000",
   "system" : "http://snomed.info/sct",
   "version" : "http://snomed.info/sct/731000124108/version/20230301"
 }
@@ -918,8 +922,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:80f4b1ce-109b-4fc4-b0c8-59d5c9a58c33",
-    "timestamp" : "2023-07-06T04:18:33.932Z",
+    "identifier" : "urn:uuid:533d623d-0f40-4a3f-9feb-bf34dc383b23",
+    "timestamp" : "2023-07-10T03:30:06.085Z",
     "total" : 4,
     "parameter" : [{
       "name" : "limitedExpansion",
@@ -1000,8 +1004,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:5fc7a656-07cf-456a-a438-079693918965",
-    "timestamp" : "2023-07-06T04:18:39.291Z",
+    "identifier" : "urn:uuid:34c84f77-fdce-42a5-b328-4f56d489d7fe",
+    "timestamp" : "2023-07-10T03:30:08.632Z",
     "total" : 7,
     "parameter" : [{
       "name" : "limitedExpansion",
@@ -1057,8 +1061,8 @@ e: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://snomed.info/sct",
-  "code" : "408581006",
-  "display" : "Physical activity target moderate exercise"
+  "code" : "229065009",
+  "display" : "Exercise therapy (regime/therapy)"
 }, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
@@ -1073,80 +1077,8 @@ e: {
   }]
 }}####
 v: {
-  "display" : "Physical activity target moderate exercise (finding)",
-  "code" : "408581006",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "266741004",
-  "display" : "Muscle strength exercise (regime/therapy)"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Muscle strength exercise",
-  "code" : "266741004",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "394814009",
-  "display" : "General practice (specialty)"
-}, "url": "http://hl7.org/fhir/ValueSet/c80-practice-codes", "version": "4.0.1", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "General practice (specialty) (qualifier value)",
-  "code" : "394814009",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "17561000",
-  "display" : "Cardiologist"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Cardiologist",
-  "code" : "17561000",
+  "display" : "Exercise therapy",
+  "code" : "229065009",
   "system" : "http://snomed.info/sct",
   "version" : "http://snomed.info/sct/731000124108/version/20230301"
 }

@@ -294,14 +294,25 @@
       </tr>
       <tr>
         <th>Peak activity heart rate</th>
-        <td><a href="http://loinc.org/55422-0">55422-0 - Maximum Heart rate in Unspecified Time</a></td>
+        <td><a href="http://loinc.org/55425-3">55425-3 - Mean Heart rate in Unspecified Time</a></td>
         <td><span title="Beats per minute">/min</span></td>
         <td style="text-align: center">Y</td>
         <td style="text-align: center">Y</td>
         <td style="text-align: center">Y</td>
         <td></td>
         <td>Progress</td>
-        <td>Useful to monitor for change.  Supplements ‘zone’ information in better understanding intensity.  Particularly important in terms of supervised activities.</td>
+        <td>Good proxy for intensity.  More reliable than 'peak' rate.</td>
+      </tr>
+      <tr>
+        <th>Peak activity heart rate</th>
+        <td><a href="http://loinc.org/55426-1">55426-1 - Maximum Heart rate in Unspecified Time</a></td>
+        <td><span title="Beats per minute">/min</span></td>
+        <td style="text-align: center">Y</td>
+        <td style="text-align: center">Y</td>
+        <td style="text-align: center">Y</td>
+        <td></td>
+        <td>Progress</td>
+        <td>Useful to monitor for change.  Supplements ‘zone’ information in better understanding intensity.  Particularly important in terms of supervised activities.  Devices may produce spurious results for maximums, so some filtering may be necessary.</td>
       </tr>
       <tr>
         <th>Calories per activity</th>

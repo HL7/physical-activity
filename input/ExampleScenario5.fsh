@@ -1,8 +1,3 @@
-Alias: $observation-category = http://terminology.hl7.org/CodeSystem/observation-category
-Alias: $pa-temporary-codes = http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes
-Alias: $loinc = http://loinc.org
-Alias: $v3-RoleCode = http://terminology.hl7.org/CodeSystem/v3-RoleCode
-
 Instance: scen5ActivityAndGlucoseObservations
 InstanceOf: ExampleScenario
 Title:       "Scenario 5 - Patient-Provider Communication on Activity and Blood Glucose Observations"
@@ -12,7 +7,7 @@ Usage: #definition
 * name = "PatientProviderCommunicationonActivityandBloodGlucoseObservations"
 * status = #draft
 * experimental = true
-* actor[0]
+* actor[+]
   * actorId = "patient-app"
   * type = #entity
   * name = "Rosalie's phone app (w/ access to Nadia)"
@@ -24,7 +19,11 @@ Usage: #definition
   * actorId = "shea-ehr"
   * type = #entity
   * name = "Mrs. O’Shea's EHR"
-* instance[0]
+* instance[+]
+  * resourceId = "scen5query1"
+  * resourceType = #Binary
+  * description = "Search for PA and Blood Glucose observations: GET /Observation?patient=scen5PatientRosalie&category=PhysicalActivity,laboratory"
+* instance[+]
   * resourceId = "scen5ObservationActivityType"
   * resourceType = #Observation
   * version
@@ -70,12 +69,12 @@ Usage: #definition
   * resourceId = "scen5ObservationsResponseBundle"
   * resourceType = #Bundle
   * description = "Search-set Bundle returning Rosalie's observations"
-* process[0]
+* process[+]
   * title = "Observation Creation"
   * description = "In this process, Nadia creates observations for Rosalie."
   * preConditions = "Nadia has access to create observations for Rosalie."
   * postConditions = "Nadia successfully creates observations for Rosalie."
-  * step[0].operation
+  * step[+].operation
     * number = "1"
     * type = "create"
     * description = "Patient to Provider - Create Activity Type Observation. Request: POST /Observation"
@@ -165,10 +164,10 @@ Usage: #definition
   * step.operation
     * number = "8"
     * type = "search-type"
-    * description = "O’Shea to Provider - search for PA and Blood Glucose observations. Request: GET /Observation?patient=scen5PatientRosalie&category=PhysicalActivity,laboratory"
+    * description = "O’Shea to Provider - search for PA and Blood Glucose observations."
     * initiator = "shea-ehr"
     * receiver = "flores-ehr"
-    * request.resourceId = "sc5textFile1"
+    * request.resourceId = "scen5query1"
     * response.resourceId = "scen5ObservationsResponseBundle"
 
 
@@ -181,8 +180,8 @@ Usage: #example
   * versionId = "1"
   * lastUpdated = "2022-03-15T12:00:00Z"
 * status = #final
-* category[0] = $observation-category#activity
-* category[+] = $pa-temporary-codes#PhysicalActivity
+* category[+] = $observation-category#activity
+* category[+] = $PA-Temp#PhysicalActivity
 * code = $loinc#73985-4 "Exercise Activity"
 * subject = Reference(Patient/scen5PatientRosalie)
 * effectiveDateTime = "2022-03-15T11:00:00Z"
@@ -198,8 +197,8 @@ Usage: #example
   * versionId = "1"
   * lastUpdated = "2022-03-15T12:00:00Z"
 * status = #final
-* category[0] = $observation-category#activity
-* category[+] = $pa-temporary-codes#PhysicalActivity
+* category[+] = $observation-category#activity
+* category[+] = $PA-Temp#PhysicalActivity
 * code = $loinc#68516-4
 * subject = Reference(Patient/scen5PatientRosalie)
 * effectiveDateTime = "2022-03-15T11:00:00Z"
@@ -215,8 +214,8 @@ Usage: #example
   * versionId = "1"
   * lastUpdated = "2022-03-15T12:00:00Z"
 * status = #final
-* category[0] = $observation-category#activity
-* category[+] = $pa-temporary-codes#PhysicalActivity
+* category[+] = $observation-category#activity
+* category[+] = $PA-Temp#PhysicalActivity
 * code = $loinc#8873-2 "Heart rate 24 hour maximum"
 * subject = Reference(Patient/scen5PatientRosalie)
 * effectiveDateTime = "2022-03-15T11:00:00Z"
@@ -232,8 +231,8 @@ Usage: #example
   * versionId = "1"
   * lastUpdated = "2022-03-16T12:00:00Z"
 * status = #final
-* category[0] = $observation-category#activity
-* category[+] = $pa-temporary-codes#PhysicalActivity
+* category[+] = $observation-category#activity
+* category[+] = $PA-Temp#PhysicalActivity
 * code = $loinc#41979-6 "Calories burned in 24 hour Calculated"
 * subject = Reference(Patient/scen5PatientRosalie)
 * effectiveDateTime = "2022-03-15T11:00:00Z"
@@ -249,8 +248,8 @@ Usage: #example
   * versionId = "1"
   * lastUpdated = "2022-03-16T12:00:00Z"
 * status = #final
-* category[0] = $observation-category#activity
-* category[+] = $pa-temporary-codes#PhysicalActivity
+* category[+] = $observation-category#activity
+* category[+] = $PA-Temp#PhysicalActivity
 * code = $loinc#41950-7 "Number of steps in 24 hour Measured"
 * subject = Reference(Patient/scen5PatientRosalie)
 * effectiveDateTime = "2022-03-15T11:00:00Z"
@@ -301,7 +300,7 @@ Usage: #example
 * link
   * relation = "self"
   * url = "http://example.com/fhir/Observation?patient=scen5PatientRosalie&category=PhysicalActivity,laboratory"
-* entry[0]
+* entry[+]
   * fullUrl = "http://example.com/fhir/Observation/scen5ObservationActivityType"
   * resource = scen5ObservationActivityType
 * entry[+]

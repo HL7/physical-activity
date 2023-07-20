@@ -1,8 +1,3 @@
-Alias: $sct = http://snomed.info/sct
-Alias: $pa-temporary-codes = http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes
-Alias: $practitioner-role = http://terminology.hl7.org/CodeSystem/practitioner-role
-Alias: $organization-type = http://terminology.hl7.org/CodeSystem/organization-type
-
 Instance: scen3ProviderToYMCAReferral
 InstanceOf: ExampleScenario
 Title:       "Scenario 3 - Patient Seeks Referral for Exercise Program"
@@ -11,7 +6,7 @@ Usage: #definition
 * status = #draft
 * version = "4.0.1"
 * name = "PatientSeeksReferralforExerciseProgram"
-* actor[0]
+* actor[+]
   * actorId = "ehr"
   * type = #entity
   * name = "EHR"
@@ -20,7 +15,15 @@ Usage: #definition
   * type = #entity
   * name = "Cincinnati Central YMCA"
   * description = "Fitness Service Provider"
-* instance[0]
+* instance[+]
+  * resourceId = "scen3query1"
+  * resourceType = #Binary
+  * description = "Search to retrieve ServiceRequest and Patient: `GET /Task?patient=scen3PatientShevchenko&owner.name=Cincinnati Central YMCA&focus.category=PhysicalActivity&_include=Task:patient&_include=Task:focus`"
+* instance[+]
+  * resourceId = "scen3query2"
+  * resourceType = #Binary
+  * description = "Search to retrieve Task: `GET /Task?patient=scen3PatientShevchenko&owner.name=Cincinnati Central YMCA`"
+* instance[+]
   * resourceId = "scen3SubscriptionEhr"
   * resourceType = #Subscription
   * version
@@ -29,7 +32,7 @@ Usage: #definition
 * instance[+]
   * resourceId = "scen3TaskYMCA"
   * resourceType = #Task
-  * version[0]
+  * version[+]
     * versionId = "1"
     * description = "EHR to YMCA - Task (seeking fulfillment of ServiceRequest) successfully created"
   * version[+]
@@ -54,7 +57,7 @@ Usage: #definition
   * version
     * versionId = "1"
     * description = "Subscription Notification that Task has completed"
-* process[0]
+* process[+]
   * title = "Subscription Establishment"
   * preConditions = "EHR and YMCA have established connectivity"
   * postConditions = "Subscription is successfully created and posted"
@@ -72,7 +75,7 @@ Usage: #definition
   * title = "A minute after creation of ServiceRequest"
   * preConditions = "EHR has created a ServiceRequest for Mr. Shevchenko"
   * postConditions = "YMCA has retrieved the ServiceRequest and the Patient, and updated the Task"
-  * step[0]
+  * step[+]
     * pause = true
     * operation
       * number = "2"
@@ -87,10 +90,10 @@ Usage: #definition
   * step[+].operation
     * number = "3"
     * type = "search-type"
-    * description = "YMCA to EHR - Search to retrieve ServiceRequest and Patient. Request: GET /Task?patient=scen3PatientShevchenko&owner.name=Cincinnati Central YMCA&focus.category=PhysicalActivity&_include=Task:patient&_include=Task:focus"
+    * description = "YMCA to EHR - Search to retrieve ServiceRequest and Patient."
     * initiator = "ymca"
     * receiver = "ehr"
-    * request.resourceId = "sc3textFile1"
+    * request.resourceId = "scen3query1"
     * response.resourceId = "scen3TaskYmcaResponseBundle"
   * step[+].operation
     * number = "4"
@@ -105,10 +108,10 @@ Usage: #definition
   * step[+].operation
     * number = "5"
     * type = "search-type"
-    * description = "EHR to YMCA - Search to retrieve Task. Request: GET /Task?patient=scen3PatientShevchenko&owner.name=Cincinnati Central YMCA"
+    * description = "EHR to YMCA - Search to retrieve Task."
     * initiator = "ehr"
     * receiver = "ymca"
-    * request.resourceId = "sc3textFile2"
+    * request.resourceId = "scen3query2"
     * response
       * resourceId = "scen3TaskYMCAV2"
       * versionId = "2"
@@ -116,7 +119,7 @@ Usage: #definition
   * title = "About 4 Months Later"
   * preConditions = "YMCA is actively working on the Task"
   * postConditions = "YMCA has completed the Task"
-  * step[0]
+  * step[+]
     * pause = true
     * operation
       * number = "6"
@@ -131,10 +134,10 @@ Usage: #definition
   * step[+].operation
     * number = "7"
     * type = "search-type"
-    * description = "EHR to YMCA - Search to retrieve Task. Request: GET /Task?patient=scen3PatientShevchenko&owner.name=Cincinnati Central YMCA"
+    * description = "EHR to YMCA - Search to retrieve Task."
     * initiator = "ehr"
     * receiver = "ymca"
-    * request.resourceId = "sc3textFile3"
+    * request.resourceId = "scen3query2"
     * response
       * resourceId = "scen3TaskYMCAV3"
       * versionId = "3"
@@ -153,7 +156,7 @@ Usage: #example
   * type = #rest-hook
   * endpoint = "https://ehr.example.com/Subscription"
   * payload = #application/fhir+json
-* contact[0]
+* contact[+]
   * system = #phone
   * value = "123-456-7890"
   * use = #work
@@ -230,7 +233,7 @@ Usage: #example
 * link
   * relation = "self"
   * url = "http://example.com/fhir/Task?patient=scen3PatientShevchenko&owner.name=Cincinnati%20Central%20YMCA&focus.category=PhysicalActivity&_include=Task:patient&_include=Task:focus"
-* entry[0]
+* entry[+]
   * fullUrl = "http://example.com/fhir/Task/scen3TaskYMCA"
   * resource = scen3TaskYMCA
   * search.mode = #match
@@ -257,7 +260,7 @@ Usage: #example
   * use = #official
   * family = "Shevchenko"
   * given = "James"
-* telecom[0]
+* telecom[+]
   * system = #phone
   * value = "+1-800-123-4567"
   * use = #home
@@ -286,8 +289,8 @@ Usage: #example
 * status = #active
 * intent = #original-order
 * priority = #routine
-* category[0] = $sct#409063005 "Counseling"
-* category[+] = $pa-temporary-codes#PhysicalActivity
+* category[+] = $sct#409063005 "Counseling"
+* category[+] = $PA-Temp#PhysicalActivity
 * code = $sct#390893007 "Referral to physical activity program (Procedure)"
 * requester = Reference(PractitionerRole/scen3RoleBlackrock)
 * subject = Reference(scen3PatientShevchenko)
@@ -314,7 +317,7 @@ InstanceOf: Parameters
 Title:       "Subscription Notification Parameters for Updated Task"
 Description:  "Parameters include the reference to the subscription, the type of notification, and the focus of the notification."
 Usage: #example
-* parameter[0]
+* parameter[+]
   * name = "subscription"
   * valueReference = Reference(Subscription/scen3SubscriptionEhr)
 * parameter[+]
@@ -346,7 +349,7 @@ InstanceOf: Parameters
 Title:       "Subscription Notification Parameters for Completed Task"
 Description:  "Parameters include the reference to the subscription, the type of notification, and the focus of the notification."
 Usage: #example
-* parameter[0]
+* parameter[+]
   * name = "subscription"
   * valueReference = Reference(Subscription/scen3SubscriptionEhr)
 * parameter[+]
@@ -404,7 +407,7 @@ Usage: #example
   * use = #official
   * family = "Blackrock"
   * given = "Doctor"
-* telecom[0]
+* telecom[+]
   * system = #phone
   * value = "+1-800-456-7890"
   * use = #work

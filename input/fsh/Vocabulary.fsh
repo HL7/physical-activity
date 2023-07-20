@@ -26,9 +26,9 @@ Id:            pa-condition-verification-status
 Title:         "PA Condition Verification Status"
 Description:   "Codes for Condition.verificationStatus for conditions that are appropriate for exchange for physical activity purposes.  Excludes unconfirmed, provisional and differential."
 * ^experimental = false
-* $verStatus#confirmed
-* $verStatus#refuted
-* $verStatus#entered-in-error
+* $verifyStatus#confirmed
+* $verifyStatus#refuted
+* $verifyStatus#entered-in-error
 
 ValueSet:      PADiagnosticReportStatus
 Id:            pa-diagnosticreport-status
@@ -111,7 +111,8 @@ Description: "Codes physical activity measures that relate to a single contiguou
 * $loinc#55411-3 "Exercise duration"
 * $loinc#77592-4 "Moderate physical activity [IPAQ]"
 * $loinc#77593-2 "Vigorous physical activity [IPAQ]"
-* $loinc#55422-0 "Heart rate Encounter maximum"
+* $loinc#55426-1 "Heart rate unspecified time maximum by Pedometer"
+* $loinc#55425-3 "Heart rate unspecified time mean by Pedometer"
 * $loinc#55424-6 "Calories burned in unspecified time Pedometer"
 
 ValueSet:    PAObservationTimeMeasures
