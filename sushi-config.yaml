@@ -166,44 +166,44 @@ resources:
     exampleCanonical: BackportSubscriptionStatusR4
   ExampleSubscriptionStatusWithNoIds:
     exampleCanonical: BackportSubscriptionStatusR4
-#  Scen1ExercisePrescriptionScenario:
-#    groupingId: ex-scenario-1
-#  Scen1CarePlanV1:
-#    groupingId: ex-scenario-1
-#  Scen1CarePlanV2:
-#    groupingId: ex-scenario-1
-#  Scen1CarePlanBundleV1:
-#    groupingId: ex-scenario-1
-#  Scen1CarePlanBundleV2:
-#    groupingId: ex-scenario-1
-#  Scen1GoalV1:
-#    groupingId: ex-scenario-1
-#  Scen1GoalV2:
-#    groupingId: ex-scenario-1
-#  Scen1GoalBundleV1:
-#    groupingId: ex-scenario-1
-#  Scen1GoalBundleV2:
-#    groupingId: ex-scenario-1
-#  Scen1ExerciseRx:
-#    groupingId: ex-scenario-1
-#  Scen1ExerciseRxBundle:
-#    groupingId: ex-scenario-1
-#  Scen1ObservationDaysPerWeek:
-#    groupingId: ex-scenario-1
-#  Scen1ObservationMinsPerDay:
-#    groupingId: ex-scenario-1
-#  Scen1ObservationMinsPerWeek:
-#    groupingId: ex-scenario-1
-#  Scen1ObservationStrengthDaysPerWeek:
-#    groupingId: ex-scenario-1
-#  Scen1OrgGoodhealth:
-#    groupingId: ex-scenario-1
-#  Scen1PatientKhatun:
-#    groupingId: ex-scenario-1
-#  Scen1PractitionerPatel:
-#    groupingId: ex-scenario-1
-#  Scen1RolePatel:
-#    groupingId: ex-scenario-1
+  Scen1ExercisePrescriptionScenario:
+    groupingId: ex-scenario-1
+  Scen1CarePlanV1:
+    groupingId: ex-scenario-1
+  Scen1CarePlanV2:
+    groupingId: ex-scenario-1
+  Scen1CarePlanBundleV1:
+    groupingId: ex-scenario-1
+  Scen1CarePlanBundleV2:
+    groupingId: ex-scenario-1
+  Scen1GoalV1:
+    groupingId: ex-scenario-1
+  Scen1GoalV2:
+    groupingId: ex-scenario-1
+  Scen1GoalBundleV1:
+    groupingId: ex-scenario-1
+  Scen1GoalBundleV2:
+    groupingId: ex-scenario-1
+  Scen1ExerciseRx:
+    groupingId: ex-scenario-1
+  Scen1ExerciseRxBundle:
+    groupingId: ex-scenario-1
+  Scen1ObservationDaysPerWeek:
+    groupingId: ex-scenario-1
+  Scen1ObservationMinsPerDay:
+    groupingId: ex-scenario-1
+  Scen1ObservationMinsPerWeek:
+    groupingId: ex-scenario-1
+  Scen1ObservationStrengthDaysPerWeek:
+    groupingId: ex-scenario-1
+  Scen1OrgGoodhealth:
+    groupingId: ex-scenario-1
+  Scen1PatientKhatun:
+    groupingId: ex-scenario-1
+  Scen1PractitionerPatel:
+    groupingId: ex-scenario-1
+  Scen1RolePatel:
+    groupingId: ex-scenario-1
 #  Scen2ProviderToPersonaltrainerReferral:
 #    groupingId: ex-scenario-2
 #  Scen2SubscriptionEhr:

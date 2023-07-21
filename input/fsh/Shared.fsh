@@ -175,7 +175,7 @@ RuleSet: ExerciseRx(start, end, patient, patientName, author, authorName)
 * occurrencePeriod
   * start = "{start}"
   * end = "{end}"
-* performer = Reference(patient) {patientName}
+* performer = Reference({patient}) {patientName}
 
 
 // Bundle RuleSets
