@@ -333,6 +333,18 @@
         <td>Measures are dependent on the device knowing height/weight, so without personalization may be less precise.  
           Can be variability from device to device.  Useful to show progress and communicate with patients.</td>
       </tr>
+      <tr>
+        <th>Experience of Activity</th>
+        <td><a href="CodeSystem-pa-temporary-codes.html#pa-temporary-codes-Experience">Experience - Experience of Activity</a></td>
+        <td><a href="ValueSet-pa-feeling-scale.html">Feeling Scale</a></td>
+        <td style="text-align: center">Y</td>
+        <td></td>
+        <td></td>
+        <td style="text-align: center">Y</td>
+        <td>Progress</td>
+        <td>Level of positive or negative experience of an activity has a significant impact on a patient's long-term adherence to
+          physical activity regimes.  This code will be formally proposed to LOINC after testing and confirmation of utility.</td>
+      </tr>
     </tbody>
   </table>
 

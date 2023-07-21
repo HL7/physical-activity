@@ -4,12 +4,43 @@ Title:          "Temporary Codes"
 Description:    "Codes that will eventually be proposed for LOINC or other code systems, but which 
   do not yet exist in 'official' code systems"
 * ^caseSensitive = true
+* ^hierarchyMeaning = #is-a
 * ^experimental  = false
+* ^property[+].code = #notSelectable
+* ^property[=].uri = "http://hl7.org/fhir/concept-properties#notSelectable"
+* ^property[=].type = #boolean
 * #PhysicalActivity       "Physical Activity"              "A category assigned to resources pertaining to evaluating, improving or sustaining a patient's level of physical activity."
 * #PAPanel                "Physical Activity Panel"        "A panel observation intended to group measures related to a specific occurrence of physical activity."
 * #DeviceActivePercentage "Device Active Percentage"       "Indicates the percentage of the overall time associated with an aggregate or average measure that the device capturing the raw data used to calculate the sum or average was enabled and available to take measurements.  For example, if a pedometer capturing steps was only worn for 2 hours when calculating a daily step count, the percentage would be 2/24 - or 8%."
 * #PAConsultNote          "Physical activity Consult note" "A consult note that describes assessments and interventions related to a patient's level of physical activity."
+* #Experience             "Experience of Activity"         "Indicates how the performer felt during the activity"
+* #_experienceCode        "Experience codes"               "Codes used to evaluate a performer's experience"
+* #_experienceCode ^property[+].code = #notSelectable
+* #_experienceCode ^property[=].valueBoolean = true
+  * #-5                   "Very Bad"
+  * #-4
+  * #-3                   "Bad"
+  * #-2
+  * #-1                   "Fairly Bad"
+  * #0                    "Neutral"
+  * #1                    "Fairly Good"
+  * #2
+  * #3                    "Bad"
+  * #4
+  * #5                    "Very Bad"
 //* #sms                    "SMS Channel"                    "A subscription channel in which subscription notifications are transmitted as a human-readable SMS message and the endpoint is expressed as a phone number."
+
+ValueSet:      PAFeelingScale
+Id:            pa-feeling-scale
+Title:         "PA Activity Feeling Scale"
+Description:   "Codes to express the 'experience' of a physical activity."
+* ^experimental = false
+* include codes from system $PA-Temp where concept is-a #_experienceCode
+* $obsStatus#final
+* $obsStatus#amended
+* $obsStatus#corrected
+* $obsStatus#entered-in-error
+
 
 ValueSet:      PAObservationStatus
 Id:            pa-observation-status
@@ -114,6 +145,7 @@ Description: "Codes physical activity measures that relate to a single contiguou
 * $loinc#55426-1 "Heart rate unspecified time maximum by Pedometer"
 * $loinc#55425-3 "Heart rate unspecified time mean by Pedometer"
 * $loinc#55424-6 "Calories burned in unspecified time Pedometer"
+* $PA-Temp#Experience "Experience of Activity"
 
 ValueSet:    PAObservationTimeMeasures
 Id:          pa-observation-code-time

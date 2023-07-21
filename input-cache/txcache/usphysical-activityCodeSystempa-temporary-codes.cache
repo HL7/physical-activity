@@ -17,8 +17,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:ffaad498-e186-4899-b640-52533c592d97",
-    "timestamp" : "2023-07-20T20:27:26.646Z",
+    "identifier" : "urn:uuid:bf45d0e9-3078-4515-ba7e-0c7d057f9979",
+    "timestamp" : "2023-07-21T02:58:19.880Z",
     "total" : 1,
     "parameter" : [{
       "name" : "limitedExpansion",
@@ -36,6 +36,49 @@ e: {
       "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
       "code" : "PAConsultNote",
       "display" : "Physical activity Consult note"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
+      "concept" : [{
+        "code" : "Experience",
+        "display" : "Experience of Activity"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:04d4ee41-7988-4094-a5d2-bd0a62bb0f2f",
+    "timestamp" : "2023-07-21T02:58:20.037Z",
+    "total" : 1,
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|current"
+    }],
+    "contains" : [{
+      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
+      "code" : "Experience",
+      "display" : "Experience of Activity"
     }]
   }
 },
