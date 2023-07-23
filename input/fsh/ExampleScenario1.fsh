@@ -8,30 +8,30 @@ Usage: #definition
 * name = "ExercisePrescription"
 * insert ActorEntity(patientApp, "Patient App", [[A patient app used to query resources related to the exercise plan]])
 * insert ActorEntity(ehr,        "EHR",         [[EHR that records patient's exercise plan]])
-* insert Instance_Empty(Scen1query1,   Binary,   "Query for patient physical activity care plans",         [[Query for CarePlans for a patient: `GET https://example.org/fhir/CarePlan?patient=Scen1PatientKhatun&status=active,on-hold&category=http%3A//hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|PhysicalActivity`]])
-* insert Instance_Empty(Scen1query2,   Binary,   "Query for patient physical activity goals",              [[Query for Goals for a patient: `GET https://example.org/fhir/Goal?patient=Scen1PatientKhatun&status=&category=http%3A//hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|PhysicalActivity`]])
-* insert Instance_Empty(Scen1query3,   Binary,   "Query for patient exercise prescriptions and referrals", [[Query for ServiceRequests for a patient: `GET https://example.org/fhir/ServiceRequest?patient=Scen1PatientKhatun&status=active,on-hold&category=http%3A//hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|PhysicalActivity`]])
+* insert Instance_Empty(Scen1query1,   Binary,   "Query for patient physical activity care plans",         [[Query for CarePlans for a patient: `GET https://ehr.example.org/fhir/CarePlan?patient=Scen1PatientKhatun&status=active,on-hold&category=http%3A//hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|PhysicalActivity`]])
+* insert Instance_Empty(Scen1query2,   Binary,   "Query for patient physical activity goals",              [[Query for Goals for a patient: `GET https://ehr.example.org/fhir/Goal?patient=Scen1PatientKhatun&status=&category=http%3A//hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|PhysicalActivity`]])
+* insert Instance_Empty(Scen1query3,   Binary,   "Query for patient exercise prescriptions and referrals", [[Query for ServiceRequests for a patient: `GET https://ehr.example.org/fhir/ServiceRequest?patient=Scen1PatientKhatun&status=active,on-hold&category=http%3A//hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|PhysicalActivity`]])
 * insert Instance_Empty(Scen1CarePlan, CarePlan, "Patient physical activity care plan",                    [[CarePlan describing proposed exercise regime]])
 * insert InstanceVersion(1, "Initial CarePlan", Scen1CarePlanV1, [[Planning for jogging and stationary bike]])
 * insert InstanceVersion(2, "Updated CarePlan", Scen1CarePlanV2, [[Planning for increased stationary bike]])
-* insert Instance_Empty(Scen1GoalV1,     Goal,     "Physical Activity weekly target",                        [[Goal indicating target number of minutes/week of moderate-vigorous physical activity]])
+* insert Instance_Empty(Scen1GoalV1,     Goal,     "Physical Activity weekly target",                      [[Goal indicating target number of minutes/week of moderate-vigorous physical activity]])
 * insert InstanceVersion(1, "Initial goal", Scen1GoalV1, [[Initial value of 100 mins/week]])
 * insert InstanceVersion(2, "Updated goal", Scen1GoalV2, [[Updated value of 150 mins/week]])
-* insert Instance_Content(Scen1CarePlanBundleV1, Scen1CarePlanBundleV1, Bundle, "Initial care plan search response bundle", )
+* insert Instance_Content(Scen1CarePlanBundleV1,               Bundle,         "Initial care plan search response bundle", )
 * insert InstanceContains(Scen1CarePlan, 1)
-* insert Instance_Content(Scen1CarePlanBundleV2, Scen1CarePlanBundleV2, Bundle, "Second care plan search response bundle", )
+* insert Instance_Content(Scen1CarePlanBundleV2,               Bundle,         "Second care plan search response bundle", )
 * insert InstanceContains(Scen1CarePlan, 2)
-* insert Instance_Content(Scen1GoalBundleV1, Scen1GoalBundleV1, Bundle, "Initial goal search response bundle", )
+* insert Instance_Content(Scen1GoalBundleV1,                   Bundle,         "Initial goal search response bundle", )
 * insert InstanceContains(Scen1GoalV1, 1)
-* insert Instance_Content(Scen1GoalBundleV2, Scen1GoalBundleV2, Bundle, "Second goal search response bundle", )
+* insert Instance_Content(Scen1GoalBundleV2,                   Bundle,         "Second goal search response bundle", )
 * insert InstanceContains(Scen1GoalV2, 2)
-* insert Instance_Content(Scen1ExerciseRx, Scen1ExerciseRx, ServiceRequest, "Prescription for exercise", )
-* insert Instance_Content(Scen1ExerciseRxBundle, Scen1ExerciseRxBundle, Bundle, "Search result of exercise prescriptions and referrals", )
+* insert Instance_Content(Scen1ExerciseRx,                     ServiceRequest, "Prescription for exercise", )
+* insert Instance_Content(Scen1ExerciseRxBundle,               Bundle,         "Search result of exercise prescriptions and referrals", )
 * insert InstanceContains(Scen1ExerciseRx, )
-* insert Instance_Content(Scen1ObservationDaysPerWeek,         Scen1ObservationDaysPerWeek,         Observation, "Example physical activity days per week record",    [[Average days per week of moderate-to-vigorous physical activity.]])
-* insert Instance_Content(Scen1ObservationMinsPerDay,          Scen1ObservationMinsPerDay,          Observation, "Example physical activity minutes per day record",  [[Average minutes per day of moderate-to-vigorous physical activity.]])
-* insert Instance_Content(Scen1ObservationMinsPerWeek,         Scen1ObservationMinsPerWeek,         Observation, "Example physical activity minutes per week record", [[Average minutes per week of moderate-to-vigorous physical activity.]])
-* insert Instance_Content(Scen1ObservationStrengthDaysPerWeek, Scen1ObservationStrengthDaysPerWeek, Observation, "Example strength days per week record",             [[Average days per week of muscle-strengthening physical activity.]])
+* insert Instance_Content(Scen1ObservationDaysPerWeek,         Observation,    "Example physical activity days per week record",    [[Average days per week of moderate-to-vigorous physical activity.]])
+* insert Instance_Content(Scen1ObservationMinsPerDay,          Observation,    "Example physical activity minutes per day record",  [[Average minutes per day of moderate-to-vigorous physical activity.]])
+* insert Instance_Content(Scen1ObservationMinsPerWeek,         Observation,    "Example physical activity minutes per week record", [[Average minutes per week of moderate-to-vigorous physical activity.]])
+* insert Instance_Content(Scen1ObservationStrengthDaysPerWeek, Observation,    "Example strength days per week record",             [[Average days per week of muscle-strengthening physical activity.]])
 * process[+]
   * title = "Day after appointment"
   * description = "The patient accesses the care plan, goals and exercise prescription made available on the EHR"
@@ -46,10 +46,10 @@ Usage: #definition
   * description = "The exchange noted here would actually occur many times (though not necessarily regularly).  Only a single set of data is shown for simplicity."
   * preConditions = "Patient app is able to write records to EHR"
   * postConditions = "EHR has weekly activity level observations"
-  * insert ProcessCreate(5, "Post days/week",         patientApp, ehr, Scen1ObservationDaysPerWeek,         [[Patient app posts average days per week of moderate-to-vigorous physical activity. `POST https://example.org/fhir/Observation`]])
-  * insert ProcessCreate(6, "Post minutes/day",       patientApp, ehr, Scen1ObservationMinsPerDay,          [[Patient app posts average minutes per day of moderate-to-vigorous physical activity. `POST https://example.org/fhir/Observation`]])
-  * insert ProcessCreate(7, "Post minutes/week",      patientApp, ehr, Scen1ObservationMinsPerWeek,         [[Patient app posts average minutes per week of moderate-to-vigorous physical activity. `POST https://example.org/fhir/Observation`]])
-  * insert ProcessCreate(8, "Post stength days/week", patientApp, ehr, Scen1ObservationStrengthDaysPerWeek, [[Patient app posts average days per week of muscle-strengthening physical activity. `POST https://example.org/fhir/Observation`]])
+  * insert ProcessCreate(5, "Post days/week",         patientApp, ehr, Scen1ObservationDaysPerWeek, ,         [[Patient app posts average days per week of moderate-to-vigorous physical activity. `POST https://ehr.example.org/fhir/Observation`]])
+  * insert ProcessCreate(6, "Post minutes/day",       patientApp, ehr, Scen1ObservationMinsPerDay, ,          [[Patient app posts average minutes per day of moderate-to-vigorous physical activity. `POST https://ehr.example.org/fhir/Observation`]])
+  * insert ProcessCreate(7, "Post minutes/week",      patientApp, ehr, Scen1ObservationMinsPerWeek, ,         [[Patient app posts average minutes per week of moderate-to-vigorous physical activity. `POST https://ehr.example.org/fhir/Observation`]])
+  * insert ProcessCreate(8, "Post stength days/week", patientApp, ehr, Scen1ObservationStrengthDaysPerWeek, , [[Patient app posts average days per week of muscle-strengthening physical activity. `POST https://ehr.example.org/fhir/Observation`]])
   * step[=].pause = true
 * process[+]
   * title = "A little more than 6 months after first appointment"
@@ -85,7 +85,7 @@ InstanceOf: Bundle
 Title:       "Initial search response of active care plans for patient"
 Description:  "A search of all active or on-hold physical-activity related CarePlans for the patient.  In this case, there's only one, but in theory there could be more than one."
 Usage: #example
-* insert SearchBundle(1, [[CarePlan?patient=Scen1PatientKhatun&status=active,on-hold&category=http%3A//hl7.org/fhir/us/physical-activity/CodeSystem/PA-Temp|PhysicalActivity]])
+* insert SearchBundle(1, [[CarePlan?patient=Scen1PatientKhatun&status=active,on-hold&category=http%3A//hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|PhysicalActivity]])
 * insert EntryMatch(CarePlan, Scen1CarePlanV2)
 
 
@@ -94,7 +94,7 @@ InstanceOf: Bundle
 Title:       "Second search response of active care plans for patient"
 Description:  "A search of all active or on-hold physical-activity related CarePlans for the patient.  In this case, we return the updated version of the CarePlan."
 Usage: #example
-* insert SearchBundle(1, [[CarePlan?patient=Scen1PatientKhatun&status=active,on-hold&category=http%3A//hl7.org/fhir/us/physical-activity/CodeSystem/PA-Temp|PhysicalActivity]])
+* insert SearchBundle(1, [[CarePlan?patient=Scen1PatientKhatun&status=active,on-hold&category=http%3A//hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|PhysicalActivity]])
 * insert EntryMatch(CarePlan, Scen1CarePlanV2)
 
 
@@ -122,7 +122,7 @@ InstanceOf: Bundle
 Title:       "Initial search response of active goals for patient"
 Description:  "A search of all active or on-hold physical-activity related Goals for the patient.  In this case, there's only one, but in theory there could be more than one."
 Usage: #example
-* insert SearchBundle(1, [[Goal?patient=Scen1PatientKhatun&status=active,on-hold&category=http%3A//hl7.org/fhir/us/physical-activity/CodeSystem/PA-Temp|PhysicalActivity]])
+* insert SearchBundle(1, [[Goal?patient=Scen1PatientKhatun&status=active,on-hold&category=http%3A//hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|PhysicalActivity]])
 * insert EntryMatch(Goal, Scen1GoalV2)
 
 
@@ -131,7 +131,7 @@ InstanceOf: Bundle
 Title:       "Second search response of active goals for patient"
 Description:  "A search of all active or on-hold physical-activity related Goals for the patient.  In this case, we return the updated version of the Goal."
 Usage: #example
-* insert SearchBundle(1, [[Goal?patient=Scen1PatientKhatun&status=active,on-hold&category=http%3A//hl7.org/fhir/us/physical-activity/CodeSystem/PA-Temp|PhysicalActivity]])
+* insert SearchBundle(1, [[Goal?patient=Scen1PatientKhatun&status=active,on-hold&category=http%3A//hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|PhysicalActivity]])
 * insert EntryMatch(Goal, Scen1GoalV2)
 
 
@@ -152,7 +152,7 @@ InstanceOf: Bundle
 Title:       "Search response of prescriptions/referrals  for patient"
 Description:  "A search of all active or on-hold physical-activity related ServiceRequests for the patient.  In this case, there's only one, but in theory there could be more than one."
 Usage: #example
-* insert SearchBundle(1, [[ServiceRequest?patient=Scen1PatientKhatun&status=active,on-hold&category=http%3A//hl7.org/fhir/us/physical-activity/CodeSystem/PA-Temp|PhysicalActivity]])
+* insert SearchBundle(1, [[ServiceRequest?patient=Scen1PatientKhatun&status=active,on-hold&category=http%3A//hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|PhysicalActivity]])
 * insert EntryMatch(ServiceRequest, Scen1ExerciseRx)
 
 

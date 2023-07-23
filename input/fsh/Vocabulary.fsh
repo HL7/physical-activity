@@ -25,9 +25,9 @@ Description:    "Codes that will eventually be proposed for LOINC or other code 
   * #0                    "Neutral"
   * #1                    "Fairly Good"
   * #2
-  * #3                    "Bad"
+  * #3                    "Good"
   * #4
-  * #5                    "Very Bad"
+  * #5                    "Very Good"
 //* #sms                    "SMS Channel"                    "A subscription channel in which subscription notifications are transmitted as a human-readable SMS message and the endpoint is expressed as a phone number."
 
 ValueSet:      PAFeelingScale
@@ -35,7 +35,7 @@ Id:            pa-feeling-scale
 Title:         "PA Activity Feeling Scale"
 Description:   "Codes to express the 'experience' of a physical activity."
 * ^experimental = false
-* include codes from system $PA-Temp where concept is-a #_experienceCode
+* include codes from system PATemporaryCodes where concept is-a #_experienceCode
 * $obsStatus#final
 * $obsStatus#amended
 * $obsStatus#corrected
@@ -145,7 +145,7 @@ Description: "Codes physical activity measures that relate to a single contiguou
 * $loinc#55426-1 "Heart rate unspecified time maximum by Pedometer"
 * $loinc#55425-3 "Heart rate unspecified time mean by Pedometer"
 * $loinc#55424-6 "Calories burned in unspecified time Pedometer"
-* $PA-Temp#Experience "Experience of Activity"
+* PATemporaryCodes#Experience "Experience of Activity"
 
 ValueSet:    PAObservationTimeMeasures
 Id:          pa-observation-code-time

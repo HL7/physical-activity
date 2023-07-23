@@ -28,9 +28,6 @@ Alias: $condition-category = http://hl7.org/fhir/us/core/CodeSystem/condition-ca
 // Gravity Code Systems
 Alias: $SDOHCC-Temp        = http://hl7.org/fhir/us/sdoh-clinicalcare/CodeSystem/SDOHCC-CodeSystemTemporaryCodes
 
-// Physical Activity Code Systems
-Alias: $PA-Temp            = http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes
-
 
 // Extensions
 Alias: $conf             = http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation
@@ -92,9 +89,9 @@ RuleSet: Instance_Empty(id, type, name, description)
   * name = {name}
   * description = "{description}"
 
-RuleSet: Instance_Content(id, content, type, name, description)
-* insert Instance_Empty({id}, {type}, {name}, {description})
-* instance[=].extension[$instanceContent].valueReference = Reference({content})
+RuleSet: Instance_Content(id, type, name, description)
+* insert Instance_Empty({id}, {type}, {name}, [[{description}]])
+* instance[=].extension[$instanceContent].valueReference = Reference({id})
 
 RuleSet: InstanceVersion(id, name, content, description)
 * instance[=].version[+]
@@ -119,7 +116,7 @@ RuleSet: ProcessSearch(num, name, sender, receiver, request, response, descripti
   * request.resourceId = "{request}"
   * response.resourceId = "{response}"
 
-RuleSet: ProcessCreate(num, name, sender, receiver, request, description)
+RuleSet: ProcessCreate(num, name, sender, receiver, request, version, description)
 * step[+].operation
   * number = "{num}"
   * type = "create"
@@ -128,6 +125,39 @@ RuleSet: ProcessCreate(num, name, sender, receiver, request, description)
   * initiator = "{sender}"
   * receiver = "{receiver}"
   * request.resourceId = "{request}"
+  * request.versionId = "{version}"
+
+RuleSet: ProcessUpdate(num, name, sender, receiver, request, version, description)
+* step[+].operation
+  * number = "{num}"
+  * type = "update"
+  * name = {name}
+  * description = "{description}"
+  * initiator = "{sender}"
+  * receiver = "{receiver}"
+  * request.resourceId = "{request}"
+  * request.versionId = "{version}"
+
+RuleSet: SubNotification(parameters, endpointPrefix, subscriptionId)
+* type = #history
+* entry
+  * fullUrl = "http://example.com/fhir/Parameters/{parameters}"
+  * resource = {parameters}
+  * request
+    * method = #GET
+    * url = "https://{endpointPrefix}.example.org/fhir/Subscription/{subscriptionId}/$status"
+  * response.status = "200"
+
+RuleSet: SubParameters(subscription, resource)
+* parameter[+]
+  * name = "subscription"
+  * valueReference = Reference({subscription})
+* parameter[+]
+  * name = "type"
+  * valueCode = #event-notification
+* parameter[+]
+  * name = "focus"
+  * valueReference = Reference({resource})
 
 
 // PA RuleSets
@@ -137,13 +167,23 @@ RuleSet: Note(time, author, authorName, note)
   * time = {time}
   * text = "{note}"
 
+RuleSet: Condition(patient, patientName, asserter, asserterName, code, display, onset)
+* clinicalStatus = $clinicalStatus#active
+* verificationStatus = $verifyStatus#confirmed
+* category[+] = $condition-category#health-concern
+* category[+] = PATemporaryCodes#PhysicalActivity
+* code = {code} {display}
+* subject = Reference({patient}) {patientName}
+* onsetDateTime = "{onset}"
+* asserter = Reference({asserter}) {asserterName}
+
 RuleSet: CarePlan(start, end, patient, patientName, author, authorName, detail)
 * text
   * status = #additional
   * div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">{detail}</div>"
 * status = #active
 * intent = #plan
-* category[+] = $PA-Temp#PhysicalActivity
+* category[+] = PATemporaryCodes#PhysicalActivity
 * category[+] = $careplan-category#assess-plan
 * subject = Reference({patient}) {patientName}
 * period
@@ -154,7 +194,7 @@ RuleSet: CarePlan(start, end, patient, patientName, author, authorName, detail)
 RuleSet: Goal(patient, patientName, status, description)
 * lifecycleStatus = #active
 * achievementStatus = $goal-achievement#{status}
-* category = $PA-Temp#PhysicalActivity
+* category = PATemporaryCodes#PhysicalActivity
 * description.text = "{description}"
 * subject = Reference({patient}) {patientName}
 
@@ -164,18 +204,50 @@ RuleSet: GoalTarget(due, loinc, display, quantity)
   * detailQuantity = {quantity}
   * dueDate = "{due}"
 
-RuleSet: ExerciseRx(start, end, patient, patientName, author, authorName)
+RuleSet: ExerciseReferral(start, end, patient, patientName, author, authorName, code, display)
 * status = #active
 * intent = #order
-* category[+] = $PA-Temp#PhysicalActivity
+* category[+] = PATemporaryCodes#PhysicalActivity
 * priority = #routine
-* code = $sct#229065009	"Exercise therapy (regime/therapy)"
+* code = {code} "{display}"
 * subject = Reference({patient}) {patientName}
 * requester = Reference({author}) {authorName}
 * occurrencePeriod
   * start = "{start}"
   * end = "{end}"
+
+RuleSet: ExerciseRx(start, end, patient, patientName, author, authorName)
+* insert ExerciseReferral({start}, {end}, {patient}, {patientName}, {author}, {authorName}, $sct#229065009, [[Exercise therapy (regime/therapy)]])
 * performer = Reference({patient}) {patientName}
+
+RuleSet: FulfillTask(patient, patientName, requester, requesterName, owner, ownerName, order, status, date)
+* status = #{status}
+* intent = #order
+* code = $task-code#fulfill
+* focus = Reference({order})
+* requester = Reference({requester}) {requesterName}
+* for = Reference({patient}) {patientName}
+* authoredOn = "{date}"
+* owner = Reference({owner}) {ownerName}
+
+RuleSet: TaskOutput(report)
+* output
+  * type = $SDOHCC-Temp#resulting-activity "Resulting Activity"
+  * valueReference = Reference({report})
+
+RuleSet: DiagnosticReport(patient, patientName, performer, performerName, code, display, order, start, end, base64)
+* basedOn = Reference({order})
+* status = #final
+* category = PATemporaryCodes#PhysicalActivity "Physical Activity"
+* code = {code} {display}
+* subject = Reference({patient}) {patientName}
+* effectivePeriod
+  * start = "{start}"
+  * end   = "{end}"
+* performer = Reference({performer}) {performerName}
+* presentedForm
+  * contentType = #application/pdf
+  * data = {base64}
 
 
 // Bundle RuleSets
@@ -198,39 +270,106 @@ RuleSet: EntryInclude(type, resourceId)
   * resource = {resourceId}
   * search.mode = #include
 
+
 // Observation RuleSets
 RuleSet: Observation(patient, patientName, effective)
 * status = #final
 * category[+] = $obsCategory#activity
-* category[+] = $PA-Temp#PhysicalActivity
+* category[+] = PATemporaryCodes#PhysicalActivity
 * subject = Reference({patient}) {patientName}
 * effectiveDateTime = "{effective}"
 * performer = Reference({patient}) {patientName}
 
+// Exercise Vital Sign
 RuleSet: DaysPerWeek(patient, patientName, effective, value)
 * insert Observation({patient}, {patientName}, {effective})
-//* subject = {patient}
-* meta.profile = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-observation-evs-days-per-week"
-* code = $loinc#89555-7
+* code = $loinc#89555-7 "How many days per week did you engage in moderate to strenuous physical activity in the last 30 days"
 * valueQuantity = {value} 'd/wk' "days per week"
 
 RuleSet: MinPerDay(patient, patientName, effective, value)
 * insert Observation({patient}, {patientName}, {effective})
-* meta.profile = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-observation-evs-min-per-day"
-* code = $loinc#68516-4
+* code = $loinc#68516-4 "On those days that you engage in moderate to strenuous exercise, how many minutes, on average, do you exercise"
 * valueQuantity = {value} 'min/d' "minutes per day"
 
 RuleSet: MinPerWeek(patient, patientName, effective, value)
 * insert Observation({patient}, {patientName}, {effective})
-* meta.profile = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-observation-evs-min-per-week"
-* code = $loinc#82290-8
+* code = $loinc#82290-8 "Frequency of moderate to vigorous aerobic physical activity"
 * valueQuantity = {value} 'min/wk' "minutes per week"
 
 RuleSet: StrengthPerWeek(patient, patientName, effective, value)
 * insert Observation({patient}, {patientName}, {effective})
-* meta.profile = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-observation-strength-days-per-week"
-* code = $loinc#82291-6
+* code = $loinc#82291-6 "Frequency of muscle-strengthening physical activity"
 * valueQuantity = {value} 'd/wk' "days per week"
+
+// Activity Measures
+RuleSet: ActivityGroup(patient, patientName, effective)
+* insert Observation({patient}, {patientName}, {effective})
+* code = PATemporaryCodes#PAPanel "Physical Activity Panel"
+
+RuleSet: HasMember(target)
+* hasMember = Reference({target})
+
+RuleSet: ActivityType(patient, patientName, effective, code, display)
+* insert Observation({patient}, {patientName}, {effective})
+* code = $loinc#73985-4 "Exercise activity"
+* valueCodeableConcept = $loinc#{code} {display}
+
+RuleSet: ActivityDuration(patient, patientName, effective, value)
+* insert Observation({patient}, {patientName}, {effective})
+* code = $loinc#55411-3 "Exercise duration"
+* valueQuantity = {value} 'min' "minutes"
+
+RuleSet: ActivityModerate(patient, patientName, effective, value)
+* insert Observation({patient}, {patientName}, {effective})
+* code = $loinc#577592-4 "Moderate physical activity [IPAQ]"
+* valueQuantity = {value} 'min' "minutes"
+
+RuleSet: ActivityVigorous(patient, patientName, effective, value)
+* insert Observation({patient}, {patientName}, {effective})
+* code = $loinc#77593-2 "Vigorous physical activity [IPAQ]"
+* valueQuantity = {value} 'min' "minutes"
+
+RuleSet: PeakHeartRate(patient, patientName, effective, value)
+* insert Observation({patient}, {patientName}, {effective})
+* code = $loinc#55426-1 "Heart rate unspecified time maximum by Pedometer"
+* valueQuantity = {value} '/min' "beats per minute"
+
+RuleSet: MeanHeartRate(patient, patientName, effective, value)
+* insert Observation({patient}, {patientName}, {effective})
+* code = $loinc#55425-3 "Heart rate unspecified time mean by Pedometer"
+* valueQuantity = {value} '/min' "beats per minute"
+
+RuleSet: ActivityCalories(patient, patientName, effective, value)
+* insert Observation({patient}, {patientName}, {effective})
+* code = $loinc#55424-6 "Calories burned in unspecified time Pedometer"
+* valueQuantity = {value} 'kcal' "kilocalories"
+
+RuleSet: ActivityExperience(patient, patientName, effective, code, display)
+* insert Observation({patient}, {patientName}, {effective})
+* code = PATemporaryCodes#Experience "Experience of Activity"
+* valueCodeableConcept = PATemporaryCodes#{code} {display}
+
+
+// Time-based Measures
+RuleSet: DailySteps(patient, patientName, effective, value)
+* insert Observation({patient}, {patientName}, {effective})
+* code = $loinc#41950-7 "Number of steps in 24 hour Measured"
+* valueQuantity = {value} '/d' "steps per day"
+
+RuleSet: DailyPeakHR(patient, patientName, effective, value)
+* insert Observation({patient}, {patientName}, {effective})
+* code = $loinc#8873-2  "Heart rate 24 hour maximum"
+* valueQuantity = {value} '/min' "beats per minute"
+
+RuleSet: RestingHR(patient, patientName, effective, value)
+* insert Observation({patient}, {patientName}, {effective})
+* code = $loinc#40443-4 "Heart rate --resting"
+* valueQuantity = {value} '/min' "beats per minute"
+
+RuleSet: DailyCalories(patient, patientName, effective, value)
+* insert Observation({patient}, {patientName}, {effective})
+* code = $loinc#41979-6 "Calories burned in 24 hour Calculated"
+* valueQuantity = {value} 'kcal/d' "kilokalories per day"
 
 
 Profile:        ReferenceRest

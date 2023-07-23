@@ -167,215 +167,227 @@ resources:
   ExampleSubscriptionStatusWithNoIds:
     exampleCanonical: BackportSubscriptionStatusR4
   Scen1ExercisePrescriptionScenario:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1CarePlanV1:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1CarePlanV2:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1CarePlanBundleV1:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1CarePlanBundleV2:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1GoalV1:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1GoalV2:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1GoalBundleV1:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1GoalBundleV2:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1ExerciseRx:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1ExerciseRxBundle:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1ObservationDaysPerWeek:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1ObservationMinsPerDay:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1ObservationMinsPerWeek:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1ObservationStrengthDaysPerWeek:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1OrgGoodhealth:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1PatientKhatun:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1PractitionerPatel:
-    groupingId: ex-scenario-1
+    groupingId: -ex-scenario-1
   Scen1RolePatel:
-    groupingId: ex-scenario-1
-#  Scen2ProviderToPersonaltrainerReferral:
-#    groupingId: ex-scenario-2
-#  Scen2SubscriptionEhr:
-#    groupingId: ex-scenario-2
-#  Scen2SubscriptionGetfit:
-#    groupingId: ex-scenario-2
-#  Scen2PractitionerTrainerSearchsetBundle:
-#    groupingId: ex-scenario-2
-#  Scen2RoleWang:
-#    groupingId: ex-scenario-2
-#  Scen2PractitionerWang:
-#    groupingId: ex-scenario-2
-#  Scen2RoleMatthew:
-#    groupingId: ex-scenario-2
-#  Scen2PractitionerMatthew:
-#    groupingId: ex-scenario-2
-#  Scen2SubscriptionNotificationNewtaskBundle:
-#    groupingId: ex-scenario-2
-#  Scen2parameters:
-#    groupingId: ex-scenario-2
-#  Scen2TaskGetfitResponseBundle:
-#    groupingId: ex-scenario-2
-#  Scen2TaskGetfit:
-#    groupingId: ex-scenario-2
-#  Scen2TaskGetfitV2:
-#    groupingId: ex-scenario-2
-#  Scen2PatientJohansson:
-#    groupingId: ex-scenario-2
-#  Scen2Servicerequest:
-#    groupingId: ex-scenario-2
-#  Scen2TaskFit4life:
-#    groupingId: ex-scenario-2
-#  Scen2TaskFit4lifeV2:
-#    groupingId: ex-scenario-2
-#  Scen2TaskFit4lifeV3:
-#    groupingId: ex-scenario-2
-#  Scen2TaskFit4lifeResponseBundle:
-#    groupingId: ex-scenario-2
-#  Scen2ConditionResponseBundle:
-#    groupingId: ex-scenario-2
-#  Scen2ConditionCardio:
-#    groupingId: ex-scenario-2
-#  Scen2ObservationResponseBundle:
-#    groupingId: ex-scenario-2
-#  Scen2ObsDaysPerWeek:
-#    groupingId: ex-scenario-2
-#  Scen2ObsMinutesPerDay:
-#    groupingId: ex-scenario-2
-#  Scen2NotificationUpdatedtaskBundle:
-#    groupingId: ex-scenario-2
-#  Scen2parameters2:
-#    groupingId: ex-scenario-2
-#  Scen2NotificationCompletedtaskBundle:
-#    groupingId: ex-scenario-2
-#  Scen2parameters3:
-#    groupingId: ex-scenario-2
-#  Scen2DiagnosticReportObservationsResponseBundle:
-#    groupingId: ex-scenario-2
-#  Scen2DiagnosticReport:
-#    groupingId: ex-scenario-2
-#  Scen2ObsDaysPerWeek2:
-#    groupingId: ex-scenario-2
-#  Scen2ObsMinutesPerDay2:
-#    groupingId: ex-scenario-2
-#  Scen2ObsActivityCalories:
-#    groupingId: ex-scenario-2
-#  Scen2ObsActivityPeakHR:
-#    groupingId: ex-scenario-2
-#  Scen2OrgFit4life:
-#    groupingId: ex-scenario-2
-#  Scen2OrgGetfittraining:
-#    groupingId: ex-scenario-2
+    groupingId: -ex-scenario-1
+  Scen2ProviderToPersonaltrainerReferral:
+    groupingId: -ex-scenario-2
+  Scen2SubscriptionEhr:
+    groupingId: -ex-scenario-2
+  Scen2SubscriptionGetFit:
+    groupingId: -ex-scenario-2
+  Scen2PractitionerTrainerSearchsetBundle:
+    groupingId: -ex-scenario-2
+  Scen2RoleWang:
+    groupingId: -ex-scenario-2
+  Scen2PractitionerWang:
+    groupingId: -ex-scenario-2
+  Scen2RoleMatthews:
+    groupingId: -ex-scenario-2
+  Scen2PractitionerMatthews:
+    groupingId: -ex-scenario-2
+  Scen2SubscriptionNotificationNewTaskBundle:
+    groupingId: -ex-scenario-2
+  Scen2Parameters:
+    groupingId: -ex-scenario-2
+  Scen2TaskGetFitResponseBundle:
+    groupingId: -ex-scenario-2
+  Scen2TaskGetFitV1:
+    groupingId: -ex-scenario-2
+  Scen2TaskGetFitV2:
+    groupingId: -ex-scenario-2
+  Scen2PatientJohansson:
+    groupingId: -ex-scenario-2
+  Scen2Servicerequest:
+    groupingId: -ex-scenario-2
+  Scen2TaskFit4LifeV1:
+    groupingId: -ex-scenario-2
+  Scen2TaskFit4LifeV2:
+    groupingId: -ex-scenario-2
+  Scen2TaskFit4LifeV3:
+    groupingId: -ex-scenario-2
+  Scen2ReferralFit4LifeResponseBundle:
+    groupingId: -ex-scenario-2
+  Scen2TaskEHRResponseBundle1:
+    groupingId: -ex-scenario-2
+  Scen2TaskEHRResponseBundle2:
+    groupingId: -ex-scenario-2
+  Scen2ConditionResponseBundle:
+    groupingId: -ex-scenario-2
+  Scen2ConditionHypertension:
+    groupingId: -ex-scenario-2
+  Scen2ObservationResponseBundle:
+    groupingId: -ex-scenario-2
+  Scen2ObsDaysPerWeek:
+    groupingId: -ex-scenario-2
+  Scen2ObsMinutesPerDay:
+    groupingId: -ex-scenario-2
+  Scen2NotificationUpdatedTaskBundle:
+    groupingId: -ex-scenario-2
+  Scen2Parameters2:
+    groupingId: -ex-scenario-2
+  Scen2NotificationCompletedTaskBundle:
+    groupingId: -ex-scenario-2
+  Scen2Parameters3:
+    groupingId: -ex-scenario-2
+  Scen2DiagnosticReportObservationsResponseBundle:
+    groupingId: -ex-scenario-2
+  Scen2DiagnosticReport:
+    groupingId: -ex-scenario-2
+  Scen2ObsDaysPerWeek2:
+    groupingId: -ex-scenario-2
+  Scen2ObsMinutesPerDay2:
+    groupingId: -ex-scenario-2
+  Scen2ObsActivityType:
+    groupingId: -ex-scenario-2
+  Scen2ObsActivityDuration:
+    groupingId: -ex-scenario-2
+  Scen2ObsActivityMeanHR:
+    groupingId: -ex-scenario-2
+  Scen2ObsActivityPeakHR:
+    groupingId: -ex-scenario-2
+  Scen2ObsActivityExperience:
+    groupingId: -ex-scenario-2
+  Scen2ObsCalories:
+    groupingId: -ex-scenario-2
+  Scen2OrgFit4Life:
+    groupingId: -ex-scenario-2
+  Scen2OrgGetFitTraining:
+    groupingId: -ex-scenario-2
 #  Scen3ProviderToYMCAReferral:
-#    groupingId: ex-scenario-3
+#    groupingId: -ex-scenario-3
 #  Scen3SubscriptionEhr:
-#    groupingId: ex-scenario-3
-#  Scen3TaskYMCA:
-#    groupingId: ex-scenario-3
+#    groupingId: -ex-scenario-3
+#  Scen3TaskYMCAV1:
+#    groupingId: -ex-scenario-3
 #  Scen3TaskYMCAV2:
-#    groupingId: ex-scenario-3
+#    groupingId: -ex-scenario-3
 #  Scen3TaskYMCAV3:
-#    groupingId: ex-scenario-3
+#    groupingId: -ex-scenario-3
 #  Scen3PatientShevchenko:
-#    groupingId: ex-scenario-3
+#    groupingId: -ex-scenario-3
 #  Scen3Servicerequest:
-#    groupingId: ex-scenario-3
-#  Scen3NotificationUpdatedtaskBundle:
-#    groupingId: ex-scenario-3
+#    groupingId: -ex-scenario-3
+#  Scen3NotificationUpdatedTaskBundle:
+#    groupingId: -ex-scenario-3
 #  Scen3parameters1:
-#    groupingId: ex-scenario-3
-#  Scen3NotificationCompletedtaskBundle:
-#    groupingId: ex-scenario-3
+#    groupingId: -ex-scenario-3
+#  Scen3NotificationCompletedTaskBundle:
+#    groupingId: -ex-scenario-3
 #  Scen3parameters2:
-#    groupingId: ex-scenario-3
+#    groupingId: -ex-scenario-3
 #  Scen3OrgMainclinic:
-#    groupingId: ex-scenario-3
+#    groupingId: -ex-scenario-3
 #  Scen3OrgYMCA:
-#    groupingId: ex-scenario-3
+#    groupingId: -ex-scenario-3
 #  Scen3PractitionerBlackrock:
-#    groupingId: ex-scenario-3
+#    groupingId: -ex-scenario-3
 #  Scen3RoleBlackrock:
-#    groupingId: ex-scenario-3
+#    groupingId: -ex-scenario-3
 #  Scen4PhysicalActivityPlan:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
 #  Scen4CarePlan:
-#    groupingId: ex-scenario-4
-#  Scen4Goal1:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
+#  Scen4Goal1V1:
+#    groupingId: -ex-scenario-4
 #  Scen4Goal1V2:
-#    groupingId: ex-scenario-4
-#  Scen4Goal2:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
+#  Scen4Goal2V1:
+#    groupingId: -ex-scenario-4
 #  Scen4Goal2V2:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
 #  Scen4ObservationActivityType:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
 #  Scen4ObservationEVSMinutesPerDay:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
 #  Scen4ObservationPeakDailyHeartRate:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
 #  Scen4ObservationEVSMinutesPerDay2:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
 #  Scen4ObservationCaloriesPerDay:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
 #  Scen4ObservationDailySteps:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
 #  Scen4ObservationEVSMinutesPerDay3:
-#    groupingId: ex-scenario-4
-#  Scen4TaskFillSurvey:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
+#  Scen4TaskFillSurveyV1:
+#    groupingId: -ex-scenario-4
 #  Scen4TaskFillSurveyV2:
-#    groupingId: ex-scenario-4
-#  Scen4TaskFillSurvey2:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
+#  Scen4TaskFillSurvey2V1:
+#    groupingId: -ex-scenario-4
 #  Scen4TaskFillSurvey2V2:
-#    groupingId: ex-scenario-4
-#  Scen4TaskReviewVideo:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
+#  Scen4TaskReviewVideoV1:
+#    groupingId: -ex-scenario-4
 #  Scen4TaskReviewVideoV2:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
 #  Scen4Questionnaire:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
 #  Scen4QuestionnaireResponse:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
 #  Scen4QuestionnaireResponse2:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
 #  Scen4PatientScarborough:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
 #  Scen4Practitioner:
-#    groupingId: ex-scenario-4
+#    groupingId: -ex-scenario-4
 #  Scen5ActivityAndGlucoseObservations:
-#    groupingId: ex-scenario-5
+#    groupingId: -ex-scenario-5
 #  Scen5ObservationActivityType:
-#    groupingId: ex-scenario-5
+#    groupingId: -ex-scenario-5
 #  Scen5ObservationEVSMinutesPerDay:
-#    groupingId: ex-scenario-5
+#    groupingId: -ex-scenario-5
 #  Scen5ObservationPeakDailyHeartRate:
-#    groupingId: ex-scenario-5
+#    groupingId: -ex-scenario-5
 #  Scen5ObservationCaloriesPerDay:
-#    groupingId: ex-scenario-5
+#    groupingId: -ex-scenario-5
 #  Scen5ObservationDailySteps:
-#    groupingId: ex-scenario-5
+#    groupingId: -ex-scenario-5
 #  Scen5ObservationBloodGlucose1:
-#    groupingId: ex-scenario-5
+#    groupingId: -ex-scenario-5
 #  Scen5ObservationBloodGlucose2:
-#    groupingId: ex-scenario-5
+#    groupingId: -ex-scenario-5
 #  Scen5ObservationsResponseBundle:
-#    groupingId: ex-scenario-5
+#    groupingId: -ex-scenario-5
 #  Scen5RelatedpersonNadia:
-#    groupingId: ex-scenario-5
+#    groupingId: -ex-scenario-5
 #  Scen5PatientRosalie:
-#    groupingId: ex-scenario-5
+#    groupingId: -ex-scenario-5
 menu:
   Contents: toc.html
   Home: index.html
