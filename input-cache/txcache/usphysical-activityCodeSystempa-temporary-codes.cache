@@ -13,33 +13,7 @@
   }
 }}####
 e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "status" : "active",
-  "expansion" : {
-    "identifier" : "urn:uuid:f7dc651c-a0df-4c45-b088-a0070c03cf63",
-    "timestamp" : "2023-07-23T06:50:48.598Z",
-    "total" : 1,
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "excludeNested",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "version",
-      "valueUri" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|current"
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
-      "code" : "PAConsultNote",
-      "display" : "Physical activity Consult note"
-    }]
-  }
-},
-  "error" : ""
+  "error" : "Cannot invoke \"org.hl7.fhir.r5.terminologies.client.ITerminologyClient.expandValueset(org.hl7.fhir.r5.model.ValueSet, org.hl7.fhir.r5.model.Parameters, java.util.Map)\" because the return value of \"org.hl7.fhir.r5.terminologies.client.TerminologyClientContext.getClient()\" is null"
 }
 -------------------------------------------------------------------------------------
 {"hierarchical" : false, "valueSet" :{
@@ -56,32 +30,6 @@ e: {
   }
 }}####
 e: {
-  "valueSet" : {
-  "resourceType" : "ValueSet",
-  "status" : "active",
-  "expansion" : {
-    "identifier" : "urn:uuid:995d4424-abc6-43b6-b05f-63b44d2dc606",
-    "timestamp" : "2023-07-23T06:50:48.770Z",
-    "total" : 1,
-    "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "excludeNested",
-      "valueBoolean" : true
-    },
-    {
-      "name" : "version",
-      "valueUri" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|current"
-    }],
-    "contains" : [{
-      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
-      "code" : "Experience",
-      "display" : "Experience of Activity"
-    }]
-  }
-},
-  "error" : ""
+  "error" : "Cannot invoke \"org.hl7.fhir.r5.terminologies.client.ITerminologyClient.expandValueset(org.hl7.fhir.r5.model.ValueSet, org.hl7.fhir.r5.model.Parameters, java.util.Map)\" because the return value of \"org.hl7.fhir.r5.terminologies.client.TerminologyClientContext.getClient()\" is null"
 }
 -------------------------------------------------------------------------------------
