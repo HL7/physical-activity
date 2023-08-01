@@ -40,7 +40,6 @@ Usage: #definition
   * insert ProcessSearch(1, "Query CarePlan",       patientApp, ehr, Scen1query1, Scen1CarePlanBundleV1, [[Patient app queries exercise CarePlan describing proposed exercise regime.]])
   * insert ProcessSearch(2, "Query Goal",           patientApp, ehr, Scen1query2, Scen1GoalBundleV1,     [[Patient app queries Goals (100 minutes/week).]])
   * insert ProcessSearch(3, "Query ServiceRequest", patientApp, ehr, Scen1query3, Scen1ExerciseRxBundle, [[Patient app queries ServiceRequest (order for ‘exercise’).]])
-  * step[=].pause = true
 * process[+]
   * title = "A couple of weeks later"
   * description = "The exchange noted here would actually occur many times (though not necessarily regularly).  Only a single set of data is shown for simplicity."
@@ -50,7 +49,6 @@ Usage: #definition
   * insert ProcessCreate(6, "Post minutes/day",       patientApp, ehr, Scen1ObservationMinsPerDay, ,          [[Patient app posts average minutes per day of moderate-to-vigorous physical activity. `POST https://ehr.example.org/fhir/Observation`]])
   * insert ProcessCreate(7, "Post minutes/week",      patientApp, ehr, Scen1ObservationMinsPerWeek, ,         [[Patient app posts average minutes per week of moderate-to-vigorous physical activity. `POST https://ehr.example.org/fhir/Observation`]])
   * insert ProcessCreate(8, "Post stength days/week", patientApp, ehr, Scen1ObservationStrengthDaysPerWeek, , [[Patient app posts average days per week of muscle-strengthening physical activity. `POST https://ehr.example.org/fhir/Observation`]])
-  * step[=].pause = true
 * process[+]
   * title = "A little more than 6 months after first appointment"
   * preConditions = "CarePlan and Goal have been updated in EHR"
@@ -138,7 +136,7 @@ Usage: #example
 Instance: Scen1ExerciseRx
 InstanceOf: ServiceRequest
 Title:       "Physical Activity Exercise Prescription for Jorin Khatun"
-Description:  "Exercise Prescription by Dr. Patel for Jorin Khatun to increase his ."
+Description:  "Exercise Prescription by Dr. Patel for Jorin Khatun to increase his physical activity level."
 Usage: #example
 * insert ExerciseRx (2022-12-01, 2023-05-01, Scen1PatientKhatun,"Jorin Khatun", Scen1PractitionerPatel, "Dr. Rajesh Patel")
 * basedOn = Reference(Scen1CarePlanV1)
