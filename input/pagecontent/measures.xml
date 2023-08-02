@@ -83,6 +83,11 @@
      activity during work (e.g. heavy lifting, manual labor), as part of travel (e.g. commuting by bicycle), or at any other portion of the 
      individual's day qualifies so long as it meets the "muscle-strengthening" or "moderate to vigorous/strenuous" physical activity categories.
   </p>
+  <p>
+    This full set of measures corresponds with the recommendations for data sharing as represented in version 4 of the US Standards
+    for Data Interchange (USCDI v4).  Further information can be found in the <a href="https://www.healthit.gov/isa/taxonomy/term/7736/uscdi-v4">USCDI
+    Physical Activity data element</a>.
+  </p>
 <!--  <p>
     If a system does not wish to support directly capturing the answers to these key measures as Observations but is able to handle
     filling out a FHIR Questionnaire, this IG also defines a standard <a href="{{site.data.fhir.ver.sdc}}">Structured Data Capture</a>
