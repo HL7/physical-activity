@@ -1,0 +1,36 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.w3.org/1999/xhtml ../../input-cache/schemas/R4/fhir-xhtml.xsd">
+  <p>
+    This page summarizes the main changes that have happened between releases of the implementation guide
+  </p>
+
+  <a name="1.0.0"> </a>
+  <h3>STU 1 - First official release (1.0.0)</h3>
+  <p>
+    Key changes in this release from the version that went to ballot are below.  Where applicable, links
+    are included to the associated Jira issue.  In addition to these, a number of other non-substantive
+    changes that clarify or improve wording and/or fix minor errors were applied.
+  </p>
+  <ul>
+    <li>Updated CapabilityStatements to be based on US Core and revised conformance expectations for many of the operations.  Also added expectations on Patient, Practitioner and other registry resources (<a href="https://jira.hl7.org/browse/FHIR-40796">FHIR-40796</a>, <a href="https://jira.hl7.org/browse/FHIR-40767">FHIR-40767</a>, <a href="https://jira.hl7.org/browse/FHIR-40751">FHIR-40751</a>)</li>
+    <li>For the different profiles, use 'activity' rather than 'social history' as the category to satisfy US Core and make the Physical Activity category mandatory (<a href="https://jira.hl7.org/browse/FHIR-41295">FHIR-41295</a>, <a href="https://jira.hl7.org/browse/FHIR-41114">FHIR-41114</a>, <a href="https://jira.hl7.org/browse/FHIR-41037">FHIR-41037</a>, <a href="https://jira.hl7.org/browse/FHIR-40776">FHIR-40776</a>)</li>
+    <li>For the different observations, remove the prohibition on Observation.bodySite (<a href="https://jira.hl7.org/browse/FHIR-41086">FHIR-41086</a>)</li>
+    <li>Added 'patient experience' to the set of activity measures (<a href="https://jira.hl7.org/browse/FHIR-41362">FHIR-41362</a>)</li>
+    <li>Added average heart rate as an activity measure (<a href="https://jira.hl7.org/browse/FHIR-40952">FHIR-40952</a>)</li>
+    <li>Tightened the condition statuses to those relevant for physical activity (<a href="https://jira.hl7.org/browse/FHIR-41362">FHIR-41362</a>)</li>
+    <li>For goal, require at least one of description and target, tighten expectations on Quantity, and allow pointing to any physical activity measure codes (<a href="https://jira.hl7.org/browse/FHIR-41294">FHIR-41294</a>)</li>
+    <li>For DiagnosticReport, made the report type extensible (<a href="https://jira.hl7.org/browse/FHIR-41293">FHIR-41293</a>)</li>
+    <li>For ServiceRequest, added a 'notes' section, constrained allowed statuses, made authoredOn and requester mandatory, and require either reasonCode or reasonReference (<a href="https://jira.hl7.org/browse/FHIR-41291">FHIR-41291</a>)</li>
+    <li>For Task for Referral, made Task.reason, Task.owner and Task.requester 1..1 (<a href="https://jira.hl7.org/browse/FHIR-41295">FHIR-41295</a>, <a href="https://jira.hl7.org/browse/FHIR-41206">FHIR-41206</a>)</li>
+    <li>For RelatedPerson, set conformance expectations for elements in telecom and address (<a href="https://jira.hl7.org/browse/FHIR-41295">FHIR-41295</a>)</li>
+    <li>For subscription, change to use the official R4 code (<a href="https://jira.hl7.org/browse/FHIR-41053">FHIR-41053</a>)</li>
+  </ul>
+    
+
+  <a name="1.0.0-ballot"> </a>
+  <h3>STU 1 ballot - First ballot (1.0.0-ballot)</h3>
+	<p>
+    This was the first version of the specification intended for ballot review.  It included the physical
+    activity vital signs, the initial set of time-based and activity-based measures, as well as support for
+    goals, planns, and referral workflow.
+  </p>
+</div>

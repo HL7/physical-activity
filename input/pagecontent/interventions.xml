@@ -8,7 +8,7 @@
       a regular basis</li>
     <li>setting <a href="#plans">plans and goals</a> with the patient and their supports around what their physical activity level should
       look like - and how they can realistically get there, and</li>
-    <li>creating <a href="#referrals">referrals</a> to physical activity specialists who can help a patient to achieve their
+    <li>creating <a href="#referrals">referrals</a> to physical activity specialists who can help a patient achieve their
       physical activity targets in a manner that meets their physical limitations, lifestyle and interests</li>
   </ul>
   <p>
@@ -18,7 +18,7 @@
   <a name="orders"> </a>
   <h3>Exercise Prescriptions</h3>
   <p>
-    Sometimes all that is necessary to help a patient to improve their level of physical activity is to have their clinician formally
+    Sometimes all that is necessary to help a patient improve their level of physical activity is to have their clinician formally
     prescribe it, in much the same way as they might prescribe a medication or physiotherapy.  The research supporting the benefits of
     prescribing exercise are described in more detail on the <a href="background.html#pa-measure">background page</a>.
   </p>
@@ -208,8 +208,8 @@
   <a name="reports"> </a>
   <h4>Intervention Summaries</h4>
   <p>
-    The objective of a referral is always to have a service (or perhaps a set of services) performed.  In FHIR, physical activity-
-    related interventions would be represented using the <a href="{{site.data.fhir.path}}procedure.html">Procedure</a> resource.  However,
+    The objective of a referral is always to have a service (or perhaps a set of services) performed.  In FHIR, physical activity-related 
+    interventions would be represented using the <a href="{{site.data.fhir.path}}procedure.html">Procedure</a> resource.  However,
     the workload involved in having the Service Provider system capture each counselling session, visit to a fitness class, etc. has been
     deemed too high and the value to the ordering clinician too low to mandate the capture of detailed procedure information as part of this
     IG.  Instead, the expectation is that, in most cases, the practitioner or organization that accepts the referral will prepare a 'report'

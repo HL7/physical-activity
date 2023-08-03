@@ -2,15 +2,16 @@
   <div>
     <img alt="Banner showing a series of images of people engaged in various forms of physical activity" src="Intro-wide.png"/>
   </div>
-  <blockquote class="note-to-balloters">
+  <blockquote class="stu-note">
     <p>
-      Welcome to our first ballot!  This specification is the result of hundreds of hours of work by a <a href="credits.html">wide variety of people</a> who are passionate
+      Welcome to the first release of our specification!  This guide is the result of hundreds of hours of work by a <a href="credits.html">wide variety of people</a> who are passionate
       about enabling and supporting patients in improving their levels of physical activity.  We are happy to receive feedback from the broader community about everything
-      we've written here, but particularly about any concerns with respect to implementability or how we can make it easier to get these features into production systems.
+      written here, but particularly about any concerns with respect to implementability or how we can make it easier to get these features into production systems.
       If you're interested in joining us, check out our <a href="https://confluence.hl7.org/display/PC/Physical+Activity">project page</a>, or come join the 
       <a href="https://chat.fhir.org/#narrow/stream/327137-Physical-Activity">discussion</a> on http://chat.fhir.org.
     </p>
   </blockquote>
+  
   <a name="scope"> </a>
   <h3>Scope and purpose</h3>
   <p>
@@ -48,7 +49,7 @@
       <img alt="Diagram showing a circular cycle around icons representing Care Managers, Patients and Service Providers.  The bullets in the circle are: 
         Assessment: Is patient getting sufficient physical activity?; 
         Plans &amp; Goals: What steps need to be taken? How? Targets? By when?; Prescription &amp; Referral: Wh can help and how?; Monitoring: Exercise logs, heart rate, steps, etc.; 
-        Engagement: Videos, reading, satisfaction surveys, etc.; Reporting: What was done? Any issues? What should happen next?" src="Physical Activity cycle.svg"/>
+        Engagement: Videos, reading, satisfaction surveys, etc.; Reporting: What was done? Any issues? What should happen next?" src="Physical Activity cycle.png"/>
     </div>
     <p style="text-indent:25px">
       <b>Figure 1:</b> <i>Improving Physical Activity - Healthcare Cycle</i>
@@ -73,7 +74,7 @@
   </p>
   <ol>
     <li><a href="conformance.html">Conformance Expectations</a> sets general expectations around conformance to the IG.</li>
-    <li><a href="measures.html">Physical Activity Measures</a> defines a <a href="measures.html#base">profile</a> for the standardized capture of a patient's 
+    <li><a href="measures.html">Physical Activity Measures</a> defines <a href="measures.html#base">profiles</a> for the standardized capture of a patient's 
       physical activity level.  <!--It also defines an optional FHIR <a href="Questionnaire-questionnaire-evs.html">Questionnaire</a> that can be used by questionnaire-based systems to 
       capture that measure.-->  In addition, it defines profiles to capture <a href="measures.html#support">supplemental observations</a>
       assertions around physical activity levels, such as daily physical activity log entries, heart rate measurements, and step counts.  The specification also covers how to link
@@ -102,7 +103,7 @@
       systems supported by this IG would impact patients, clinicians and others using those systems.</li>
     <li><a href="design.html">Design Considerations</a> lists a variety of architectural and other considerations that have gone into the creation of this implementation guide and
       explains why the functionality it provides has been implemented as it has.  It also lists a few areas where implementers have been left some flexibility and provides
-      guidance about how to best decide amongst implementation alternatives based on implementation context.</li>
+      guidance about how to best decide amongst alternatives based on implementation context.</li>
     <li><a href="artifacts.html">Artifacts</a> - This provides a summary of the technical artifacts defined in this implementation guide.  It also provides a list of the
       artifacts defined elsewhere that are leveraged as part of this implementation guide.</li>
     <li><a href="downloads.html">Downloads</a> - This provides a handy set of zip files that can be downloaded for local use, including this implementation guide and its

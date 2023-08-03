@@ -2,7 +2,7 @@
   <p>
     This page presents several real-world scenarios that show how the features of this implementation guide could be used to help
     support patients in achieving improved physical activity.  These scenarios are not exhaustive.  The data exchange mechanisms defined in this IG
-    can be combined in a variety of ways and are in no way limited to the specific combinations described below.  Rather, the intention is
+    can be combined in a variety of ways and are in no way limited to the specific combinations described below.  Rather, the intent is
     to show how the functionality enabled by this IG <i>could</i> be used to improve patient care.
   </p>
   <p>
@@ -42,7 +42,7 @@
   <p>
     The two of them spend a few minutes discussing activities Mr. Khatun had enjoyed in the past and how he might increase his physical activity level
     without his children to drive that behavior.  Dr. Patel captures those ideas in his notes.  The two of them agree to schedule their next visit in 6 
-    months and that by then, Mr. Khatun would aim to be doing at least 100 minutes of moderate to vigorous exercise.  At the conclusion of his visit,
+    months and that by then, Mr. Khatun would aim to be doing at least 100 minutes of moderate to vigorous exercise per week.  At the conclusion of his visit,
     Mr. Khatun receives a brochure with a QR-code link to an app he can use to track his physical activity.  Dr. Patel also provides him a formal 
     prescription for exercise, indicating "This prescription is as important as any medication or lab test, only this one can be free - and even fun."
   </p>
@@ -78,7 +78,7 @@
   </p>
   <p>
     While the clinician opted not to receive the daily heart rate and exercise log information, his EHR did receive the
-    <a href="measures.html#base">base measures</a> defined in this IG, including the physical activity vital sign.  These Observations were
+    <a href="measures.html#base">base measures</a> defined in this IG, including the physical activity vital signs.  These Observations were
     transmitted to the EHR with a <a href="{{site.data.fhir.path}}http.html#create">create</a> operation using the
     <a href="StructureDefinition-pa-observation-evs-days-per-week.html">Days-per-week</a>,
     <a href="StructureDefinition-pa-observation-evs-min-per-day.html">Minutes-per-day</a>,
@@ -92,7 +92,7 @@
     <li>The clinician could also have opted to receive the more frequent <a href="measures.html#support">supporting measures</a> as well.</li>
     <li>Rather than having a copy of the base and supporting measures created in his EHR, Dr. Patel's EHR could have performed a 
       <a href="{{site.data.fhir.path}}search.html">search</a> operation on 
-      the personal health record backing Mr. Khatun's app and viewed his exercise information Observations that way.</li>
+      the personal health record backing Mr. Khatun's app and viewed his exercise Observations that way.</li>
     <li>Instead of storing Mr. Khatun's exercise information in a personal health record, the app could have been configured to store the information
       in Dr. Patel's EHR directly.</li>
     <li>If Dr. Patel's EHR had granted the necessary permissions, Mr. Khatun could have <a href="{{site.data.fhir.path}}http.html#update">updated</a>
@@ -103,18 +103,19 @@
   <a name="provider-patient-others"> </a>
   <h4>Where other specifications may fit</h4>
   <ul>
-    <li>The initial screening form Mr. Khatun completed may have been expressed as an <a href="{{site.data.fhir.ver.sdc}}index.html">SDC</a>
+    <li>The initial screening form Mr. Khatun completed may have been expressed as an <a href="{{site.data.fhir.ver.sdc}}/index.html">SDC</a>
       Questionnaire, and the completed form as a QuestionnaireResponse.</li>
     <li>The authentication process of Mr. Khatun is likely managed through the <a href="http://hl7.org/fhir/smart-app-launch/app-launch.html">SMART
       on FHIR authorization process</a>.</li>
   </ul>
   <p>Note: In managing physical activity issues, it is important to consider social determinants of health (SDOH) that can significantly impact a person's ability to engage in physical activity. Factors such as access to safe environments, socioeconomic status, and community resources play a crucial role in promoting and sustaining physical activity levels.</p>
+  
   <a name="rehab-referral"> </a>
   <h3>Provider Refers to Personal Trainer Post-Rehabilitation</h3>
   <p>
     Mrs. Johansson is a 63-year old female who suffered a mild heart attack a little over a year ago.  Her cardiologist, Dr. Lopez, asks her some questions 
     about her levels of physical activity and records that she has been largely sedentary since completing her cardiac rehabilitation program.  The clinician 
-    lets her know  that exercise is an important part of maintaining her recovery and improving her heart's health.
+    informs her that exercise is an important part of maintaining her recovery and improving her heart's health.
     Mrs. Johansson confides that, despite the rehab process, she no longer feels confident exercising in the way she once did, and feels uncertain about the best
     way to get back to her previous levels of physical activity as some activities she used to enjoy now feel uncomfortable.
   </p>
@@ -133,10 +134,10 @@
     call from Mr. Matthews office to schedule her initial appointment.
   </p>
   <p>
-    Over the course of a few appointments, Mr. Matthews works with Mrs. Johansson and helps her to better understand which types of discomfort
+    Over the course of a few appointments, Mr. Matthews works with Mrs. Johansson to help her better understand which types of discomfort
     she should gently work through, and which types signal a need to change her approach to exercise.  He also captures information about her levels
     of physical activity and uses that information to judge her progress.  With some tips and adjustments, she's soon
-    able to resume exercising in a manner similar to what she was previously accustomed to and is slowly working her way towards the level
+    able to resume exercising in a manner similar to which she was previously accustomed to and is slowly working her way towards the level
     of vigor and frequency she had enjoyed prior to her heart issues.
   </p>
   <p>
@@ -163,7 +164,7 @@
   </p>
   <p>
     In the case of Mr. Matthews, whose system is a <a href="CapabilityStatement-pa-service-provider-full.html">'Full' Service Provider</a>, the Task
-    is actually stored on Mr. Matthews system, and subscription notifications of updates are send back to the EHR.
+    is actually stored on Mr. Matthews system, and subscription notifications of updates are sent back to the EHR.
   </p>
   <p>
     In both cases, the personal trainers' systems modify the Task, performing an <a href="{{site.data.fhir.path}}http.html#update">update</a> on the EHR (first trainer),
@@ -316,7 +317,7 @@
   <a name="personal-trainer-fit"> </a>
   <h4>How this IG applies</h4>
   <p>
-    Ms. Rocha uses a third-party secure FHIR server to manage information for her clients and <a href="{{site.data.fhir.path}}http.html#create">creates</a>
+    Ms. Rocha uses a third-party secure FHIR server to manage information for her clients and <a href="{{site.data.fhir.path}}http.html#create">creates</a> and
     <a href="{{site.data.fhir.path}}http.html#update">updates</a> to the CarePlan and Goals, which comply with the 
     <a href="StructureDefinition-pa-careplan.html">exercise plan</a> and <a href="StructureDefinition-pa-goal.html">goal</a>.  Ms. Scarborough's app
     <a href="{{site.data.fhir.path}}search.html">searches</a> and, when appropriate, also updates and (for goals) possibly even creates instances.
@@ -327,7 +328,7 @@
     review videos, documentation or to fill out forms.  Ms. Scarborough's app then <a href="{{site.data.fhir.path}}http.html#update">updates</a> the Tasks
     to indicate when they're done (or possibly refused).  If the Task was to fill out a form, the app would also render the Questionnaire and
     <a href="{{site.data.fhir.path}}http.html#create">create</a> (and sometimes <a href="{{site.data.fhir.path}}http.html#update">update</a>) a 
-    QuestionnaireResponse complying with the relevant <a href="{{site.data.fhir.ver.sdc}}index.html">SDC</a> profiles.
+    QuestionnaireResponse complying with the relevant <a href="{{site.data.fhir.ver.sdc}}/index.html">SDC</a> profiles.
   </p>
   <p>
     Finally, Ms. Scarborough regularly tracks her fitness activities using the <a href="StructureDefinition-pa-observation-time-measure.html">Time-based observation</a> 
@@ -351,7 +352,7 @@
   <a name="personal-trainer-others"> </a>
   <h4>Where other specifications may fit</h4>
   <ul>
-    <li>Details of how the forms are authored and rules for responding to them is covered in the <a href="{{site.data.fhir.ver.sdc}}index.html">SDC</a> IG.</li>
+    <li>Details of how the forms are authored and rules for responding to them is covered in the <a href="{{site.data.fhir.ver.sdc}}/index.html">SDC</a> IG.</li>
   </ul>
 
 
@@ -371,8 +372,8 @@
   <p>
     At the end of the visit, Nadia is given instructions on how to connect to her daughter's patient portal to enter physical activity information weekly 
     until Rosalie's next scheduled appointment. Nadia logs in to her daughter's patient record and enters the physical activity logs weekly. When Dr. Flores 
-    reviews the physical activity logs, blood sugar readings and insulin dosage she notices that overall insulin levels are lower during the spring sports 
-    season and low blood sugar were more likely to occur on heavy training weeks when Rosalie engaged in over 150 minutes of vigorous physical activity for 
+    reviews the physical activity logs, blood sugar readings and insulin dosage, she notices that overall insulin levels are lower during the spring sports 
+    season and low blood sugar readings were more likely to occur on heavy training weeks when Rosalie engaged in over 150 minutes of vigorous physical activity for 
     the week. After discussing the results with Nadia and Rosalie, Dr. Flores recommends a continuous glucose monitoring insulin pump. The insulin pump's 
     connected smartphone application allows Rosalie and Nadia to enter additional information like physical activity levels.  The pump uses the combination 
     of continuous monitoring data and the data collected through the partner application to develop a better patient profile for Rosalie that she can share 

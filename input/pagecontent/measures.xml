@@ -19,6 +19,7 @@
     This page describes standards for representing observations about a patient with respect to their level of physical activity as well
     as supporting observations that provide additional detail and evidence for those higher-level observations.
   </p>
+  
   <a name="base"> </a>
   <h3>Base Measures</h3>
 	<p>
@@ -32,7 +33,6 @@
 	  purposes, they are too complex and onerous for wide-spread use and are not easily evaluated to assess whether "this patient is
 	  sufficiently active to maintain good health". This is not to suggest that fine-grained measures should not be captured and shared, merely 
 	  that they are currently outside the scope of interoperability intended to be fostered by this implementation guide.
-
 	</p>
 	<p>
 	  This guide therefore mandates a slightly modified version of the very simple Exercise Vital Sign (LOINC <a href="http://loinc.org/89574-8">89574-8</a> 
@@ -106,7 +106,7 @@
   <p>
     While it is certainly possible for patients and their caregivers to estimate their average days/week and minutes/day of moderate to
     high-intensity exercise, relying exclusively on estimates is not necessarily ideal.  Therefore, capturing additional information about
-    physical activity can be helpful.  This information may assist the patient in the creation of their estimates.  They can also be used
+    physical activity can be helpful.  This information may assist the patient in the creation of their estimates.  It can also be used
     to provide clinicians and exercise professionals with more granular information to provide better insight into the patient's current
     exercise regime.  Potential supplemental measures include:
   </p>
@@ -336,7 +336,7 @@
         <td></td>
         <td>Progress</td>
         <td>Measures are dependent on the device knowing height/weight, so without personalization may be less precise.  
-          Can be variability from device to device.  Useful to show progress and communicate with patients.</td>
+          Can vary from device to device.  Useful to show progress and communicate with patients.</td>
       </tr>
       <tr>
         <th>Experience of Activity</th>
@@ -363,7 +363,7 @@
   </p>
   <p>
     Each of these observations also has an optional component that indicates the percentage of time over which the measure was
-    calculated that the device that captured the raw measurements was actually active.  This can help evaluate the validity of
+    calculated for which the device that captured the raw measurements was actually active.  This can help evaluate the validity of
     the measure.  For example, a daily step-count where the pedometer was only worn for an hour is likely not an accurate reflection
     of the patient's total steps for the day.
   </p>
@@ -450,12 +450,16 @@
     the supporting measurements is to assist the patient or caregiver in making their estimates as accurate as possible and to assist 
     practitioners in understanding more about the nature and timing of the patient's exercise.
   </p>
+  
+  <a name="device-based"> </a>
   <h4>Device-based Measures</h4>
   <p>
     This guide does not define data standards for the raw point-in-time device-based data.  HL7 has a <a href="http://hl7.org/fhir/uv/phd">Personal
     Healthcare Devices</a> that provides a mechanism for implementers to expose raw device measurements as FHIR.  In many cases, it may be simpler
     to leverage the Apple HealthKit, Android Fit or similar APIs to access the fine-grained measurements in order to determine the relevant averages.
   </p>
+  
+  <a name="additional"> </a>
   <h4>Additional Measures</h4>
   <p>
     This guide does not define all types of observations that may be of interest to physical activity professionals.  Certain

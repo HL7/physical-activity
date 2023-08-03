@@ -102,11 +102,11 @@
     it may continue indefinitely, even when a target state has been reached, just to monitor and ensure ongoing success.
   </p>
   <div style="display:flex;justify-content:center">
-    <img src="PAManagement.svg" alt="Diagram showing PA management phases of Assessment, Planning, Order/Referral, parallel steps Monitoring and Engagement, and Reporting.  All steps are connected in a loop.  Beneath each of these top level-categories are additional details about the resources used in each step: Assessment shows USCDI Observations (Must Support) and 'Low Physical Activity' Condition (should support), with a decision box showing optional creation of condition if USCDI assessment shows not meeting guidelines, and an optional path to a 'Sustain' Care Plan if they are.  The Condition box shows an optional pathway to an 'improve' CarePlan and to a ServiceRequest.  Beneath Planning are the CarePlan resource (Should Support)
+    <img src="PAManagement.png" alt="Diagram showing PA management phases of Assessment, Planning, Order/Referral, parallel steps Monitoring and Engagement, and Reporting.  All steps are connected in a loop.  Beneath each of these top level-categories are additional details about the resources used in each step: Assessment shows USCDI Observations (Must Support) and 'Low Physical Activity' Condition (should support), with a decision box showing optional creation of condition if USCDI assessment shows not meeting guidelines, and an optional path to a 'Sustain' Care Plan if they are.  The Condition box shows an optional pathway to an 'improve' CarePlan and to a ServiceRequest.  Beneath Planning are the CarePlan resource (Should Support)
  with either a 'Sustain' or 'Improve' version, as well as an optional link to Goal (Should Support).  Beneath Order/Referral is ServiceRequest (Must Support) with options for Exercise Rx or Referral and a required link to 'Please Fulfill' Task (also Shall Support).  Referral has an optional pathway to Diagnostic Report. Monitoring is associated with Observations (Should Support) with sub-types USCDI, Activity-based and Time-based.  Engagement is associated with Tasks for Patient (Should Support) with options of 'Please Review', 'Please contact' and 'Complete form'.  Finally, Reporting is associated with DiagnosticReport (Should Support) with information about what's in an Intervention Report."/>
   </div>
   <p style="text-indent:25px">
-    <b>Figure 3:</b> <i>Physical Activity Management Overview</i>
+    <b>Figure 2:</b> <i>Physical Activity Management Overview</i>
   </p>
   <br/>  
   <p>Breaking these steps up into more detail:</p>
@@ -218,18 +218,18 @@
     The referral process generally involves the interplay of three different resources, though not all three will necessarily always come into play:
   </p>
   <div style="display:flex;justify-content:center">
-    <img src="Referral Resources.svg" alt="Diagram showing ServiceRequest, Task and DiagnosticReport resources and the linkages between them 
+    <img src="Referral Resources.png" alt="Diagram showing ServiceRequest, Task and DiagnosticReport resources and the linkages between them 
       (Task.focus->ServiceRequest; Task.output->DiagnosticReport; DiagnosticReport.basedOn->ServiceRequest)"/>
   </div>
   <p style="text-indent:25px">
-    <b>Figure 4:</b> <i>Referral Resources</i>
+    <b>Figure 3:</b> <i>Referral Resources</i>
   </p>
   <p>
     <b>ServiceRequest:</b>
   </p>
   <ul>
     <li>The official 'referral'.  It represents the 'authorization' for a patient to receive a particular type of care.</li>
-    <li>To create a 'referral', the author must have appropriate training/licensure.</li>
+    <li>To create a 'referral', the author must have appropriate training/license.</li>
     <li>Existence of a referral might be necessary for service to be performed and/or for insurance coverage to exist.  However, referrals are not always needed.</li>
     <li>The status of the referral is generally either 'active', 'cancelled' or 'completed'.  A referral doesn't track what's happening with execution.</li>
     <li>The referral generally can't be updated by anyone other than the author.</li>
@@ -311,7 +311,7 @@
   <a name="taskstatus"> </a>
   <div>
     <img src="task-states.svg" alt="State diagram showing all of the Task status code values with allowed transitions"/>
-    <p><b>Figure 5:</b> <i>Task statuses</i></p>
+    <p><b>Figure 4:</b> <i>Task statuses</i></p>
   </div>
   <p>
     NOTE: Not shown in this diagram is the 'entered-in-error' status which is an allowed transition from <b>all</b> states.
@@ -331,7 +331,7 @@
   <p>
     For the purposes of this guide, there is no requirement
     for <a href="CapabilityStatement-pa-patient-engagement.html">Patient Engagement</a> and <a href="CapabilityStatement-pa-service-provider-light.html">Light
-    Service Providers</a> will actually create <a href="{{site.data.fhir.ver.sub}}StructureDefinition-backport-subscription.html">Subscription</a> instances.  
+    Service Providers</a> will actually create <a href="{{site.data.fhir.ver.sub}}/StructureDefinition-backport-subscription.html">Subscription</a> instances.  
     Instead, the <a href="CapabilityStatement-pa-care-manager.html">Care Manager</a> and <a href="CapabilityStatement-pa-service-provider-full.html">Full Service 
     Providers</a> <b>SHOULD</b> allow manual establishment of a referral with notifications to the preferred email or SMS (see below) address.  The email or SMS
     message will provide the prompt for the user to launch their system and query for new Tasks.

@@ -1,10 +1,11 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
   <p>
-    This implementation guide is <b>DRAFT</b>.  There are a number of open issues that will need to be resolved before it will be fully 
+    This implementation guide is <b>STU</b>.  There are a number of open issues that will need to be resolved before it will be fully 
     implementable and a number of additional clean-up steps that will need to be taken before the guide is published for ballot.
     A list of known issues follows.  If there are additional issues you feel should be discussed/addressed, please raise them on the 
     <a href="https://chat.fhir.org/#narrow/stream/327137-Physical-Activity">project discussion stream</a> on http://chat.fhir.org.
   </p>
+  
   <a name="openissues"> </a>
   <h3>Open issues</h3>
   <p>
@@ -16,21 +17,5 @@
     <li>Detailed walkthrough of data models</li>
     <li>Create Confluence page with list of organizations that can provide guidelines for how best to engage with
       patients around improving physical activity </li>
-  </ol>
-  <a name="todo"> </a>
-  <h3>Outstanding to-do items</h3>
-  <p>
-    These are known deficiencies in the specification that need to be corrected, but which don't necessarily require domain expertise to
-    address.  Some of them are technical and relate to HL7 internal processes, so don't worry if you don't understand them all.
-  </p>
-  <ol>
-    <li>Various: Create diagrams to represent information visually where it makes sense to; in particular a diagram showing systems and relationships, how to do subscriptions</li>
-    <li>Add more and more diverse images to document</li>
-    <li>Artifacts: Create complete examples (and possibly ExampleScenarios) for all profiles leveraging domain expert input</li>
-    <li>Everywhere: Review for clarity and readability (feel free to report issues you find though!)</li>
-    <li>Update US Realm approval on RelatedPerson</li>
-    <li>Add maturity levels</li>
-    <li>Fix subscriptions search</li>
-    <li>Ensure Figure labels are unique and sequential (and maybe create a table of them?)</li>
   </ol>
 </div>

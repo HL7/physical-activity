@@ -1,15 +1,11 @@
 {
   "package-id" : "hl7.fhir.us.physical-activity",
-  "version" : "1.0.0-ballot",
-  "title" : "U.S. Physical Activity IG",
-  "category" : "Care Planning",
-  "introduction" : "Defines U.S. interoperability expectations related to physical activity, including primary assessment, supporting measures, plans, goals, referrals and patient-engagement.  Supports interoperability between care managers (e.g. EHRs, community health systems, etc.), service providers (physical activity professionals including exercise physiologists, personal trainers, community fitness centers, etc.), as well as patient-facing applications.",
-  "milestone" : false,
-	"path": "http://hl7.org/fhir/us/physical-activity/2023May",
-  "status" : "ballot",
+  "version" : "1.0.0",
+  "milestone" : true,
+	"path": "http://hl7.org/fhir/us/physical-activity/STU1",
+  "status" : "trial-use",
+  "mode" : "milestone",
   "sequence" : "STU 1.0",
-  "desc" : "STU 1.0 initial ballot",
-  "descmd" : "STU 1.0 initial ballot release.",
-	"ci-build": "https://build.fhir.org/ig/HL7/physical-activity",
-  "first" : true
+  "desc" : "STU 1.0 Release",
+  "descmd" : "STU 1.0 Release"
 }

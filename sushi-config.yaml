@@ -1,20 +1,20 @@
 name: PhysicalActivity
 title: Physical Activity Implementation Guide
 id: physical-activity
-packageId: hl7.fhir.us.physical-activity
-canonical: http://hl7.org/fhir/us/physical-activity
-fhirVersion: 4.0.1
-status: active
-date: 2022-05-29
-copyrightYear: 2022+
-version: current
-releaseLabel: Continuous Integration
-jurisdiction: urn:iso:std:iso:3166#US
 extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
     valueCode: trial-use
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
-    valueInteger: 3
+    valueInteger: 2
+packageId: hl7.fhir.us.physical-activity
+canonical: http://hl7.org/fhir/us/physical-activity
+version: 1.0.0
+fhirVersion: 4.0.1
+status: active
+date: 2022-05-29
+copyrightYear: 2022+
+releaseLabel: Continuous Integration
+jurisdiction: urn:iso:std:iso:3166#US
 publisher:
   name: HL7 International - Patient Care WG
   url: http://www.hl7.org/Special/committees/patientcare
@@ -26,7 +26,7 @@ dependencies:
 #      This IG leverages subscription constructs pre-adopted from R4B.  Importing this IG makes the relevant terminologies available.
   hl7.fhir.us.sdoh-clinicalcare:
     id: sdoh
-    version: 2.0.0
+    version: 2.1.0
     reason: |
       While focused on social determinants of health such as appropriate housing, food availability, interpersonal violence, there is a significant overlap between the SDOH implementation guide and the exchange needs relevant to physical activity.  In both the SDOH and physical activity spaces:
     
@@ -78,6 +78,7 @@ parameters:
   globals-in-artifacts: true
 instanceOptions:
   setMetaProfile: never
+  manualSliceOrdering: true
 pages:
   index.xml:
     title: Welcome to the Physical Activity IG
@@ -91,14 +92,29 @@ pages:
       title: Design Considerations
     conformance.xml: 
       title: Conformance Expectations
+      extension:
+        - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+          valueCode: trial-use
     measures.xml: 
       title: Physical Activity Measures
+      extension:
+        - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+          valueCode: trial-use
     interventions.xml: 
       title: Plans & Interventions
+      extension:
+        - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+          valueCode: trial-use
     workflow.xml: 
-     title: Physical Activity Workflow
+      title: Physical Activity Workflow
+      extension:
+        - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+          valueCode: trial-use
     security.xml: 
       title: Privacy and Security Considerations
+      extension:
+        - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status
+          valueCode: trial-use
     artifacts.xml: 
       title: IG Artifacts
     downloads.xml: 
