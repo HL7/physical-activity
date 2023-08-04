@@ -99,7 +99,7 @@
 					<a href="{{site.data.fhir.path}}documentreference.html">DocumentReference</a>
 				</td>
         <td>Allows packaging or pointing to a PDF or video a provider would like the patient to review.  Used as part of the Patient Task process described in the
-          <a href="{{site.data.fhir.ver.sdoh}}/exchange_workflow.html#detailed-workflow-for-a-single-questionnaire">SDOH Patient Coordination Workflow.</a>
+          <a href="{{site.data.fhir.ver.sdoh}}/referral_workflow.html#patient-coordination-workflow">SDOH Patient Coordination Workflow.</a>
         </td>
 				<td>
 					<a href="{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-documentreference.html">US Core DocumentReference</a>
@@ -123,7 +123,7 @@
 					<a href="{{site.data.fhir.path}}healthcareservice.html">HealthCareService</a>
 				</td>
         <td>Allows indicating the contact information for a provider to call or visit.  Used as part of the Patient Task process described in the
-          <a href="{{site.data.fhir.ver.sdoh}}/exchange_workflow.html#detailed-workflow-for-a-single-questionnaire">SDOH Patient Coordination Workflow</a>.</td>
+          <a href="{{site.data.fhir.ver.sdoh}}/referral_workflow.html#patient-coordination-workflow">SDOH Patient Coordination Workflow</a>.</td>
 				<td>
 					<a href="{{site.data.fhir.ver.sdoh}}/StructureDefinition-SDOHCC-HealthcareService.html">SDOHCC Healthcare Service</a>
         </td>
@@ -208,7 +208,7 @@
 					<a href="{{site.data.fhir.path}}questionnaire.html">Questionnaire</a>
 				</td>
         <td>Allows sharing a specific form to be filled out by a patient or caregiver as part of the care coordination process.  Used as part of the Patient Task process described in the
-          <a href="{{site.data.fhir.ver.sdoh}}/exchange_workflow.html#detailed-workflow-for-a-single-questionnaire">SDOH Patient Coordination Workflow</a>.</td>
+          <a href="{{site.data.fhir.ver.sdoh}}/referral_workflow.html#patient-coordination-workflow">SDOH Patient Coordination Workflow</a>.</td>
 				<td>
 					<a href="{{site.data.fhir.ver.sdc}}/StructureDefinition-sdc-questionnaire.html">SDC Base Questionnaire</a>
         </td>
@@ -221,7 +221,7 @@
 					<a href="{{site.data.fhir.path}}questionnaireresponse.html">QuestionnaireResponse</a>
 				</td>
         <td>Allows sharing a partially or fully completed formform that was filled out by a patient or caregiver.  Used as part of the Patient Task process described in the
-          <a href="{{site.data.fhir.ver.sdoh}}/exchange_workflow.html#detailed-workflow-for-a-single-questionnaire">SDOH Patient Coordination Workflow</a>.</td>
+          <a href="{{site.data.fhir.ver.sdoh}}/referral_workflow.html#patient-coordination-workflow">SDOH Patient Coordination Workflow</a>.</td>
 				<td>
 					<a href="{{site.data.fhir.ver.sdc}}/StructureDefinition-sdc-questionnaireresponse.html">SDC Questionnaire Response</a>
         </td>
@@ -258,7 +258,7 @@
 				</td>
         <td rowspan="2">Used to monitor the process of asking someone to do something, as well as tracking the status of the resulting
           execution and providing any results of the action back to the requester.  Used when seeking actions by a patient or caregiver as part of the
-          <a href="{{site.data.fhir.ver.sdoh}}/exchange_workflow.html#detailed-workflow-for-a-single-questionnaire">SDOH Patient Coordination Workflow</a>, as
+          <a href="{{site.data.fhir.ver.sdoh}}/referral_workflow.html#patient-coordination-workflow">SDOH Patient Coordination Workflow</a>, as
           well as when asking a <a href="workflow.html#serviceprovider">Service Provider</a> to <a href="workflow.html#referral">fulfill a referral</a>.
         </td>
 				<td>

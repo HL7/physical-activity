@@ -24,8 +24,8 @@ Title:       "Example Low Physical Activity Condition"
 Description: "Condition indicating a diagnosis of 'lack of physical exercise'."
 * clinicalStatus     = $clinicalStatus#active
 * verificationStatus = $verifyStatus#confirmed
-* category[0] = $condition-category#health-concern "Health Concern"
-* category[+] = PATemporaryCodes#PhysicalActivity
+* category[+] = $condition-category#health-concern "Health Concern"
+* category[PA] = PATemporaryCodes#PhysicalActivity
 * subject	         = Reference(http://example.org/fhir/Patient/1) "Example Patient"
 * onsetDateTime      = "2022-06-08"
 * asserter           = Reference(http://example.org/fhir/PractitionerRole/1) "Ordering Clinician"
@@ -80,8 +80,8 @@ Description: "A referral to a gym."
 * status                   = #active
 * intent                   = #original-order
 * priority                 = #routine
-* category[+]              = $sct#409063005 "Counseling"
-* category[+]              = PATemporaryCodes#PhysicalActivity
+* category[USCore]              = $sct#409063005 "Counseling"
+* category[PA]              = PATemporaryCodes#PhysicalActivity
 * code                     = $sct#390893007 "Referral to physical activity program (Procedure)"
 * subject                  = Reference(http://example.org/fhir/Patient/1) "Example Patient"
 * occurrencePeriod
@@ -228,8 +228,8 @@ Title:       "Example Physical Activity Report"
 Description: "An example physical activity report"
 * basedOn             = Reference(ExampleServiceRequest) "Referral"
 * status              = #final
-* category[0] = $loinc#LP29708-2 "Cardiology"
-* category[+] = PATemporaryCodes#PhysicalActivity
+* category[+] = $loinc#LP29708-2 "Cardiology"
+* category[PA] = PATemporaryCodes#PhysicalActivity
 * code                = $loinc#11488-4 "Consult note"
 * subject             = Reference(http://example.org/fhir/Patient/1) "Example Patient"
 * effectivePeriod

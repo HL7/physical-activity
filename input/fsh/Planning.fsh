@@ -286,8 +286,8 @@ Description:    "Conveys a summary of the interventions and patient interactions
   * ^slicing.discriminator.path = "$this"
   * ^slicing.rules = #open
   * ^definition = "Category codes related to the service category. This element is intended to allow inclusion of any of the three codes from the US Core Diagnostic report Category codes or other extensibly identified existing concepts. However, in addition to these, a coding instance with the temporary code 'PhysicalActivity' should be included in this category."
-* category contains PAProc 1..1 MS
-* category[PAProc] = PATemporaryCodes#PhysicalActivity
+* category contains PA 1..1 MS
+* category[PA] = PATemporaryCodes#PhysicalActivity
   * ^short = "Additional category indicating that the service category is related to physical activity"
 * status from PADiagnosticReportStatus
   * ^short = "partial | preliminary | final | amended | corrected | appended | entered-in-error"

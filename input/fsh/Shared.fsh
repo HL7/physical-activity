@@ -141,7 +141,7 @@ RuleSet: ProcessUpdate(num, name, sender, receiver, request, version, descriptio
 RuleSet: SubNotification(parameters, endpointPrefix, subscriptionId)
 * type = #history
 * entry
-  * fullUrl = "http://example.com/fhir/Parameters/{parameters}"
+  * fullUrl = "http://example.org/fhir/Parameters/{parameters}"
   * resource = {parameters}
   * request
     * method = #GET
@@ -256,17 +256,17 @@ RuleSet: SearchBundle(count, search)
 * total = {count}
 * link
   * relation = "self"
-  * url = "http://example.com/fhir/{search}"
+  * url = "http://example.org/fhir/{search}"
 
 RuleSet: EntryMatch(type, resourceId)
 * entry[+]
-  * fullUrl = "http://example.com/fhir/{type}/{resourceId}"
+  * fullUrl = "http://example.org/fhir/{type}/{resourceId}"
   * resource = {resourceId}
   * search.mode = #match
 
 RuleSet: EntryInclude(type, resourceId)
 * entry[+]
-  * fullUrl = "http://example.com/fhir/{type}/{resourceId}"
+  * fullUrl = "http://example.org/fhir/{type}/{resourceId}"
   * resource = {resourceId}
   * search.mode = #include
 

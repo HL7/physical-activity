@@ -192,7 +192,7 @@ Title:       "Good Health Clinic Organization"
 Description:  "Good Health Clinic, a healthcare provider."
 Usage: #example
 * identifier
-  * system = "http://example.com/organization"
+  * system = "http://example.org/organization"
   * value = "GH12345"
 * active = true
 * name = "Good Health Clinic"
@@ -240,7 +240,7 @@ Usage: #example
   * use = #home
 * telecom[+]
   * system = #email
-  * value = "Jorin.khatun@example.com"
+  * value = "Jorin.khatun@example.org"
   * use = #home
 
 
@@ -250,7 +250,7 @@ Title:       "Practitioner - Dr. Rajesh Patel"
 Description:  "Profile of Dr. Rajesh Patel."
 Usage: #example
 * identifier
-  * system = "http://example.com/practitioner"
+  * system = "http://example.org/practitioner"
   * value = "P12345"
 * active = true
 * name
@@ -263,7 +263,7 @@ Usage: #example
   * use = #work
 * telecom[+]
   * system = #email
-  * value = "rajesh.patel@example.com"
+  * value = "rajesh.patel@example.org"
   * use = #work
 * address
   * line = "456 Health Avenue"
@@ -275,7 +275,7 @@ Usage: #example
 * birthDate = "1975-06-15"
 * qualification
   * identifier
-    * system = "http://example.com/qualification"
+    * system = "http://example.org/qualification"
     * value = "Q98765"
   * code.text = "General Practitioner"
   * period.start = "2000-07-01"
@@ -287,7 +287,7 @@ Title:       "Practitioner Role - Dr. Rajesh Patel at Good Health Clinic"
 Description:  "Dr. Rajesh Patel's role as a General Practitioner at Good Health Clinic"
 Usage: #example
 * identifier
-  * system = "http://example.com/practitioner-role"
+  * system = "http://example.org/practitioner-role"
   * value = "PR45678"
 * active = true
 * practitioner = Reference(Scen1PractitionerPatel) "Dr. Rajesh Patel"

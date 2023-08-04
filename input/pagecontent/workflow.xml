@@ -71,7 +71,7 @@
   <p>
     This implementation guide covers two main workflows: <a href="#plans">Care planning</a> and <a href="#referral">Referral management</a>.
     Both are heavily informed by the workflows described in the 
-    <a href="{{site.data.fhir.ver.sdoh}}/sdoh_clinical_care_background.html">Gravity SDOH IG</a>.  However, these flows and their associated
+    <a href="{{site.data.fhir.ver.sdoh}}/sdoh_clinical_care_scope.html">Gravity SDOH IG</a>.  However, these flows and their associated
     artifacts have been adapted to reflect the needs of the physical activity space.
   </p>
   <p>

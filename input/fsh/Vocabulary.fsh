@@ -115,8 +115,8 @@ Description: "A subset of US-Core ServiceRequest category codes that are applica
 * ^experimental  = false
 * $sct#409063005 "Counselling"
 * $sct#409073007 "Education"
-* $sct#386053000 "Evaluation procedure (procedure)"
-* $sct#91251008  "Physical therapy procedure (regime/therapy)" // TODO: propose adding to US-Core
+* $sct#386053000 "Evaluation procedure"
+* $sct#91251008  "Physical therapy procedure" // TODO: propose adding to US-Core
 
 ValueSet:    PAServiceRequestInterventions
 Id:          pa-servicerequest-code

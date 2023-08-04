@@ -7,5 +7,5 @@
   "mode" : "milestone",
   "sequence" : "STU 1.0",
   "desc" : "STU 1.0 Release",
-  "descmd" : "STU 1.0 Release"
+  "descmd" : "STU 1.0 Release.  See [list of changes](http://hl7.org/fhir/us/sdoh-clinicalcare/STU1/history.html#1.0.0)"
 }

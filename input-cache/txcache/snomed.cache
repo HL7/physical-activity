@@ -1200,3 +1200,143 @@ v: {
   "version" : "http://snomed.info/sct/731000124108/version/20230301"
 }
 -------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "409063005",
+        "display" : "Counselling"
+      },
+      {
+        "code" : "409073007",
+        "display" : "Education"
+      },
+      {
+        "code" : "386053000",
+        "display" : "Evaluation procedure"
+      },
+      {
+        "code" : "91251008",
+        "display" : "Physical therapy procedure"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:71dea3f1-6949-4fac-8acb-1fe519d03eac",
+    "timestamp" : "2023-08-03T23:17:52.525Z",
+    "total" : 4,
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230301"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "409063005",
+      "display" : "Counselling"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "409073007",
+      "display" : "Education"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "386053000",
+      "display" : "Evaluation procedure"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "91251008",
+      "display" : "Physical therapy procedure"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
+{"hierarchical" : true, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "http://snomed.info/sct",
+      "concept" : [{
+        "code" : "409063005",
+        "display" : "Counselling"
+      },
+      {
+        "code" : "409073007",
+        "display" : "Education"
+      },
+      {
+        "code" : "386053000",
+        "display" : "Evaluation procedure"
+      },
+      {
+        "code" : "91251008",
+        "display" : "Physical therapy procedure"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:9d1e801c-2a3e-490b-bc1f-af4eb4955bf6",
+    "timestamp" : "2023-08-03T23:20:30.697Z",
+    "total" : 4,
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : false
+    },
+    {
+      "name" : "version",
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230301"
+    }],
+    "contains" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "409063005",
+      "display" : "Counselling"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "409073007",
+      "display" : "Education"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "386053000",
+      "display" : "Evaluation procedure"
+    },
+    {
+      "system" : "http://snomed.info/sct",
+      "code" : "91251008",
+      "display" : "Physical therapy procedure"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------

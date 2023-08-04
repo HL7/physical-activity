@@ -28,7 +28,7 @@
     This specification does not set expectations for sharing consent information because, at present, it does not envision the use of
     <a href="design.html#intermediaries">intermediaries</a> and that would be the primary reason why other systems would need to have an awareness of what
     consent(s) had been granted.  For implementers who do make use of intermediaries, conveying consent as 
-    <a href="{{site.data.fhir.ver.sdoh}}/exchange_workflow.html#workflow-and-managing-consent">described</a> by the Gravity SDOH IG should be workable.
+    <a href="{{site.data.fhir.ver.sdoh}}/referral_workflow.html#referral-use-case-overview">described</a> by the Gravity SDOH IG should be workable.
   </p>
   
   <a name="shared"> </a>

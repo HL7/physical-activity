@@ -106,10 +106,10 @@ Title:       "EHR Subscription for Task Monitoring"
 Description:  "A subscription for Fit4Life organization to monitor task updates."
 Usage: #example
 * status = #requested
-* criteria = "Task?owner=https://registry.example.com/fhir/Organization/Scen2OrgFit4Life"
+* criteria = "Task?owner=https://registry.example.org/fhir/Organization/Scen2OrgFit4Life"
 * channel
   * type = #rest-hook
-  * endpoint = "https://ehr.example.com/mySubscriptions"
+  * endpoint = "https://ehr.example.org/mySubscriptions"
   * payload = #application/fhir+json
 * contact[+]
   * system = #phone
@@ -117,7 +117,7 @@ Usage: #example
   * use = #work
 * contact[+]
   * system = #email
-  * value = "ehr@example.com"
+  * value = "ehr@example.org"
   * use = #work
 * end = "2024-01-01T00:00:00Z"
 * reason = "Monitoring tasks"
@@ -128,10 +128,10 @@ Title:       "GetFit Subscription for Task Monitoring"
 Description:  "A subscription for GetFit Training organization to monitor task updates."
 Usage: #example
 * status = #requested
-* criteria = "Task?owner=https://ehr.example.com/Organization/Scen2OrgGetFitTraining"
+* criteria = "Task?owner=https://ehr.example.org/Organization/Scen2OrgGetFitTraining"
 * channel
   * type = #rest-hook
-  * endpoint = "https://getFit.example.com/subscriptionNotifications"
+  * endpoint = "https://getFit.example.org/subscriptionNotifications"
   * payload = #application/fhir+json
 * contact[+]
   * system = #phone
@@ -139,7 +139,7 @@ Usage: #example
   * use = #work
 * contact[+]
   * system = #email
-  * value = "getFit@example.com"
+  * value = "getFit@example.org"
   * use = #work
 * end = "2024-01-01T00:00:00Z"
 * reason = "Monitoring task updates"
@@ -272,7 +272,7 @@ InstanceOf: Condition
 Title:       "Patient Johansson's Hypertension Condition"
 Description:  "This instance represents Patient Johansson's hypertension condition, which is clinically active and confirmed."
 Usage: #example
-* insert Condition(Scen2PatientJohansson, "Nancy Johansson", http://goodhealth.example.com/fhir/Practitioner/123, "Some other clinician", $sct#38341003, "Hypertension", 2019-06-05)
+* insert Condition(Scen2PatientJohansson, "Nancy Johansson", http://example.org/goodhealth/fhir/Practitioner/123, "Some other clinician", $sct#38341003, "Hypertension", 2019-06-05)
 
 Instance: Scen2ObservationResponseBundle
 InstanceOf: Bundle
@@ -449,7 +449,7 @@ Usage: #example
   * use = #home
 * telecom[+]
   * system = #email
-  * value = "nancy.johansson@example.com"
+  * value = "nancy.johansson@example.org"
   * use = #home
 * gender = #male
 * birthDate = "1960-05-15"
@@ -467,7 +467,7 @@ Title:       "Good Health Cardiology"
 Description:  "An example cardiology clinic."
 Usage: #example
 * identifier
-  * system = "http://example.com/identifier"
+  * system = "http://example.org/identifier"
   * value = "87654"
 //Todo NPI
 * active = true
@@ -479,7 +479,7 @@ Title:       "Fit 4 Life"
 Description:  "A specialty exercise clinic named Fit 4 Life."
 Usage: #example
 * identifier
-  * system = "http://example.com/identifier"
+  * system = "http://example.org/identifier"
   * value = "65432"
 //Todo NPI
 * active = true
@@ -491,7 +491,7 @@ Title:       "Get Fit Training"
 Description:  "A fitness center named Get Fit Training."
 Usage: #example
 * identifier
-  * system = "http://example.com/identifier"
+  * system = "http://example.org/identifier"
   * value = "54321"
 //Todo NPI
 * active = true
@@ -532,7 +532,7 @@ Title:       "Practitioner Kim Wang"
 Description:  "Mrs. Kim Wang is a qualified personal trainer at Get Fit Training."
 Usage: #example
 * identifier
-  * system = "http://example.com/identifier"
+  * system = "http://example.org/identifier"
   * value = "78903"
 // TODO: Change this to an NPI
 * active = true
@@ -565,7 +565,7 @@ Title:       "Practitioner - Daniel Matthews"
 Description:  "Profile of Mr. Daniel Matthews who serves as a personal trainer at the Fit 4 Life organization."
 Usage: #example
 * identifier
-  * system = "http://example.com/identifier"
+  * system = "http://example.org/identifier"
   * value = "78904"
 // TODO: Change this to an NPI
 * active = true
