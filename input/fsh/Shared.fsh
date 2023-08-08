@@ -21,16 +21,16 @@ Alias: $verifyStatus      = http://terminology.hl7.org/CodeSystem/condition-ver-
 Alias: $v2-0203           = http://terminology.hl7.org/CodeSystem/v2-0203
 Alias: $v3-RoleCode       = http://terminology.hl7.org/CodeSystem/v3-RoleCode
 
-// US-Core Code Systems
+// IG Code Systems
 Alias: $careplan-category  = http://hl7.org/fhir/us/core/CodeSystem/careplan-category
 Alias: $condition-category = http://hl7.org/fhir/us/core/CodeSystem/condition-category
-
-// Gravity Code Systems
 Alias: $SDOHCC-Temp        = http://hl7.org/fhir/us/sdoh-clinicalcare/CodeSystem/SDOHCC-CodeSystemTemporaryCodes
+Alias: $SDC-Temp           = http://hl7.org/fhir/uv/sdc/CodeSystem/temp
 
 
 // Extensions
 Alias: $conf             = http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation
+Alias: $dar              = http://hl7.org/fhir/StructureDefinition/data-absent-reason
 Alias: $minLength        = http://hl7.org/fhir/StructureDefinition/minLength
 Alias: $pertainsToGoal   = http://hl7.org/fhir/StructureDefinition/resource-pertainsToGoal
 Alias: $typeMS           = http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support
@@ -139,7 +139,6 @@ RuleSet: ProcessUpdate(num, name, sender, receiver, request, version, descriptio
   * request.versionId = "{version}"
 
 RuleSet: SubNotification(parameters, endpointPrefix, subscriptionId)
-* type = #history
 * entry
   * fullUrl = "http://example.org/fhir/Parameters/{parameters}"
   * resource = {parameters}
@@ -148,16 +147,14 @@ RuleSet: SubNotification(parameters, endpointPrefix, subscriptionId)
     * url = "https://{endpointPrefix}.example.org/fhir/Subscription/{subscriptionId}/$status"
   * response.status = "200"
 
-RuleSet: SubParameters(subscription, resource)
-* parameter[+]
-  * name = "subscription"
-  * valueReference = Reference({subscription})
-* parameter[+]
-  * name = "type"
-  * valueCode = #event-notification
-* parameter[+]
-  * name = "focus"
-  * valueReference = Reference({resource})
+RuleSet: SubParameters(subscription, resource, number)
+* parameter[subscription].valueReference = Reference({subscription})
+* parameter[topic].valueCanonical = "http://hl7.org/fhir/us/sdoh-clinicalcare/SubscriptionTopic/Task"
+* parameter[status].valueCode = #active
+* parameter[type].valueCode = #event-notification
+* parameter[notificationEvent]
+  * part[eventNumber].valueString = "{number}"
+  * part[eventFocus].valueReference = Reference({resource})
 
 
 // PA RuleSets
@@ -167,15 +164,18 @@ RuleSet: Note(time, author, authorName, note)
   * time = {time}
   * text = "{note}"
 
-RuleSet: Condition(patient, patientName, asserter, asserterName, code, display, onset)
+RuleSet: ConditionPA(patient, patientName, asserter, asserterName, onset)
 * clinicalStatus = $clinicalStatus#active
 * verificationStatus = $verifyStatus#confirmed
 * category[+] = $condition-category#health-concern
-* category[+] = PATemporaryCodes#PhysicalActivity
-* code = {code} {display}
 * subject = Reference({patient}) {patientName}
 * onsetDateTime = "{onset}"
 * asserter = Reference({asserter}) {asserterName}
+
+RuleSet: Condition(patient, patientName, asserter, asserterName, code, display, onset)
+* insert ConditionPA({patient}, {patientName}, {asserter}, {asserterName}, {onset})
+* code = {code} {display}
+
 
 RuleSet: CarePlan(start, end, patient, patientName, author, authorName, detail)
 * text
@@ -183,8 +183,6 @@ RuleSet: CarePlan(start, end, patient, patientName, author, authorName, detail)
   * div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">{detail}</div>"
 * status = #active
 * intent = #plan
-* category[+] = PATemporaryCodes#PhysicalActivity
-* category[+] = $careplan-category#assess-plan
 * subject = Reference({patient}) {patientName}
 * period
   * start = "{start}"
@@ -194,7 +192,6 @@ RuleSet: CarePlan(start, end, patient, patientName, author, authorName, detail)
 RuleSet: Goal(patient, patientName, status, description)
 * lifecycleStatus = #active
 * achievementStatus = $goal-achievement#{status}
-* category = PATemporaryCodes#PhysicalActivity
 * description.text = "{description}"
 * subject = Reference({patient}) {patientName}
 
@@ -207,11 +204,11 @@ RuleSet: GoalTarget(due, loinc, display, quantity)
 RuleSet: ExerciseReferral(start, end, patient, patientName, author, authorName, code, display)
 * status = #active
 * intent = #order
-* category[+] = PATemporaryCodes#PhysicalActivity
 * priority = #routine
 * code = {code} "{display}"
 * subject = Reference({patient}) {patientName}
 * requester = Reference({author}) {authorName}
+* authoredOn = "{start}"
 * occurrencePeriod
   * start = "{start}"
   * end = "{end}"
@@ -230,15 +227,70 @@ RuleSet: FulfillTask(patient, patientName, requester, requesterName, owner, owne
 * authoredOn = "{date}"
 * owner = Reference({owner}) {ownerName}
 
-RuleSet: TaskOutput(report)
-* output
-  * type = $SDOHCC-Temp#resulting-activity "Resulting Activity"
-  * valueReference = Reference({report})
+RuleSet: QuestionnaireTask(patient, patientName, requester, requesterName, priority, date, status, canonical, description)
+* status = #{status}
+* intent = #order
+* priority = #{priority}
+* code = $SDC-Temp#complete-questionnaire
+* description = "{description}"
+* for = Reference({patient}) {patientName}
+* owner = Reference({patient}) {patientName}
+* authoredOn = {date}
+* requester = Reference({requester}) {requesterName}
+* input[Questionnaire].valueCanonical = "{canonical}"
+
+RuleSet: ReviewTask(patient, patientName, requester, requesterName, priority, date, status, content, description)
+* status = #{status}
+* intent = #order
+* priority = #{priority}
+* code = $SDOHCC-Temp#review-material
+* focus = Reference({content})
+* description = "{description}"
+* for = Reference({patient}) {patientName}
+* owner = Reference({patient}) {patientName}
+* authoredOn = {date}
+* requester = Reference({requester}) {requesterName}
+
+RuleSet: DocRefVideo(url)
+* status = #current
+* content[+]
+  * attachment
+    * contentType = #video/mp4
+    * url = "{url}"
+
+RuleSet: Questionnaire(url, version)
+* url = "{url}"
+* version = "{version}"
+* status = #active
+* subjectType = #Patient
+
+RuleSet: Question(linkId, type, text)
+* item[+]
+  * linkId = "{linkId}"
+  * text = "{text}"
+  * type = #{type}
+
+RuleSet: QuestionnaireResponse(patient, patientName, date, questionnaire)
+* status = #completed
+* questionnaire = "{questionnaire}"
+* subject = Reference({patient}) {patientName}
+* authored = {date}
+
+RuleSet: BooleanAnswer(linkId, answer, text)
+* item[+]
+  * linkId = "{linkId}"
+  * text = "{text}"
+  * answer.valueBoolean = {answer}
+
+RuleSet: StringAnswer(linkId, answer, text)
+* item[+]
+  * linkId = "{linkId}"
+  * text = "{text}"
+  * answer.valueString = {answer}
 
 RuleSet: DiagnosticReport(patient, patientName, performer, performerName, code, display, order, start, end, base64)
 * basedOn = Reference({order})
 * status = #final
-* category = PATemporaryCodes#PhysicalActivity "Physical Activity"
 * code = {code} {display}
 * subject = Reference({patient}) {patientName}
 * effectivePeriod
@@ -256,7 +308,7 @@ RuleSet: SearchBundle(count, search)
 * total = {count}
 * link
   * relation = "self"
-  * url = "http://example.org/fhir/{search}"
+  * url = "{search}"
 
 RuleSet: EntryMatch(type, resourceId)
 * entry[+]
@@ -272,102 +324,108 @@ RuleSet: EntryInclude(type, resourceId)
 
 
 // Observation RuleSets
-RuleSet: Observation(patient, patientName, effective)
+RuleSet: Observation(patient, patientName, performer, performerName, effective)
 * status = #final
-* category[+] = $obsCategory#activity
-* category[+] = PATemporaryCodes#PhysicalActivity
 * subject = Reference({patient}) {patientName}
 * effectiveDateTime = "{effective}"
-* performer = Reference({patient}) {patientName}
+* performer = Reference({performer}) {performerName}
+
+RuleSet: ObservationPeriod(patient, patientName, performer, performerName, start, end)
+* status = #final
+* subject = Reference({patient}) {patientName}
+* effectivePeriod
+  * start = "{start}"
+  * end = "{end}"
+* performer = Reference({performer}) {performerName}
 
 // Exercise Vital Sign
-RuleSet: DaysPerWeek(patient, patientName, effective, value)
-* insert Observation({patient}, {patientName}, {effective})
+RuleSet: DaysPerWeek(patient, patientName, performer, performerName, effective, value)
+* insert Observation({patient}, {patientName}, {performer}, {performerName}, {effective})
 * code = $loinc#89555-7 "How many days per week did you engage in moderate to strenuous physical activity in the last 30 days"
 * valueQuantity = {value} 'd/wk' "days per week"
 
-RuleSet: MinPerDay(patient, patientName, effective, value)
-* insert Observation({patient}, {patientName}, {effective})
+RuleSet: MinPerDay(patient, patientName, performer, performerName, effective, value)
+* insert Observation({patient}, {patientName}, {performer}, {performerName}, {effective})
 * code = $loinc#68516-4 "On those days that you engage in moderate to strenuous exercise, how many minutes, on average, do you exercise"
 * valueQuantity = {value} 'min/d' "minutes per day"
 
-RuleSet: MinPerWeek(patient, patientName, effective, value)
-* insert Observation({patient}, {patientName}, {effective})
+RuleSet: MinPerWeek(patient, patientName, performer, performerName, effective, value)
+* insert Observation({patient}, {patientName}, {performer}, {performerName}, {effective})
 * code = $loinc#82290-8 "Frequency of moderate to vigorous aerobic physical activity"
 * valueQuantity = {value} 'min/wk' "minutes per week"
 
-RuleSet: StrengthPerWeek(patient, patientName, effective, value)
-* insert Observation({patient}, {patientName}, {effective})
+RuleSet: StrengthPerWeek(patient, patientName, performer, performerName, effective, value)
+* insert Observation({patient}, {patientName}, {performer}, {performerName}, {effective})
 * code = $loinc#82291-6 "Frequency of muscle-strengthening physical activity"
 * valueQuantity = {value} 'd/wk' "days per week"
 
 // Activity Measures
-RuleSet: ActivityGroup(patient, patientName, effective)
-* insert Observation({patient}, {patientName}, {effective})
+RuleSet: ActivityGroup(patient, patientName, performer, performerName, effective)
+* insert Observation({patient}, {patientName}, {performer}, {performerName}, {effective})
 * code = PATemporaryCodes#PAPanel "Physical Activity Panel"
 
 RuleSet: HasMember(target)
 * hasMember = Reference({target})
 
-RuleSet: ActivityType(patient, patientName, effective, code, display)
-* insert Observation({patient}, {patientName}, {effective})
+RuleSet: ActivityType(patient, patientName, performer, performerName, effective, code, display)
+* insert Observation({patient}, {patientName}, {performer}, {performerName}, {effective})
 * code = $loinc#73985-4 "Exercise activity"
 * valueCodeableConcept = $loinc#{code} {display}
 
-RuleSet: ActivityDuration(patient, patientName, effective, value)
-* insert Observation({patient}, {patientName}, {effective})
+RuleSet: ActivityDuration(patient, patientName, performer, performerName, effective, value)
+* insert Observation({patient}, {patientName}, {performer}, {performerName}, {effective})
 * code = $loinc#55411-3 "Exercise duration"
 * valueQuantity = {value} 'min' "minutes"
 
-RuleSet: ActivityModerate(patient, patientName, effective, value)
-* insert Observation({patient}, {patientName}, {effective})
-* code = $loinc#577592-4 "Moderate physical activity [IPAQ]"
+RuleSet: ActivityModerate(patient, patientName, performer, performerName, effective, value)
+* insert Observation({patient}, {patientName}, {performer}, {performerName}, {effective})
+* code = $loinc#77592-4 "Moderate physical activity [IPAQ]"
 * valueQuantity = {value} 'min' "minutes"
 
-RuleSet: ActivityVigorous(patient, patientName, effective, value)
-* insert Observation({patient}, {patientName}, {effective})
+RuleSet: ActivityVigorous(patient, patientName, performer, performerName, effective, value)
+* insert Observation({patient}, {patientName}, {performer}, {performerName}, {effective})
 * code = $loinc#77593-2 "Vigorous physical activity [IPAQ]"
 * valueQuantity = {value} 'min' "minutes"
 
-RuleSet: PeakHeartRate(patient, patientName, effective, value)
-* insert Observation({patient}, {patientName}, {effective})
+RuleSet: PeakHeartRate(patient, patientName, performer, performerName, effective, value)
+* insert Observation({patient}, {patientName}, {performer}, {performerName}, {effective})
 * code = $loinc#55426-1 "Heart rate unspecified time maximum by Pedometer"
 * valueQuantity = {value} '/min' "beats per minute"
 
-RuleSet: MeanHeartRate(patient, patientName, effective, value)
-* insert Observation({patient}, {patientName}, {effective})
+RuleSet: MeanHeartRate(patient, patientName, performer, performerName, effective, value)
+* insert Observation({patient}, {patientName}, {performer}, {performerName}, {effective})
 * code = $loinc#55425-3 "Heart rate unspecified time mean by Pedometer"
 * valueQuantity = {value} '/min' "beats per minute"
 
-RuleSet: ActivityCalories(patient, patientName, effective, value)
-* insert Observation({patient}, {patientName}, {effective})
+RuleSet: ActivityCalories(patient, patientName, performer, performerName, effective, value)
+* insert Observation({patient}, {patientName}, {performer}, {performerName}, {effective})
 * code = $loinc#55424-6 "Calories burned in unspecified time Pedometer"
 * valueQuantity = {value} 'kcal' "kilocalories"
 
-RuleSet: ActivityExperience(patient, patientName, effective, code, display)
-* insert Observation({patient}, {patientName}, {effective})
+RuleSet: ActivityExperience(patient, patientName, performer, performerName, effective, code, display)
+* insert Observation({patient}, {patientName}, {performer}, {performerName}, {effective})
 * code = PATemporaryCodes#Experience "Experience of Activity"
 * valueCodeableConcept = PATemporaryCodes#{code} {display}
 
 
 // Time-based Measures
-RuleSet: DailySteps(patient, patientName, effective, value)
-* insert Observation({patient}, {patientName}, {effective})
+RuleSet: DailySteps(patient, patientName, performer, performerName, effective, value)
+* insert Observation({patient}, {patientName}, {performer}, {performerName}, {effective})
 * code = $loinc#41950-7 "Number of steps in 24 hour Measured"
 * valueQuantity = {value} '/d' "steps per day"
 
-RuleSet: DailyPeakHR(patient, patientName, effective, value)
-* insert Observation({patient}, {patientName}, {effective})
+RuleSet: DailyPeakHR(patient, patientName, performer, performerName, effective, value)
+* insert Observation({patient}, {patientName}, {performer}, {performerName}, {effective})
 * code = $loinc#8873-2  "Heart rate 24 hour maximum"
 * valueQuantity = {value} '/min' "beats per minute"
 
-RuleSet: RestingHR(patient, patientName, effective, value)
-* insert Observation({patient}, {patientName}, {effective})
+RuleSet: RestingHR(patient, patientName, performer, performerName, start, end, value)
+* insert ObservationPeriod({patient}, {patientName}, {performer}, {performerName}, {start}, {end})
 * code = $loinc#40443-4 "Heart rate --resting"
 * valueQuantity = {value} '/min' "beats per minute"
 
-RuleSet: DailyCalories(patient, patientName, effective, value)
-* insert Observation({patient}, {patientName}, {effective})
+RuleSet: DailyCalories(patient, patientName, performer, performerName, effective, value)
+* insert Observation({patient}, {patientName}, {performer}, {performerName}, {effective})
 * code = $loinc#41979-6 "Calories burned in 24 hour Calculated"
 * valueQuantity = {value} 'kcal/d' "kilokalories per day"
 

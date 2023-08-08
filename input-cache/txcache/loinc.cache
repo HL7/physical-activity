@@ -29101,3 +29101,486 @@ v: {
   "version" : "2.74"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "89555-7",
+  "display" : "How many days per week did you engage in moderate to strenuous physical activity in the last 30 days"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-evs", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "How many days per week did you engage in moderate to strenuous physical activity in the last 30 days",
+  "code" : "89555-7",
+  "system" : "http://loinc.org",
+  "version" : "2.74"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "68516-4",
+  "display" : "On those days that you engage in moderate to strenuous exercise, how many minutes, on average, do you exercise"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-evs", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "On those days that you engage in moderate to strenuous exercise, how many minutes, on average, do you exercise",
+  "code" : "68516-4",
+  "system" : "http://loinc.org",
+  "version" : "2.74"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "73985-4"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-evs--0", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "severity" : "error",
+  "error" : "The provided code http://loinc.org#73985-4 is not in the value set 'http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-evs--0|1.0.0' (from Tx-Server)",
+  "class" : "UNKNOWN"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "55411-3"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-evs--0", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "severity" : "error",
+  "error" : "The provided code http://loinc.org#55411-3 is not in the value set 'http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-evs--0|1.0.0' (from Tx-Server)",
+  "class" : "UNKNOWN"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "55425-3"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-evs--0", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "severity" : "error",
+  "error" : "The provided code http://loinc.org#55425-3 is not in the value set 'http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-evs--0|1.0.0' (from Tx-Server)",
+  "class" : "UNKNOWN"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "55426-1"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-evs--0", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "severity" : "error",
+  "error" : "The provided code http://loinc.org#55426-1 is not in the value set 'http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-evs--0|1.0.0' (from Tx-Server)",
+  "class" : "UNKNOWN"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "41979-6"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-evs--0", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "severity" : "error",
+  "error" : "The provided code http://loinc.org#41979-6 is not in the value set 'http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-evs--0|1.0.0' (from Tx-Server)",
+  "class" : "UNKNOWN"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "41979-6"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity--0", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "severity" : "error",
+  "error" : "The provided code http://loinc.org#41979-6 is not in the value set 'http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity--0|1.0.0' (from Tx-Server)",
+  "class" : "UNKNOWN"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "82290-8",
+  "display" : "Frequency of moderate to vigorous aerobic physical activity"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-goal-target-measure", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "Frequency of moderate to vigorous aerobic physical activity",
+  "code" : "82290-8",
+  "system" : "http://loinc.org",
+  "version" : "2.74"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "82290-8",
+  "display" : "Frequency of moderate to vigorous aerobic physical activity"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-evs", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "Frequency of moderate to vigorous aerobic physical activity",
+  "code" : "82290-8",
+  "system" : "http://loinc.org",
+  "version" : "2.74"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "82291-6",
+  "display" : "Frequency of muscle-strengthening physical activity"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-evs", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "Frequency of muscle-strengthening physical activity",
+  "code" : "82291-6",
+  "system" : "http://loinc.org",
+  "version" : "2.74"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "14743-9",
+  "display" : "Glucose [Mass/volume] in Capillary blood by Glucometer"
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "severity" : "error",
+  "error" : "Wrong Display Name 'Glucose [Mass/volume] in Capillary blood by Glucometer' for http://loinc.org#14743-9 - should be one of 50 choices: 'Glucose [Moles/volume] in Capillary blood by Glucometer', '\"Glucose BldC Glucomtr-sCnc\"', '\"GLU Krew kapilarna\" (pl-PL)', '\"Glu\" (zh-CN)', '\"Gluc\" (zh-CN)', '\"右旋糖\" (zh-CN)', '\"葡糖 克分子浓度\" (zh-CN)', '\"克分子浓度(单位体积)\" (zh-CN)', '\"摩尔浓度\" (zh-CN)', '\"摩尔浓度(单位体积)\" (zh-CN)', '\"物质的量浓度(单位体积) 化学\" (zh-CN)', '\"化学检验项目\" (zh-CN)', '\"化学检验项目类\" (zh-CN)', '\"化学类\" (zh-CN)', '\"化学试验\" (zh-CN)', '\"非刺激耐受型化学检验项目\" (zh-CN)', '\"非刺激耐受型化学检验项目类\" (zh-CN)', '\"非刺激耐受型化学试验\" (zh-CN)', '\"非刺激耐受型化学试验类 可用数量表示的\" (zh-CN)', '\"定量性\" (zh-CN)', '\"数值型\" (zh-CN)', '\"数量型\" (zh-CN)', '\"连续数值型标尺 时刻\" (zh-CN)', '\"随机\" (zh-CN)', '\"随意\" (zh-CN)', '\"瞬间 毛细血管血 葡萄糖测定计\" (zh-CN)', '\"Aine kontsentratsioon Juhuslik Kapillaarne veri Kvantitatiivne\" (et-EE)', '\"Glucoseur\" (pt-BR)', '\"Substance concentration\" (pt-BR)', '\"Level\" (pt-BR)', '\"Point in time\" (pt-BR)', '\"Random\" (pt-BR)', '\"Blood\" (pt-BR)', '\"Blood - capillary\" (pt-BR)', '\"Blood cap\" (pt-BR)', '\"Blood capillary\" (pt-BR)', '\"Bld cap\" (pt-BR)', '\"Bld capillary\" (pt-BR)', '\"cap blood\" (pt-BR)', '\"cap bld\" (pt-BR)', '\"Capillary bld\" (pt-BR)', '\"Capillary blood\" (pt-BR)', '\"Quantitative\" (pt-BR)', '\"QNT\" (pt-BR)', '\"Quant\" (pt-BR)', '\"Quan\" (pt-BR)', '\"Glucomtr\" (pt-BR)', '\"Chemistry\" (pt-BR)', '\"Glukose\" (de-DE)' or '\"Chimica Concentrazione di Sostanza Punto nel tempo (episodio) Sangue capillare\" (it-IT)' (for the language(s) '--') (from Tx-Server)",
+  "class" : "UNKNOWN"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "41653-7",
+  "display" : "Glucose [Mass/volume] in Capillary blood by Glucometer"
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "Glucose [Mass/volume] in Capillary blood by Glucometer",
+  "code" : "41653-7",
+  "system" : "http://loinc.org",
+  "version" : "2.74"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "577592-4"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity--0", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "severity" : "error",
+  "error" : "Unknown Code '577592-4' in the system 'http://loinc.org'; The provided code http://loinc.org#577592-4 is not in the value set 'http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity--0|1.0.0' (from Tx-Server)",
+  "class" : "UNKNOWN"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "577592-4",
+  "display" : "Moderate physical activity [IPAQ]"
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "severity" : "error",
+  "error" : "Unknown Code '577592-4' in the system 'http://loinc.org'; The provided code http://loinc.org#577592-4 is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
+  "class" : "UNKNOWN"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "$loinc#LA11836-6",
+  "display" : "Running"
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "severity" : "error",
+  "error" : "Unknown Code '$loinc#LA11836-6' in the system 'http://loinc.org'; The provided code http://loinc.org#$loinc#LA11836-6 is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
+  "class" : "UNKNOWN"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "40443-4",
+  "display" : "Heart rate --resting"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-time", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "Heart rate --resting",
+  "code" : "40443-4",
+  "system" : "http://loinc.org",
+  "version" : "2.74"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "$loinc#82229-6",
+  "display" : "Lifting"
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "severity" : "error",
+  "error" : "Unknown Code '$loinc#82229-6' in the system 'http://loinc.org'; The provided code http://loinc.org#$loinc#82229-6 is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
+  "class" : "UNKNOWN"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "55426-1"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-time--0", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "severity" : "error",
+  "error" : "The provided code http://loinc.org#55426-1 is not in the value set 'http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-time--0|1.0.0' (from Tx-Server)",
+  "class" : "UNKNOWN"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "$loinc#LA11839-0",
+  "display" : "Weights"
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "severity" : "error",
+  "error" : "Unknown Code '$loinc#LA11839-0' in the system 'http://loinc.org'; The provided code http://loinc.org#$loinc#LA11839-0 is not in the value set 'http://hl7.org/fhir/ValueSet/@all' (from Tx-Server)",
+  "class" : "UNKNOWN"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "LA11839-0",
+  "display" : "Weights"
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "Weights",
+  "code" : "LA11839-0",
+  "system" : "http://loinc.org",
+  "version" : "2.74"
+}
+-------------------------------------------------------------------------------------

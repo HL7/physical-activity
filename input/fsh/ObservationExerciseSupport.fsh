@@ -1,7 +1,7 @@
 Profile:        PAObservationBase
 Parent:         Observation
 Id:             pa-observation-base
-Title:          "PA Measure Base"
+Title:          "PA Observation Base"
 Description:    "A profile describing base requirements for all primary physical activity observations."
 * ^abstract = true
 * . ^definition = "A profile describing base requirements for all primary physical activity observations."
@@ -66,7 +66,7 @@ Description:    "A profile describing base requirements for all primary physical
 Profile:        PAObservationActivityMeasure
 Parent:         PAObservationBase
 Id:             pa-observation-activity-measure
-Title:          "PA Measure - Activity-based"
+Title:          "PA Observation - Supporting, Activity-based"
 Description:    "A profile for observations that capture physical activity-related measures that are specific to a single
   physical activity."
 * . ^definition = "A profile for observations that capture physical activity-related measures that are specific to a single physical activity."
@@ -80,7 +80,7 @@ Description:    "A profile for observations that capture physical activity-relat
 Profile:        PAObservationActivityGroup
 Parent:         PAObservationBase
 Id:             pa-observation-activity-group
-Title:          "PA Measure - Activity Group"
+Title:          "PA Observation - Supporting, Activity Group"
 Description:    "A profile for observations that collects a set of activity-related measures that all pertain to the same physical activity instance."
 * . ^definition = "A profile for observations that collects a set of activity-related measures that all pertain to the same physical activity instance."
 * code = PATemporaryCodes#PAPanel
@@ -96,7 +96,7 @@ Description:    "A profile for observations that collects a set of activity-rela
 Profile:        PAObservationTimeMeasure
 Parent:         PAObservationBase
 Id:             pa-observation-time-measure
-Title:          "PA Measure - Time-based"
+Title:          "PA Observation - Supporting, Time-based"
 Description:    "A profile for observations that capture physical activity-related measures that apply over an extended period, such as a day or week."
 * . ^definition = "A profile for observations that capture physical activity-related measures that apply over an extended period, such as a day or week."
 * code from PAObservationTimeMeasures (extensible)

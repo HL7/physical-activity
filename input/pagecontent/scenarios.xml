@@ -274,10 +274,10 @@
     writing up reports, so no DiagnosticReport is created.  "Closing the loop" on the referral will have to wait until Mr. Shevchenko's next
     appointment with Dr. Blackrock when he can ask how things went.
   </p>
-<!--  <p>
+  <p>
     A technical representation of this scenario, showing the different systems, the interactions between them and example instances showing the queries
     and payloads involved can be found on the <a href="ExampleScenario-Scen3ProviderToYMCAReferral.html">Example Scenario 3 page</a>.
-  </p>-->
+  </p>
 
   <a name="program-referral-alternatives"> </a>
   <h4>Alternatives</h4>
@@ -353,10 +353,10 @@
     <a href="StructureDefinition-pa-observation-strength-days-per-week.html">Strength Days-per-week</a> profiles.  Ms. Rocha can access this
     information by performing <a href="{{site.data.fhir.path}}search.html">search</a> operations against Ms. Scarborough's PHR.
   </p>
-<!--  <p>
+  <p>
     A technical representation of this scenario, showing the different systems, the interactions between them and example instances showing the queries
     and payloads involved can be found on the <a href="ExampleScenario-Scen4PhysicalActivityPlan.html">Example Scenario 4 page</a>.
-  </p>-->
+  </p>
 
   <a name="personal-trainer-alternatives"> </a>
   <h4>Alternatives</h4>
@@ -404,10 +404,10 @@
     as FHIR Observations.  The records entered by Nadia on Rosalie's behalf show her as the performer of the observation, represented using the
     <a href="StructureDefinition-pa-relatedperson.html">RelatedPerson</a> profile.
   </p>
-<!--  <p>
+  <p>
     A technical representation of this scenario, showing the different systems, the interactions between them and example instances showing the queries
     and payloads involved can be found on the <a href="ExampleScenario-Scen5ActivityAndGlucoseObservations.html">Example Scenario 5 page</a>.
-  </p>-->
+  </p>
 
   <a name="pediatrics-alternatives"> </a>
   <h4>Alternatives</h4>

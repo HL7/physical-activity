@@ -541,3 +541,120 @@ v: {
   "version" : "2.74"
 }
 -------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "73985-4",
+  "display" : "Exercise activity"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "Exercise activity",
+  "code" : "73985-4",
+  "system" : "http://loinc.org",
+  "version" : "2.74"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://loinc.org",
+  "code" : "55425-3",
+  "display" : "Heart rate unspecified time mean by Pedometer"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "Heart rate unspecified time mean by Pedometer",
+  "code" : "55425-3",
+  "system" : "http://loinc.org",
+  "version" : "2.74"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "38341003",
+  "display" : "Hypertension"
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code", "version": "3.1.1", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "High blood pressure",
+  "code" : "38341003",
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108/version/20230301"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "40979000",
+  "display" : "Lack of physical exercise"
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code", "version": "3.1.1", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "Lack of exercise",
+  "code" : "40979000",
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108/version/20230301"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "video/mp4"
+}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "video/mp4",
+  "code" : "video/mp4",
+  "system" : "urn:ietf:bcp:13"
+}
+-------------------------------------------------------------------------------------

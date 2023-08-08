@@ -65,12 +65,12 @@ Description:    "A plan describing the plan to improve or maintain a patient's l
 * note MS
   * author[x] 1..1 MS
   // TODO - add support for PractitionerRole when we move to different US Core
-  // * author[x] only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile or USCorePatientProfile or PARelatedPerson)
-  * author[x] only Reference(USCorePractitionerProfile or USCorePatientProfile or PARelatedPerson)
+  * author[x] only Reference(USCorePractitionerProfile or USCoreOrganizationProfile or USCorePatientProfile or PARelatedPerson)
     * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest-or-logical"
     * ^type[0].targetProfile[0].extension[$typeMS].valueBoolean = true
     * ^type[0].targetProfile[1].extension[$typeMS].valueBoolean = true
-//    * ^type[0].targetProfile[2].extension[$typeMS].valueBoolean = true
+    * ^type[0].targetProfile[2].extension[$typeMS].valueBoolean = true
+//    * ^type[0].targetProfile[3].extension[$typeMS].valueBoolean = true
   * time 1..1 MS
   * text MS
 
@@ -84,7 +84,7 @@ XPath:        "exists(f:description) or exists(f:target)"
 Profile:        PAGoal
 Parent:         USCoreGoalProfile
 Id:             pa-goal
-Title:          "PA-Related Goal"
+Title:          "PA Goal"
 Description:    "A goal that sets a target for a patient's physical activity level"
 * . ^definition = "A goal that sets a target for a patient's physical activity level"
 * obeys pa-goal-1
@@ -121,12 +121,12 @@ Description:    "A goal that sets a target for a patient's physical activity lev
 * note MS
   * author[x] 1..1 MS
   // TODO Add support for PractitionerRole when we move to newer US Core
-  //  * author[x] only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile or USCorePatientProfile or PARelatedPerson)
-  * author[x] only Reference(USCorePractitionerProfile or USCorePatientProfile or PARelatedPerson)
+  * author[x] only Reference(USCorePractitionerProfile or USCoreOrganizationProfile or USCorePatientProfile or PARelatedPerson)
     * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest-or-logical"
     * ^type[0].targetProfile[0].extension[$typeMS].valueBoolean = true
     * ^type[0].targetProfile[1].extension[$typeMS].valueBoolean = true
-//    * ^type[0].targetProfile[2].extension[$typeMS].valueBoolean = true
+    * ^type[0].targetProfile[2].extension[$typeMS].valueBoolean = true
+//    * ^type[0].targetProfile[3].extension[$typeMS].valueBoolean = true
   * time 1..1 MS
   * text MS
 
@@ -147,7 +147,7 @@ Description:    "A condition that conveys the fact that a patient has a clinical
   * ^slicing.rules = #open
   * ^definition = "Category codes related to the condition. This element is intended to allow inclusion of any of the three codes from the US Core Condition Category codes or other extensibly identified existing concepts. However, in addition to these, a coding instance with the temporary code 'PhysicalActivity' should be included in this category."
 * category contains PA 1..1 MS
-* category[PA] from PATemporaryCodesValueSet (required)
+//* category[PA] from PATemporaryCodesValueSet (required)
 * category[PA] = PATemporaryCodes#PhysicalActivity
   * ^short = "Additional category indicating the condition is related to physical activity"
 * code = $ICD10#Z72.3 "Lack of physical exercise"
@@ -251,7 +251,7 @@ Description:    "Represents orders and referrals for interventions that help to 
   * ^slicing.discriminator.path = "resolve()"
   * ^slicing.rules = #open
 * reasonReference contains SupportedReasonReference 0..* MS
-* reasonReference[SupportedReasonReference] only Reference(PAConditionLowPA)
+* reasonReference[SupportedReasonReference] only Reference(USCoreCondition)
 * supportingInfo
   * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest"
   * ^slicing.discriminator.type = #profile
@@ -264,7 +264,14 @@ Description:    "Represents orders and referrals for interventions that help to 
 * note
   * ^short = "Additional details about the service request"
   * ^definition = "This field contains additional details about the service request (for e.g. the appropriate time and mechanism for the service provider to contact the patient). Please note that service providers typically won't see notes that are added once a ServiceRequest has been accepted."
-
+  * author[x] 1..1 MS
+  // TODO - add support for PractitionerRole when we move to different US Core
+  * author[x] only Reference(USCorePractitionerProfile or USCoreOrganizationProfile)
+    * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest"
+    * ^type[0].targetProfile[0].extension[$typeMS].valueBoolean = true
+    * ^type[0].targetProfile[1].extension[$typeMS].valueBoolean = true
+  * time 1..1 MS
+  * text MS
 
 Profile:        PADiagnosticReport
 Parent:         USCoreDiagnosticReportProfileNoteExchange
@@ -281,7 +288,7 @@ Description:    "Conveys a summary of the interventions and patient interactions
 * basedOn contains SupportedBasedOn 0..* MS
 * basedOn[SupportedBasedOn] only Reference(PAServiceRequest)
   * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest"
-* category 2..*
+* category 1..*
   * ^slicing.discriminator.type = #pattern
   * ^slicing.discriminator.path = "$this"
   * ^slicing.rules = #open
@@ -331,7 +338,7 @@ Description:    "Represents a request for fulfillment of a physical activity-rel
 * modifierExtension ..0
 * intent = #order
 * status MS
-* status from PATaskReferralStatus (required)
+* status from PATaskFulfillmentStatus (required)
   * ^condition = pa-taskrm-1
 * statusReason MS
   * ^condition = pa-taskrm-1
@@ -356,11 +363,10 @@ Description:    "Represents a request for fulfillment of a physical activity-rel
 * note MS
   * author[x] 1..1 MS
   // TODO - add support for PractitionerRole when we move to different US Core
-  // * author[x] only Reference(USCorePractitionerProfile or USCorePractitionerRoleProfile or USCorePatientProfile or PARelatedPerson)
-  * author[x] only Reference(USCorePractitionerProfile)
+  * author[x] only Reference(USCorePractitionerProfile or USCoreOrganizationProfile)
     * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest"
-  //  * ^type[0].targetProfile[0].extension[$typeMS].valueBoolean = true
-  //  * ^type[0].targetProfile[1].extension[$typeMS].valueBoolean = true
+    * ^type[0].targetProfile[0].extension[$typeMS].valueBoolean = true
+    * ^type[0].targetProfile[1].extension[$typeMS].valueBoolean = true
   * time 1..1 MS
   * text MS
 * requester 1..1 MS
@@ -382,18 +388,25 @@ Description:    "Represents a request for fulfillment of a physical activity-rel
   * ^slicing.discriminator[=].path = "value"
   * ^slicing.rules = #open
   * modifierExtension ..0
-* output contains PerformedActivity 0..* MS
-* output[PerformedActivity]
+* output contains
+    PerformedActivityType 0..* MS and
+    PerformedActivityReference 0..* MS
+* output[PerformedActivityType]
   * modifierExtension ..0
   * type = $SDOHCC-Temp#resulting-activity
   * value[x] MS
-  * value[x] only CodeableConcept or Reference(PADiagnosticReport or Resource)
+  * value[x] only CodeableConcept
     * ^type[0].extension[$typeMS].valueBoolean = true
-    * ^type[1].extension[$typeMS].valueBoolean = true
-    * ^type[1].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest"
-    * ^type[1].targetProfile[0].extension[$typeMS].valueBoolean = true
   * valueCodeableConcept MS
   * valueCodeableConcept.text 1..1 MS
+* output[PerformedActivityReference]
+  * modifierExtension ..0
+  * type = $SDOHCC-Temp#resulting-activity
+  * value[x] MS
+  * value[x] only Reference(PADiagnosticReport or Resource)
+    * ^type[0].extension[$typeMS].valueBoolean = true
+    * ^type[0].profile[0] = "http://hl7.org/fhir/us/physical-activity/StructureDefinition/reference-rest"
+    * ^type[0].targetProfile[0].extension[$typeMS].valueBoolean = true
   * valueReference MS
     * ^comment = "This element MAY resolve to a contained resource in situations where the resulting report is not available from a stand-alone endpoint"
 

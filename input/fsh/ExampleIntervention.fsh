@@ -1,6 +1,6 @@
 Instance:    ExampleRelatedPerson
 InstanceOf:  PARelatedPerson
-Title:       "Example Relative"
+Title:       "RelatedPerson - Relative"
 Description: "RelatedPerson conformant with future U.S. core profile used to show caregiver involvement in data sharing."
 * active             = true
 * patient            = Reference(http://example.org/fhir/Patient/1) "Example Patient"
@@ -20,7 +20,7 @@ Description: "RelatedPerson conformant with future U.S. core profile used to sho
 
 Instance:    ExampleCondition
 InstanceOf:  PAConditionLowPA
-Title:       "Example Low Physical Activity Condition"
+Title:       "Condition - Low Physical Activity"
 Description: "Condition indicating a diagnosis of 'lack of physical exercise'."
 * clinicalStatus     = $clinicalStatus#active
 * verificationStatus = $verifyStatus#confirmed
@@ -33,7 +33,7 @@ Description: "Condition indicating a diagnosis of 'lack of physical exercise'."
 
 Instance:       ExampleGoal
 InstanceOf:     PAGoal
-Title:          "Example Physical Activity Goal"
+Title:          "Goal - 100 min/week"
 Description:    "A goal of 100 minutes/week of moderate-vigorous physical activity by a specified date."
 * lifecycleStatus     = #active
 * achievementStatus   = $goal-achievement#in-progress
@@ -51,7 +51,7 @@ Description:    "A goal of 100 minutes/week of moderate-vigorous physical activi
 
 Instance:       ExampleCarePlan
 InstanceOf:     PACarePlan
-Title:          "Example Physical Activity Care Plan"
+Title:          "CarePlan - simple"
 Description: 	  "Sample care plan."
 * text
   * status            = #additional
@@ -74,7 +74,7 @@ Description: 	  "Sample care plan."
 
 Instance:    ExampleServiceRequest
 InstanceOf:  PAServiceRequest
-Title:       "Example Physical Activity Referral"
+Title:       "ServiceRequest - PA Referral"
 Description: "A referral to a gym."
 * extension[pertainsToGoal].valueReference = Reference(ExampleGoal)
 * status                   = #active
@@ -94,7 +94,7 @@ Description: "A referral to a gym."
 
 Instance:    ExampleFulfillmentTask
 InstanceOf:  PATaskForReferralManagement
-Title:       "Example Physical Activity Referral Fulfillment Request"
+Title:       "Task - PA Referral Fulfillment Request"
 Description: "An example task seeking fulfillment of a referral"
 * status              = #in-progress
 //* statusReason.text = */
@@ -112,7 +112,7 @@ Description: "An example task seeking fulfillment of a referral"
 
 Instance:    ExampleSubscriptionWebhook
 InstanceOf:  BackportSubscription
-Title:       "Example Subscription by Care Manager"
+Title:       "Subscription - Task - Care Manager"
 Description: "An example showing what a subscription request would look like to monitor Tasks created by a Care Manager, with notifications by web-hook"
 * status = #requested
 * reason = "Allow monitoring of Tasks created by this organization"
@@ -126,7 +126,7 @@ Description: "An example showing what a subscription request would look like to 
 
 Instance:    ExampleSubscriptionEmail
 InstanceOf:  BackportSubscription
-Title:       "Example Subscription by Service Provider by Email"
+Title:       "Subscription - Task - Service Provider by Email"
 Description: "An example showing what a subscription request would look like to monitor Tasks created for a Service Provider, with notifications by email.  (Could have used SMS instead.)"
 * status = #requested
 * reason = "Allow monitoring of Tasks created for this Practitioner"
@@ -140,7 +140,7 @@ Description: "An example showing what a subscription request would look like to 
 
 Instance:    ExampleSubscriptionSMS
 InstanceOf:  BackportSubscription
-Title:       "Example Subscription by Patient by SMS"
+Title:       "Subscription - Task - Patient by SMS"
 Description: "An example showing what a subscription request would look like to monitor Tasks created for a Patient, with notifications by SMS.  (Could have used email instead.)"
 * status = #requested
 * reason = "Allow monitoring of Tasks created for this Patient"
@@ -155,7 +155,7 @@ Description: "An example showing what a subscription request would look like to 
 
 Instance:    ExampleSubscriptionBundleWithIds
 InstanceOf:  BackportSubscriptionNotificationR4
-Title:       "Example Subscription Notification Bundle with Ids"
+Title:       "Bundle (Subscription Notification) - Task with ids"
 Description: "An example showing a subscription notification that identifies the specific new or changed tasks"
 * type              = #history
 * entry[+]
@@ -168,7 +168,7 @@ Description: "An example showing a subscription notification that identifies the
 
 Instance:    ExampleSubscriptionBundleWithNoIds
 InstanceOf:  BackportSubscriptionNotificationR4
-Title:       "Example Subscription Notification Bundle with no Ids"
+Title:       "Subscription (Notification Bundle) - Task with no Ids"
 Description: "An example showing a subscription notification that merely indicates there are new or changed tasks without indicating what they are"
 * type              = #history
 * entry[+]
@@ -181,7 +181,7 @@ Description: "An example showing a subscription notification that merely indicat
 
 Instance:    ExampleSubscriptionStatusWithIds
 InstanceOf:  BackportSubscriptionStatusR4
-Title:       "Example Subscription Status with Ids"
+Title:       "Parameters (Subscription Status) - Task with Ids"
 Description: "An example showing a subscription status instance containing Task ids that are new or changed"
 * parameter[subscription].valueReference = Reference(ExampleSubscriptionWebhook)
 * parameter[topic].valueCanonical = "http://hl7.org/fhir/us/sdoh-clinicalcare/SubscriptionTopic/Task"
@@ -196,7 +196,7 @@ Description: "An example showing a subscription status instance containing Task 
 
 Instance:    ExampleSubscriptionStatusWithNoIds
 InstanceOf:  BackportSubscriptionStatusR4
-Title:       "Example Subscription Status with no Ids"
+Title:       "Parameters (Subscription Status) - Task with no Ids"
 Description: "An example showing a subscription status instance indicating that there are new or changed tasks, without indicating which ones have changed"
 * parameter[subscription].valueReference = Reference(ExampleSubscriptionEmail)
 * parameter[topic].valueCanonical = "http://hl7.org/fhir/us/sdoh-clinicalcare/SubscriptionTopic/Task"
@@ -206,7 +206,7 @@ Description: "An example showing a subscription status instance indicating that 
 
 Instance:    ExampleBundleTaskSearchResponse
 InstanceOf:  Bundle
-Title:       "Example Task Search Response Bundle"
+Title:       "Bundle (Search Set) - Task"
 Description: "An example showing the results of a Bundle search returning listed Tasks and their associated ServiceRequests which might be used by a 'light' Service Provider after receiving a subscription notification"
 * type = #searchset
 * total = 1
@@ -224,7 +224,7 @@ Description: "An example showing the results of a Bundle search returning listed
 
 Instance:    ExampleReport
 InstanceOf:  PADiagnosticReport
-Title:       "Example Physical Activity Report"
+Title:       "DiagnosticReport - Physical Activity Report"
 Description: "An example physical activity report"
 * basedOn             = Reference(ExampleServiceRequest) "Referral"
 * status              = #final

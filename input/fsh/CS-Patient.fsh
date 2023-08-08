@@ -1,7 +1,7 @@
 Instance:       pa-patient-engagement
 InstanceOf:     CapabilityStatement
 Usage:          #definition
-Title:        "Physical Activity Patient Engagement Capability Statement"
+Title:        "PA Patient Engagement"
 * description = "Describes the expected capabilities of a system intended for use by patients and caregivers of patients who are working to enhance or maintain their levels of physical activity.  These will typically be web-based or mobile applications."
 * url         = "http://hl7.org/fhir/us/physical-activity/CapabilityStatement/pa-patient-engagement"
 * name        = "PAPatientEngagement"

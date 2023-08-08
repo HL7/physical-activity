@@ -28,11 +28,8 @@ WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/physical-activi
 
 # These repetitions are to satisfy US core expectations.  (In this release of the US Core IG, it doesn't define slices, but instead defines extensible bindings across all repetitions.)
 INFORMATION: Condition/ExampleCondition: Condition.category[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-condition-low-pa|1.0.0
+INFORMATION: Condition/Scen2ConditionLackOfExercise: Condition.category[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-condition-low-pa|1.0.0
 INFORMATION: DiagnosticReport/ExampleReport: DiagnosticReport.category[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-diagnosticreport|1.0.0
-
-# This value set is defined in R4B, not R4, and the subscription backport IG doesn't re-define it for use with R4 implementations.
-# Have manually verified that the codes used are valid against the R4B value set.
-ValueSet http://hl7.org/fhir/ValueSet/subscription-notification-type not found
 
 # This *does* derive from the US core profile - the one in 3.1.1, not 6.0.0.  The only deviation from the 6.0.0 "US Core Condition Problems and Health Concerns Profile" is that there is no
 # mustSupport on the SDOH category because the physical activity profile is constrained to a condition that is definitely not an SDOH condition.

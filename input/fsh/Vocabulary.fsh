@@ -28,11 +28,10 @@ Description:    "Codes that will eventually be proposed for LOINC or other code 
   * #3                    "Good"
   * #4
   * #5                    "Very Good"
-//* #sms                    "SMS Channel"                    "A subscription channel in which subscription notifications are transmitted as a human-readable SMS message and the endpoint is expressed as a phone number."
 
 ValueSet:      PAFeelingScale
 Id:            pa-feeling-scale
-Title:         "PA Activity Feeling Scale"
+Title:         "PA Observation Activity Feeling Scale"
 Description:   "Codes to express the 'experience' of a physical activity."
 * ^experimental = false
 * include codes from system PATemporaryCodes where concept is-a #_experienceCode
@@ -40,7 +39,6 @@ Description:   "Codes to express the 'experience' of a physical activity."
 * $obsStatus#amended
 * $obsStatus#corrected
 * $obsStatus#entered-in-error
-
 
 ValueSet:      PAObservationStatus
 Id:            pa-observation-status
@@ -76,7 +74,7 @@ Description:   "Codes for DiagnosticReport.status for reports that are appropria
 
 ValueSet:      PAServiceRequestIntent
 Id:            pa-servicerequest-intent
-Title:         "PA Referral Intents"
+Title:         "PA ServiceRequest Intents"
 Description:   "Codes for ServiceRequest.intent for exercise prescriptions and referrals."
 * ^experimental = false
 * $requestIntent#original-order
@@ -94,10 +92,9 @@ Description:   "Codes for Physical Activity Vital Sign components"
 * $loinc#82290-8 "Frequency of moderate to vigorous aerobic physical activity"
 * $loinc#82291-6 "Frequency of muscle-strengthening physical activity"
 
-
 ValueSet:      PADiagnosticReportType
 Id:            pa-diagnosticreport-type
-Title:         "PA Report Types"
+Title:         "PA DiagnosticReport Types"
 Description:   "Codes for types of diagnostic reports relevant to physical activity referrals"
 * ^copyright = "This material contains content from LOINC (http://loinc.org). LOINC is copyright © 1995-2020, Regenstrief Institute, Inc. and the Logical Observation Identifiers Names and Codes (LOINC) Committee and is available at no cost under the license at http://loinc.org/license. LOINC® is a registered United States trademark of Regenstrief Institute, Inc"
 * ^experimental = false
@@ -124,13 +121,13 @@ Title:       "PA ServiceRequest Intervention Codes"
 Description: "Codes for types of physical activity interventions"
 * ^copyright = "This value set includes content from SNOMED CT, which is copyright © 2002+ International Health Terminology Standards Development Organisation (IHTSDO), and distributed by agreement between IHTSDO and HL7. Implementer use of SNOMED CT is not covered by this agreement"
 * ^experimental = false
-* $sct#819961005       "PA guidance (Procedure)"
-* $sct#398636004       "PA assessment (Procedure)"
-* $sct#435551000124105 "Counseling about physical activity (Procedure)"
-* $sct#390893007       "Referral to physical activity program (Procedure)"
-* $sct#426866005       "Determination of phyisical activity tolerance (Procedure)"
-* $sct#229095001       "Exercise class (regime/therapy)"
-* $sct#229065009       "Exercise therapy (regime/therapy)"
+* $sct#819961005       "PA guidance"
+* $sct#398636004       "PA assessment"
+* $sct#435551000124105 "Counseling about physical activity"
+* $sct#390893007       "Referral to physical activity program"
+* $sct#426866005       "Determination of phyisical activity tolerance"
+* $sct#229095001       "Exercise class"
+* $sct#229065009       "Exercise therapy"
 
 ValueSet:    PAObservationActivityMeasures
 Id:          pa-observation-code-activity
@@ -158,9 +155,9 @@ Description: "Codes for physical activity measures that aggregate or summarize a
 * $loinc#40443-4 "Heart rate --resting"
 * $loinc#41979-6 "Calories burned in 24 hour Calculated"
 
-ValueSet:    PATaskReferralStatus
+ValueSet:    PATaskFulfillmentStatus
 Id:          pa-task-status
-Title:       "PA Referral Task Status"
+Title:       "PA Task Fulfillment Status"
 Description: "Codes indicating allowed for Tasks seeking fulfillment of physical activity-related referrals"
 * ^experimental = false
 * ^compose.include[0].valueSet = "http://hl7.org/fhir/ValueSet/task-status"
@@ -179,7 +176,7 @@ Description: "Value set for measure codes used in the target element of a Physic
 
 ValueSet: PAServiceRequestStatus
 Id: pa-servicerequest-status
-Title: "PA Service Request Status"
+Title: "PA ServiceRequest Status"
 Description: "The status values that are permitted for the PAServiceRequest resource, excluding 'unknown'"
 * ^status = #draft
 * ^experimental = true
@@ -189,11 +186,3 @@ Description: "The status values that are permitted for the PAServiceRequest reso
 * http://hl7.org/fhir/request-status#revoked
 * http://hl7.org/fhir/request-status#completed
 * http://hl7.org/fhir/request-status#entered-in-error
-
-ValueSet:  PATemporaryCodesValueSet
-Id:            pa-temporary-codes-valueset
-Title:         "Temporary Codes ValueSet"
-Description:   "A ValueSet that includes all codes from the PATemporaryCodes CodeSystem"
-* ^status = #draft
-* ^experimental = true
-* include codes from system PATemporaryCodes
