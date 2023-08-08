@@ -1,0 +1,15 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <p>
+    This example instance represents a version-specific snapshot of a resource used as part of one of the ExampleScenarios in this
+    IG.  Because of limitations of the publication process, every example instance is required to have a distinct Resource.id.  However,
+    if this were a real exchange, all versions of the resource would have the <i>same</i> Resource.id and would instead have different
+    Resource.meta.version values.  Therefore, when thinking about how this instance would be used in a 'real' set of systems, please
+    pretend that the 'Vx' on the end of the resource id wasn't there, and that instead, the 'x' appears as the Resource.meta.version
+    value for the resource.
+  </p>
+  <p>
+    Be aware that not all systems will use sequential integers for their version numbers.  That convention
+    has been used here to keep the examples as understandable as possible.  Similarly, real-world resource ids will generally not be meaningful
+    as they are here.  Integers or UUIDs will be more typical.
+  </p>
+</div>
