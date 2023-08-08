@@ -28,13 +28,13 @@ Usage: #definition
 * insert InstanceVersion(1, "Initial goal", Scen1GoalV1, [[Initial value of 100 mins/week]])
 * insert InstanceVersion(1, "Initial goal", Scen1GoalV2, [[Initial value of 100 mins/week-completed]])
 * insert Instance_Content(Scen1Goal2,                          Bundle,         "Updated goal",                                     [[Updated value of 150 mins/week]])
-* insert Instance_Content(Scen1CarePlanBundleV1,               Bundle,         "Initial care plan search response bundle", [[Only contains 1 plan, though in practice, more than one is possible]])
+* insert Instance_Content(Scen1CarePlanBundle1,                Bundle,         "Initial care plan search response bundle", [[Only contains 1 plan, though in practice, more than one is possible]])
 * insert InstanceContains(Scen1CarePlan, 1)
-* insert Instance_Content(Scen1CarePlanBundleV2,               Bundle,         "Second care plan search response bundle", [[In a real system, the id would be the same as the original]])
+* insert Instance_Content(Scen1CarePlanBundle2,                Bundle,         "Second care plan search response bundle", [[In a real system, the id would be the same as the original]])
 * insert InstanceContains(Scen1CarePlan, 2)
-* insert Instance_Content(Scen1GoalBundleV1,                   Bundle,         "Initial goal search response bundle", [[There could be multiple goals, but in the scenario there's only one.]])
+* insert Instance_Content(Scen1GoalBundle1,                    Bundle,         "Initial goal search response bundle", [[There could be multiple goals, but in the scenario there's only one.]])
 * insert InstanceContains(Scen1Goal, 1)
-* insert Instance_Content(Scen1GoalBundleV2,                   Bundle,         "Second goal search response bundle", [[In a real system, the id would be the same as the original]])
+* insert Instance_Content(Scen1GoalBundle2,                    Bundle,         "Second goal search response bundle", [[In a real system, the id would be the same as the original]])
 * insert InstanceContains(Scen1Goal, 2)
 * insert InstanceContains(Scen1Goal2, )
 * insert Instance_Content(Scen1ExerciseRx,                     ServiceRequest, "Prescription for exercise", [[Expressed as a ServiceRequest with performer of the patient]])
@@ -49,8 +49,8 @@ Usage: #definition
   * description = "The patient accesses the care plan, goals and exercise prescription made available on the EHR"
   * preConditions = "Encounter (and other supporting) resources created"
   * postConditions = "Patient app has retrieved exercise plan related resources"
-  * insert ProcessSearch(1, "Query CarePlan",       patientApp, goodHealth, Scen1query1, Scen1CarePlanBundleV1, [[Patient app queries exercise CarePlan describing proposed exercise regime.]])
-  * insert ProcessSearch(2, "Query Goal",           patientApp, goodHealth, Scen1query2, Scen1GoalBundleV1,     [[Patient app queries Goals (100 minutes/week).]])
+  * insert ProcessSearch(1, "Query CarePlan",       patientApp, goodHealth, Scen1query1, Scen1CarePlanBundle1,  [[Patient app queries exercise CarePlan describing proposed exercise regime.]])
+  * insert ProcessSearch(2, "Query Goal",           patientApp, goodHealth, Scen1query2, Scen1GoalBundle1,      [[Patient app queries Goals (100 minutes/week).]])
   * insert ProcessSearch(3, "Query ServiceRequest", patientApp, goodHealth, Scen1query3, Scen1ExerciseRxBundle, [[Patient app queries ServiceRequest (order for ‘exercise’).]])
 * process[+]
   * title = "A couple of weeks later"
@@ -66,8 +66,8 @@ Usage: #definition
   * preConditions = "CarePlan and Goal have been updated in EHR"
   * postConditions = "Patient app retrieves updated CarePlan and Goal"
   * description = "In practice, the patient app would likely check for new CarePlans and Goals each time it launches.  However, this is the first time there'd be something new to retrieve."
-  * insert ProcessSearch(9,  "Query revised CarePlan", patientApp, goodHealth, Scen1query1, Scen1CarePlanBundleV2, [[Patient app queries revised CarePlan with providers notes.]])
-  * insert ProcessSearch(10, "Query revised Goal",     patientApp, goodHealth, Scen1query2, Scen1GoalBundleV2,     [[Patient app queries new Goals.]])
+  * insert ProcessSearch(9,  "Query revised CarePlan", patientApp, goodHealth, Scen1query1, Scen1CarePlanBundle2,  [[Patient app queries revised CarePlan with providers notes.]])
+  * insert ProcessSearch(10, "Query revised Goal",     patientApp, goodHealth, Scen1query2, Scen1GoalBundle2,      [[Patient app queries new Goals.]])
   * insert ProcessSearch(11, "Query ServiceRequest",   patientApp, goodHealth, Scen1query3, Scen1ExerciseRxBundle, [[The results of this search are the same as the initial call because the exercise 'prescription' has not changed.]])
 
 
@@ -90,7 +90,7 @@ Usage: #example
 * insert Note(2023-05-05, Scen1PractitionerPatel, "Dr. Rajesh Patel", [[Jorin is adhering well and indicates he's motivated by increased energy playing with his children.]])
 
 
-Instance: Scen1CarePlanBundleV1
+Instance: Scen1CarePlanBundle1
 InstanceOf: Bundle
 Title:       "Bundle 'Search Set' - CarePlan - initial - Scenario 1"
 Description:  "A search of all active or on-hold physical-activity related CarePlans for the patient.  In this case, there's only one, but in theory there could be more than one."
@@ -99,7 +99,7 @@ Usage: #example
 * insert EntryMatch(CarePlan, Scen1CarePlanV2)
 
 
-Instance: Scen1CarePlanBundleV2
+Instance: Scen1CarePlanBundle2
 InstanceOf: Bundle
 Title:       "Bundle 'Search Set' - Care Plan - updated - Scenario 1"
 Description:  "A search of all active or on-hold physical-activity related CarePlans for the patient.  In this case, we return the updated version of the CarePlan."
@@ -136,7 +136,7 @@ Usage: #example
 * insert Note(2023-11-01, Scen1PractitionerPatel, "Dr. Rajesh Patel", [[Significant progress.  Regularly exceeding the target and has found an activity he enjoys.  Need to branch out to one more activity to achieve guideline target.]])
 
 
-Instance: Scen1GoalBundleV1
+Instance: Scen1GoalBundle1
 InstanceOf: Bundle
 Title:       "Bundle 'Search Set' - Goal - Initial goal - Scenario 1"
 Description:  "A search of all active or on-hold physical-activity related Goals for the patient.  In this case, there's only one, but in theory there could be more than one."
@@ -145,7 +145,7 @@ Usage: #example
 * insert EntryMatch(Goal, Scen1GoalV2)
 
 
-Instance: Scen1GoalBundleV2
+Instance: Scen1GoalBundle2
 InstanceOf: Bundle
 Title:       "Bundle 'Search Set' - Goal - Updated goals - Scenario 1"
 Description:  "A search of all active or on-hold physical-activity related Goals for the patient.  In this case, we return the updated version of the Goal."

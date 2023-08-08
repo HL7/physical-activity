@@ -132,13 +132,13 @@ groups:
     resources:
       - Scen1CarePlanV1
       - Scen1CarePlanV2
-      - Scen1CarePlanBundleV1
-      - Scen1CarePlanBundleV2
+      - Scen1CarePlanBundle1
+      - Scen1CarePlanBundle2
       - Scen1GoalV1
       - Scen1GoalV2
       - Scen1Goal2
-      - Scen1GoalBundleV1
-      - Scen1GoalBundleV2
+      - Scen1GoalBundle1
+      - Scen1GoalBundle2
       - Scen1ExerciseRx
       - Scen1ExerciseRxBundle
       - Scen1ObservationDaysPerWeek
