@@ -71,11 +71,11 @@ description: "This implementation guide provides standardization around patient 
 parameters:
   path-expansion-params: "../../input/terminology-settings.xml"
   path-liquid: "liquid"
-  apply-version: false
-#  apply-contact: false
+#  apply-version: false
+  apply-contact: false
   apply-publisher: false
-  default-version: true
-#  default-contact: true
+#  default-version: true
+  default-contact: true
   default-publisher: true
   globals-in-artifacts: true
 instanceOptions:
