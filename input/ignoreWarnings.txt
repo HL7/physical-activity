@@ -8,9 +8,6 @@ ERROR: Canonical URL 'http://hl7.org/fhir/us/sdoh-clinicalcare/SubscriptionTopic
 # In any event, it's an issue with the SDOH IG, not physical-activity.
 The link 'http://hl7.org/fhir/us/sdoh-clinicalcare/SubscriptionTopic/Task' for "http://hl7.org/fhir/us/sdoh-clinicalcare/SubscriptionTopic/Task" cannot be resolved
 
-# This is an example Questionnaire canonical that isn't expected to resolve and isn't relevant for the scope of the scenario
-The questionnaire 'http://example.org/Questionnaire/scen4Questionnaire' could not be resolved, so no validation can be performed against the base questionnaire
-
 # All of these observations largely comply with the US Core R6 "Simple Observation" profile, which is not available in the 3.1.1 release used by this IG
 # The only exception is that the physical activity profiles do not have the 'derivedFrom' element marked as mustSupport.  In general, these observations will always be recorded directly
 # and not derived.  The high-level vital sign summaries *could* potentially be derived from a QuestionnaireResponse, but this is not supported in US Core 6.0.0, and even if it were,

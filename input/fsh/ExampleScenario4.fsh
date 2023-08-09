@@ -97,7 +97,7 @@ InstanceOf: PACarePlan
 Title:       "CarePlan - initial version - Scenario 4"
 Description:  "A care plan for physical activity for patient Scarborough."
 Usage: #example
-* insert CarePlan(2023-05-15, 2023-06-15, Scen4PatientScarborough, "Ms. Scarborough", Scen4Practitioner, "Ms. Rocha", [[Ms. Scarborough will use her home weights and alternate between lower-body and upper-body on week-days each morning for 30 minutes after waking.]])
+* insert CarePlan(2023-06-24, 2023-12-24, Scen4PatientScarborough, "Ms. Scarborough", Scen4Practitioner, "Ms. Rocha", [[Ms. Scarborough will use her home weights and alternate between lower-body and upper-body on week-days each morning for 30 minutes after waking.]])
 * goal[+] = Reference(Scen4Goal1V1)
 
 Instance: Scen4CarePlanV2
@@ -105,7 +105,7 @@ InstanceOf: PACarePlan
 Title:       "CarePlan - updated version - Scenario 4"
 Description:  "An updated care plan for physical activity for patient Scarborough."
 Usage: #example
-* insert CarePlan(2023-05-15, 2023-06-15, Scen4PatientScarborough, "Ms. Scarborough", Scen4Practitioner, "Ms. Rocha", [[Ms. Scarborough will use her home weights and alternate between lower-body and upper-body on week-days each morning for 15 minutes after waking and 30 minutes before dinner.]])
+* insert CarePlan(2023-06-24, 2024-03-30, Scen4PatientScarborough, "Ms. Scarborough", Scen4Practitioner, "Ms. Rocha", [[Ms. Scarborough will use her home weights and alternate between lower-body and upper-body on week-days each morning for 15 minutes after waking and 30 minutes before dinner.]])
 * goal[+] = Reference(Scen4Goal1V2)
 * goal[+] = Reference(Scen4Goal2V1)
 
@@ -176,63 +176,63 @@ InstanceOf: PAObservationActivityMeasure
 Title:       "Observation - Activity Type - Scenario 4"
 Description:  "Observation of the exercise activity performed by patient Scarborough."
 Usage: #example
-* insert ActivityType(Scen4PatientScarborough, "Jessica Scarborough", Scen4PatientScarborough, "Jessica Scarborough", 2022-05-20T12:00:00-07:00, LA11839-0, "Weights")
-
-Instance: Scen4ObservationDailySteps
-InstanceOf: PAObservationTimeMeasure
-Title:       "Observation - Daily Steps - Scenario 4"
-Description:  "An observation of the number of steps taken per day by patient Scarborough."
-Usage: #example
-* insert DailySteps(Scen4PatientScarborough, "Jessica Scarborough", Scen4PatientScarborough, "Jessica Scarborough", 2022-05-15T12:00:00-07:00, 3000)
+* insert ActivityType(Scen4PatientScarborough, "Jessica Scarborough", Scen4PatientScarborough, "Jessica Scarborough", 2023-07-15T12:00:00-07:00, LA11839-0, "Weights")
 
 Instance: Scen4ObservationEVSMinutesPerDay
 InstanceOf: PAObservationEVSMinutesPerDay
 Title:       "Observation - Minutes/Day - Scenario 4"
 Description:  "An observation of the number of minutes per day engaged in EVS activity by patient Scarborough."
 Usage: #example
-* insert MinPerDay(Scen4PatientScarborough, "Jessica Scarborough", Scen4PatientScarborough, "Jessica Scarborough", 2022-05-20T12:00:00-07:00, 20)
+* insert MinPerDay(Scen4PatientScarborough, "Jessica Scarborough", Scen4PatientScarborough, "Jessica Scarborough", 2023-07-15T12:00:00-07:00, 20)
 
 Instance: Scen4ObservationPeakDailyHeartRate
 InstanceOf: PAObservationTimeMeasure
 Title:       "Observation - Peak Daily Heart Rate - Scenario 4"
 Description:  "An observation of the peak daily heart rate of patient Scarborough."
 Usage: #example
-* insert PeakHeartRate(Scen4PatientScarborough, "Jessica Scarborough", Scen4PatientScarborough, "Jessica Scarborough", 2022-05-20T12:00:00-07:00, 179)
-
-Instance: Scen4ObservationCaloriesPerDay
-InstanceOf: PAObservationTimeMeasure
-Title:       "Observation - Calories/Day - Scenario 4"
-Description:  "An observation of the number of calories burned per day by patient Scarborough."
-Usage: #example
-* insert DailyCalories(Scen4PatientScarborough, "Jessica Scarborough", Scen4PatientScarborough, "Jessica Scarborough", 2022-05-20T12:00:00-07:00, 629)
+* insert PeakHeartRate(Scen4PatientScarborough, "Jessica Scarborough", Scen4PatientScarborough, "Jessica Scarborough", 2023-08-03T12:00:00-07:00, 179)
 
 Instance: Scen4ObservationEVSMinutesPerDay2
 InstanceOf: PAObservationEVSMinutesPerDay
 Title:       "Observation - Minutes/Day#2 - Scenario 4"
 Description:  "An observation of the number of minutes per day engaged in physical activity."
 Usage: #example
-* insert MinPerDay(Scen4PatientScarborough, "Jessica Scarborough", Scen4PatientScarborough, "Jessica Scarborough", 2022-05-20T12:00:00-07:00, 30)
+* insert MinPerDay(Scen4PatientScarborough, "Jessica Scarborough", Scen4PatientScarborough, "Jessica Scarborough", 2023-08-03T12:00:00-07:00, 30)
+
+Instance: Scen4ObservationDailySteps
+InstanceOf: PAObservationTimeMeasure
+Title:       "Observation - Daily Steps - Scenario 4"
+Description:  "An observation of the number of steps taken per day by patient Scarborough."
+Usage: #example
+* insert DailySteps(Scen4PatientScarborough, "Jessica Scarborough", Scen4PatientScarborough, "Jessica Scarborough", 2023-09-11T12:00:00-07:00, 3000)
+
+Instance: Scen4ObservationCaloriesPerDay
+InstanceOf: PAObservationTimeMeasure
+Title:       "Observation - Calories/Day - Scenario 4"
+Description:  "An observation of the number of calories burned per day by patient Scarborough."
+Usage: #example
+* insert DailyCalories(Scen4PatientScarborough, "Jessica Scarborough", Scen4PatientScarborough, "Jessica Scarborough", 2023-09-11T12:00:00-07:00, 629)
 
 Instance: Scen4ObservationEVSMinutesPerDay3
 InstanceOf: PAObservationEVSMinutesPerDay
 Title:       "Observation - Minutes/Day#3 - Scenario 4"
 Description:  "An observation of the number of minutes per day engaged in physical activity."
 Usage: #example
-* insert MinPerDay(Scen4PatientScarborough, "Jessica Scarborough", Scen4PatientScarborough, "Jessica Scarborough", 2022-07-15T11:00:00-07:00, 45)
+* insert MinPerDay(Scen4PatientScarborough, "Jessica Scarborough", Scen4PatientScarborough, "Jessica Scarborough", 2023-11-30T11:00:00-07:00, 45)
 
 Instance: Scen4TaskFillSurveyV1
 InstanceOf: SDOHCCTaskForPatient
 Title:       "Task - fill Questionnaire#1 'requested' - Scenario 4"
 Description:  "A task to fill out a survey indicating satisfaction with the physical activity plan for patient Scarborough."
 Usage: #example
-* insert QuestionnaireTask(Scen4PatientScarborough, "Jessica Scarborough", Scen4Role, "Ms. Rocha", routine, 2023-06-12T09:00:00-07:00, requested, https://example.org/fhir/Questionnaire/satisfaction|2.1, [[Fill out a survey indicating satisfaction with plan]])
+* insert QuestionnaireTask(Scen4PatientScarborough, "Jessica Scarborough", Scen4Role, "Ms. Rocha", routine, 2023-10-14T09:00:00-07:00, requested, https://example.org/fhir/Questionnaire/satisfaction|2.1, [[Fill out a survey indicating satisfaction with plan]])
 
 Instance: Scen4TaskFillSurveyV2
 InstanceOf: SDOHCCTaskForPatient
 Title:       "Task - fill Questionnaire#1 'completed' - Scenario 4"
 Description:  "A completed task of filling out a survey indicating discomfort with shoulder."
 Usage: #example
-* insert QuestionnaireTask(Scen4PatientScarborough, "Jessica Scarborough", Scen4Role, "Ms. Rocha", routine, 2023-06-15T13:23:00-07:00, completed, https://example.org/fhir/Questionnaire/satisfaction|2.1, [[Fill out a survey indicating satisfaction with plan]])
+* insert QuestionnaireTask(Scen4PatientScarborough, "Jessica Scarborough", Scen4Role, "Ms. Rocha", routine, 2023-10-14T09:00:00-07:00, completed, https://example.org/fhir/Questionnaire/satisfaction|2.1, [[Fill out a survey indicating satisfaction with plan]])
 * output[QuestionnaireResponse].valueReference = Reference(Scen4QuestionnaireResponse)
 
 Instance: Scen4TaskReviewVideoV1
@@ -240,7 +240,7 @@ InstanceOf: SDOHCCTaskForPatient
 Title:       "Task - view video 'requested' - Scenario 4"
 Description:  "A task for patient Scarborough to review an exercise video."
 Usage: #example
-* insert ReviewTask(Scen4PatientScarborough, "Jessica Scarborough", Scen4Role, "Ms. Rocha", routine, 2023-06-16T09:00:00-07:00, requested, Scen4Video, [[Please review this arm-curl video.  Pay particular attention to the 3:00 - 3:35 portion.  If you adjust your technique accordingly, it may help with your shoulder pain.]])
+* insert ReviewTask(Scen4PatientScarborough, "Jessica Scarborough", Scen4Role, "Ms. Rocha", routine, 2023-10-17T09:00:00-07:00, requested, Scen4Video, [[Please review this arm-curl video.  Pay particular attention to the 3:00 - 3:35 portion.  If you adjust your technique accordingly, it may help with your shoulder pain.]])
 * contained[+] = Scen4Video
 
 Instance: Scen4Video
@@ -255,7 +255,7 @@ InstanceOf: SDOHCCTaskForPatient
 Title:       "Task - view video 'completed' - Scenario 4"
 Description:  "A completed task of patient Scarborough reviewing an exercise video."
 Usage: #example
-* insert ReviewTask(Scen4PatientScarborough, "Jessica Scarborough", Scen4Role, "Ms. Rocha", routine, 2023-06-16T09:00:00-07:00, completed, Scen4Video, [[Please review this arm-curl video.  Pay particular attention to the 3:00 - 3:35 portion.  If you adjust your technique accordingly, it may help with your shoulder pain.]])
+* insert ReviewTask(Scen4PatientScarborough, "Jessica Scarborough", Scen4Role, "Ms. Rocha", routine, 2023-10-17T09:00:00-07:00, completed, Scen4Video, [[Please review this arm-curl video.  Pay particular attention to the 3:00 - 3:35 portion.  If you adjust your technique accordingly, it may help with your shoulder pain.]])
 * contained[+] = Scen4Video
 * output[GeneralInformationResponse].valueMarkdown = "Ok, that makes sense.  Thanks."
 
@@ -264,14 +264,14 @@ InstanceOf: SDOHCCTaskForPatient
 Title:       "Task - fill Questionnaire#2 'requested' - Scenario 4"
 Description:  "A task to fill out a survey indicating satisfaction with the updated physical activity plan."
 Usage: #example
-* insert QuestionnaireTask(Scen4PatientScarborough, "Jessica Scarborough", Scen4Role, "Ms. Rocha", routine, 2023-09-12T09:00:00-07:00, requested, https://example.org/fhir/Questionnaire/satisfaction|2.1, [[Fill out a survey indicating satisfaction with plan]])
+* insert QuestionnaireTask(Scen4PatientScarborough, "Jessica Scarborough", Scen4Role, "Ms. Rocha", routine, 2024-02-20T09:00:00-07:00, requested, https://example.org/fhir/Questionnaire/satisfaction|2.1, [[Fill out a survey indicating satisfaction with plan]])
 
 Instance: Scen4TaskFillSurvey2V2
 InstanceOf: SDOHCCTaskForPatient
 Title:       "Task - fill Questionnaire#2 'completed' - Scenario 4"
 Description:  "A completed task of filling out a survey indicating satisfaction with the updated physical activity plan."
 Usage: #example
-* insert QuestionnaireTask(Scen4PatientScarborough, "Jessica Scarborough", Scen4Role, "Ms. Rocha", routine, 2023-09-10T14:22:00-07:00, completed, https://example.org/fhir/Questionnaire/satisfaction|2.1, [[Fill out a survey indicating satisfaction with plan]])
+* insert QuestionnaireTask(Scen4PatientScarborough, "Jessica Scarborough", Scen4Role, "Ms. Rocha", routine, 2024-02-20T09:00:00-07:00, completed, https://example.org/fhir/Questionnaire/satisfaction|2.1, [[Fill out a survey indicating satisfaction with plan]])
 * output[QuestionnaireResponse].valueReference = Reference(Scen4QuestionnaireResponse2)
 
 Instance: Scen4TaskBundle1
@@ -313,7 +313,7 @@ InstanceOf: SDCQuestionnaireResponse
 Title:       "QuestionnaireResponse - Exercise Satisfaction - Scenario 4"
 Description:  "A completed questionnaire response indicating the patient's satisfaction with the exercise plan, mentioning experiencing discomfort during shoulder exercises."
 Usage: #example
-* insert QuestionnaireResponse(Scen4PatientScarborough, "Ms. Scarborough", 2023-06-15, https://example.org/fhir/Questionnaire/satisfaction|2.1)
+* insert QuestionnaireResponse(Scen4PatientScarborough, "Ms. Scarborough", 2023-10-16, https://example.org/fhir/Questionnaire/satisfaction|2.1)
 * basedOn = Reference(Scen4CarePlanV1)
 * insert BooleanAnswer(1, true,                [[Are you satisfied with your current exercise plan?]])
 * insert BooleanAnswer(2, true,                [[Did you experience any discomfort with an exercise?]])
@@ -324,7 +324,7 @@ InstanceOf: SDCQuestionnaireResponse
 Title:       "QuestionnaireResponse - Exercise Satisfaction2 - Scenario 4"
 Description:  "A completed questionnaire response indicating the patient's satisfaction with the exercise plan, mentioning no discomfort during exercises."
 Usage: #example
-* insert QuestionnaireResponse(Scen4PatientScarborough, "Ms. Scarborough", 2023-09-10, https://example.org/fhir/Questionnaire/satisfaction|2.1)
+* insert QuestionnaireResponse(Scen4PatientScarborough, "Ms. Scarborough", 2024-02-21, https://example.org/fhir/Questionnaire/satisfaction|2.1)
 * basedOn = Reference(Scen4CarePlanV2)
 * insert BooleanAnswer(1, true,                [[Are you satisfied with your current exercise plan?]])
 * insert BooleanAnswer(2, true,                [[Did you experience any discomfort with an exercise?]])
