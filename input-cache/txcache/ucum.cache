@@ -1,6 +1,29 @@
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://unitsofmeasure.org",
+  "code" : "min/wk"
+}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "min/wk",
+  "code" : "min/wk",
+  "system" : "http://unitsofmeasure.org",
+  "version" : "2.0.1"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://unitsofmeasure.org",
   "code" : "d/wk"
 }, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
@@ -47,7 +70,7 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://unitsofmeasure.org",
-  "code" : "kcal"
+  "code" : "min"
 }, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
@@ -62,8 +85,8 @@ v: {
   }]
 }}####
 v: {
-  "display" : "kcal",
-  "code" : "kcal",
+  "display" : "min",
+  "code" : "min",
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1"
 }
@@ -93,7 +116,7 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://unitsofmeasure.org",
-  "code" : "{steps}"
+  "code" : "kcal/d"
 }, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
@@ -108,8 +131,8 @@ v: {
   }]
 }}####
 v: {
-  "display" : "{steps}",
-  "code" : "{steps}",
+  "display" : "kcal/d",
+  "code" : "kcal/d",
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1"
 }
@@ -139,7 +162,7 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://unitsofmeasure.org",
-  "code" : "min/wk"
+  "code" : "kcal"
 }, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
@@ -154,54 +177,8 @@ v: {
   }]
 }}####
 v: {
-  "display" : "min/wk",
-  "code" : "min/wk",
-  "system" : "http://unitsofmeasure.org",
-  "version" : "2.0.1"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://unitsofmeasure.org",
-  "code" : "min"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "min",
-  "code" : "min",
-  "system" : "http://unitsofmeasure.org",
-  "version" : "2.0.1"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://unitsofmeasure.org",
-  "code" : "kcal/24.h"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "kcal/24.h",
-  "code" : "kcal/24.h",
+  "display" : "kcal",
+  "code" : "kcal",
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1"
 }
@@ -225,6 +202,29 @@ v: {
 v: {
   "display" : "/d",
   "code" : "/d",
+  "system" : "http://unitsofmeasure.org",
+  "version" : "2.0.1"
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://unitsofmeasure.org",
+  "code" : "min/wk"
+}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "min/wk",
+  "code" : "min/wk",
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1"
 }
@@ -277,7 +277,7 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://unitsofmeasure.org",
-  "code" : "kcal"
+  "code" : "min"
 }, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
@@ -292,8 +292,8 @@ v: {
   }]
 }}####
 v: {
-  "display" : "kcal",
-  "code" : "kcal",
+  "display" : "min",
+  "code" : "min",
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1"
 }
@@ -323,7 +323,7 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://unitsofmeasure.org",
-  "code" : "{steps}"
+  "code" : "kcal/d"
 }, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
@@ -338,8 +338,8 @@ v: {
   }]
 }}####
 v: {
-  "display" : "{steps}",
-  "code" : "{steps}",
+  "display" : "kcal/d",
+  "code" : "kcal/d",
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1"
 }
@@ -369,7 +369,7 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "system" : "http://unitsofmeasure.org",
-  "code" : "min/wk"
+  "code" : "kcal"
 }, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
@@ -384,54 +384,8 @@ v: {
   }]
 }}####
 v: {
-  "display" : "min/wk",
-  "code" : "min/wk",
-  "system" : "http://unitsofmeasure.org",
-  "version" : "2.0.1"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://unitsofmeasure.org",
-  "code" : "min"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "min",
-  "code" : "min",
-  "system" : "http://unitsofmeasure.org",
-  "version" : "2.0.1"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://unitsofmeasure.org",
-  "code" : "kcal/24.h"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "kcal/24.h",
-  "code" : "kcal/24.h",
+  "display" : "kcal",
+  "code" : "kcal",
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1"
 }
@@ -455,52 +409,6 @@ v: {
 v: {
   "display" : "/d",
   "code" : "/d",
-  "system" : "http://unitsofmeasure.org",
-  "version" : "2.0.1"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://unitsofmeasure.org",
-  "code" : "kcal/d"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "kcal/d",
-  "code" : "kcal/d",
-  "system" : "http://unitsofmeasure.org",
-  "version" : "2.0.1"
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://unitsofmeasure.org",
-  "code" : "kcal/d"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "kcal/d",
-  "code" : "kcal/d",
   "system" : "http://unitsofmeasure.org",
   "version" : "2.0.1"
 }

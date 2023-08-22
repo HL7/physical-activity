@@ -1,0 +1,11 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R4/fhir-single.xsd">
+  <p>
+    This scenario provides an example of the types of data exchanges that are described in the <a href="scenarios.html#program-referral">Patient Seeks 
+    Referral for Exercise Program scenario</a> from the <a href="scenarios.html">Scenarios</a> page.</p>
+  <p>
+    The scenario shows the flows of information between the different systems
+    and the various FHIR calls involved, as well as what the data might have looked like in each of the exchanges.  There are detailed tables below
+    that provide details on each of the steps in the exchange as well as the types of data being shared.  From the <a href="#instances">instances</a>
+    table, it's possible to navigate to sample XML and JSON instances.
+  </p>
+</div>

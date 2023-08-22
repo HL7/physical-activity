@@ -19,8 +19,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:7d38ba90-cc89-487d-b558-5be274c4f4ba",
-    "timestamp" : "2023-07-10T03:12:09.010Z",
+    "identifier" : "urn:uuid:25f36c22-52e2-4897-8a62-3012789486f0",
+    "timestamp" : "2023-08-22T18:34:27.456Z",
     "total" : 2,
     "parameter" : [{
       "name" : "limitedExpansion",
@@ -29,6 +29,14 @@ e: {
     {
       "name" : "excludeNested",
       "valueBoolean" : true
+    },
+    {
+      "name" : "warning-draft",
+      "valueUri" : "http://hl7.org/fhir/task-status|4.0.1"
+    },
+    {
+      "name" : "used-codesystem",
+      "valueUri" : "http://hl7.org/fhir/task-status|4.0.1"
     },
     {
       "name" : "version",

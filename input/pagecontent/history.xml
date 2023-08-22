@@ -3,6 +3,54 @@
     This page summarizes the main changes that have happened between releases of the implementation guide
   </p>
 
+  <a name="1.1.0"> </a>
+  <h3>STU 1.1 - First official release (1.1.0)</h3>
+  <p>
+    Key changes in this release from the version that went to ballot are below.  Where applicable, links
+    are included to the associated Jira issue.  In addition to these, a number of other non-substantive
+    changes that clarify or improve wording and/or fix minor errors were applied.
+  </p>
+  <ul>
+    <li>Made support for the Coverage Information card mandatory (<a href="https://jira.hl7.org/browse/FHIR-37484">FHIR-37484</a>)</li>
+    <li>Made support for system action mandatory for coverage information and 'MAY' for request form completion and create/update coverage information (<a href="https://jira.hl7.org/browse/FHIR-37484">FHIR-37484</a>)</li>
+    <li>Dropped using SMART launch for DTR and deferred launch (<a href="https://jira.hl7.org/browse/FHIR-33124">FHIR-33124</a>, <a href="https://jira.hl7.org/browse/FHIR-39452">FHIR-39452</a>)</li>
+    <li>Additional changes to the coverage-information extension:
+      <ul>
+        <li>Add assertion of dependencies between a coverage assertion and other orders it might be dependent on  (<a href="https://jira.hl7.org/browse/FHIR-40660">FHIR-40660</a>)</li>
+        <li>Added support for questionnaires and responses coming back with coverage information, and guidance about how QRs should be represented  (<a href="https://jira.hl7.org/browse/FHIR-40603">FHIR-40603</a>)</li>
+        <li>Split the 'code' element into a number of properties that distinctly convey coverage, prior authorization, documentation requirements, need for additional information, etc.  As well, split the identifier into an assertion id and a prior auth satisfied id  (<a href="https://jira.hl7.org/browse/FHIR-41435">FHIR-41435</a>)</li>
+      </ul>
+    </li>
+    <li>Added guidance on metrics</li>
+    <li>Added guidance on ePA coordinators</li>
+  </ul>
+
+  <a name="1.1.0-ballot"> </a>
+  <h3>STU 1.1 - Ballot for second release (1.1.0-ballot)</h3>
+  <p>
+    Substantive changes in this release from the first official release are below.  Where applicable, links
+    are included to the associated Jira issue.  In addition to these, a number of other non-substantive
+    changes that clarify or improve wording and/or fix minor errors were applied.
+  </p>
+  <ul>
+    <li>Various updates to the coverage-information extension, including:
+      <ul>
+        <li>Added ability to link to which requests or other resources are associated with a card (<a href="https://jira.hl7.org/browse/FHIR-33252">FHIR-33252</a>).</li>
+        <li>Added a code to indicate the overall assertion (covered, not covered, prior auth required, clinical DTR needed, administrative DTR needed) - (<a href="https://jira.hl7.org/browse/FHIR-33225">FHIR-33225</a>)</li>
+        <li>Added link to the specific coverage the information applies to (<a href="https://jira.hl7.org/browse/FHIR-33225">FHIR-33225</a>)</li>
+        <li>Added date assertion was made (<a href="https://jira.hl7.org/browse/FHIR-33225">FHIR-33225</a>)</li>
+        <li>Added an identifier for traceability (<a href="https://jira.hl7.org/browse/FHIR-33225">FHIR-33225</a>)</li>
+        <li>Added 'reason' for the coverage assertion (<a href="https://jira.hl7.org/browse/FHIR-36442">FHIR-36442</a>)</li>
+        <li>Added a 'detail' structure to convey additional information about the coverage assertion  (<a href="https://jira.hl7.org/browse/FHIR-36477">FHIR-36477</a>)</li>
+        <li>Added ability to include a 'contact' for follow-up about a coverage assertion (<a href="https://jira.hl7.org/browse/FHIR-37817">FHIR-37817</a>)</li>
+      </ul>
+    </li>
+    <li>Defined a standard list of card types (<a href="https://jira.hl7.org/browse/FHIR-18895">FHIR-11895</a>)</li>
+    <li>Add support for system action as an optional sharing approach (<a href="https://jira.hl7.org/browse/FHIR-34216">FHIR-34216</a>)</li>
+    <li>Added rules requiring hooks to only be sent to payers where patient has active coverage (<a href="https://jira.hl7.org/browse/FHIR-34102">FHIR-34102</a>)</li>
+    <li>Removed mustSupport from the 'insurance' elements in the various Request resources, as well as dropping the extension introduced to those resources that did not have an 'insurance' element (<a href="https://jira.hl7.org/browse/FHIR-36746">FHIR-36746</a>)</li>
+  </ul>
+
   <a name="1.0.0"> </a>
   <h3>STU 1 - First official release (1.0.0)</h3>
   <p>

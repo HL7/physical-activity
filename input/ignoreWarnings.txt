@@ -3,6 +3,17 @@
 # This SubscriptionTopic is defined by SDOH, but is not defined as a resource because SubscriptionTopic doesn't exist in R4.  Instead, it's just defined as parG
 ERROR: Canonical URL 'http://hl7.org/fhir/us/sdoh-clinicalcare/SubscriptionTopic/Task' does not resolve
 
+# There's an issue with the publication process that is changing the version of the published questionnaire
+The questionnaire 'https://example.org/fhir/Questionnaire/satisfaction|2.1' could not be resolved, so no validation can be performed against the base questionnaire
+
+
+# These value sets are incorrectly marked as draft in the R4 core spec.  This is a new warning.  Will work to get these corrected in the R6 spec, though that won't help with R4. 
+Reference to draft item http://hl7.org/fhir/narrative-status|4.0.1
+Reference to draft item http://terminology.hl7.org/CodeSystem/condition-ver-status|0.5.0
+Reference to draft item http://hl7.org/fhir/diagnostic-report-status|4.0.1
+Reference to draft item http://hl7.org/fhir/request-intent|4.0.1
+Reference to draft item http://hl7.org/fhir/task-status|4.0.1
+
 # There are conversion errrors for ExampleScenario that are causing these validation errorst of the IG text.
 # The narrative rendering for the resources, however, thinks it should be a valid link.  Not clear how to stop the narrative from doing that...
 # In any event, it's an issue with the SDOH IG, not physical-activity.

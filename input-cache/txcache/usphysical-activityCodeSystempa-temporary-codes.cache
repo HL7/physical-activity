@@ -17,8 +17,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:baae1297-5fcc-4702-a44c-af9c5b22eb72",
-    "timestamp" : "2023-08-09T01:46:00.618Z",
+    "identifier" : "urn:uuid:f6d6aafe-9b50-4a0a-b8e4-e89badf639b0",
+    "timestamp" : "2023-08-22T21:50:28.049Z",
     "total" : 1,
     "parameter" : [{
       "name" : "limitedExpansion",
@@ -27,6 +27,10 @@ e: {
     {
       "name" : "excludeNested",
       "valueBoolean" : true
+    },
+    {
+      "name" : "used-codesystem",
+      "valueUri" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|1.0.0"
     },
     {
       "name" : "version",
@@ -60,8 +64,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:7132a20d-c517-48af-8f9b-19a18961046d",
-    "timestamp" : "2023-08-09T01:46:00.821Z",
+    "identifier" : "urn:uuid:557e9d08-de73-4893-80c5-1fe943792a47",
+    "timestamp" : "2023-08-22T21:50:28.721Z",
     "total" : 1,
     "parameter" : [{
       "name" : "limitedExpansion",
@@ -70,6 +74,10 @@ e: {
     {
       "name" : "excludeNested",
       "valueBoolean" : true
+    },
+    {
+      "name" : "used-codesystem",
+      "valueUri" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes|1.0.0"
     },
     {
       "name" : "version",

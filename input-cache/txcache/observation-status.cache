@@ -25,8 +25,8 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:5af649e0-805b-4f06-ad48-5804d8907c0c",
-    "timestamp" : "2023-07-10T03:12:08.510Z",
+    "identifier" : "urn:uuid:b8ff3758-4693-46e4-8bfd-6e9d36eea950",
+    "timestamp" : "2023-08-22T18:34:25.878Z",
     "total" : 4,
     "parameter" : [{
       "name" : "limitedExpansion",
@@ -35,6 +35,10 @@ e: {
     {
       "name" : "excludeNested",
       "valueBoolean" : true
+    },
+    {
+      "name" : "used-codesystem",
+      "valueUri" : "http://hl7.org/fhir/observation-status|4.0.1"
     },
     {
       "name" : "version",
