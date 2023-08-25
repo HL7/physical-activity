@@ -13,7 +13,7 @@ fhirVersion: 4.0.1
 status: active
 date: 2022-05-29
 copyrightYear: 2022+
-releaseLabel: Continuous Integration
+releaseLabel: STU Release 1
 jurisdiction: urn:iso:std:iso:3166#US
 publisher:
   name: HL7 International - Patient Care WG
