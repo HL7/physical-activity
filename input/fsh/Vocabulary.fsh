@@ -35,10 +35,6 @@ Title:         "PA Observation Activity Feeling Scale"
 Description:   "Codes to express the 'experience' of a physical activity."
 * ^experimental = false
 * include codes from system PATemporaryCodes where concept is-a #_experienceCode
-* $obsStatus#final
-* $obsStatus#amended
-* $obsStatus#corrected
-* $obsStatus#entered-in-error
 
 ValueSet:      PAObservationStatus
 Id:            pa-observation-status

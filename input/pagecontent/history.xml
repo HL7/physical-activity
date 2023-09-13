@@ -3,82 +3,42 @@
     This page summarizes the main changes that have happened between releases of the implementation guide
   </p>
 
-  <a name="1.1.0"> </a>
-  <h3>STU 1.1 - First official release (1.1.0)</h3>
+  <a name="1.0.1"> </a>
+  <h3>STU 1.1 - First technical correction (1.0.1)</h3>
   <p>
-    Key changes in this release from the version that went to ballot are below.  Where applicable, links
-    are included to the associated Jira issue.  In addition to these, a number of other non-substantive
-    changes that clarify or improve wording and/or fix minor errors were applied.
+    This release includes minor, non-substantive corrections to the original 1.0.0 release.
   </p>
   <ul>
-    <li>Made support for the Coverage Information card mandatory (<a href="https://jira.hl7.org/browse/FHIR-37484">FHIR-37484</a>)</li>
-    <li>Made support for system action mandatory for coverage information and 'MAY' for request form completion and create/update coverage information (<a href="https://jira.hl7.org/browse/FHIR-37484">FHIR-37484</a>)</li>
-    <li>Dropped using SMART launch for DTR and deferred launch (<a href="https://jira.hl7.org/browse/FHIR-33124">FHIR-33124</a>, <a href="https://jira.hl7.org/browse/FHIR-39452">FHIR-39452</a>)</li>
-    <li>Additional changes to the coverage-information extension:
-      <ul>
-        <li>Add assertion of dependencies between a coverage assertion and other orders it might be dependent on  (<a href="https://jira.hl7.org/browse/FHIR-40660">FHIR-40660</a>)</li>
-        <li>Added support for questionnaires and responses coming back with coverage information, and guidance about how QRs should be represented  (<a href="https://jira.hl7.org/browse/FHIR-40603">FHIR-40603</a>)</li>
-        <li>Split the 'code' element into a number of properties that distinctly convey coverage, prior authorization, documentation requirements, need for additional information, etc.  As well, split the identifier into an assertion id and a prior auth satisfied id  (<a href="https://jira.hl7.org/browse/FHIR-41435">FHIR-41435</a>)</li>
-      </ul>
-    </li>
-    <li>Added guidance on metrics</li>
-    <li>Added guidance on ePA coordinators</li>
-  </ul>
-
-  <a name="1.1.0-ballot"> </a>
-  <h3>STU 1.1 - Ballot for second release (1.1.0-ballot)</h3>
-  <p>
-    Substantive changes in this release from the first official release are below.  Where applicable, links
-    are included to the associated Jira issue.  In addition to these, a number of other non-substantive
-    changes that clarify or improve wording and/or fix minor errors were applied.
-  </p>
-  <ul>
-    <li>Various updates to the coverage-information extension, including:
-      <ul>
-        <li>Added ability to link to which requests or other resources are associated with a card (<a href="https://jira.hl7.org/browse/FHIR-33252">FHIR-33252</a>).</li>
-        <li>Added a code to indicate the overall assertion (covered, not covered, prior auth required, clinical DTR needed, administrative DTR needed) - (<a href="https://jira.hl7.org/browse/FHIR-33225">FHIR-33225</a>)</li>
-        <li>Added link to the specific coverage the information applies to (<a href="https://jira.hl7.org/browse/FHIR-33225">FHIR-33225</a>)</li>
-        <li>Added date assertion was made (<a href="https://jira.hl7.org/browse/FHIR-33225">FHIR-33225</a>)</li>
-        <li>Added an identifier for traceability (<a href="https://jira.hl7.org/browse/FHIR-33225">FHIR-33225</a>)</li>
-        <li>Added 'reason' for the coverage assertion (<a href="https://jira.hl7.org/browse/FHIR-36442">FHIR-36442</a>)</li>
-        <li>Added a 'detail' structure to convey additional information about the coverage assertion  (<a href="https://jira.hl7.org/browse/FHIR-36477">FHIR-36477</a>)</li>
-        <li>Added ability to include a 'contact' for follow-up about a coverage assertion (<a href="https://jira.hl7.org/browse/FHIR-37817">FHIR-37817</a>)</li>
-      </ul>
-    </li>
-    <li>Defined a standard list of card types (<a href="https://jira.hl7.org/browse/FHIR-18895">FHIR-11895</a>)</li>
-    <li>Add support for system action as an optional sharing approach (<a href="https://jira.hl7.org/browse/FHIR-34216">FHIR-34216</a>)</li>
-    <li>Added rules requiring hooks to only be sent to payers where patient has active coverage (<a href="https://jira.hl7.org/browse/FHIR-34102">FHIR-34102</a>)</li>
-    <li>Removed mustSupport from the 'insurance' elements in the various Request resources, as well as dropping the extension introduced to those resources that did not have an 'insurance' element (<a href="https://jira.hl7.org/browse/FHIR-36746">FHIR-36746</a>)</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-42752">FHIR-42752</a> - Added missing this history page.  (Original version was defined but not published or shown in the menu.)</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-42746">FHIR-42746</a> - Corrected Feeling Scale value set to remove codes that were not supposed to be there.</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-42749">FHIR-42749</a> - Corrected copy &amp; paste issue with names in Activity-based measure table.</li>
   </ul>
 
   <a name="1.0.0"> </a>
-  <h3>STU 1 - First official release (1.0.0)</h3>
+  <h3>STU 1.0 - First release (1.0.0)</h3>
   <p>
-    Key changes in this release from the version that went to ballot are below.  Where applicable, links
-    are included to the associated Jira issue.  In addition to these, a number of other non-substantive
-    changes that clarify or improve wording and/or fix minor errors were applied.
+    Initial official publication.  Included the following key changes from the version that went
+    to ballot, including the tracker item(s) that drove the changes.
   </p>
   <ul>
-    <li>Updated CapabilityStatements to be based on US Core and revised conformance expectations for many of the operations.  Also added expectations on Patient, Practitioner and other registry resources (<a href="https://jira.hl7.org/browse/FHIR-40796">FHIR-40796</a>, <a href="https://jira.hl7.org/browse/FHIR-40767">FHIR-40767</a>, <a href="https://jira.hl7.org/browse/FHIR-40751">FHIR-40751</a>)</li>
-    <li>For the different profiles, use 'activity' rather than 'social history' as the category to satisfy US Core and make the Physical Activity category mandatory (<a href="https://jira.hl7.org/browse/FHIR-41295">FHIR-41295</a>, <a href="https://jira.hl7.org/browse/FHIR-41114">FHIR-41114</a>, <a href="https://jira.hl7.org/browse/FHIR-41037">FHIR-41037</a>, <a href="https://jira.hl7.org/browse/FHIR-40776">FHIR-40776</a>)</li>
-    <li>For the different observations, remove the prohibition on Observation.bodySite (<a href="https://jira.hl7.org/browse/FHIR-41086">FHIR-41086</a>)</li>
-    <li>Added 'patient experience' to the set of activity measures (<a href="https://jira.hl7.org/browse/FHIR-41362">FHIR-41362</a>)</li>
-    <li>Added average heart rate as an activity measure (<a href="https://jira.hl7.org/browse/FHIR-40952">FHIR-40952</a>)</li>
-    <li>Tightened the condition statuses to those relevant for physical activity (<a href="https://jira.hl7.org/browse/FHIR-41362">FHIR-41362</a>)</li>
-    <li>For goal, require at least one of description and target, tighten expectations on Quantity, and allow pointing to any physical activity measure codes (<a href="https://jira.hl7.org/browse/FHIR-41294">FHIR-41294</a>)</li>
-    <li>For DiagnosticReport, made the report type extensible (<a href="https://jira.hl7.org/browse/FHIR-41293">FHIR-41293</a>)</li>
-    <li>For ServiceRequest, added a 'notes' section, constrained allowed statuses, made authoredOn and requester mandatory, and require either reasonCode or reasonReference (<a href="https://jira.hl7.org/browse/FHIR-41291">FHIR-41291</a>)</li>
-    <li>For Task for Referral, made Task.reason, Task.owner and Task.requester 1..1 (<a href="https://jira.hl7.org/browse/FHIR-41295">FHIR-41295</a>, <a href="https://jira.hl7.org/browse/FHIR-41206">FHIR-41206</a>)</li>
-    <li>For RelatedPerson, set conformance expectations for elements in telecom and address (<a href="https://jira.hl7.org/browse/FHIR-41295">FHIR-41295</a>)</li>
-    <li>For subscription, change to use the official R4 code (<a href="https://jira.hl7.org/browse/FHIR-41053">FHIR-41053</a>)</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-41362">FHIR-41362</a> - Added Feeling Scale as an activity-based measure</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-41295">FHIR-41295</a> - Reduced set of statuses allowed for Condition</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-41294">FHIR-41294</a>, <a href="https://jira.hl7.org/browse/FHIR-41292">FHIR-41292</a>,<a href="https://jira.hl7.org/browse/FHIR-41291">FHIR-41291</a>, <a href="https://jira.hl7.org/browse/FHIR-41290">FHIR-41290</a> - Tightened expectations on Goal, RelatedPerson, ServiceRequest, Task for Referral to increase interoperability</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-41293">FHIR-41293</a> - Made DiagnosticReport types extensible</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-41206">FHIR-41206</a> - Added 'requester' to Task</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-41126">FHIR-41126</a>, <a href="https://jira.hl7.org/browse/FHIR-41114">FHIR-41114</a>, <a href="https://jira.hl7.org/browse/FHIR-41076">FHIR-41076</a>, <a href="https://jira.hl7.org/browse/FHIR-41037">FHIR-41037</a>, <a href="https://jira.hl7.org/browse/FHIR-40776">FHIR-40776</a> - Change observations to not use 'social history' as a category and fix cardinality around categories</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-41086">FHIR-41086</a> - Relaxed constraints on Observation.bodySite</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-41053">FHIR-41053</a> - Corrected handling of SMS subscriptions</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-40952">FHIR-40952</a> - Added 'mean' heart rate as an activity and time-based measure</li>
+    <li><a href="https://jira.hl7.org/browse/FHIR-40796">FHIR-40796</a>, <a href="https://jira.hl7.org/browse/FHIR-40767">FHIR-40767</a>, <a href="https://jira.hl7.org/browse/FHIR-FHIR-40751">FHIR-FHIR-40751</a> - Revamped CapabilityStatements, including deriving from appropriate US-Core statements, as well as revising what interactions are SHALL vs. SHOULD and adding support for resources such as Patient, Practitioner, etc.</li>
   </ul>
-    
+  <p>
+    There is a complete <a href="https://jira.hl7.org/issues/?filter=20921">list of tracker items that drove changes</a> in HL7's Jira repository.
+  </p>
 
   <a name="1.0.0-ballot"> </a>
-  <h3>STU 1 ballot - First ballot (1.0.0-ballot)</h3>
-	<p>
-    This was the first version of the specification intended for ballot review.  It included the physical
-    activity vital signs, the initial set of time-based and activity-based measures, as well as support for
-    goals, planns, and referral workflow.
+  <h3>STU 1.0 - Ballot for first release (1.0.0-ballot)</h3>
+  <p>
+    Initial version of the implementation guide for ballot review.
   </p>
 </div>

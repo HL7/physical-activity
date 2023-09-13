@@ -305,7 +305,7 @@
         <td>Intensity level is subjective, but key to primary measure</td>
       </tr>
       <tr>
-        <th>Peak activity heart rate</th>
+        <th>Average activity heart rate</th>
         <td><a href="http://loinc.org/55425-3">55425-3 - Mean Heart rate in Unspecified Time</a></td>
         <td><span title="Beats per minute">/min</span></td>
         <td style="text-align: center">Y</td>

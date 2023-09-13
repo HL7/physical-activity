@@ -8,7 +8,7 @@ extension:
     valueInteger: 2
 packageId: hl7.fhir.us.physical-activity
 canonical: http://hl7.org/fhir/us/physical-activity
-version: 1.0.0
+version: 1.0.1
 fhirVersion: 4.0.1
 status: active
 date: 2022-05-29
@@ -123,6 +123,8 @@ pages:
       title: Downloads
     credits.xml: 
       title: Credits
+    history.xml: 
+      title: Changes and Publication History
     openissues.xml: 
       title: Open Issues
 groups:
@@ -338,6 +340,7 @@ menu:
     FHIR Background: fhir.html
     Design Considerations: design.html
     Credits: credits.html
+    Changes & History: history.html
   Specification:
     Conformance Expectations: conformance.html
     Measures: measures.html

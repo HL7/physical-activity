@@ -9,7 +9,7 @@ The questionnaire 'https://example.org/fhir/Questionnaire/satisfaction|2.1' coul
 
 # These value sets are incorrectly marked as draft in the R4 core spec.  This is a new warning.  Will work to get these corrected in the R6 spec, though that won't help with R4. 
 Reference to draft item http://hl7.org/fhir/narrative-status|4.0.1
-Reference to draft item http://terminology.hl7.org/CodeSystem/condition-ver-status|0.5.0
+Reference to draft item http://terminology.hl7.org/CodeSystem/condition-ver-status|1.0.0
 Reference to draft item http://hl7.org/fhir/diagnostic-report-status|4.0.1
 Reference to draft item http://hl7.org/fhir/request-intent|4.0.1
 Reference to draft item http://hl7.org/fhir/task-status|4.0.1
@@ -35,9 +35,9 @@ WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/physical-activi
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-observation-base').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles
 
 # These repetitions are to satisfy US core expectations.  (In this release of the US Core IG, it doesn't define slices, but instead defines extensible bindings across all repetitions.)
-INFORMATION: Condition/ExampleCondition: Condition.category[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-condition-low-pa|1.0.0
-INFORMATION: Condition/Scen2ConditionLackOfExercise: Condition.category[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-condition-low-pa|1.0.0
-INFORMATION: DiagnosticReport/ExampleReport: DiagnosticReport.category[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-diagnosticreport|1.0.0
+INFORMATION: Condition/ExampleCondition: Condition.category[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-condition-low-pa|1.0.1
+INFORMATION: Condition/Scen2ConditionLackOfExercise: Condition.category[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-condition-low-pa|1.0.1
+INFORMATION: DiagnosticReport/ExampleReport: DiagnosticReport.category[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/physical-activity/StructureDefinition/pa-diagnosticreport|1.0.1
 
 # This *does* derive from the US core profile - the one in 3.1.1, not 6.0.0.  The only deviation from the 6.0.0 "US Core Condition Problems and Health Concerns Profile" is that there is no
 # mustSupport on the SDOH category because the physical activity profile is constrained to a condition that is definitely not an SDOH condition.
