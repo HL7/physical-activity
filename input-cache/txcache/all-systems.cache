@@ -2,7 +2,7 @@
 {"code" : {
   "system" : "urn:iso:std:iso:3166",
   "code" : "US"
-}, "url": "http://hl7.org/fhir/ValueSet/jurisdiction", "version": "4.0.1", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/ValueSet/jurisdiction", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -20,6 +20,8 @@ v: {
   "code" : "US",
   "system" : "urn:iso:std:iso:3166",
   "version" : "2018",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -28,7 +30,14 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "code" : "json"
-}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:ietf:bcp:13"
+    }]
+  }
+}, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"true", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -45,989 +54,7 @@ v: {
   "display" : "json",
   "code" : "json",
   "system" : "urn:ietf:bcp:13",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "code" : "xml"
-}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "xml",
-  "code" : "xml",
-  "system" : "urn:ietf:bcp:13",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "code" : "application/pdf"
-}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "application/pdf",
-  "code" : "application/pdf",
-  "system" : "urn:ietf:bcp:13",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "code" : "video/mp4"
-}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "video/mp4",
-  "code" : "video/mp4",
-  "system" : "urn:ietf:bcp:13",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "code" : "Z72.3",
-  "display" : "Lack of physical exercise"
-}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code", "version": "3.1.1", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Lack of physical exercise",
-  "code" : "Z72.3",
-  "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://loinc.org",
-  "code" : "11488-4",
-  "display" : "Consult note"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-diagnosticreport-type", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Consult note",
-  "code" : "11488-4",
-  "system" : "http://loinc.org",
-  "version" : "2.74",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "38341003",
-  "display" : "Hypertension"
-}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code", "version": "3.1.1", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "High blood pressure",
-  "code" : "38341003",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://loinc.org",
-  "code" : "73985-4",
-  "display" : "Exercise activity"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Exercise activity",
-  "code" : "73985-4",
-  "system" : "http://loinc.org",
-  "version" : "2.74",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://loinc.org",
-  "code" : "55411-3",
-  "display" : "Exercise duration"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Exercise duration",
-  "code" : "55411-3",
-  "system" : "http://loinc.org",
-  "version" : "2.74",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://loinc.org",
-  "code" : "55425-3",
-  "display" : "Heart rate unspecified time mean by Pedometer"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Heart rate unspecified time mean by Pedometer",
-  "code" : "55425-3",
-  "system" : "http://loinc.org",
-  "version" : "2.74",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://loinc.org",
-  "code" : "55426-1",
-  "display" : "Heart rate unspecified time maximum by Pedometer"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Heart rate unspecified time maximum by Pedometer",
-  "code" : "55426-1",
-  "system" : "http://loinc.org",
-  "version" : "2.74",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://loinc.org",
-  "code" : "55424-6",
-  "display" : "Calories burned in unspecified time Pedometer"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Calories burned in unspecified time Pedometer",
-  "code" : "55424-6",
-  "system" : "http://loinc.org",
-  "version" : "2.74",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://loinc.org",
-  "code" : "77592-4",
-  "display" : "Moderate physical activity [IPAQ]"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Moderate physical activity [IPAQ]",
-  "code" : "77592-4",
-  "system" : "http://loinc.org",
-  "version" : "2.74",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://loinc.org",
-  "code" : "77593-2",
-  "display" : "Vigorous physical activity [IPAQ]"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Vigorous physical activity [IPAQ]",
-  "code" : "77593-2",
-  "system" : "http://loinc.org",
-  "version" : "2.74",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "40979000",
-  "display" : "Lack of physical exercise"
-}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code", "version": "3.1.1", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Lack of exercise",
-  "code" : "40979000",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "code" : "application/fhir+json"
-}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "application/fhir+json",
-  "code" : "application/fhir+json",
-  "system" : "urn:ietf:bcp:13",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://loinc.org",
-  "code" : "11488-4",
-  "display" : "Consult note"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
-        "code" : "11488-4",
-        "display" : "Consult Note"
-      },
-      {
-        "code" : "34833-4",
-        "display" : "Recreational therapy Consult note"
-      },
-      {
-        "code" : "34822-7",
-        "display" : "Physical medicine and rehab Consult note"
-      },
-      {
-        "code" : "34824-3",
-        "display" : "Physical therapy Consult note"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
-      "concept" : [{
-        "code" : "PAConsultNote",
-        "display" : "Physical activity Consult note"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Consult note",
-  "code" : "11488-4",
-  "system" : "http://loinc.org",
-  "version" : "2.74",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://loinc.org",
-  "code" : "73985-4",
-  "display" : "Exercise activity"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
-        "code" : "73985-4",
-        "display" : "Exercise activity"
-      },
-      {
-        "code" : "55411-3",
-        "display" : "Exercise duration"
-      },
-      {
-        "code" : "77592-4",
-        "display" : "Moderate physical activity [IPAQ]"
-      },
-      {
-        "code" : "77593-2",
-        "display" : "Vigorous physical activity [IPAQ]"
-      },
-      {
-        "code" : "55426-1",
-        "display" : "Heart rate unspecified time maximum by Pedometer"
-      },
-      {
-        "code" : "55425-3",
-        "display" : "Heart rate unspecified time mean by Pedometer"
-      },
-      {
-        "code" : "55424-6",
-        "display" : "Calories burned in unspecified time Pedometer"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
-      "concept" : [{
-        "code" : "Experience",
-        "display" : "Experience of Activity"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Exercise activity",
-  "code" : "73985-4",
-  "system" : "http://loinc.org",
-  "version" : "2.74",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://loinc.org",
-  "code" : "55411-3",
-  "display" : "Exercise duration"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
-        "code" : "73985-4",
-        "display" : "Exercise activity"
-      },
-      {
-        "code" : "55411-3",
-        "display" : "Exercise duration"
-      },
-      {
-        "code" : "77592-4",
-        "display" : "Moderate physical activity [IPAQ]"
-      },
-      {
-        "code" : "77593-2",
-        "display" : "Vigorous physical activity [IPAQ]"
-      },
-      {
-        "code" : "55426-1",
-        "display" : "Heart rate unspecified time maximum by Pedometer"
-      },
-      {
-        "code" : "55425-3",
-        "display" : "Heart rate unspecified time mean by Pedometer"
-      },
-      {
-        "code" : "55424-6",
-        "display" : "Calories burned in unspecified time Pedometer"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
-      "concept" : [{
-        "code" : "Experience",
-        "display" : "Experience of Activity"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Exercise duration",
-  "code" : "55411-3",
-  "system" : "http://loinc.org",
-  "version" : "2.74",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://loinc.org",
-  "code" : "55425-3",
-  "display" : "Heart rate unspecified time mean by Pedometer"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
-        "code" : "73985-4",
-        "display" : "Exercise activity"
-      },
-      {
-        "code" : "55411-3",
-        "display" : "Exercise duration"
-      },
-      {
-        "code" : "77592-4",
-        "display" : "Moderate physical activity [IPAQ]"
-      },
-      {
-        "code" : "77593-2",
-        "display" : "Vigorous physical activity [IPAQ]"
-      },
-      {
-        "code" : "55426-1",
-        "display" : "Heart rate unspecified time maximum by Pedometer"
-      },
-      {
-        "code" : "55425-3",
-        "display" : "Heart rate unspecified time mean by Pedometer"
-      },
-      {
-        "code" : "55424-6",
-        "display" : "Calories burned in unspecified time Pedometer"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
-      "concept" : [{
-        "code" : "Experience",
-        "display" : "Experience of Activity"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Heart rate unspecified time mean by Pedometer",
-  "code" : "55425-3",
-  "system" : "http://loinc.org",
-  "version" : "2.74",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://loinc.org",
-  "code" : "55426-1",
-  "display" : "Heart rate unspecified time maximum by Pedometer"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
-        "code" : "73985-4",
-        "display" : "Exercise activity"
-      },
-      {
-        "code" : "55411-3",
-        "display" : "Exercise duration"
-      },
-      {
-        "code" : "77592-4",
-        "display" : "Moderate physical activity [IPAQ]"
-      },
-      {
-        "code" : "77593-2",
-        "display" : "Vigorous physical activity [IPAQ]"
-      },
-      {
-        "code" : "55426-1",
-        "display" : "Heart rate unspecified time maximum by Pedometer"
-      },
-      {
-        "code" : "55425-3",
-        "display" : "Heart rate unspecified time mean by Pedometer"
-      },
-      {
-        "code" : "55424-6",
-        "display" : "Calories burned in unspecified time Pedometer"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
-      "concept" : [{
-        "code" : "Experience",
-        "display" : "Experience of Activity"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Heart rate unspecified time maximum by Pedometer",
-  "code" : "55426-1",
-  "system" : "http://loinc.org",
-  "version" : "2.74",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://loinc.org",
-  "code" : "55424-6",
-  "display" : "Calories burned in unspecified time Pedometer"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
-        "code" : "73985-4",
-        "display" : "Exercise activity"
-      },
-      {
-        "code" : "55411-3",
-        "display" : "Exercise duration"
-      },
-      {
-        "code" : "77592-4",
-        "display" : "Moderate physical activity [IPAQ]"
-      },
-      {
-        "code" : "77593-2",
-        "display" : "Vigorous physical activity [IPAQ]"
-      },
-      {
-        "code" : "55426-1",
-        "display" : "Heart rate unspecified time maximum by Pedometer"
-      },
-      {
-        "code" : "55425-3",
-        "display" : "Heart rate unspecified time mean by Pedometer"
-      },
-      {
-        "code" : "55424-6",
-        "display" : "Calories burned in unspecified time Pedometer"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
-      "concept" : [{
-        "code" : "Experience",
-        "display" : "Experience of Activity"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Calories burned in unspecified time Pedometer",
-  "code" : "55424-6",
-  "system" : "http://loinc.org",
-  "version" : "2.74",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://loinc.org",
-  "code" : "77592-4",
-  "display" : "Moderate physical activity [IPAQ]"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
-        "code" : "73985-4",
-        "display" : "Exercise activity"
-      },
-      {
-        "code" : "55411-3",
-        "display" : "Exercise duration"
-      },
-      {
-        "code" : "77592-4",
-        "display" : "Moderate physical activity [IPAQ]"
-      },
-      {
-        "code" : "77593-2",
-        "display" : "Vigorous physical activity [IPAQ]"
-      },
-      {
-        "code" : "55426-1",
-        "display" : "Heart rate unspecified time maximum by Pedometer"
-      },
-      {
-        "code" : "55425-3",
-        "display" : "Heart rate unspecified time mean by Pedometer"
-      },
-      {
-        "code" : "55424-6",
-        "display" : "Calories burned in unspecified time Pedometer"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
-      "concept" : [{
-        "code" : "Experience",
-        "display" : "Experience of Activity"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Moderate physical activity [IPAQ]",
-  "code" : "77592-4",
-  "system" : "http://loinc.org",
-  "version" : "2.74",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://loinc.org",
-  "code" : "77593-2",
-  "display" : "Vigorous physical activity [IPAQ]"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://loinc.org",
-      "concept" : [{
-        "code" : "73985-4",
-        "display" : "Exercise activity"
-      },
-      {
-        "code" : "55411-3",
-        "display" : "Exercise duration"
-      },
-      {
-        "code" : "77592-4",
-        "display" : "Moderate physical activity [IPAQ]"
-      },
-      {
-        "code" : "77593-2",
-        "display" : "Vigorous physical activity [IPAQ]"
-      },
-      {
-        "code" : "55426-1",
-        "display" : "Heart rate unspecified time maximum by Pedometer"
-      },
-      {
-        "code" : "55425-3",
-        "display" : "Heart rate unspecified time mean by Pedometer"
-      },
-      {
-        "code" : "55424-6",
-        "display" : "Calories burned in unspecified time Pedometer"
-      }]
-    },
-    {
-      "system" : "http://hl7.org/fhir/us/physical-activity/CodeSystem/pa-temporary-codes",
-      "concept" : [{
-        "code" : "Experience",
-        "display" : "Experience of Activity"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Vigorous physical activity [IPAQ]",
-  "code" : "77593-2",
-  "system" : "http://loinc.org",
-  "version" : "2.74",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "urn:iso:std:iso:3166",
-  "code" : "US"
-}, "url": "http://hl7.org/fhir/ValueSet/jurisdiction", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "United States of America",
-  "code" : "US",
-  "system" : "urn:iso:std:iso:3166",
-  "version" : "2018",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -1037,7 +64,7 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "code" : "json"
-}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"true", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1054,6 +81,7 @@ v: {
   "display" : "json",
   "code" : "json",
   "system" : "urn:ietf:bcp:13",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -1063,7 +91,14 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "code" : "xml"
-}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:ietf:bcp:13"
+    }]
+  }
+}, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"true", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1080,6 +115,34 @@ v: {
   "display" : "xml",
   "code" : "xml",
   "system" : "urn:ietf:bcp:13",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "xml"
+}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"true", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "xml",
+  "code" : "xml",
+  "system" : "urn:ietf:bcp:13",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -1089,7 +152,14 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "code" : "application/pdf"
-}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:ietf:bcp:13"
+    }]
+  }
+}, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"true", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1106,6 +176,34 @@ v: {
   "display" : "application/pdf",
   "code" : "application/pdf",
   "system" : "urn:ietf:bcp:13",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "application/pdf"
+}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"true", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "application/pdf",
+  "code" : "application/pdf",
+  "system" : "urn:ietf:bcp:13",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -1115,7 +213,14 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "code" : "video/mp4"
-}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:ietf:bcp:13"
+    }]
+  }
+}, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"true", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1132,6 +237,34 @@ v: {
   "display" : "video/mp4",
   "code" : "video/mp4",
   "system" : "urn:ietf:bcp:13",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "video/mp4"
+}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"true", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "video/mp4",
+  "code" : "video/mp4",
+  "system" : "urn:ietf:bcp:13",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -1143,7 +276,7 @@ v: {
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
   "code" : "Z72.3",
   "display" : "Lack of physical exercise"
-}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code", "version": "3.1.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code", "version": "3.1.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1160,7 +293,8 @@ v: {
   "display" : "Lack of physical exercise",
   "code" : "Z72.3",
   "system" : "http://hl7.org/fhir/sid/icd-10-cm",
-  "version" : "2021",
+  "version" : "2024",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -1172,7 +306,7 @@ v: {
   "system" : "http://loinc.org",
   "code" : "11488-4",
   "display" : "Consult note"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-diagnosticreport-type", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-diagnosticreport-type", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1189,7 +323,8 @@ v: {
   "display" : "Consult note",
   "code" : "11488-4",
   "system" : "http://loinc.org",
-  "version" : "2.74",
+  "version" : "2.77",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -1201,7 +336,7 @@ v: {
   "system" : "http://snomed.info/sct",
   "code" : "38341003",
   "display" : "Hypertension"
-}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code", "version": "3.1.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code", "version": "3.1.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1219,6 +354,7 @@ v: {
   "code" : "38341003",
   "system" : "http://snomed.info/sct",
   "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -1230,7 +366,7 @@ v: {
   "system" : "http://loinc.org",
   "code" : "73985-4",
   "display" : "Exercise activity"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1247,7 +383,8 @@ v: {
   "display" : "Exercise activity",
   "code" : "73985-4",
   "system" : "http://loinc.org",
-  "version" : "2.74",
+  "version" : "2.77",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -1259,7 +396,7 @@ v: {
   "system" : "http://loinc.org",
   "code" : "55411-3",
   "display" : "Exercise duration"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1276,7 +413,8 @@ v: {
   "display" : "Exercise duration",
   "code" : "55411-3",
   "system" : "http://loinc.org",
-  "version" : "2.74",
+  "version" : "2.77",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -1288,7 +426,7 @@ v: {
   "system" : "http://loinc.org",
   "code" : "55425-3",
   "display" : "Heart rate unspecified time mean by Pedometer"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1305,7 +443,8 @@ v: {
   "display" : "Heart rate unspecified time mean by Pedometer",
   "code" : "55425-3",
   "system" : "http://loinc.org",
-  "version" : "2.74",
+  "version" : "2.77",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -1317,7 +456,7 @@ v: {
   "system" : "http://loinc.org",
   "code" : "55426-1",
   "display" : "Heart rate unspecified time maximum by Pedometer"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1334,7 +473,8 @@ v: {
   "display" : "Heart rate unspecified time maximum by Pedometer",
   "code" : "55426-1",
   "system" : "http://loinc.org",
-  "version" : "2.74",
+  "version" : "2.77",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -1346,7 +486,7 @@ v: {
   "system" : "http://loinc.org",
   "code" : "55424-6",
   "display" : "Calories burned in unspecified time Pedometer"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1363,7 +503,8 @@ v: {
   "display" : "Calories burned in unspecified time Pedometer",
   "code" : "55424-6",
   "system" : "http://loinc.org",
-  "version" : "2.74",
+  "version" : "2.77",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -1375,7 +516,7 @@ v: {
   "system" : "http://loinc.org",
   "code" : "77592-4",
   "display" : "Moderate physical activity [IPAQ]"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1392,7 +533,8 @@ v: {
   "display" : "Moderate physical activity [IPAQ]",
   "code" : "77592-4",
   "system" : "http://loinc.org",
-  "version" : "2.74",
+  "version" : "2.77",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -1404,7 +546,7 @@ v: {
   "system" : "http://loinc.org",
   "code" : "77593-2",
   "display" : "Vigorous physical activity [IPAQ]"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-observation-code-activity", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1421,7 +563,8 @@ v: {
   "display" : "Vigorous physical activity [IPAQ]",
   "code" : "77593-2",
   "system" : "http://loinc.org",
-  "version" : "2.74",
+  "version" : "2.77",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -1433,7 +576,7 @@ v: {
   "system" : "http://snomed.info/sct",
   "code" : "40979000",
   "display" : "Lack of physical exercise"
-}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code", "version": "3.1.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code", "version": "3.1.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1451,6 +594,7 @@ v: {
   "code" : "40979000",
   "system" : "http://snomed.info/sct",
   "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
@@ -1460,7 +604,14 @@ v: {
 -------------------------------------------------------------------------------------
 {"code" : {
   "code" : "application/fhir+json"
-}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"true", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "include" : [{
+      "system" : "urn:ietf:bcp:13"
+    }]
+  }
+}, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"true", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1477,6 +628,34 @@ v: {
   "display" : "application/fhir+json",
   "code" : "application/fhir+json",
   "system" : "urn:ietf:bcp:13",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "code" : "application/fhir+json"
+}, "url": "http://hl7.org/fhir/ValueSet/mimetypes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"true", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "application/fhir+json",
+  "code" : "application/fhir+json",
+  "system" : "urn:ietf:bcp:13",
+  "server" : "http://tx.fhir.org/r4",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ciUrl="" defaultVersion="current" defaultWorkgroup="pc" url="http://hl7.org/fhir/us/physical-activity-test">
+<version code="current" url=""/>
+<version code="1.0.0" url="http://hl7.org/fhir/us/physical-activity-test/STU1"/>
+<artifactPageExtension value="-definitions"/>
+<artifactPageExtension value="-examples"/>
+<artifactPageExtension value="-mappings"/>
+<artifact id="Practitioner/PractitionerAnitaChu" key="Practitioner-PractitionerAnitaChu" name="Anita Chu, MD"/>
+<artifact id="Patient/PatientBSJ1" key="Patient-PatientBSJ1" name="Betsy Smith-Johnson"/>
+<artifact id="Condition/BSJ-FatigueCondition" key="Condition-BSJ-FatigueCondition" name="Condition - BSJ Fatigue"/>
+<artifact id="Condition/BSJ-PACondition" key="Condition-BSJ-PACondition" name="Condition - BSJ Low Physical Activity"/>
+<page key="NA" name="(NA)"/>
+<page key="many" name="(many)"/>
+<page key="artifacts" name="IG Artifacts"/>
+<page key="index" name="Overview"/>
+<page key="toc" name="Table of Contents"/>
+</specification>

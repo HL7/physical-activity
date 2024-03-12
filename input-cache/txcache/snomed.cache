@@ -2,7 +2,7 @@
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
-    "inactive" : true,
+    "inactive" : false,
     "include" : [{
       "system" : "http://snomed.info/sct",
       "concept" : [{
@@ -29,24 +29,29 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:6fdc6ce2-7ffe-40d2-aea2-e21f7a9bbfe6",
-    "timestamp" : "2023-08-22T18:34:25.112Z",
+    "identifier" : "urn:uuid:04a5cd3d-ab39-4fc5-b4d3-153421d3a4d2",
+    "timestamp" : "2024-03-12T16:41:58.871Z",
     "total" : 4,
+    "offset" : 0,
     "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    },
-    {
       "name" : "excludeNested",
       "valueBoolean" : true
     },
     {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
       "name" : "used-codesystem",
-      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230301"
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230901"
     },
     {
       "name" : "version",
-      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230301"
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230901"
     }],
     "contains" : [{
       "system" : "http://snomed.info/sct",
@@ -76,7 +81,7 @@ e: {
 {"hierarchical" : false, "valueSet" :{
   "resourceType" : "ValueSet",
   "compose" : {
-    "inactive" : true,
+    "inactive" : false,
     "include" : [{
       "system" : "http://snomed.info/sct",
       "concept" : [{
@@ -115,39 +120,44 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:62a79aec-14ae-442e-b6ad-a0b9aa72880d",
-    "timestamp" : "2023-08-22T18:34:26.737Z",
+    "identifier" : "urn:uuid:abd5711a-8e39-43a8-9c14-92d8c7f5ae7e",
+    "timestamp" : "2024-03-12T16:41:59.527Z",
     "total" : 7,
+    "offset" : 0,
     "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    },
-    {
       "name" : "excludeNested",
       "valueBoolean" : true
     },
     {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
       "name" : "used-codesystem",
-      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230301"
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230901"
     },
     {
       "name" : "version",
-      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230301"
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230901"
     }],
     "contains" : [{
       "system" : "http://snomed.info/sct",
       "code" : "819961005",
-      "display" : "PA guidance"
+      "display" : "Physical activity guidance"
     },
     {
       "system" : "http://snomed.info/sct",
       "code" : "398636004",
-      "display" : "PA assessment"
+      "display" : "Physical activity assessment (procedure)"
     },
     {
       "system" : "http://snomed.info/sct",
       "code" : "435551000124105",
-      "display" : "Counseling about physical activity"
+      "display" : "Counseling about physical activity (procedure)"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -157,7 +167,7 @@ e: {
     {
       "system" : "http://snomed.info/sct",
       "code" : "426866005",
-      "display" : "Determination of phyisical activity tolerance"
+      "display" : "Determination of physical activity tolerance (procedure)"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -177,7 +187,7 @@ e: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "409063005"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -194,7 +204,9 @@ v: {
   "display" : "Counselling",
   "code" : "409063005",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -204,7 +216,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "409073007"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -221,7 +233,9 @@ v: {
   "display" : "Education",
   "code" : "409073007",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -231,7 +245,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "386053000"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -248,7 +262,9 @@ v: {
   "display" : "Investigations",
   "code" : "386053000",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -258,7 +274,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "91251008"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -275,7 +291,9 @@ v: {
   "display" : "Physical therapy procedure",
   "code" : "91251008",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -285,7 +303,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "819961005"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -302,7 +320,9 @@ v: {
   "display" : "Physical activity guidance",
   "code" : "819961005",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -312,7 +332,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "398636004"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -329,7 +349,9 @@ v: {
   "display" : "Physical activity assessment (procedure)",
   "code" : "398636004",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -339,7 +361,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "435551000124105"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -356,7 +378,9 @@ v: {
   "display" : "Counseling about physical activity (procedure)",
   "code" : "435551000124105",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -366,7 +390,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "390893007"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -383,7 +407,9 @@ v: {
   "display" : "Referral to physical activity programme",
   "code" : "390893007",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -393,7 +419,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "426866005"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -410,7 +436,9 @@ v: {
   "display" : "Determination of physical activity tolerance (procedure)",
   "code" : "426866005",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -420,7 +448,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "229095001"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -437,7 +465,9 @@ v: {
   "display" : "Exercise class",
   "code" : "229095001",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -447,7 +477,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "229065009"
-}, "valueSet" :null, "langs":"[en-US, en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -464,7 +494,9 @@ v: {
   "display" : "Exercise therapy",
   "code" : "229065009",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -475,7 +507,7 @@ v: {
   "system" : "http://snomed.info/sct",
   "code" : "409063005",
   "display" : "Counseling"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -492,7 +524,9 @@ v: {
   "display" : "Counselling",
   "code" : "409063005",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -503,7 +537,7 @@ v: {
   "system" : "http://snomed.info/sct",
   "code" : "390893007",
   "display" : "Referral to physical activity program (Procedure)"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -520,7 +554,9 @@ v: {
   "display" : "Referral to physical activity programme",
   "code" : "390893007",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -531,7 +567,7 @@ v: {
   "system" : "http://snomed.info/sct",
   "code" : "229065009",
   "display" : "Exercise therapy (regime/therapy)"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -548,7 +584,9 @@ v: {
   "display" : "Exercise therapy",
   "code" : "229065009",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -559,7 +597,7 @@ v: {
   "system" : "http://snomed.info/sct",
   "code" : "38341003",
   "display" : "Hypertension"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -576,7 +614,9 @@ v: {
   "display" : "High blood pressure",
   "code" : "38341003",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -587,7 +627,7 @@ v: {
   "system" : "http://snomed.info/sct",
   "code" : "40979000",
   "display" : "Lack of physical exercise"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -604,7 +644,9 @@ v: {
   "display" : "Lack of exercise",
   "code" : "40979000",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -615,7 +657,7 @@ v: {
   "system" : "http://snomed.info/sct",
   "code" : "228239008",
   "display" : "Trainers"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -632,7 +674,9 @@ v: {
   "display" : "Trainers",
   "code" : "228239008",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -643,7 +687,7 @@ v: {
   "system" : "http://snomed.info/sct",
   "code" : "390893007",
   "display" : "Referral to physical activity program"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -660,7 +704,9 @@ v: {
   "display" : "Referral to physical activity programme",
   "code" : "390893007",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -671,7 +717,7 @@ v: {
   "system" : "http://snomed.info/sct",
   "code" : "229065009",
   "display" : "Exercise therapy"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -688,7 +734,38 @@ v: {
   "display" : "Exercise therapy",
   "code" : "229065009",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "409063005"
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-diagnosticreport-category--0", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "Counselling",
+  "code" : "409063005",
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -699,7 +776,7 @@ v: {
   "system" : "http://snomed.info/sct",
   "code" : "409063005",
   "display" : "Counseling"
-}, "valueSet" :null, "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-diagnosticreport-category", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -716,116 +793,9 @@ v: {
   "display" : "Counselling",
   "code" : "409063005",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409063005"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-diagnosticreport-category--0", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Counselling",
-  "code" : "409063005",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409063005"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-diagnosticreport-category--0", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Counselling",
-  "code" : "409063005",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409063005",
-  "display" : "Counseling"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-diagnosticreport-category", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Counselling",
-  "code" : "409063005",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409063005"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Counselling",
-  "code" : "409063005",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -835,7 +805,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "390893007"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code--0", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code--0", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -852,7 +822,9 @@ v: {
   "display" : "Referral to physical activity program",
   "code" : "390893007",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -863,7 +835,7 @@ v: {
   "system" : "http://snomed.info/sct",
   "code" : "390893007",
   "display" : "Referral to physical activity program (Procedure)"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -877,37 +849,12 @@ v: {
   }]
 }}####
 v: {
-  "display" : "Referral to physical activity programme",
+  "display" : "Referral to physical activity program",
   "code" : "390893007",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "390893007"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Referral to physical activity programme",
-  "code" : "390893007",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -917,7 +864,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "38341003"
-}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--0", "version": "3.1.1", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--0", "version": "3.1.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -931,11 +878,32 @@ v: {
   }]
 }}####
 v: {
+  "display" : "High blood pressure",
+  "code" : "38341003",
   "severity" : "error",
-  "error" : "The provided code http://snomed.info/sct#38341003 is not in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--0|3.1.1' (from Tx-Server)",
+  "error" : "The provided code 'http://snomed.info/sct#38341003' was not found in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--0|3.1.1'",
   "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
-  "resourceType" : "OperationOutcome"
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "not-in-vs"
+      }],
+      "text" : "The provided code 'http://snomed.info/sct#38341003' was not found in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--0|3.1.1'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
 }
 
 }
@@ -943,7 +911,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "38341003"
-}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--1", "version": "3.1.1", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--1", "version": "3.1.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -960,34 +928,9 @@ v: {
   "display" : "High blood pressure",
   "code" : "38341003",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "38341003"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "High blood pressure",
-  "code" : "38341003",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -997,7 +940,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "409063005"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code--0", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code--0", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1011,9 +954,60 @@ v: {
   }]
 }}####
 v: {
+  "display" : "Counselling",
+  "code" : "409063005",
   "severity" : "error",
-  "error" : "The provided code http://snomed.info/sct#409063005 is not in the value set 'http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code--0|1.0.0' (from Tx-Server)",
+  "error" : "The provided code 'http://snomed.info/sct#409063005' was not found in the value set 'http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code--0|1.0.1'",
   "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "not-in-vs"
+      }],
+      "text" : "The provided code 'http://snomed.info/sct#409063005' was not found in the value set 'http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code--0|1.0.1'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "394814009",
+  "display" : "General practice (specialty)"
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "id" : "terminology-settings",
+  "meta" : {
+    "versionId" : "4",
+    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
+    "source" : "#nbTM7DayIuyKgO4R"
+  },
+  "parameter" : [{
+    "name" : "system-version",
+    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
+  }]
+}}####
+v: {
+  "display" : "General practice (specialty) (qualifier value)",
+  "code" : "394814009",
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1023,7 +1017,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "394814009"
-}, "url": "http://hl7.org/fhir/ValueSet/c80-practice-codes--0", "version": "4.0.1", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/ValueSet/c80-practice-codes--0", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1037,10 +1031,12 @@ v: {
   }]
 }}####
 v: {
-  "display" : "General practice",
+  "display" : "General practice (specialty) (qualifier value)",
   "code" : "394814009",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1051,7 +1047,7 @@ v: {
   "system" : "http://snomed.info/sct",
   "code" : "394814009",
   "display" : "General practice (specialty)"
-}, "url": "http://hl7.org/fhir/ValueSet/c80-practice-codes", "version": "4.0.1", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/ValueSet/c80-practice-codes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1068,34 +1064,9 @@ v: {
   "display" : "General practice (specialty) (qualifier value)",
   "code" : "394814009",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "394814009"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "General practice (specialty) (qualifier value)",
-  "code" : "394814009",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1106,7 +1077,7 @@ v: {
   "system" : "http://snomed.info/sct",
   "code" : "17561000",
   "display" : "Cardiologist"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1123,7 +1094,9 @@ v: {
   "display" : "Cardiologist",
   "code" : "17561000",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1133,7 +1106,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "229065009"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code--0", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code--0", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1150,7 +1123,9 @@ v: {
   "display" : "Exercise therapy",
   "code" : "229065009",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1161,7 +1136,7 @@ v: {
   "system" : "http://snomed.info/sct",
   "code" : "229065009",
   "display" : "Exercise therapy (regime/therapy)"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1178,34 +1153,9 @@ v: {
   "display" : "Exercise therapy",
   "code" : "229065009",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "229065009"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Exercise therapy",
-  "code" : "229065009",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1215,7 +1165,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "40979000"
-}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--0", "version": "3.1.1", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--0", "version": "3.1.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1229,11 +1179,32 @@ v: {
   }]
 }}####
 v: {
+  "display" : "Lack of exercise",
+  "code" : "40979000",
   "severity" : "error",
-  "error" : "The provided code http://snomed.info/sct#40979000 is not in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--0|3.1.1' (from Tx-Server)",
+  "error" : "The provided code 'http://snomed.info/sct#40979000' was not found in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--0|3.1.1'",
   "class" : "UNKNOWN",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
-  "resourceType" : "OperationOutcome"
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "http://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "not-in-vs"
+      }],
+      "text" : "The provided code 'http://snomed.info/sct#40979000' was not found in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--0|3.1.1'"
+    },
+    "location" : ["Coding.code"],
+    "expression" : ["Coding.code"]
+  }]
 }
 
 }
@@ -1241,7 +1212,7 @@ v: {
 {"code" : {
   "system" : "http://snomed.info/sct",
   "code" : "40979000"
-}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--1", "version": "3.1.1", "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--1", "version": "3.1.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1258,34 +1229,9 @@ v: {
   "display" : "Lack of exercise",
   "code" : "40979000",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "40979000"
-}, "valueSet" :null, "langs":"[en]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Lack of exercise",
-  "code" : "40979000",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1296,7 +1242,7 @@ v: {
   "system" : "http://snomed.info/sct",
   "code" : "390893007",
   "display" : "Referral to physical activity program"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code", "version": "1.0.0", "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
   "resourceType" : "Parameters",
   "id" : "terminology-settings",
   "meta" : {
@@ -1310,10 +1256,12 @@ v: {
   }]
 }}####
 v: {
-  "display" : "Referral to physical activity programme",
+  "display" : "Referral to physical activity program",
   "code" : "390893007",
   "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
+  "version" : "http://snomed.info/sct/731000124108/version/20230901",
+  "server" : "http://tx.fhir.org/r4",
+  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -1350,24 +1298,29 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:f48011b5-072d-4365-8d53-df05fa3da633",
-    "timestamp" : "2023-08-22T18:37:24.534Z",
+    "identifier" : "urn:uuid:1af083dd-79c2-4ab5-acfc-2247b526e33e",
+    "timestamp" : "2024-03-12T16:47:02.261Z",
     "total" : 4,
+    "offset" : 0,
     "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    },
-    {
       "name" : "excludeNested",
       "valueBoolean" : false
     },
     {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
       "name" : "used-codesystem",
-      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230301"
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230901"
     },
     {
       "name" : "version",
-      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230301"
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230901"
     }],
     "contains" : [{
       "system" : "http://snomed.info/sct",
@@ -1436,39 +1389,44 @@ e: {
   "resourceType" : "ValueSet",
   "status" : "active",
   "expansion" : {
-    "identifier" : "urn:uuid:632e7423-e635-4586-a5e9-3c2945a6808b",
-    "timestamp" : "2023-08-22T18:37:26.846Z",
+    "identifier" : "urn:uuid:6518390a-62a4-42f1-a761-44eeb34c7afe",
+    "timestamp" : "2024-03-12T16:47:06.386Z",
     "total" : 7,
+    "offset" : 0,
     "parameter" : [{
-      "name" : "limitedExpansion",
-      "valueBoolean" : true
-    },
-    {
       "name" : "excludeNested",
       "valueBoolean" : false
     },
     {
+      "name" : "offset",
+      "valueInteger" : 0
+    },
+    {
+      "name" : "count",
+      "valueInteger" : 1000
+    },
+    {
       "name" : "used-codesystem",
-      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230301"
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230901"
     },
     {
       "name" : "version",
-      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230301"
+      "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108/version/20230901"
     }],
     "contains" : [{
       "system" : "http://snomed.info/sct",
       "code" : "819961005",
-      "display" : "PA guidance"
+      "display" : "Physical activity guidance"
     },
     {
       "system" : "http://snomed.info/sct",
       "code" : "398636004",
-      "display" : "PA assessment"
+      "display" : "Physical activity assessment (procedure)"
     },
     {
       "system" : "http://snomed.info/sct",
       "code" : "435551000124105",
-      "display" : "Counseling about physical activity"
+      "display" : "Counseling about physical activity (procedure)"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -1478,7 +1436,7 @@ e: {
     {
       "system" : "http://snomed.info/sct",
       "code" : "426866005",
-      "display" : "Determination of phyisical activity tolerance"
+      "display" : "Determination of physical activity tolerance (procedure)"
     },
     {
       "system" : "http://snomed.info/sct",
@@ -1493,1707 +1451,5 @@ e: {
   }
 },
   "error" : ""
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409063005"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "409063005",
-        "display" : "Counselling"
-      },
-      {
-        "code" : "409073007",
-        "display" : "Education"
-      },
-      {
-        "code" : "386053000",
-        "display" : "Evaluation procedure"
-      },
-      {
-        "code" : "91251008",
-        "display" : "Physical therapy procedure"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Counselling",
-  "code" : "409063005",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409063005"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "409063005",
-        "display" : "Counselling"
-      },
-      {
-        "code" : "409073007",
-        "display" : "Education"
-      },
-      {
-        "code" : "386053000",
-        "display" : "Evaluation procedure"
-      },
-      {
-        "code" : "91251008",
-        "display" : "Physical therapy procedure"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Counselling",
-  "code" : "409063005",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409063005",
-  "display" : "Counseling"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "409063005",
-        "display" : "Counselling"
-      },
-      {
-        "code" : "409073007",
-        "display" : "Education"
-      },
-      {
-        "code" : "386053000",
-        "display" : "Evaluation procedure"
-      },
-      {
-        "code" : "91251008",
-        "display" : "Physical therapy procedure"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Counselling",
-  "code" : "409063005",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "390893007"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "819961005",
-        "display" : "PA guidance"
-      },
-      {
-        "code" : "398636004",
-        "display" : "PA assessment"
-      },
-      {
-        "code" : "435551000124105",
-        "display" : "Counseling about physical activity"
-      },
-      {
-        "code" : "390893007",
-        "display" : "Referral to physical activity program"
-      },
-      {
-        "code" : "426866005",
-        "display" : "Determination of phyisical activity tolerance"
-      },
-      {
-        "code" : "229095001",
-        "display" : "Exercise class"
-      },
-      {
-        "code" : "229065009",
-        "display" : "Exercise therapy"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Referral to physical activity program",
-  "code" : "390893007",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "390893007",
-  "display" : "Referral to physical activity program (Procedure)"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "819961005",
-        "display" : "PA guidance"
-      },
-      {
-        "code" : "398636004",
-        "display" : "PA assessment"
-      },
-      {
-        "code" : "435551000124105",
-        "display" : "Counseling about physical activity"
-      },
-      {
-        "code" : "390893007",
-        "display" : "Referral to physical activity program"
-      },
-      {
-        "code" : "426866005",
-        "display" : "Determination of phyisical activity tolerance"
-      },
-      {
-        "code" : "229095001",
-        "display" : "Exercise class"
-      },
-      {
-        "code" : "229065009",
-        "display" : "Exercise therapy"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Referral to physical activity programme",
-  "code" : "390893007",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409063005"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "819961005",
-        "display" : "PA guidance"
-      },
-      {
-        "code" : "398636004",
-        "display" : "PA assessment"
-      },
-      {
-        "code" : "435551000124105",
-        "display" : "Counseling about physical activity"
-      },
-      {
-        "code" : "390893007",
-        "display" : "Referral to physical activity program"
-      },
-      {
-        "code" : "426866005",
-        "display" : "Determination of phyisical activity tolerance"
-      },
-      {
-        "code" : "229095001",
-        "display" : "Exercise class"
-      },
-      {
-        "code" : "229065009",
-        "display" : "Exercise therapy"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "severity" : "error",
-  "error" : "The provided code http://snomed.info/sct#409063005 is not in the value set 'http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code--0' (from Tx-Server)",
-  "class" : "UNKNOWN",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "229065009"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "819961005",
-        "display" : "PA guidance"
-      },
-      {
-        "code" : "398636004",
-        "display" : "PA assessment"
-      },
-      {
-        "code" : "435551000124105",
-        "display" : "Counseling about physical activity"
-      },
-      {
-        "code" : "390893007",
-        "display" : "Referral to physical activity program"
-      },
-      {
-        "code" : "426866005",
-        "display" : "Determination of phyisical activity tolerance"
-      },
-      {
-        "code" : "229095001",
-        "display" : "Exercise class"
-      },
-      {
-        "code" : "229065009",
-        "display" : "Exercise therapy"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Exercise therapy",
-  "code" : "229065009",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "229065009",
-  "display" : "Exercise therapy (regime/therapy)"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "819961005",
-        "display" : "PA guidance"
-      },
-      {
-        "code" : "398636004",
-        "display" : "PA assessment"
-      },
-      {
-        "code" : "435551000124105",
-        "display" : "Counseling about physical activity"
-      },
-      {
-        "code" : "390893007",
-        "display" : "Referral to physical activity program"
-      },
-      {
-        "code" : "426866005",
-        "display" : "Determination of phyisical activity tolerance"
-      },
-      {
-        "code" : "229095001",
-        "display" : "Exercise class"
-      },
-      {
-        "code" : "229065009",
-        "display" : "Exercise therapy"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Exercise therapy",
-  "code" : "229065009",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "390893007",
-  "display" : "Referral to physical activity program"
-}, "valueSet" :{
-  "resourceType" : "ValueSet",
-  "compose" : {
-    "include" : [{
-      "system" : "http://snomed.info/sct",
-      "concept" : [{
-        "code" : "819961005",
-        "display" : "PA guidance"
-      },
-      {
-        "code" : "398636004",
-        "display" : "PA assessment"
-      },
-      {
-        "code" : "435551000124105",
-        "display" : "Counseling about physical activity"
-      },
-      {
-        "code" : "390893007",
-        "display" : "Referral to physical activity program"
-      },
-      {
-        "code" : "426866005",
-        "display" : "Determination of phyisical activity tolerance"
-      },
-      {
-        "code" : "229095001",
-        "display" : "Exercise class"
-      },
-      {
-        "code" : "229065009",
-        "display" : "Exercise therapy"
-      }]
-    }]
-  }
-}, "langs":"[]", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Referral to physical activity programme",
-  "code" : "390893007",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230301",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409063005"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "code" : "409063005",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409073007"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "code" : "409073007",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "386053000"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "code" : "386053000",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "91251008"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "code" : "91251008",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "819961005"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "code" : "819961005",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "398636004"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "code" : "398636004",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "435551000124105"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "code" : "435551000124105",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "390893007"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "code" : "390893007",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "426866005"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "code" : "426866005",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "229095001"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "code" : "229095001",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "229065009"
-}, "valueSet" :null, "langs":"en, en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "code" : "229065009",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409063005",
-  "display" : "Counseling"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Counselling",
-  "code" : "409063005",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "390893007",
-  "display" : "Referral to physical activity program (Procedure)"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Referral to physical activity programme",
-  "code" : "390893007",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "229065009",
-  "display" : "Exercise therapy (regime/therapy)"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Exercise therapy",
-  "code" : "229065009",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "38341003",
-  "display" : "Hypertension"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "High blood pressure",
-  "code" : "38341003",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "40979000",
-  "display" : "Lack of physical exercise"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Lack of exercise",
-  "code" : "40979000",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "228239008",
-  "display" : "Trainers"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Trainers",
-  "code" : "228239008",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "390893007",
-  "display" : "Referral to physical activity program"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Referral to physical activity programme",
-  "code" : "390893007",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "229065009",
-  "display" : "Exercise therapy"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Exercise therapy",
-  "code" : "229065009",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409063005",
-  "display" : "Counseling"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Counselling",
-  "code" : "409063005",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409063005"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-diagnosticreport-category--0", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Counselling",
-  "code" : "409063005",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409063005"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-diagnosticreport-category--0", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Counselling",
-  "code" : "409063005",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409063005",
-  "display" : "Counseling"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-diagnosticreport-category", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Counselling",
-  "code" : "409063005",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409063005"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Counselling",
-  "code" : "409063005",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "390893007"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code--0", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Referral to physical activity program",
-  "code" : "390893007",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "390893007",
-  "display" : "Referral to physical activity program (Procedure)"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Referral to physical activity programme",
-  "code" : "390893007",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "390893007"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Referral to physical activity programme",
-  "code" : "390893007",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "38341003"
-}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--0", "version": "3.1.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "severity" : "error",
-  "error" : "The provided code 'http://snomed.info/sct#38341003' is not in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--0|3.1.1' (from Tx-Server)",
-  "class" : "UNKNOWN",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "38341003"
-}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--1", "version": "3.1.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "High blood pressure",
-  "code" : "38341003",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "38341003"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "High blood pressure",
-  "code" : "38341003",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "409063005"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code--0", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "severity" : "error",
-  "error" : "The provided code 'http://snomed.info/sct#409063005' is not in the value set 'http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code--0|1.0.1' (from Tx-Server)",
-  "class" : "UNKNOWN",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "394814009"
-}, "url": "http://hl7.org/fhir/ValueSet/c80-practice-codes--0", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "General practice",
-  "code" : "394814009",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "394814009",
-  "display" : "General practice (specialty)"
-}, "url": "http://hl7.org/fhir/ValueSet/c80-practice-codes", "version": "4.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "General practice (specialty) (qualifier value)",
-  "code" : "394814009",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "394814009"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "General practice (specialty) (qualifier value)",
-  "code" : "394814009",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "17561000",
-  "display" : "Cardiologist"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Cardiologist",
-  "code" : "17561000",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "229065009"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code--0", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Exercise therapy",
-  "code" : "229065009",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "229065009",
-  "display" : "Exercise therapy (regime/therapy)"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Exercise therapy",
-  "code" : "229065009",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "229065009"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Exercise therapy",
-  "code" : "229065009",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "40979000"
-}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--0", "version": "3.1.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "severity" : "error",
-  "error" : "The provided code 'http://snomed.info/sct#40979000' is not in the value set 'http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--0|3.1.1' (from Tx-Server)",
-  "class" : "UNKNOWN",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "40979000"
-}, "url": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code--1", "version": "3.1.1", "langs":"", "useServer":"true", "useClient":"false", "guessSystem":"false", "valueSetMode":"CHECK_MEMERSHIP_ONLY", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Lack of exercise",
-  "code" : "40979000",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "40979000"
-}, "valueSet" :null, "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"ALL_CHECKS", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Lack of exercise",
-  "code" : "40979000",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
-}
--------------------------------------------------------------------------------------
-{"code" : {
-  "system" : "http://snomed.info/sct",
-  "code" : "390893007",
-  "display" : "Referral to physical activity program"
-}, "url": "http://hl7.org/fhir/us/physical-activity/ValueSet/pa-servicerequest-code", "version": "1.0.1", "langs":"", "useServer":"true", "useClient":"true", "guessSystem":"false", "valueSetMode":"NO_MEMBERSHIP_CHECK", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
-  "resourceType" : "Parameters",
-  "id" : "terminology-settings",
-  "meta" : {
-    "versionId" : "4",
-    "lastUpdated" : "2021-11-14T22:34:54.002+00:00",
-    "source" : "#nbTM7DayIuyKgO4R"
-  },
-  "parameter" : [{
-    "name" : "system-version",
-    "valueUri" : "http://snomed.info/sct|http://snomed.info/sct/731000124108"
-  }]
-}}####
-v: {
-  "display" : "Referral to physical activity programme",
-  "code" : "390893007",
-  "system" : "http://snomed.info/sct",
-  "version" : "http://snomed.info/sct/731000124108/version/20230901",
-  "unknown-systems" : "",
-  "issues" : {
-  "resourceType" : "OperationOutcome"
-}
-
 }
 -------------------------------------------------------------------------------------

@@ -6,6 +6,8 @@ extension:
     valueCode: trial-use
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm
     valueInteger: 2
+  - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
+    valueCode: pc
 packageId: hl7.fhir.us.physical-activity
 canonical: http://hl7.org/fhir/us/physical-activity
 version: 1.0.1
@@ -16,7 +18,7 @@ copyrightYear: 2022+
 releaseLabel: STU Release 1
 jurisdiction: urn:iso:std:iso:3166#US
 publisher:
-  name: HL7 International - Patient Care WG
+  name: HL7 International / Patient Care
   url: http://www.hl7.org/Special/committees/patientcare
 dependencies:
 #  hl7.fhir.core:
